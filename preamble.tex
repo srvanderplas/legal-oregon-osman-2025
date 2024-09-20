@@ -1,0 +1,23 @@
+\usepackage{pdfpages}
+\usepackage{footnotehyper}
+\usepackage{xurl}
+\usepackage{parskip}
+\usepackage{bookmark}
+
+\usepackage{xcolor}
+\definecolor{lightgray}{gray}{0.98}
+\let\OldLongtable\longtable
+\let\OldEndLongtable\endlongtable
+\renewenvironment{longtable}{\rowcolors{1}{white}{lightgray}\OldLongtable}{\OldEndLongtable}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{.5pt}
+\fancyfoot[L]{\nouppercase{\leftmark}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\fancyhead[LCR]{}
+% \fancypagestyle{plain}{\pagestyle{fancy}}
