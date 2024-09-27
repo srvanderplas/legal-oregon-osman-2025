@@ -1,0 +1,34 @@
+,,,2nd eval,,,,,,,
+Type,Comparison,1st eval,ID,INC-A,INC-B,INC-C,EL,US,Total,Total-US
+Bullet,SS,ID,665,27,26,14,8,2,740,742
+Bullet,SS,INC-A,31,28,12,6,2,0,79,79
+Bullet,SS,INC-B,13,14,45,5,2,2,79,81
+Bullet,SS,INC-C,2,3,3,5,3,0,16,16
+Bullet,SS,EL,8,7,3,2,13,0,33,33
+Bullet,SS,US,1,3,3,0,0,2,7,9
+Bullet,SS,Total,719,79,89,32,28,4,947,951
+Bullet,SS,Total-US,720,82,92,32,28,6,954,960
+Bullet,DS,ID,2,3,6,2,6,0,19,19
+Bullet,DS,INC-A,0,52,37,42,27,0,158,158
+Bullet,DS,INC-B,5,31,341,98,45,7,520,527
+Bullet,DS,INC-C,1,32,109,284,53,1,479,480
+Bullet,DS,EL,1,20,35,66,514,4,636,640
+Bullet,DS,US,0,0,13,6,4,8,23,31
+Bullet,DS,Total,9,138,528,492,645,12,1812,1824
+Bullet,DS,Total-US,9,138,541,498,649,20,1835,1855
+Cartridge,SS,ID,620,47,30,4,5,1,706,707
+Cartridge,SS,INC-A,43,33,14,4,3,1,97,98
+Cartridge,SS,INC-B,19,20,40,4,0,1,83,84
+Cartridge,SS,INC-C,3,6,2,3,0,1,14,15
+Cartridge,SS,EL,1,3,2,2,5,1,13,14
+Cartridge,SS,US,6,2,2,1,0,5,11,16
+Cartridge,SS,Total,686,109,88,17,13,5,913,918
+Cartridge,SS,Total-US,692,111,90,18,13,10,924,934
+Cartridge,DS,ID,2,3,6,2,6,0,19,19
+Cartridge,DS,INC-A,0,52,37,42,27,0,158,158
+Cartridge,DS,INC-B,5,31,341,98,45,7,520,527
+Cartridge,DS,INC-C,1,32,109,284,53,1,479,480
+Cartridge,DS,EL,1,20,35,66,514,4,636,640
+Cartridge,DS,US,0,0,13,6,4,8,23,31
+Cartridge,DS,Total,9,138,528,492,645,12,1812,1824
+Cartridge,DS,Total-US,9,138,541,498,649,20,1835,1855
