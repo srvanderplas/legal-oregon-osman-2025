@@ -1,14 +1,13 @@
 ---
 title: "Firearms and Toolmark Error Rates"
-author: "Susan Vanderplas & Heike Hofmann"
+author: "Susan Vanderplas"
 bibliography: refs.bib
 classoption: table
 header-includes: |
   \usepackage{booktabs}
 format:
   pdf:
-    includes:
-      in-header: "preamble.tex"
+    include-in-header: "preamble.tex"
     keep-tex: true
     number-sections: true
     pdf-engine: xelatex
@@ -99,9 +98,11 @@ Scientific ethics requires that research using human participants be undertaken 
 The **drop-out rate** is the proportion of participants who do not complete the study for any reason.
 In these situations, the risk to the statistical validity of the study is that participants who drop out of the study are different from those who remain in the study in a way that affects the experiment's conclusions.
 One general guideline is that if less than 5% of the participants drop out, there is little threat to the statistical validity of the study, but if more than 10-20% of the participants drop out, the study's validity is severely compromised [@bennett2001can; @schulzSampleSizeSlippages2002].
-It is extremely important that when reporting study results, authors clearly state the level of participant drop out and assess whether there is any evidence of bias in the participants who remain relative to the participants who dropped out.
+It is extremely important that when reporting study results, authors clearly state the level of participant drop out and assess whether there is any evidence of bias in the participants who remain relative to the participants who dropped out [@khanHierarchicalBayesianNonresponse2023].
 
-Another important factor in study design is that studies should be designed in such a way as to directly evaluate the desired conclusions and/or produce the desired numerical estimates.
+## Study Design
+
+Studies should be designed in such a way as to directly evaluate the desired conclusions and/or produce the desired numerical estimates.
 If a study is intended to assess the false positive error rate of firearms and toolmark evaluation, then examiners need to have the opportunity to make a false positive error.
 While this seems straightforward, many common firearms and toolmark black-box study designs do not allow for estimation of the number of different-source comparisons, which ensures that it is not possible to calculate the overall error rate, the correct source decision rate, or the true negative rate (the specificity).
 This problem is detailed at length in @inconclusives as well as in the PCAST [@pcast] and National Research Council [@nrc] reports.
@@ -146,14 +147,13 @@ While these studies are the "gold standard" in terms of study designs, simply ha
 
 <!--  Should we address their points first? -->
 
-As we will spend the rest of this document discussing validation studies, it is worth taking the time to discuss the different kinds of scientific validity.
+As the rest of this document discusses validation studies, it is worth taking the time to discuss the different kinds of scientific validity.
 Different factors in the design of firearms and toolmark studies affect different types of validity.
 In addition, the consequences for sub-optimal experimental design, study execution, and statistical analysis are different depending on which type of validity is impacted by the sub-optimal choices.
 
 <!-- Statistical explanations -->
 
-First, let us start off with the notion of **validity** in general.
-Validity is a measure of how the results of research represent some facet of reality.
+**Validity** is a measure of how the results of research represent some facet of reality.
 That is, validity is a mapping between the scientific process of experimentation and analysis of results and the real world.
 Throughout this section, we'll consider a simple question: How does the amount of water provided influence the growth of plants as measured by the height of the seedling above the ground?
 
@@ -167,7 +167,7 @@ For instance, in our study of water and seed growth, it would be useful to ensur
     We link to it throughout this section because it is easily accessible, unlike the statistical textbooks which would provide more respectable citations but might require a library request.
     The page on internal validity [@InternalValidity2022] contains a number of good illustrations of how internal validity is established and/or threatened by experimental design considerations.
 
-**External validity**[@ExternalValidity2021] is the extent to which the experimental results can be generalized beyond the study.
+**External validity** [@ExternalValidity2021] is the extent to which the experimental results can be generalized beyond the study.
 That is, given the results of the study, what can we say about the real world?
 In our example, we would like to be able to say that if our study reveals that seeds grow better when there is more water available, that this would also be true in a garden setting.
 External validity is always affected by the amount of experimental control we implemented (which affects internal validity) and the number of variables our experiment covers.
@@ -222,7 +222,7 @@ Participant sampling problems represent a threat to **external validity**.
 This principle is taught in even basic undergraduate statistics courses; it is fundamental to our discipline.
 One of the easiest ways to ensure that a sample is representative is to randomly select participants from the population; a more labor-intensive option is to conduct a full census of the population at a certain time; in both cases, however, the experimenters must then use their selection criteria to argue that the study sample is representative of the population.
 
-Fundamentally, because all but one current black-box studies use volunteers, we can conclude that the participants in these studies are likely to meaningfully differ from those who did not volunteer to participate.
+Fundamentally, because all but one current black-box studies use volunteers, it is likely that the participants in these studies  meaningfully differ from those who did not volunteer to participate.
 Some of these differences are likely not related to the error rates estimated by the studies, but there are many potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
 For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
 In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees[@duezDevelopmentValidationVirtual2018].
@@ -231,10 +231,10 @@ By the nature of blind testing (participants are unaware the case they are worki
 
 Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
 Thus, these examiners would be over-represented in the study-wide estimate of the error rate, in that they account for fewer cases than the examiners who do not have time to participate in a voluntary study.
-Thus, the estimated error rate from the study would not be representative of the error rate of all examiners.
+As a result, the estimated error rate from the study would not be representative of the error rate of all examiners.
 There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation.
 
-An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which lead to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership boards).
+An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which leads to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership boards).
 There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^[@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
 
 The presence of a confounding variable (a variable whose effect on the response cannot be separated from the explanatory variable) is sufficient to remove our ability to make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable)[Section 4.1 Summary, @tintle2015introduction].
@@ -252,7 +252,7 @@ Random selection of participants mitigates these potential biases by ensuring th
 This is why it is not only important that study participants be randomly sampled from the population, but also that there are multiple studies.
 
 Unfortunately, sampling bias is one of the hardest biases to work around.
-Because we cannot determine how the volunteer examiners might differ from the whole population of examiners, we cannot say that it is likely that the error rate is higher or lower than what is reported from the flawed studies.
+Because scientists cannot determine how the volunteer examiners might differ from the whole population of examiners, it is impossible to determine whether it is likely that the error rate is higher or lower than what is reported from the flawed studies.
 While in some areas it is necessary to work with volunteer populations (for instance, clinical trials take place on volunteers), this requires that statisticians can reasonably expect that there are no differences between the volunteer and non-volunteer populations, which is a claim that is more easily made in medicine than in forensics.
 [^6]
 
@@ -262,12 +262,13 @@ While in some areas it is necessary to work with volunteer populations (for inst
 With a self-selected sample, it becomes even more critical to take steps to ensure the participants are representative of the population of interest.
 The comparison to clinical trials is particularly relevant here in part because the sampling design in validation studies is egregious relative to the requirements in medicine (and other fields).
 The National Institute for Health (NIH) is our country's medical research agency and maintains very strict funding requirements: researchers are required to establish that their sample will be representative of the population, inclusive of minority groups, and otherwise will meet the very high bar set for experimental design and composition[@nationalinstitutesofhealthInclusionWomenMinorities2022].
-Note that the population in question is determined by the particular study: a study of drugs for prostate cancer need not include women, but a study of responses to an allergy medication likely would be expected to include individuals of both genders.
+Note that the population in question is determined by the particular study: a study of drugs for prostate cancer need not include women, but a study of responses to an allergy medication  would be expected to include individuals of both genders.
 When working with volunteer participants, researchers use strategies like case matching, where two individuals are matched on every dimension that is feasible within the total set of volunteers and then these two individuals' performance on the drug vs. placebo is compared.
 In other studies, the full set of volunteers is not included in the study; instead, a demographically representative sample of the wider population is chosen from among the volunteers (within practicable constraints).
 Stated more broadly, medical researchers take care to ensure that the study design provides for both external and internal validity, working within the constraints of a population of volunteers.
 
-Unlike medical trials, black-box validation studies do not take steps to ensure the population is representative.
+These steps to enhance the statistical validity of the study are not present in black-box validation studies. 
+Unlike medical trials, error rate studies do not take steps to ensure the population is representative.
 Some studies make an effort to at least not exclude participants, such as the @uleryAccuracyReliabilityForensic2011 study: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community." However, many FTE studies arbitrarily adopt inclusion criteria requiring that participants be active examiners employed by a crime lab, currently conducting firearms examinations, members of AFTE, etc.
 For example, the FBI/Ames study cited by the FBI [see @FBIResponse2022 page 4] has a number of inclusion criteria.
 It is not clear how the inclusion criteria were applied because the technical report[@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's[@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
@@ -276,8 +277,8 @@ It is not clear how the inclusion criteria were applied because the technical re
 -   "Participation was limited to fully qualified examiners who were currently conducting firearm examinations, were members of AFTE, and were employed in the firearms section of an accredited public crime laboratory within the U.S. or a U.S. territory." [@monson2022planning]
 
 There is never any justification given for the inclusion criteria, and there is some evidence these inclusion criteria are not representative of practicing F/T examiners.
-For example, we collected 60 unique expert witness curriculum vitae for F/T examiners from Westlaw Edge.
-If we use some of the criteria listed for the FBI/Ames study in @monson2022planning only 63% were current AFTE members, 65% were employed by a public agency, and only 38% were both current AFTE members and employed by a public agency.
+For example, CSAFE researchers collected 60 unique expert witness curriculum vitae for F/T examiners from Westlaw Edge.
+If the criteria listed for the FBI/Ames study in @monson2022planning are examined against this sample, only 63% were current AFTE members, 65% were employed by a public agency, and only 38% were both current AFTE members and employed by a public agency.
 In other words, 62% of these examiners would have been excluded from the FBI/Ames study using less than half of the inclusion criteria defined in that study.
 More problematically, there is also evidence that some inclusion criteria that have been used have been associated with reduced error rates in other disciplines.
 For example, @eldridge2021testing reports that palmar print examiners employed outside of the U.S. disproportionately account for false positives.
@@ -294,11 +295,11 @@ This problem is less pervasive in Europe, where lab certification and validation
 
 [^7]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
     Voluntary participation is somewhat difficult to define; for instance, some error rate studies mention that participants were compelled to participate by their employer: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
-    We are not experts in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, it is one route to obtain a more representative sample free from self-selection bias.
+    I am not an expert in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
 
 Statistically, what is required for external validity is to argue that the sample is **representative** of the population characteristics.
 This burden falls on the experimenters; it is up to them to make the affirmative argument that the sample is representative of the population.
-We have suggested that polling AFTE members might reach a set of participants who are more invested in the discipline and that individuals who have the time and/or lower caseloads to participate in studies might not be representative of the wider population of firearms examiners in part because these are things that were not addressed by study authors when describing the participant selection in the study.
+Polling AFTE members might reach a set of participants who are more invested in the discipline and that individuals who have the time and/or lower caseloads to participate in studies might not be representative of the wider population of firearms examiners in part because these are things that were not addressed by study authors when describing the participant selection in the study.
 In order to make the argument that the sampled participants are representative, study authors need to track participation, compute demographic summaries of the sample which may be relevant (geography, age, training level, case load, professional memberships), and compare these to the wider population.
 To support this, it might be helpful if accrediting organizations maintained a register of people who have accreditation in each discipline to assist with having some population statistics to compare against.
 
@@ -312,39 +313,40 @@ To support this, it might be helpful if accrediting organizations maintained a r
 ```
 ## Material Sampling
 
-As scientists, we want to derive knowledge that is generalizable to the population, that is, our goal is typically external validity.
+Scientists want to derive knowledge that is generalizable to the population, that is, our goal is (usually) external validity.
 The population includes all decisions made from a combination of one or more firearms of interest, and the ammunition that interacts with those firearms.
 This combination of characteristics is then evaluated by an examiner.
-We have previously addressed the fact that we need a random sample of examiners in order to generalize to the whole population of firearms examiners.
-However, we also need a representative set of ammunition/firearm combinations used in black-box studies in order to validate the discipline as a whole.
-We are not the first group of statisticians to highlight this issue: the problem is mentioned in the 2009 NRC report[@nrc], follow-up experiments have been proposed for several different previously published studies[@spiegelmanAnalysisExperimentsForensic2013], and the 2016 PCAST report [@pcast] described the necessary characteristics for studies establishing foundational validity, including
+Random sampling of examiners allows scientists to generalize to the whole population of firearms examiners.
+However, it is also important to have a representative set of ammunition/firearm combinations used in black-box studies in order to validate the discipline as a whole.
+This is a known issue mentioned in the 2009 NRC report [@nrc]; follow-up experiments have been proposed for several different previously published studies [@spiegelmanAnalysisExperimentsForensic2013], and the 2016 PCAST report [@pcast] described the necessary characteristics for studies establishing foundational validity.
 
 > "The studies must involve a sufficiently large number of examiners and must be based on sufficiently large collections of known and representative samples from relevant populations to reflect the range of features or combinations of features that will occur in the application." (PCAST pg. 52)
 
 Many black-box studies are performed on a single type of firearm and a single type of ammunition.
 In some cases, these firearms are consecutively manufactured, which allows firearms examiners to prove that they can distinguish individual firearms on the basis of fine details, even when these firearms are manufactured closely in time.
-However, this does reduce the generalizability of the conclusions from these small studies: by examining only firearms of the same make and model manufactured closely in time, we lose the ability to make broad, sweeping claims about the discipline as a whole.
+However, this does reduce the generalizability of the conclusions from these small studies: by examining only firearms of the same make and model manufactured closely in time, researchers lose the ability to make broad, sweeping claims about the discipline as a whole.
 Some studies explicitly document that small manufacturing companies with limited operations (and thus generalizability to the wider population) were selected because it was more convenient to obtain consecutively manufactured components [@lyonsIdentificationConsecutivelyManufactured2009].
 
-The FBI's response to a previous brief [@FBIResponse2022] suggests that rather than focusing on every combination of firearm and ammunition, it is important to instead ensure that there are studies across different firearm or tool manufacturing methods, and we largely concur with this assessment.
+The FBI's response to a previous brief [@FBIResponse2022] suggests that rather than focusing on every combination of firearm and ammunition, it is important to instead ensure that there are studies across different firearm or tool manufacturing methods, and I largely concur with this assessment.
 However, it is important for those conducting such studies to identify the manufacturing method and to list the types of weapons a study might be reasonably applied to on the basis of similar manufacturing.
 That is, the authors of a study should be responsible for outlining the reasonable scope of generalization for a study, and this should be explicitly stated in the discussion of the study's results.
 
-Just as we want to ensure that validation studies can be generalized to the population of examiners and do not contain systematic biases that might over- or under-estimate the error rate of firearms and toolmark comparisons, we also want ensure that error rate studies are conducted on types of firearms (or manufacturing methods) and ammunition which are likely to be compared in casework.
-That is, our concerns about firearm manufacture and ammunition materials boil down to concerns about the *external validity* of error rate studies.
+Just as it is important to ensure that validation studies can be generalized to the population of examiners and do not contain systematic biases that might over- or under-estimate the error rate of firearms and toolmark comparisons, it is also important that error rate studies are conducted on types of firearms (or manufacturing methods) and ammunition which are likely to be compared in casework.
+That is, the concerns about firearm manufacture and ammunition materials boil down to concerns about the *external validity* of error rate studies.
 
-We need black box studies that examine large numbers of firearms as well as those that examine minute differences.
+There must be many different black box studies, including studies that examine large numbers of firearms as well as studies that examine minute differences.
 We are not currently aware of any study of a large number of firearms of even one specific model, though we are aware of some data which has been collected but not published examining 600 Berettas confiscated by the LAPD; more data sets like this across multiple firearms, combined with corresponding black-box studies, may alleviate this problem in the future.
-We cannot generalize error rates from small consecutively manufactured firearm studies to the entire population of firearms examinations, and as a result, no one can estimate an error rate of the discipline  as whole on the basis of these studies. 
+Error rates from small, consecutively manufactured firearm studies cannot be generalized to the entire population of firearms examinations, and as a result, no one can estimate an error rate of the discipline  as whole on the basis of these studies. 
 
-We know that not all firearms and ammunition mark equally well[^8] - Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
+Not all firearms and ammunition mark equally well[^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
 In addition, some ammunition marks better than other ammunition.
 While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
 @baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
-If studies are done on ammunition that is generally known to mark well, then we should expect that this non-marking issue is more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
+If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
+This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
 
 [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
-    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011.
+    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
 
 Researchers are well aware of these limitations and typically characterize their findings in a much more limited fashion than some professional expert witnesses.
 @rivaObjectiveEvaluationSubclass2017 suggest their study is limited in scope and conclusions: "Finally, even if the results obtained in this study illustrate the impact of subclass characteristics for a given make and model of firearm, they cannot be easily transposed to all firearms at this stage. We remain conscious of the limitation of the sample used here. It is known that the quality and the quantity of these features will vary as a function of the type of firearms and the manufacturing process."
@@ -369,20 +371,23 @@ In other studies [@chumbley2021accuracy], the issue is acknowledged but not miti
 [^10]: "Slightly more cartridge case (10,110) than bullet (10,020) comparison are reported because some examiners returned partially-completed test packets that had results for all the cartridge case sets but not all the bullet sets." (@chumbley2021accuracy, page 8)
 
 An example of a situation in which non response or missing not-at-random bias is common is in telephone surveys.
-We know that people who are more likely to answer a phone call from an unknown number are different from those who do not answer phone calls from unknown numbers[@mcclainMostAmericansDon2020]; we also know that those people who continue on the phone call to answer all of the poll questions are more likely to be engaged in their communities and have a higher sense of civic responsibility [@mitchellWhatLowResponse2017].
+People who are more likely to answer a phone call from an unknown number are different from those who do not answer phone calls from unknown numbers [@mcclainMostAmericansDon2020]; those people who continue on the phone call to answer all of the poll questions are more likely to be engaged in their communities and have a higher sense of civic responsibility [@mitchellWhatLowResponse2017].
 These biases can sometimes be corrected for statistically when they are a well-studied quantity (as in political polling), but even the models which allow for pollsters to adjust their estimates to account for these biases are sometimes wrong, leading to systematically biased polls.
-The same set of problems arise when we ignore non-response bias or missing-not-at-random data in black-box studies, but we do not have sufficient data to adjust the estimates based on the issues, because black-box studies in forensics are not nearly as well studied as political polling.
-The scientific community also do not have the ability to start studying these issues because the authors of black box studies almost never make the data publicly available.
-This last point is particularly concerning given that the broader scientific community recognizes that publicly available data is necessary to ensure studies are reaching valid statistical conclusions [@wicherts2011willingness; @stodden2015reproducing].
+The same set of problems arise when researchers ignore non-response bias or missing-not-at-random data in black-box studies. 
+Unfortunately, statisticians do not have sufficient data to adjust the estimates based on these issues, because black-box studies in forensics are not nearly as well studied as political polling.
+The scientific community also does not have the ability to start studying these issues because the authors of black box studies almost never make the data publicly available.
+This last point is particularly concerning given that the broader scientific community recognizes that publicly available data is necessary to ensure studies are reaching valid statistical conclusions [@albrightCallOpenScience2024; @wicherts2011willingness; @stodden2015reproducing].
 
 <!-- In order to begin to address these problems, researchers first have to consistently acknowledge them. -->
 <!-- In most studies we have reviewed, the limitations due to nonresponse and drop-out bias are not acknowledged. -->
 <!-- No study utilizes common statistical methods for assessing the impact of nonresponse and drop-out bias[@woodAreMissingOutcome2004]. -->
 <!-- More troubling, these studies do not release any data to facilitate other researchers filling in these gaps. -->
 
-One option to bound the problem is to estimate the error rate with an assumed drop-out rate in order to determine just how bad the issue would be if the participants who dropped out had completely incorrect responses.
-Note that this requires two assumptions: one, that the drop out rate is a certain percentage - in this case, 20%, and two, that the participants who dropped out would have been completely wrong on every comparison; these assumptions are almost certainly more extreme than reality, but provide a good sense of the potential magnitude of the problem.
-@keislerIsolatedPairsResearch2018 has one of the lowest error rates and highest number of comparisons of any study reported (2520 comparisons, 0% error counting inconclusives as correct).
+One option to bound the problem is to estimate the error rate with an assumed drop-out rate to determine the magnitude of the issue if the participants who dropped out had completely incorrect responses.
+Note that this requires two assumptions: one, that the drop out rate is a certain percentage - in this case, 20%, and two, that the participants who dropped out would have been completely wrong on every comparison.
+These assumptions are almost certainly more extreme than reality, but provide a good sense of the potential magnitude of the problem.
+This approach to estimating the size of the problem is common in statistics; in no way should it be read as a statement of belief in the true error rate of examiners. 
+@keislerIsolatedPairsResearch2018 has one of the lowest error rates and highest number of comparisons of any study reported (2520 comparisons, 0% error when inconclusives are considered correct).
 With a 20% non-response rate (which is conservative relative to rates reported in the literature), the overall error rate in the population (counting inconclusives as correct) could be as high as 16.56% if all non-responses made completely incorrect decisions.
 While this is unlikely, it does provide an upper bound of the order of magnitude of the possible bias that participant drop-out might have on estimated error rates.
 
@@ -394,21 +399,22 @@ Choosing the correct methods depends on exploring the patterns of missingness in
 Instead, currently, these researchers ignore the problem and proceed with inappropriate statistical analyses- despite the availability of existing appropriate methods that could be used.
 
 In summary, item nonresponse and drop-out bias are significant problems in current error rate studies.
-Given what we know about why people drop out of black-box studies, we would expect that studies with non response bias under-estimate the error rate.
+Given what scientists know about why people drop out of studies, I expect that studies with non response bias under-estimate the error rate.
 Because error rate studies typically do not acknowledge the issue or release study response data, it is hard to conclusively bound this problem's effect on error rate studies.
-We note that this refusal to release data is contrary to scientific best practice; even in disciplines where there are privacy concerns, such as psychology, it is still common to release anonymized data upon request.
+This refusal to release data is contrary to scientific best practice; even in disciplines where there are privacy concerns, such as psychology and medicine, it is still common to release anonymized data upon request.
 
 # Error Rate Calculations
 
-It is relatively common for courts to ask expert witnesses to discuss the general error rate for a firearms and toolmark evidence comparison.
-Typically, this involves the expert identifying one or more studies and stating that the assessed error rate was incredibly small, and therefore, the probability of an error in a specific case is also incredibly small.
-While there are certainly some researchers who dispute the idea that a general error rate exists or is relevant [@BBCResponse2022], we generally believe in the validity of inferential statistics - that is, we agree that it is possible to use well-designed error rate studies to provide information about the likelihood of an error in a specific case, assuming the study or studies are representative of the case.
+Courts frequently ask expert witnesses to discuss the general error rate for a firearms and toolmark evidence comparison.
+This typically involves the expert identifying one or more studies and stating that the assessed error rate was incredibly small, and therefore, the probability of an error in a specific case is also incredibly small.
+While there are certainly some researchers who dispute the idea that a general error rate exists or is relevant [@BBCResponse2022], most statisticians (and scientists, more generally) believe in the efficacy and validity of inferential statistics.
+Specifically, this belief in inferential statistics translates into the belief that it is possible to use well-designed error rate studies to provide information about the likelihood of an error in a specific case, assuming the study or studies are representative of the case.
 
 Expert witnesses are also typically asked to discuss the process by which an examiner might fail to reach a decision.
-This process, too, has an impact on the error rates calculated in the studies we have discussed.
-In this section, we will examine these issues critically, with the goal of providing some contextual information to the different ways error rate studies are used, the treatment of inconclusives, and the different types of error rates which are calculated as part of these studies.
+This process, too, has an impact on the error rates calculated in the studies previously discussed.
+In this section, I examine these issues critically, with the goal of providing some contextual information to the different ways error rate studies are used, the treatment of inconclusives, and the different types of error rates which are calculated as part of these studies.
 
-We will start with a brief primer on the different types of error rates.
+First, let us consider the different types of error rates.
 These calculations can be confusing for those who are not familiar with them, but it can be helpful to provide visual reference to assist with the interpretation of later discussions.
 
 ## Different Types of Error Rates {#sec-error-rates}
@@ -443,8 +449,8 @@ The logical fallacy with this calculation is evident when we complete the same c
 This implicitly treats same-source inconclusives as identifications: that is, by inverting these calculations in a classification system with an 'unknown' output class, such as the AFTE Theory of Identification, we treat inconclusives differently based on the ground truth.
 This is a deviation from standard practice; even though inconclusives are present, calculations should be carefully computed in order to maintain the intended interpretation.
 
-Sensitivity and specificity require that we know the proportion of same source and different source comparisons in a study (or in casework) in order to interpret the two numbers properly.
-While in validation studies, we do know ground truth and can calculate these proportions, in casework, we have no idea what proportion of comparisons are from the same sources or different sources because ground truth is simply unknown.
+Sensitivity and specificity require that the proportion of same source and different source comparisons in a study (or in casework) is known in order to interpret the two numbers properly.
+While in validation studies, ground truth is known and these proportions can be calculated, in casework, ground truth is unknown and thus, the proportion of comparisons from same or different sources cannot be calculated. 
 As a result, some scientists advocate for the use of a different set of measures that rely primarily on quantities which can be estimated from existing data [@inconclusives].
 Another advantage of these measures is that they can be computed without regard to inconclusives, side-stepping the entire debate about whether inconclusives are or are not errors.
 These measures are the **positive predictive value (PPV)** and **negative predictive value (NPV)**.
@@ -464,8 +470,8 @@ While error rates are one way to establish that firearms and toolmark examinatio
 Only one study in firearm and toolmark examination attempts to measure these two quantities [@bajicValidationStudyAccuracy2020], however, the analysis of repeatability and reproducibility has numerous problems [@dorfmanReAnalysisRepeatabilityReproducibility2022].
 Dorfman & Valiant's re-analysis of the data in the Ames II report suggests that the repeatability and reproducibility of firearms examination comparisons is poor and that the original statistical analysis was flawed and misleading.
 
-Given that there is no other evidence by which to assess reproducibility and repeatability of firearms examination, we must conclude that this is another area where firearms examination lacks necessary criteria for scientific validity.
-If the same examiner does not reliably come to the same conclusion when evaluating the same evidence, then it is hard to argue that current subjective methods are scientifically valid, even if the error rate is overall relatively low.
+Given that there is no other evidence by which to assess reproducibility and repeatability of firearms examination, it is clear that this is another area where firearms examination lacks necessary criteria for scientific validity.
+If the same examiner does not reliably come to the same conclusion when evaluating the same evidence, then it is hard to argue that current subjective methods are scientifically valid, even if the overall error rate is relatively low.
 
 ## Types of Marks and Study Difficulty
 
@@ -473,7 +479,9 @@ It is common to talk of error rates for firearms and toolmark examination as a w
 While it is certainly true that there are some similarities across different comparison types (toolmarks, bullet land-engraved areas, and cartridge case obturation marks all involve comparisons of striae), there are many different types of marks used for firearms and toolmark examination, and it would not be reasonable to assume they all have the same error rates.
 For example, striations on land engraved areas usually involve comparison of a number of different lands, most of which must match for the overall comparison to be deemed an identification.
 There is some redundancy in this comparison, in that a sequence of 5 or more lands would usually be expected to match, whereas the comparison of a single scrape from a screwdriver involves only one set of striae.
-Even though the two comparisons are objectively similar in that the examiner is visually comparing striae, we would not expect them to have similar error rates because there is an internal check on incidental matches when bullets are compared that does not exist with screwdriver engraving comparisons.
+This redundancy (in the case of bullet comparisons) is one check on the problem of multiple comparisons in toolmark comparisons described in @vanderplasHiddenMultipleComparisons2024, but breech face comparisons, aperture shear marks, firing pin impressions, and toolmarks do not have the same structural advantage. 
+
+Even though land-to-land comparisons and toolmark comparisons are objectively similar in that the examiner is visually comparing striae, we would not expect them to have similar error rates because there is an internal check on incidental matches when bullets are compared that does not exist with other toolmark comparisons.
 Similarly, the number of striae present on a cartridge case obturation mark is usually small relative to the number of striae on a toolmark or a bullet land engraved area; thus, there is less physical evidence present for the examiner to evaluate, which we might expect to lead to somewhat higher error rates for cartridge obturation marks than for toolmarks or bullet land engraved areas.
 
 Expert witnesses[^11] have previously testified about high error rates in a closed-set study [@mayland_validation_2012] and low error rates in an open-set study [@keislerIsolatedPairsResearch2018].
@@ -485,7 +493,7 @@ This testimony was designed to imply that PCAST's concern for study design was m
 
 [^11]: Todd Weller, California v Auimatagi, February 2021
 
-Before we make direct comparisons between error rates in studies, we should also consider other factors beyond the type of comparison made which might make a difference in the reported error rate.
+Before making direct comparisons between error rates in studies, it is also important to consider other factors beyond the type of comparison made which might make a difference in the reported error rate.
 Some open set studies include comparisons from marks with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics (this allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics) [@bunch2003comprehensive].
 Thus, the level of difficulty of comparisons varies considerably between studies.
 In addition, the proportion of same source comparisons and different source comparisons varies considerably between studies: The Ames studies [@baldwinStudyFalsePositiveFalseNegative2014; @monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while @duezDevelopmentValidationVirtual2018 has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies [@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
@@ -512,12 +520,12 @@ Firing a gun involves a controlled explosion, and one may use a tool in multiple
 The information censoring resulting from the physical processes in play produces a situation in which there can be a difference between the known ground-truth and the conclusion which is reasonable given examination of the physical evidence.
 In theory, an examiner should be looking both for differences and similarities, and should reach a decision of inconclusive if there are not sufficient differences between the two items to conclude that they arose from different sources, nor sufficient similarities to conclude that they arose from the same source.
 
-If we consider this problem from the perspective of the known source, an inconclusive result has to be automatically incorrect: a comparison is either from a same-source or a different-source.
-Considering this problem from the perspective of what the examiner can observe, however, inconclusive results make some sense: if the physical evidence does not contain any overlapping similarities, but also do not have any notable dissimilarities, perhaps it makes sense to decide 'not to decide' and return an inconclusive decision.
+When considering this problem from the perspective of the known source, an inconclusive result has to be automatically incorrect: a comparison is either from a same-source or a different-source.
+When pproaching this problem from the perspective of what the examiner can observe, however, inconclusive results make some sense: if the physical evidence does not contain any overlapping similarities, but also has no notable dissimilarities, perhaps it makes sense to decide 'not to decide' and return an inconclusive decision.
 
-This is a subject of widespread, ongoing discussion within both the examiner community and the academic research community; if you ask three academics familiar with this issue for an opinion, you might get four different opinions within the scope of a short discussion[@drorCannotDecideFine2019; @dorfmanInconclusivesErrorsError2022; @guyllValidityForensicCartridgecase2023; @biedermannAreInconclusiveDecisions2019].
-That is to say that there are a number of valid ways to consider the problem of inconclusives given available studies, and while some of them have more empirical support, ultimately, many of the disagreements come down to philosophical and discipline-specific differences in how we think about the role of errors, examiner decisions, what is permissible and not in legal settings, and so on, rather than the data itself.
-Here, our goal is to lay out the *problems* with the current treatment of inconclusives, focusing primarily on interpretations that are misleading and identifying areas which might be investigated in order to shore up holes in existing validation studies.
+This is a subject of widespread, ongoing discussion within both the examiner community and the academic research community; if you ask three academics familiar with this issue for an opinion, you might get four different opinions within the scope of a short discussion [@drorCannotDecideFine2019; @dorfmanInconclusivesErrorsError2022; @guyllValidityForensicCartridgecase2023; @biedermannAreInconclusiveDecisions2019].
+There are a number of valid ways to consider the problem of inconclusives given available studies, and while some of them have more empirical support, ultimately, many of the disagreements come down to philosophical and discipline-specific differences in how researchers think about the role of errors, examiner decisions, what is permissible and not in legal settings, and so on, rather than the data itself.
+Here, I lay out the *problems* with the current treatment of inconclusives, focusing primarily on interpretations that are misleading and identifying areas which might be investigated in order to shore up holes in existing validation studies.
 
 Under AFTE rules, inconclusives are correct decisions.
 When translated to calculations, however, this means that inconclusives can be counted as both identifications (for same-source ground truth) and eliminations (for different-source ground truth) when calculating error rates.
@@ -526,12 +534,12 @@ While there are many different ways to calculate error rates, as discussed in @s
 The correct source decision rate (CSDR) is a calculation that looks at the number of examiner conclusions which correctly reflect the known ground truth, e.g. inconclusives are implicitly treated as incorrect via this calculation.
 In @pauw2013faid, the CSDR for bullet comparisons is only 49%, that is, in 51% of the comparisons, the examiner did not correctly determine whether the comparison was from the same source or a different source.
 This is statistically worse than random chance - that is, examiners would perform about as well if they were flipping a coin to make the decision!
-While we do not necessarily advocate that examiners be forced to make a decision between identification and elimination, it is clear that the existence of inconclusive results has a large impact on the interpretation of the reported error rate.
+While I do not necessarily advocate that examiners be forced to make a decision between identification and elimination, it is clear that the existence of inconclusive results has a large impact on the interpretation of the reported error rate.
 A table containing error rates and correct source decision rates for cited studies is provided in the Appendix in @tbl-csdr.
 
 @BBCResponse2022 suggests that the use of error rates from validity studies to provide information about error rates in casework is fundamentally flawed; that is, they dispute that *inferential statistics* have any use in this conversation and advocate for the use of strictly *descriptive* statistics instead.
 Descriptive statistics confine any statements about the study to the participants and comparisons within that study and do not attempt to generalize the results to a wider population of e.g. all firearms examiners or all brands of ammunition or firearm.
-Even if we confine our results of black-box studies to descriptive information that does not claim to go beyond the bounds of the study population, descriptive information can be of varying quality.
+Even if the results of black-box studies are confined to descriptive information that does not claim to go beyond the bounds of the study population, descriptive information can be of varying quality.
 The following three statements are all descriptive statements:
 
 -   My son only answered one question incorrectly on his math test.
@@ -544,15 +552,17 @@ These statements then, in turn, are conveyed to courts [@FBIResponse2022, pg. 4]
 As this example shows, it is possible to create misleading descriptive statistics.
 The damage potential is much higher when such statistics are then used for inferential purposes, that is, the results from a study are used to provide information about the wider discipline of firearms and toolmark examination.
 
-If we assume that inconclusive decisions are a reasonable way to handle the problem of information censoring resulting from the physical processes by which evidence is recorded, we would expect that it would be equally likely for inconclusive decisions to occur when investigating same-source and different-source comparisons in black-box studies.
-Unfortunately, this is consistently not what we find, though the results are interpreted in different ways by different researchers.
+If researchers conclude that inconclusive decisions are a reasonable way to handle the problem of information censoring resulting from the physical processes by which evidence is recorded, it would also be reasonable to expect that inconclusive decisions would be equally likely to occur when investigating same-source and different-source comparisons in black-box studies.
+Unfortunately, this is not the case, though the results are interpreted in different ways by different researchers.
 @biedermannAreInconclusiveDecisions2019 concludes that inconclusive decisions are useful from an information-theoretic analysis, because they provide additional information beyond the inconclusive/elimination paradigm in the case of difficult decisions.
 @inconclusives examined the probability of inconclusive decisions for same-source and different-source comparisons, finding that the overwhelming majority of inconclusive decisions in black-box studies are made on different source comparisons.
 This suggests that examiners are more willing to make an identification, and less willing to make an elimination when there is some doubt about the strength of the match.
-This finding was replicated in @guyllValidityForensicCartridgecase2023 and its implications were also highlighted: "rendering inconclusive decisions for different-source comparisons could disadvantage the innocent, who may require an unambiguously accurate forensic result to free them from suspicion or to secure an acquittal". 
+This finding was replicated in @guyllValidityForensicCartridgecase2023 and its implications were also highlighted: "rendering inconclusive decisions for different-source comparisons could disadvantage the innocent, who may require an unambiguously accurate forensic result to free them from suspicion or to secure an acquittal" [^guyll]. 
+
+[^guyll]: While there are a great many problems with @guyllValidityForensicCartridgecase2023, as described in @rosenblumMisuseStatisticalMethod2024a, the researchers' conclusions on the treatment of inconclusive results are notable. 
 
 Black box studies conducted outside of the US legal system and forensic training system show that this bias is not as strong as in US studies [@mattijssenValidityReliabilityForensic2020], though the scales used differ by jurisdiction.
-This bias is only obvious when we look at the positive and negative predictive values [@inconclusives].
+This bias is only obvious when examining the positive and negative predictive values [@inconclusives].
 The bias towards identification at the expense of elimination is in some cases encoded within the lab evaluation rules.
 In some laboratories, including at the FBI, examiners are not allowed to make an elimination based on individual characteristics.
 This is one reason why studies involving the FBI firearms lab often do not report sensitivity, specificity, or the correct source decision rate directly: when inconclusives are considered, the correct source decision rate looks abysmal: 52.22% in @bunch2003comprehensive and 37.5% in @girouxEmpiricalValidationStudy2009.
@@ -569,8 +579,8 @@ In short, this is a long-term solution to a problem that is affecting the discip
 
 One additional possibility is to use matching algorithms to assess conclusions: if the matching algorithm's decision score is insufficiently strong, or the matching algorithm comes to an incorrect conclusion based on the known ground truth, then an inconclusive might be a reasonable decision.
 @mattijssenFirearmExaminationExaminer2021 compares examiner results to algorithm results for cartridge case evaluations, finding that the algorithm's error rates were either better than or roughly consistent with examiners', even without inconclusive decisions.
-If the data were public, we could assess whether the match score from the algorithm was related in some way to the probability that an examiner would report the decision as 'inconclusive in case work'; this would allow us to assess whether the algorithm is sensitive to the information censoring problem in the same way that examiners are.
-There are a number of other reasons why objective algorithmic tools may alleviate some of the problems with firearm and toolmark examination studies; we will address this in the next section.
+If the data were public, it would be possible to assess whether the match score from the algorithm was related in some way to the probability that an examiner would report the decision as 'inconclusive in case work'; this would allow us to assess whether the algorithm is sensitive to the information censoring problem in the same way that examiners are.
+There are a number of other reasons why objective algorithmic tools may alleviate some of the problems with firearm and toolmark examination studies, some of which are addressed in the next section.
 
 Ultimately, inconclusives have a significant impact on how error rates are calculated and reported in validation studies.
 At the very least, studies must report inconclusive rates separately from correct decisions and errors, ideally with as much detail as possible.
@@ -581,12 +591,12 @@ Overall, treatment of inconclusives in error rate studies tends to result in cal
 
 # Use of Algorithms in Firearm and Toolmark Comparisons
 
-We are beginning to see certain types of algorithms make their way into practical application in crime labs.
-In this section, we discuss the differences between different types of algorithms related to firearms and toolmark comparisons, ways algorithms can be validated, and how the algorithms currently used in practice conform to this ideal.
+Certain types of algorithms are beginning to make their way into practical application in crime labs.
+This section examines the differences between different types of algorithms related to firearms and toolmark comparisons, ways algorithms can be validated, and how the algorithms currently used in practice conform to this ideal.
 
 ## Types of Algorithms
 
-We start with a distinction between algorithms which are intended to provide leads to investigators and algorithms which are intended to objectively assess evidence similarity to support examiner decision making.
+It is important to distinguish between algorithms which are intended to provide leads to investigators and algorithms which are intended to objectively assess evidence similarity to support examiner decision making.
 While these two tasks sound relatively similar, they are statistically very different.
 Suppose we have a cartridge case $A$, which was recovered from a crime scene, and test fire $B$ produced from a weapon recovered from the suspect.
 A system that makes use of a screening algorithm requires a database which is either local or national in provenance; such databases include NIBIN [@kingOpeningBlackBox2013] as well as those generated locally using BallisticsIQ.
@@ -594,8 +604,8 @@ Such a system sometimes leverages a separate component, such as IBIS [@morrisEva
 
 The goal of a **screening algorithm** is to generate leads; that is, the screening algorithm compares a representation of cartridge case A (which can be an image, a 3D scan, a signature derived from striae, etc.) to items $1, ..., N$ in the database, selecting the $K$ most similar; let us suppose that $K=5$ here for simplicity.
 To complete this operation, the screening algorithm completes $N$ pairwise comparisons.
-Statistically, this means that if there is a false positive error rate of $p$ for a single comparison, then the probability that the screening search generates a false positive error is $N\times p$, if we assume that comparisons between $A$ and each item in the database are independent.
-That is, if the database is large (and thus, if the database is complete enough to be useful to investigators), the probability of a false positive error is not insignificant.
+Statistically, this means that if there is a false positive error rate of $p$ for a single comparison, then the probability that the screening search generates a false positive error is approximately $N\times p$, if we assume that comparisons between $A$ and each item in the database are independent [see @vanderplasHiddenMultipleComparisons2024 for more precise calculations].
+That is, if the database is large (and thus, if the database is complete enough to be useful to investigators), the probability of a false positive error is significant.
 This is one major factor cited in the DOJ's review of the Brandon Mayfield case [@fineReviewFBIHandling2006, Executive Summary p 7]:
 
 > "In addition, the Mayfield case illustrates a particular hazard of the IAFIS computer program. IAFIS is designed to find candidate fingerprints having the most minutiae arrangements similar to the encoded minutiae from the latent print. These candidates should include the correct match of the print (if it is in the FBI database), but will also include the closest possible non-matches. In this case, the true source of the print was not in the IAFIS database, but the computer found an unusually close non-match. The enormous size of the IAFIS database and the power of the IAFIS program can find a confusingly similar candidate print. The Mayfield case demonstrates the need for particular care in conducting latent fingerprint examinations involving IAFIS candidates because of the elevated danger of encountering a close non-match"
@@ -619,10 +629,7 @@ This distinction is one reason why statisticians tend to be wary of the use of s
 
 Another problem with forensic screening algorithms such as IAFIS, NIBIN, and Ballistics IQ is that the algorithms used to transform evidence into comparable features and the feature comparison processes are not publicly available nor are they typically validated scientifically in peer-reviewed literature.
 In conversations with corporate representatives of Ballistics IQ and proponents of NIBIN, this secrecy is justified because these algorithms are used as "screening tools" and are not confirmatory or determinative - the evidence is still evaluated by a human examiner.
-<!-- Unfortunately, as discussed previously, examiners are prone to confirmation bias; these types of cognitive shortcuts are natural and can be completely unconscious, but as a result, it is clear that human examination of the evidence is not independent from the screening tool's evaluation. -->
-As the results of these screening algorithms may be provided to examiners, <!--As a result of this dependence, --> it is imperative that error rates and validation procedures for screening tools and algorithms <!--undergo public evaluation and testing if they are to be used as part of the evidence screening process.-->
-are, at minimum, published in a peer-reviewed scientific journal.
-<!-- Ideally, the algorithms and tools should be applied to pre-existing test sets, and all outputs from the process should be provided along with the test data, so that other researchers can review the results and compare the results of different screening algorithms. -->
+As the results of these screening algorithms may be provided to examiners, it is imperative that error rates and validation procedures for screening tools and algorithms are, at minimum, published in a peer-reviewed scientific journal.
 
 Ideally, companies would be required to release key components of their source code under an open-source noncommercial license (note, this does not require that the companies allow anyone to use the software for commercial purposes; rather, it would allow researchers to examine the software, run it on outside test sets, and compare its results with other alternatives).
 This is considered best practice for scientific studies in statistics and other computational fields: in order to publish results from algorithms, researchers typically must submit their code as part of the publication process; it is reviewed during peer review and becomes part of the public record.
@@ -631,7 +638,7 @@ Code which is not critical to the statistical functions of the program, such as 
 
 There is a critical gap between minimal requirements to validate these systems and the reality.
 The code and the hardware systems for both NIBIN/IBIS and BallisticsIQ are entirely proprietary.
-As best as we are able to determine, there are no scientific publications which objectively assess the performance of NIBIN or Ballistics IQ on test sets; while there are a few publications that discuss NIBIN[@usdepartmentofjusticebureauofalcoholtobaccofirearmsandexplosivesNationalIntegratedBallistic2018; @maNISTBulletSignature2004], the closest thing to an evaluation we found was a NIJ grant report discussing how NIBIN is used by practitioners [@kingOpeningBlackBox2013].
+There do not appear to be any scientific publications which objectively assess the performance of NIBIN or Ballistics IQ on test sets; while there are a few publications that discuss NIBIN [@usdepartmentofjusticebureauofalcoholtobaccofirearmsandexplosivesNationalIntegratedBallistic2018; @maNISTBulletSignature2004], the closest thing to an evaluation we found was a NIJ grant report discussing how NIBIN is used by practitioners [@kingOpeningBlackBox2013].
 No validation studies have been published, and no data, source code, or even hardware specifications are available to the community.
 There is even less information published about Ballistics IQ; the only available information we found was marketing material [@BALLISTICSIQ2023].
 
@@ -640,23 +647,19 @@ Even when algorithms are neither proprietary nor open source, test data is usual
 
 It is critical that algorithms used during the evidence handling process are held to the same scientific scrutiny that the evidence examination process in general requires: evaluations should be published in peer reviewed journals, methods should have known and scientifically valid error rates and have undergone sufficient examination that scientists asked to evaluate the research would generally say "yes, the use of these methods is reasonable".
 Currently, tools that are actually in use by labs do not meet this standard.
-<!-- , and while this is explained as a result of these tools use as a first-stage of screening, the reality is that it is entirely possible for the screening tools to ultimately bias the examiner's conclusions. -->
 
 ### Algorithms and Error Rate Study Validity
 
 The use of evidence evaluation algorithms in labs is one relatively easy solution to most of the problems with validation studies described in previous sections.
 Algorithms do not have many of the problems that human evaluation of evidence has: computer time is nearly unlimited, while examiner time is a tightly conserved resource by necessity.
-Algorithms can thus be subject to a battery of thousands of comparisons, where subjecting any single examiner to that would be considered unacceptable by the Institutional Review Board (and examiners would likely withdraw from such a study).
+Algorithms can thus be subject to a battery of thousands of comparisons, where subjecting any single examiner to that would be considered unacceptable by the Institutional Review Board (and the examiner would likely withdraw from such a study).
 Moreover, open-source algorithms have a particular advantage in this space: an open-source algorithm's errors (or correct decisions) can be investigated, explored, and understood in a way that examiners' subjective mental comparisons cannot be made easily accessible to the interested public.
 Algorithms do not typically have issues with non-response bias and cannot opt-out of testing (their owners might be able to opt out, but that is a different issue).
 In addition, algorithms which are making pairwise comparisons are not subject to the issues with study design outlined at the beginning of this document; each comparison is made independently due to the algorithm's design.
 Algorithms also typically do not produce inconclusive results; this is an artifact of the tendency to train algorithms based on the known ground truth, rather than what a reasonable examiner might conclude based on the comparison data.
-Algorithm developers make this choice primarily out of convenience, as any other decision would require that we conduct studies with actual examiners in sufficient quantities to determine what a reasonable examiner would conclude, which would be an extremely labor intensive process (even more labor intensive than conducting a standard black-box study in many cases).
-Of the issues we have outlined, only material sampling and concerns about pooling error rates across different types of marks are still relevant when we consider calculating error rates based on algorithms instead of human examiners.
+Algorithm developers make this choice primarily out of convenience, as any other decision would require conducting studies with actual examiners in sufficient quantities to determine what a reasonable examiner would conclude, which would be an extremely labor intensive process (even more labor intensive than conducting a standard black-box study, in many cases).
+Of the issues outlined above, only material sampling and concerns about pooling error rates across different types of marks are still relevant when considering calculating error rates based on algorithms instead of human examiners.
 This is one reason why @pcast so heavily suggested the development of pairwise evaluation algorithms as a solution to the problems facing forensic science.
-<!-- Once labs have an incentive to actually acquire the 3D scanners used by these algorithms and validate their use as part of lab protocols, the question of scientific validity will hopefully be much simpler. -->
-<!-- A technological solution to the statistical problem of evaluating the accuracy of subjective, black-box comparisons is waiting, but external pressure is necessary in order to devote scarce lab resources toward adoption of objective tools for evidence evaluation. -->
-
 
 ```{r}
 #| echo: false
@@ -690,8 +693,8 @@ reliable_study_cite <- paste('[', paste(paste0('@', unique(reliable_studies$`Stu
 
 <!-- Last paragraph: Invert order of issues, attempting to ballpark error estimates at each step -->
 
-We have outlined several problems with the state of error rate studies on firearm and toolmark examination.
-Fundamentally, we do not know what the error rate is for these types of comparisons.
+This brief outlines several problems with the state of error rate studies on firearm and toolmark examination.
+Fundamentally, it is not possible to estimate error rates for these types of comparisons.
 This is a failure of the scientific study of toolmarks, rather than the examiners themselves.
 Scientifically reliable studies must meet the following criteria (these are not all-inclusive, but are places where currently existing studies fail to meet the bar):
 
@@ -725,16 +728,16 @@ For these studies, where sufficient details were reported, drop-out rates are up
 That most studies do not report drop-out rates is statistical malpractice; failure to report or address this information when reported is particularly egregious in studies that have practicing statisticians as authors.
 While it is theoretically possible that examiners who drop out of studies or leave missing items are similar to examiners who complete the studies (leading to an unchanged error rate), it is significantly more likely that if these examiners had completed the study, the error rate would have been higher.
 In the worst case scenario, the actual error rate could be as high as the sum of the dropout rate and the reported error rate.
-We stress again that there is no possibility of assessing the true impact of non-response bias in these studies when the authors do not make their data available to other researchers: as was the case in all but one study [@guyllValidityForensicCartridgecase2023] in @tbl-csdr.
+There is no possibility of assessing the true impact of non-response bias in these studies when the authors do not make their data available to other researchers: as was the case in all but one study [@guyllValidityForensicCartridgecase2023] in @tbl-csdr.
 
 Even when non-response bias is ignored, there are further issues with the state of error rate studies in firearm and toolmark examination: studies do not cover a wide enough range of firearms and ammunition to generalize to the discipline as a whole.
-We know that not all firearm and ammunition combinations mark equally well, but studies are conducted using firearms and ammunition that are known to mark.
-As a result, there is a potential difference between the firearms and ammunition used in studies and those evaluated as part of casework that impacts our ability to generalize error rates from studies to a specific combination of ammunition and firearm in a particular case.
+As not all firearm and ammunition combinations mark equally well, there is an obvious bias when studies are conducted using firearms and ammunition that are known to mark.
+This difference between the firearms and ammunition used in studies and those evaluated as part of casework makes it difficult to generalize error rates from studies to a specific combination of ammunition and firearm in a particular case.
 Similarly, the firearms examiners who participate in studies are likely to be fundamentally different from the full population of firearms examiners.
-This, too, means that we cannot generalize error rates from studies conducted on volunteers the entire set of qualified firearms examiners.
+This, too, precludes generalization of error rates from studies conducted on volunteers to the entire set of qualified firearms examiners.
 
-What we can say with confidence is that the sampling issues with firearms examination studies are problematic and cast doubt on the ability to generalize error rates from these studies to the wider population of all examiners.
-As a result of these compounding issues, it is our opinion as statisticians and researchers in forensic science that error rates established from studies with sampling flaws, methodological flaws, non-response and attrition bias, and misleading treatment of inconclusive results are not reliable estimates of the discipline-wide error rate.
+What I can say with confidence is that the sampling issues with firearms examination studies are problematic, casting doubt on the ability to generalize error rates from these studies to the wider population of all examiners.
+As a result of these compounding issues, it is my opinion as a statistician and researcher in forensic science that error rates established from studies with sampling flaws, methodological flaws, non-response and attrition bias, and misleading treatment of inconclusive results are not reliable estimates of the discipline-wide error rate.
 
 <!-- # References -->
 
@@ -905,11 +908,8 @@ As a result of the blind testing protocol, it appears (though is not stated) tha
 
 # Susan Vanderplas CV {.appendix}
 
-\includepdf[pages=-,scale=0.9,pagecommand={\pagestyle{fancy}}]{vanderplas.pdf}
+\includepdf[pages=-,width=\textwidth,pagecommand={\pagestyle{fancy}}]{quals/vanderplas-CV.pdf}
 
-# Heike Hofmann CV {.appendix}
-
-\includepdf[pages=-,scale=0.9,pagecommand={\pagestyle{fancy}}]{hofmann.pdf}
 
 <!-- # Alicia Carriquiry CV {.appendix} -->
 
