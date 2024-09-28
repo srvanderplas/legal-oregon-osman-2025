@@ -128,7 +128,7 @@ One of the first firearms studies involves a set of "knowns", where there may be
 This is an example of a multiple-known, multiple-unknown closed-set study: there are multiple knowns and multiple unknowns in a single kit, and it is a closed-set study because the examiner knows that each unknown matches a known.
 These studies have multiple problems: they underestimate the error rate, because examiners have information in the study they would not have in practice (the unknown matches one of the knowns), but they have additional problems that are more insidious: it is not possible to determine how many comparisons an examiner performed, because the examiner only typically is asked to report what known matches each unknown.
 We cannot know how many comparisons the examiner performed to get to that answer, and as a result, we cannot calculate the overall error rate: we can only calculate the false negative rate ("miss rate"), the number of incorrect eliminations divided by the number of same-source comparisons.
-The PCAST[@pcast] and NRC[@nrc] reports rightly called out these study designs as unreliable, and while there are still papers published with this design [@hambyWorldwideStudyBullets2019], it has largely (and rightly) been abandoned due to these fundamental issues.
+The PCAST [@pcast] and NRC [@NRCStrengthening2009] reports rightly called out these study designs as unreliable, and while there are still papers published with this design [@hambyWorldwideStudyBullets2019], it has largely (and rightly) been abandoned due to these fundamental issues.
 
 A modification of this study design involves using essentially the same study set-up, but without the closed set structure.
 An **open-set** study is a study that contains unknowns which may not match to any provided knowns; as a result, examiners must decide whether something is or is not a match, rather than deciding which known is the closest match.
@@ -157,13 +157,13 @@ In addition, the consequences for sub-optimal experimental design, study executi
 That is, validity is a mapping between the scientific process of experimentation and analysis of results and the real world.
 Throughout this section, we'll consider a simple question: How does the amount of water provided influence the growth of plants as measured by the height of the seedling above the ground?
 
-**Internal validity**[^1]  is the extent to which the variable manipulated in the experiment (the **independent variable**) can be linked to the observed effect (the **dependent variable**).
+**Internal validity** [^1]  is the extent to which the variable manipulated in the experiment (the **independent variable**) can be linked to the observed effect (the **dependent variable**).
 In our example, the independent variable is the amount of water provided and the dependent variable is the height of the seedlings.
 **Internal validity** measures how well the experiment can show cause-and-effect or rule out alternate explanations for its findings (e.g. sources of systematic error or bias).
 Internal validity is often achieved by controlling other factors that may affect the dependent variable.
 For instance, in our study of water and seed growth, it would be useful to ensure that other factors affecting plant growth (fertilizer, soil quality, light availability) are as consistent as possible so that only the effect of the amount of water is seen in the results.
 
-[^1]: While Wikipedia is often not reliable for controversial topics, it does contain good information and examples for many statistical concepts.
+ [^1]: While Wikipedia is often not reliable for controversial topics, it does contain good information and examples for many statistical concepts.
     We link to it throughout this section because it is easily accessible, unlike the statistical textbooks which would provide more respectable citations but might require a library request.
     The page on internal validity [@InternalValidity2022] contains a number of good illustrations of how internal validity is established and/or threatened by experimental design considerations.
 
@@ -178,22 +178,22 @@ When human beings are involved in experiments as participants, external validity
 
 External validity is closely related to the notion of statistical **inference**, which is the ability to make broad statements about a population represented by an experimental sample.
 
-A subset of external validity, **construct validity**[@ConstructValidity2021] is the extent to which an experiment (method, study design, analysis, etc.) measures the real-life thing of interest.
-For instance, if we are more broadly interested in plant health in our seedling study, we would need to establish that seedling height is a good measure of overall plant health, at least over the range of time we are studying[^2].
+A subset of external validity, **construct validity** [@ConstructValidity2021] is the extent to which an experiment (method, study design, analysis, etc.) measures the real-life thing of interest.
+For instance, if we are more broadly interested in plant health in our seedling study, we would need to establish that seedling height is a good measure of overall plant health, at least over the range of time we are studying [^2].
 Showing construct validity requires that there is an unbroken link between the experiment and the real-world phenomenon.
 Construct validity can be threatened when participants are aware they are being observed (the Hawthorne effect), when there is bias in the experimental design (intentional or unintentional), when participants are aware of researcher expectations and desires, and when there are confounding variables that are not measured or assessed in the experiment.
-One critique of the closed-set study design[^3] is that it under-estimates the false identification rate (in addition to a complete inability to estimate the false elimination rate)[^4]; this is a critique based on the study's construct validity (and as a result, its external validity
+One critique of the closed-set study design [^3] is that it under-estimates the false identification rate (in addition to a complete inability to estimate the false elimination rate) [^4]; this is a critique based on the study's construct validity (and as a result, its external validity
 ).
 
-[^2]: For instance, it is possible that during the germination and initial sprouting period, plant height is a good measure of health, but that after the initial plant is established, we might need to consider e.g. plant color, number of leaves, root depth, and so on as well.
+ [^2]: For instance, it is possible that during the germination and initial sprouting period, plant height is a good measure of health, but that after the initial plant is established, we might need to consider e.g. plant color, number of leaves, root depth, and so on as well.
     If this is the case, it is important that any statements about the broader construct are careful to identify the time period for which those observations might be valid.
 
-[^3]: A closed-set study is one in which every unknown to be examined corresponds to a provided known sample.
+ [^3]: A closed-set study is one in which every unknown to be examined corresponds to a provided known sample.
     In closed-set studies, examiners can rely on the closest matching known sample to make an identification, even if in a casework situation with the same unknown and known sample, the examiner would return a different result.
 
-[^4]: @inconclusives
+ [^4]: @inconclusives
 
-An additional concept contained within external validity is **ecological validity**[@EcologicalValidity2022]: the extent to which the study's procedures, measurements, and other design variables relate to the real-world context.
+An additional concept contained within external validity is **ecological validity** [@EcologicalValidity2022]: the extent to which the study's procedures, measurements, and other design variables relate to the real-world context.
 That is, does a study performed in a laboratory setting generalize to the outside world?
 For firearms and toolmark error rate studies, experimenters must establish that the study procedures are a good representation of the process of firearms and toolmark examination in casework - if, as in some historical studies, participants evaluated a low-quality photograph of a bullet through a microscope for the study, but need to evaluate actual fired ammunition in casework, the study might potentially lack construct validity.
 Mock-jury studies often provide individual participants with written transcripts, but this probably does not adequately mimic the experience of sitting on a jury, listening to testimony, observing the different participants in the trial, and then deliberating in a room with other individuals to reach consensus.
@@ -225,7 +225,7 @@ One of the easiest ways to ensure that a sample is representative is to randomly
 Fundamentally, because all but one current black-box studies use volunteers, it is likely that the participants in these studies  meaningfully differ from those who did not volunteer to participate.
 Some of these differences are likely not related to the error rates estimated by the studies, but there are many potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
 For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
-In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees[@duezDevelopmentValidationVirtual2018].
+In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018].
 The one non-volunteer study that exists @neumanBlindTestingFirearms2022 describes the results of a blind testing program implemented at Houston Forensic Science Center; while its results cannot be generalized beyond HFSC, it does provide a unique perspective on error rates in firearms and toolmark comparisons.
 By the nature of blind testing (participants are unaware the case they are working on is a test), participants do not self-select into the study; they are included as a condition of their employment.
 
@@ -235,14 +235,14 @@ As a result, the estimated error rate from the study would not be representative
 There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation.
 
 An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which leads to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership boards).
-There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^[@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
+There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^ [@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
 
-The presence of a confounding variable (a variable whose effect on the response cannot be separated from the explanatory variable) is sufficient to remove our ability to make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable)[Section 4.1 Summary, @tintle2015introduction].
+The presence of a confounding variable (a variable whose effect on the response cannot be separated from the explanatory variable) is sufficient to remove our ability to make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable) [Section 4.1 Summary, @tintle2015introduction].
 Thus, statisticians acknowledge the presence of a confounding (or "lurking") variable (in this case, an examiner's experience, duty, education, confidence, and available time) that might co-vary with the dependent variable (in this case, the likelihood that an examiner self-selects into a study).
-These statements are almost always hypothetical because the presence of such a variable precludes decisive statements[^5].
+These statements are almost always hypothetical because the presence of such a variable precludes decisive statements [^5].
 In this case, the presence of such lurking variables without the ability to compare the volunteer sample's demographics to the wider demographics of the population makes it logically difficult to argue that results from a self-selected sample can be generalized to the population.
 
-[^5]: One easy example of a lurking variable is that the number of baby births are correlated with the number of storks in European countries.
+ [^5]: One easy example of a lurking variable is that the number of baby births are correlated with the number of storks in European countries.
     It would be relatively easy to falsely draw the conclusion that storks are associated with babies, but this ignores the lurking variable of the geographic size (and population size) of the country.
     Causation cannot be inferred when there are lurking variables or when the study is observational in nature.
     @mayyasiStorksDeliverBabies2014
@@ -254,14 +254,14 @@ This is why it is not only important that study participants be randomly sampled
 Unfortunately, sampling bias is one of the hardest biases to work around.
 Because scientists cannot determine how the volunteer examiners might differ from the whole population of examiners, it is impossible to determine whether it is likely that the error rate is higher or lower than what is reported from the flawed studies.
 While in some areas it is necessary to work with volunteer populations (for instance, clinical trials take place on volunteers), this requires that statisticians can reasonably expect that there are no differences between the volunteer and non-volunteer populations, which is a claim that is more easily made in medicine than in forensics.
-[^6]
+ [^6]
 
-[^6]: In medicine, it is reasonable to think that someone's willingness to participate in research is not related to their biological response to cancer treatment, as one is psychological and the other is physiological.
+ [^6]: In medicine, it is reasonable to think that someone's willingness to participate in research is not related to their biological response to cancer treatment, as one is psychological and the other is physiological.
     Forensic examiners, on the other hand, are trained as scientists - the effectiveness of their training is related to their willingness to participate in the scientific process, and they have a stake in the outcome of the experiment, in that if the experiment shows that toolmark examination is not reliable, they are out of a job.
 
 With a self-selected sample, it becomes even more critical to take steps to ensure the participants are representative of the population of interest.
 The comparison to clinical trials is particularly relevant here in part because the sampling design in validation studies is egregious relative to the requirements in medicine (and other fields).
-The National Institute for Health (NIH) is our country's medical research agency and maintains very strict funding requirements: researchers are required to establish that their sample will be representative of the population, inclusive of minority groups, and otherwise will meet the very high bar set for experimental design and composition[@nationalinstitutesofhealthInclusionWomenMinorities2022].
+The National Institute for Health (NIH) is our country's medical research agency and maintains very strict funding requirements: researchers are required to establish that their sample will be representative of the population, inclusive of minority groups, and otherwise will meet the very high bar set for experimental design and composition [@nationalinstitutesofhealthInclusionWomenMinorities2022].
 Note that the population in question is determined by the particular study: a study of drugs for prostate cancer need not include women, but a study of responses to an allergy medication  would be expected to include individuals of both genders.
 When working with volunteer participants, researchers use strategies like case matching, where two individuals are matched on every dimension that is feasible within the total set of volunteers and then these two individuals' performance on the drug vs. placebo is compared.
 In other studies, the full set of volunteers is not included in the study; instead, a demographically representative sample of the wider population is chosen from among the volunteers (within practicable constraints).
@@ -271,7 +271,7 @@ These steps to enhance the statistical validity of the study are not present in 
 Unlike medical trials, error rate studies do not take steps to ensure the population is representative.
 Some studies make an effort to at least not exclude participants, such as the @uleryAccuracyReliabilityForensic2011 study: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community." However, many FTE studies arbitrarily adopt inclusion criteria requiring that participants be active examiners employed by a crime lab, currently conducting firearms examinations, members of AFTE, etc.
 For example, the FBI/Ames study cited by the FBI [see @FBIResponse2022 page 4] has a number of inclusion criteria.
-It is not clear how the inclusion criteria were applied because the technical report[@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's[@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
+It is not clear how the inclusion criteria were applied because the technical report [@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's [@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
 
 -   "Only respondents who returned a signed consent form and were currently conducting firearm examinations and were members of AFTE, or else were employed in the firearms section of an accredited crime laboratory within the U.S. or a U.S. territory were accepted into the study." [@bajicValidationStudyAccuracy2020]
 -   "Participation was limited to fully qualified examiners who were currently conducting firearm examinations, were members of AFTE, and were employed in the firearms section of an accredited public crime laboratory within the U.S. or a U.S. territory." [@monson2022planning]
@@ -290,10 +290,10 @@ However, all journals rely on the study's authors to describe the study recruitm
 This does not typically happen in validation studies.
 
 Participant sampling bias affects all studies conducted in the United States to date.
-Currently, there is no way to randomly sample all qualified examiners and compel them to participate, in part because research participation must be voluntary in the United States.[^7] 
+Currently, there is no way to randomly sample all qualified examiners and compel them to participate, in part because research participation must be voluntary in the United States. [^7] 
 This problem is less pervasive in Europe, where lab certification and validation studies are conducted to assess this type of error rate and certification is conditioned upon participation.
 
-[^7]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
+ [^7]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
     Voluntary participation is somewhat difficult to define; for instance, some error rate studies mention that participants were compelled to participate by their employer: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
     I am not an expert in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
 
@@ -318,7 +318,7 @@ The population includes all decisions made from a combination of one or more fir
 This combination of characteristics is then evaluated by an examiner.
 Random sampling of examiners allows scientists to generalize to the whole population of firearms examiners.
 However, it is also important to have a representative set of ammunition/firearm combinations used in black-box studies in order to validate the discipline as a whole.
-This is a known issue mentioned in the 2009 NRC report [@nrc]; follow-up experiments have been proposed for several different previously published studies [@spiegelmanAnalysisExperimentsForensic2013], and the 2016 PCAST report [@pcast] described the necessary characteristics for studies establishing foundational validity.
+This is a known issue mentioned in the 2009 NRC report [@NRCStrengthening2009]; follow-up experiments have been proposed for several different previously published studies [@spiegelmanAnalysisExperimentsForensic2013], and the 2016 PCAST report [@pcast] described the necessary characteristics for studies establishing foundational validity.
 
 > "The studies must involve a sufficiently large number of examiners and must be based on sufficiently large collections of known and representative samples from relevant populations to reflect the range of features or combinations of features that will occur in the application." (PCAST pg. 52)
 
@@ -338,37 +338,37 @@ There must be many different black box studies, including studies that examine l
 We are not currently aware of any study of a large number of firearms of even one specific model, though we are aware of some data which has been collected but not published examining 600 Berettas confiscated by the LAPD; more data sets like this across multiple firearms, combined with corresponding black-box studies, may alleviate this problem in the future.
 Error rates from small, consecutively manufactured firearm studies cannot be generalized to the entire population of firearms examinations, and as a result, no one can estimate an error rate of the discipline  as whole on the basis of these studies. 
 
-Not all firearms and ammunition mark equally well[^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
+Not all firearms and ammunition mark equally well [^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
 In addition, some ammunition marks better than other ammunition.
 While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
 @baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
 If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
 This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
 
-[^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
+ [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
     Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
 
 Researchers are well aware of these limitations and typically characterize their findings in a much more limited fashion than some professional expert witnesses.
 @rivaObjectiveEvaluationSubclass2017 suggest their study is limited in scope and conclusions: "Finally, even if the results obtained in this study illustrate the impact of subclass characteristics for a given make and model of firearm, they cannot be easily transposed to all firearms at this stage. We remain conscious of the limitation of the sample used here. It is known that the quality and the quantity of these features will vary as a function of the type of firearms and the manufacturing process."
 
 When there has not been any systematic attempt to assess the impact of these factors on error rates or on the visual information available to examiners that would be expected to influence error rates, this issue of external validity remains unresolved.
-As a result, material sampling issues continue to limit the external validity of existing error rate studies, even though this issue was identified in both the 2009 NRC report [@nrc] and the 2016 PCAST report [@pcast].
+As a result, material sampling issues continue to limit the external validity of existing error rate studies, even though this issue was identified in both the 2009 NRC report [@NRCStrengthening2009] and the 2016 PCAST report [@pcast].
 
 ## Missing Data and Non-response Bias
 
 In addition to the fundamental problems with volunteer-only participation in black-box studies, there are additional statistical issues which plague most black-box studies: even participants who volunteer for the study may not return the full set of answers (or any answers).
 That is, most studies have a drop-out rate where participants who initially volunteered for the study did not complete the full study.
 In statistics, this sort of missing data is more problematic if it is "missing not-at-random" - that is, if the participants who do not return full sets of answers are systematically different from those who do return full sets of answers.
-There are many statistical methods used to produce valid estimates even in the face of missing data and non-response bias[^9], and @khanHierarchicalBayesianNonresponse2023 use statistical modeling to explore the effect of drop-out and item nonresponse on error rates.
+There are many statistical methods used to produce valid estimates even in the face of missing data and non-response bias [^9], and @khanHierarchicalBayesianNonresponse2023 use statistical modeling to explore the effect of drop-out and item nonresponse on error rates.
 
-[^9]: There are, in fact, entire areas of statistical research devoted to such methods.
+ [^9]: There are, in fact, entire areas of statistical research devoted to such methods.
     For some examples, see @little2019statistical and @kim2014statistical.
 
 Some studies deal with this issue in ways that would not be considered statistically valid: @lyonsIdentificationConsecutivelyManufactured2009 contacted someone who returned an incomplete answer sheet to prompt them to complete the questions and provide more satisfactory answers; @smithBerettaBarrelFired2021 also contacted those with suspected transcription errors, but at least presented the data with and without these corrections.
 In @lawEvaluatingFirearmExaminer2021, the drop-out rate is acknowledged and errors made by the participant who withdrew after completing 20 of the 21 comparisons in the study are reported; however, this participant had 5 errors, compared with 1 error for all of the remaining 17 participants in the study combined; this suggests that the participant might have withdrawn because the study was difficult. This is the only study which reports sufficiently detailed data to assess this situation, and the results are not encouraging.
-In other studies [@chumbley2021accuracy], the issue is acknowledged but not mitigated or even assessed for its' impact on the error rate estimates reported[^10]; the issue is not discussed further in the peer-reviewed final paper [@monsonAccuracyComparisonDecisions2023].
+In other studies [@chumbley2021accuracy], the issue is acknowledged but not mitigated or even assessed for its' impact on the error rate estimates reported [^10]; the issue is not discussed further in the peer-reviewed final paper [@monsonAccuracyComparisonDecisions2023].
 
-[^10]: "Slightly more cartridge case (10,110) than bullet (10,020) comparison are reported because some examiners returned partially-completed test packets that had results for all the cartridge case sets but not all the bullet sets." (@chumbley2021accuracy, page 8)
+ [^10]: "Slightly more cartridge case (10,110) than bullet (10,020) comparison are reported because some examiners returned partially-completed test packets that had results for all the cartridge case sets but not all the bullet sets." (@chumbley2021accuracy, page 8)
 
 An example of a situation in which non response or missing not-at-random bias is common is in telephone surveys.
 People who are more likely to answer a phone call from an unknown number are different from those who do not answer phone calls from unknown numbers [@mcclainMostAmericansDon2020]; those people who continue on the phone call to answer all of the poll questions are more likely to be engaged in their communities and have a higher sense of civic responsibility [@mitchellWhatLowResponse2017].
@@ -380,7 +380,7 @@ This last point is particularly concerning given that the broader scientific com
 
 <!-- In order to begin to address these problems, researchers first have to consistently acknowledge them. -->
 <!-- In most studies we have reviewed, the limitations due to nonresponse and drop-out bias are not acknowledged. -->
-<!-- No study utilizes common statistical methods for assessing the impact of nonresponse and drop-out bias[@woodAreMissingOutcome2004]. -->
+<!-- No study utilizes common statistical methods for assessing the impact of nonresponse and drop-out bias [@woodAreMissingOutcome2004]. -->
 <!-- More troubling, these studies do not release any data to facilitate other researchers filling in these gaps. -->
 
 One option to bound the problem is to estimate the error rate with an assumed drop-out rate to determine the magnitude of the issue if the participants who dropped out had completely incorrect responses.
@@ -484,14 +484,14 @@ This redundancy (in the case of bullet comparisons) is one check on the problem 
 Even though land-to-land comparisons and toolmark comparisons are objectively similar in that the examiner is visually comparing striae, we would not expect them to have similar error rates because there is an internal check on incidental matches when bullets are compared that does not exist with other toolmark comparisons.
 Similarly, the number of striae present on a cartridge case obturation mark is usually small relative to the number of striae on a toolmark or a bullet land engraved area; thus, there is less physical evidence present for the examiner to evaluate, which we might expect to lead to somewhat higher error rates for cartridge obturation marks than for toolmarks or bullet land engraved areas.
 
-Expert witnesses[^11] have previously testified about high error rates in a closed-set study [@mayland_validation_2012] and low error rates in an open-set study [@keislerIsolatedPairsResearch2018].
+Expert witnesses [^11] have previously testified about high error rates in a closed-set study [@mayland_validation_2012] and low error rates in an open-set study [@keislerIsolatedPairsResearch2018].
 What is particularly remarkable about this portion of the testimony is that @mayland_validation_2012 examined obturation marks, while @keislerIsolatedPairsResearch2018 examined breech face impressions.
 These two types of marks are entirely different in character, and thus the error rates should never be directly compared.
 Of the studies we have cited on firearms and toolmark examination, some examine bullet striae [@hambyWorldwideStudyBullets2019; @pauw2013faid; @monsonAccuracyComparisonDecisions2023; @neumanBlindTestingFirearms2022; @pauw2013faid; @smithBerettaBarrelFired2021], extractors [@lyonsIdentificationConsecutivelyManufactured2009], cartridge cases [@baldwinStudyFalsePositiveFalseNegative2014; @bunch2003comprehensive; @monsonAccuracyComparisonDecisions2023; @baldwinStudyExaminerAccuracy2023; @duezDevelopmentValidationVirtual2018; @guyllValidityForensicCartridgecase2023; @keislerIsolatedPairsResearch2018; @lawEvaluatingFirearmExaminer2021; @neumanBlindTestingFirearms2022; @smithValidationStudyBullet2016; @stromanEmpiricallyDeterminedFrequency2014; @chapnickResults3DVirtual2021; @pauw2013faid], aperture marks [@mattijssenValidityReliabilityForensic2020], obturation marks [@mayland_validation_2012], and tool marks [@girouxEmpiricalValidationStudy2009].
 It is not reasonable to assume that the error rates in these different disciplines (with different amounts of information available to the examiners) would be similar; after all, studies which provide examiners with the full cartridge case instead of a sub-region of the case (such as the aperture shear or obturation marks) give examiners more information on which to make a decision, which should lower the error rate significantly.
 This testimony was designed to imply that PCAST's concern for study design was misplaced, when instead it is an egregious use of apples-to-oranges comparisons.
 
-[^11]: Todd Weller, California v Auimatagi, February 2021
+ [^11]: Todd Weller, California v Auimatagi, February 2021
 
 Before making direct comparisons between error rates in studies, it is also important to consider other factors beyond the type of comparison made which might make a difference in the reported error rate.
 Some open set studies include comparisons from marks with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics (this allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics) [@bunch2003comprehensive].
@@ -509,9 +509,9 @@ The firearms examination community is very aware of the fact that sometimes samp
 This issue is so pervasive that the AFTE theory of identification allows for a middle category between identification and elimination: inconclusive.
 More accurately, the AFTE theory of identification allows for 3 different levels of inconclusive on the continuum between identification and elimination.
 Under the AFTE theory of identification, all of the hard decisions are automatically correct because firearms and toolmark examiners don't have to make a decision between elimination and identification.
-The treatment of inconclusives under the AFTE theory of identification is controversial[^12] and has recently seen significant scrutiny from the scientific community [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019] and the legal community [@kayeToolmarkComparisonTestimonyReport2022].
+The treatment of inconclusives under the AFTE theory of identification is controversial [^12] and has recently seen significant scrutiny from the scientific community [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019] and the legal community [@kayeToolmarkComparisonTestimonyReport2022].
 
-[^12]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
+ [^12]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
     The error rates dropped from 12% (firearms) and 26% (toolmarks) to approximately 1.4% and 4% respectively.
     UNITED STATES OF AMERICA, v. Joseph MINERD, Defendant., 2002 WL 32995663 (W.D.Pa.)
 
@@ -559,7 +559,7 @@ Unfortunately, this is not the case, though the results are interpreted in diffe
 This suggests that examiners are more willing to make an identification, and less willing to make an elimination when there is some doubt about the strength of the match.
 This finding was replicated in @guyllValidityForensicCartridgecase2023 and its implications were also highlighted: "rendering inconclusive decisions for different-source comparisons could disadvantage the innocent, who may require an unambiguously accurate forensic result to free them from suspicion or to secure an acquittal" [^guyll]. 
 
-[^guyll]: While there are a great many problems with @guyllValidityForensicCartridgecase2023, as described in @rosenblumMisuseStatisticalMethod2024a, the researchers' conclusions on the treatment of inconclusive results are notable. 
+ [^guyll]: While there are a great many problems with @guyllValidityForensicCartridgecase2023, as described in @rosenblumMisuseStatisticalMethod2024a, the researchers' conclusions on the treatment of inconclusive results are notable. 
 
 Black box studies conducted outside of the US legal system and forensic training system show that this bias is not as strong as in US studies [@mattijssenValidityReliabilityForensic2020], though the scales used differ by jurisdiction.
 This bias is only obvious when examining the positive and negative predictive values [@inconclusives].
@@ -679,14 +679,14 @@ clean_studies <- studies %>%
          isPeerReviewed = PeerReview == "Yes",
          isSciJournal = JournalType == "Research") %>%
   mutate(ExamType = factor(ExamType, levels = c("Bullet", "Cartridge", "Aperture shear", "Breech Face", "Extractor", "Slide"), ordered = T)) %>%
-  mutate(across(matches("^([SD]S)_"), as.numeric))
+  mutate(across(matches("^( [SD]S)_"), as.numeric))
 
 reliable_studies <- clean_studies %>%
-  filter(rowSums(is.na(select(clean_studies, matches("^([SD]S)_")))) == 0) %>%
+  filter(rowSums(is.na(select(clean_studies, matches("^( [SD]S)_")))) == 0) %>%
   filter(!Algorithm) %>%
   filter(StudyType == "Pair")
 
-reliable_study_cite <- paste('[', paste(paste0('@', unique(reliable_studies$`Study Key`)), collapse = ";"), ']', sep = '')
+reliable_study_cite <- paste(' [', paste(paste0('@', unique(reliable_studies$`Study Key`)), collapse = ";"), ']', sep = '')
 ```
 
 # Summary
@@ -844,10 +844,10 @@ clean_studies %>%
          Volunteers = ifelse(Volunteers, "Y", ""),
          isPhysical = ifelse(isPhysical,  "", "N"),
          Open = ifelse(Open, "", "N"),
-         Drop_Out_Rate_Format = str_replace(Drop_Out_Rate, "0\\.?[\\d]*", "%0.4f"),
-         Drop_Out_Rate = as.numeric(str_extract(Drop_Out_Rate, "0\\.?[\\d]*")),
-         Item_Nonresponse_Rate_Format = str_replace(Item_Nonresponse_Rate, "0\\.?[\\d]*", "%0.4f"),
-         Item_Nonresponse_Rate = as.numeric(str_extract(Item_Nonresponse_Rate, "0\\.?[\\d]*")),
+         Drop_Out_Rate_Format = str_replace(Drop_Out_Rate, "0\\.? [\\d]*", "%0.4f"),
+         Drop_Out_Rate = as.numeric(str_extract(Drop_Out_Rate, "0\\.? [\\d]*")),
+         Item_Nonresponse_Rate_Format = str_replace(Item_Nonresponse_Rate, "0\\.? [\\d]*", "%0.4f"),
+         Item_Nonresponse_Rate = as.numeric(str_extract(Item_Nonresponse_Rate, "0\\.? [\\d]*")),
          isPairStudy = ifelse(isPairStudy, "", "N"),
          isPeerReviewed = ifelse(isPeerReviewed,  "", "N"),
          isSciJournal = ifelse(isSciJournal, "", "N"),
@@ -884,19 +884,19 @@ clean_studies %>%
 
 <!-- : Participant sampling types, data availability, drop-out rates, and item non-response rates. Only studies for which one of drop-out rates and item non-response rates are specified are included. This table focuses on data used to calculate accuracy of examiners conclusions. {#tbl-dropout} -->
 
-[^15]: The authors did report the participant answers by test.
+ [^15]: The authors did report the participant answers by test.
 
-[^16]: This reflects the proportion of individuals who completed the test sets but were excluded from analysis because they had not had two years of training.
+ [^16]: This reflects the proportion of individuals who completed the test sets but were excluded from analysis because they had not had two years of training.
 
-[^17]: The authors did not report the number of participants who agreed to participate.
+ [^17]: The authors did not report the number of participants who agreed to participate.
     107 participants completed some the test sets.
     The authors excluded all but 76 of them from analysis for the results reported in the abstract due to the participant being "unqualified" or working outside of the United States or Canada.
     Note, other studies have explicitly included examiners outside of the United States and Canada (e.g., @hambyWorldwideStudyBullets2019 and @keislerIsolatedPairsResearch2018).
     The authors indicated the excluded participants had committed more errors than those included.
 
-[^18]: Partial data has been released for accuracy stages but does not include all assigned comparisons, only those with participant responses.
+ [^18]: Partial data has been released for accuracy stages but does not include all assigned comparisons, only those with participant responses.
 
-[^19]: A previous version of this table included item non-response of 17%. At the time, this was the best estimate for item non-response of only the accuracy stage of the study. Since that time, the [Ames II authors] released some of the accuracy data, and the item non-response for the accuracy stage can now be explicitly calculated as 18.2%. Note, the Ames II study included accuracy, repeatability, and reliability stages. The item non-response across all stages is 35.6%. For consistency with the other studies in this table, we include 35.6% here.
+ [^19]: A previous version of this table included item non-response of 17%. At the time, this was the best estimate for item non-response of only the accuracy stage of the study. Since that time, the [Ames II authors] released some of the accuracy data, and the item non-response for the accuracy stage can now be explicitly calculated as 18.2%. Note, the Ames II study included accuracy, repeatability, and reliability stages. The item non-response across all stages is 35.6%. For consistency with the other studies in this table, we include 35.6% here.
 
 Note that @neumanBlindTestingFirearms2022 is not included in this table because it is an observational study, rather than an experiment.
 It did not manipulate the types of comparisons systematically.
