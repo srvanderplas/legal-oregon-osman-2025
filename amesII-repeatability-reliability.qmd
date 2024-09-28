@@ -19,9 +19,67 @@ biblio-style: abbrvnat
 csl: bluebook-law-review.csl
 ---
 
-The Ames II study is one of the few studies conducted using an open-set design in which each comparison consists of fired ammunition from one known firearm and one unknown firearm^[1]; this design is essential to ensure that it is possible to calculate the total number of comparisons performed by each examiner.
+# Introduction
 
-^[1]: Many studies provide multiple exemplars from the same firearm in order to allow examiners to determine how consistently the firearm produces 'individual characteristics' (to use the term as it is defined by examiners). As long as there are exemplars from at most two firearms, it is still possible to estimate the number of firearm-to-firearm comparisons performed. 
+Firearms and toolmark examination involves the visual comparison of a 'known' piece of fired ammunition with a corresponding 'unknown' in order to make a statement about the similarity or dissimilarity of the two items. 
+In many cases, the 'known' item is created by test firing a recovered firearm, while the 'unknown' item is recovered from a crime scene. 
+In other cases, two recovered items may be compared with the goal of linking separate scenes.
+In either case, however, additional assumptions are necessary to move from a claim of visual similarity of the fired ammunition to a claim about the weapon which produced the ammunition. 
+Additional information is then required in order to logically connect a recovered weapon to an individual and to connect the individual to the crime scene; this information is contextual and should be carefully managed [@quigleymcbridePracticalToolInformation2022] to ensure that it does not bias the examiner's conclusions. 
 
-While there are a significant number of flaws with the Ames II study [See @cuellarMethodologicalProblemsEvery2024, which is also under review in Law, Probability, and Risk], it is the only study currently available which allows researchers to assess the repeatability and reliability of firearms and toolmark examination as a discipline. 
-Unfortunately, the data analysis in the original paper is incredibly flawed: the paper compares the measured repeatability to the expected repeatability without consideration for the ordered nature of the variables; additional flaws are described in @dorfmanReAnalysisRepeatabilityReproducibility2022.
+The Association of Firearms and Toolmark Examiners (AFTE) Theory of Identification [@nationalinstituteofjusticeAFTETheoryIdentification2023] provides the assumptions necessary to link sources based on comparison of fired ammunition. 
+It requires that "the unique surface contours of two toolmarks are in sufficient agreement" in order to make common origin determinations (Principle 1). 
+Sufficient agreement consists of the correspondence of random characteristics in the surface of a toolmark that "exceeds the best agreement demonstrated between toolmarks known to have been produced by different tools" while also "consistent with agreement demonstrated by toolmarks known to have been produced by the same tool" (Principle 2).
+These benchmarks for similarity are inherently "subjective in nature" and "based on the examiner's training and experience" (Principle 3). 
+
+Following an examination (typically, this consists of visual comparison(s) using a comparison microscope), examiners render a conclusion within the AFTE range of conclusions.
+There are four primary conclusions which can be made [@nationalinstituteofjusticeAFTERangeConclusions2023]: 
+
+1. Identification, agreement of a combination of individual characteristics and all discernible class characteristics where the extent of agreement exceeds that which can occur in the comparison of toolmarks made by different tools and is consistent with the agreement demonstrated by toolmarks known to have been produced by the same tool.
+
+2. Inconclusive, which has three subcategories:
+  A. Some agreement of individual characteristics and all discernable class characteristics, but insufficient for identification,
+  B. Agreement of all discernable class characteristics without agreement or disagreement of individual characteristics due to an absence, insufficiency, or lack of reproducibility,
+  C. Agreement of all discernable class characteristics and disagreement of individual characteristics, but insufficient for an elimination.
+
+3. Elimination, a significant disagreement of discernible class characteristics and/or individual characteristics. An elimination based on individual characteristics is more complex. If it can be shown that a firearm has not been subjected to significant use or abuse over the period of time following the questioned shooting, the qualitative aspects of the striations (e.g., fineness, coarseness) it produces on fired bullets should remain the same. A difference in these striations indicates an elimination. Elimination based on individual characteristics requires a detailed knowledge of the history and treatment of the firearm, as well as documentation to support the history. It is the responsibility of the examiner to provide this historical documentation. This type of elimination should be approached with caution. Many experienced examiners have never made such an elimination and the protocols of many laboratories do not allow it.
+
+4. Unsuitable for comparison. This outcome is appropriate for fired bullet fragments that do not bear microscopic marks of value for comparison purposes. Examples include fired bullet fragments, jacket fragments, lead bullet cores, lead fragments, other portions of fragmented, mutilated, or otherwise damaged bullets, and metallic fragments that cannot be identified as having been part of a fired bullet. 
+
+The AFTE Theory of Identification and range of conclusions are used by most examiners within the United States; examiners in Europe and the U.K. often use other methods, such as likelihood ratios, to characterize firearms and toolmark comparisons. 
+
+## Scientific Support for Firearms Examination
+
+The AFTE theory of identification is presumed to be "founded on scientific principles", but as discussed in the 2009 NRC report [@NRCStrengthening2009] as well as the 2008 Ballistic Imaging report [@NRCBallisticImaging2008], there has not been scientific validation of the "degree to which firearms-related toolmarks are unique" [@NRCBallisticImaging2008 pg. 3]. 
+Furthermore, the 2009 report goes on to say that the AFTE Theory of Identification, "which is the best guidance available for the field of toolmark identification, does not even consider, let alone address, questions regarding variability, reliability, repeatability, or the number of correlations needed to achieve a given degree of confidence [@NRCStrengthening2009 pg 155].
+In addition to this assessment, the 2016 PCAST report [@pcast] goes further, identifying the circular definition of an identification: "an examiner may conclude that two items have a common origin if their marks are in 'sufficient agreement,' where 'sufficient agreement' is defined as the examiner being convinced that the items are extremely unlikely to have a different origin."
+
+Of course, uniqueness is not required for marks to provide useful information to an investigator or trier of fact [@pcast]. 
+There are multiple metrics which, when considered together, indicate a valid method:
+
+- **reliability** - the method must reach a conclusion which is consistent with ground truth. Reliability is evaluated using error rate(s). Multiple rates may be considered: while the overall accuracy rate provides some information, an accurate overall error rate requires that study designs emulate the frequency of same-source and different source comparisons which occur during casework, which is unknown. It is typically more useful to consider separately measures of the probabilities of different types of errors, such as the sensitivity and specificity, or the positive and negative predictive values. A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022. 
+
+- **repeatablity** - the same comparison performed using the same instrument (in this case, the examiner) must come to the same conclusion. This calculation does not depend at all on accuracy rates: an examiner who comes to the same wrong conclusion examining the same evidence still has high repeatability. 
+
+- **reproduciblity** - the same comparison performed using a different instrument (examiner) must come to the same conclusion. This calculation also does not depend on the accuracy of the conclusion; all that is required is that the two examiners agree.
+
+While the PCAST report states that uniqueness is not required for marks to be useful, it clearly requires that the accuracy, repeatability, and reproducibility of a method be understood from empirical studies, and further requires that the studies be designed such that each comparison is independent, with the possibility that an unknown object has no match among the known samples (an "open" study), ideally with a kit of separate, statistically independent comparison problems. 
+
+### Reliability and Error Rates
+
+PCAST indicates that as of the publication of that report, only one study was sufficient to estimate reliability, and in order for there to be sufficient evidence for foundational validity of toolmark examination, there must be at least two studies conducted by independent groups that are appropriately designed and statistically reliable.
+Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [See @cuellarMethodologicalProblemsEvery2024, which is also under review in Law, Probability, and Risk].
+
+In addition to the experimental design and reporting concerns, there are significant concerns with how error rates are calculated in firearms examination error rate studies. 
+Most studies consider inconclusive results to be correct, which is in accordance with the AFTE Theory of Identification[^ctsincl], but, scientifically, this is sub-optimal and the subject of considerable debate in both the scientific  [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019;@inconclusives;@dorfmanInconclusivesErrorsError2022] and the legal community [@kayeToolmarkComparisonTestimonyReport2022]. 
+Under this evaluation scheme, an examiner who turns in an answer sheet with every answer marked as inconclusive would score 100%, even though they provided no information about the similarity (or lack thereof) of the examined evidence. 
+
+ [^ctsincl]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
+    The error rates dropped from 12% (firearms) and 26% (toolmarks) to approximately 1.4% and 4% respectively.
+    UNITED STATES OF AMERICA, v. Joseph MINERD, Defendant., 2002 WL 32995663 (W.D.Pa.)
+
+
+At this time, only one study (published across several reports and journal articles) [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability], hereafter referred to as Ames II, examines the repeatability and reproducibility of visual firearms and toolmark comparisons. 
+While there are a significant number of flaws with the Ames II study, it is useful to specifically focus on the repeatability and reproducibility of firearms and toolmark examinations as they are conducted under the AFTE Theory of Identification. 
+Unfortunately, the published analysis of reproducibility and reliability is also flawed [@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the NIJ report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]. 
+The remainder of this assessment uses the data reported in @monson2023repeatability, with the caveat that the flaws described in @cuellarMethodologicalProblemsEvery2024 and @khanShiningLightForensic2023 are still present in Ames II; as a result, the conclusions from this analysis should be considered in light of the other design issues, such as drop-out rate, nonresponse, and self-selected, nonrepresentative participants. 
