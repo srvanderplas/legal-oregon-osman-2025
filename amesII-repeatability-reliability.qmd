@@ -89,7 +89,7 @@ Unfortunately, the published analysis of reproducibility and reliability is also
 The remainder of this assessment uses the data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
 
 
-# Examining Firearm and Toolmark Validity: Reliability, Repeatability, and Reproducibility in the Ames II study
+# Reliability, Repeatability, and Reproducibility in the Ames II study
 
 ## Overall Study Design
 Ames II was designed to answer some of the primary objections raised in the PCAST and NRC reports to error-rate studies in firearms and toolmark analysis. 
