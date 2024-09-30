@@ -129,17 +129,26 @@ Fundamentally, because these numbers are not reported, it is impossible to adjus
 Moreover, the authors of this series of papers identify that participants may have dropped out differentially due to concerns over the amount of work. 
 An alternate, plausible explanation is that, as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study, which would likely mean that had these participants not dropped out, the reported errors might be considerably higher.
 
-If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `r sprintf("%.2f%%", (1 - 173/256)*100)`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
+```{r, include = F}
+first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
+first_to_last_round <- sprintf("%.2f%%", (1 - 79/173)*100)
+recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
+bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
+cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
+overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
+```
+
+If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `{r} first_round`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
 While this is not a completely accurate estimate of the drop-out rate for the entire study (some of the 173 participants were added after round 1, and the 256 initial recruits does not include these individuals), it is illustrative. 
-If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `r sprintf("%.2f%%", (1 - 79/173)*100)`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
-Of those who were initially recruited, only `r sprintf("%.2f%%", 1 - 79/256)` completed all six rounds of the study. 
+If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `{r} first_to_last_round`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
+Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study. 
 
 In addition, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
 Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item nonresponses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
-Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `r sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)` for bullets and `r sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
+Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
 This upper estimate is actually not a complete upper bound: another type of nonresponse is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
 In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
-We know that it is most likely somewhere between 0 and `r sprintf("%.2f%%", (1 - (10020+10110)/(256*30*6))*100)`, but we cannot provide statistically valid assurances for a specific number within this interval. 
+We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
 
 ## Reliability
 
