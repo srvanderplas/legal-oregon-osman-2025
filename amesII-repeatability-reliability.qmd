@@ -54,27 +54,31 @@ The AFTE theory of identification is presumed to be "founded on scientific princ
 Furthermore, the 2009 report goes on to say that the AFTE Theory of Identification, "which is the best guidance available for the field of toolmark identification, does not even consider, let alone address, questions regarding variability, reliability, repeatability, or the number of correlations needed to achieve a given degree of confidence [@NRCStrengthening2009 pg 155].
 In addition to this assessment, the 2016 PCAST report [@pcast] goes further, identifying the circular definition of an identification: "an examiner may conclude that two items have a common origin if their marks are in 'sufficient agreement,' where 'sufficient agreement' is defined as the examiner being convinced that the items are extremely unlikely to have a different origin."
 
-Of course, uniqueness is not required for marks to provide useful information to an investigator or trier of fact [@pcast]. 
-There are multiple metrics which, when considered together, indicate a valid method:
 
-- **reliability** - the method must reach a conclusion which is consistent with ground truth. Reliability is evaluated using error rate(s). Multiple rates may be considered: while the overall accuracy rate provides some information, an accurate overall error rate requires that study designs emulate the frequency of same-source and different source comparisons which occur during casework, which is unknown. It is typically more useful to consider separately measures of the probabilities of different types of errors, such as the sensitivity and specificity, or the positive and negative predictive values. A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022. 
+### Metrics for Scientific Validity
 
-- **repeatablity** - the same comparison performed using the same instrument (in this case, the examiner) must come to the same conclusion. This calculation does not depend at all on accuracy rates: an examiner who comes to the same wrong conclusion examining the same evidence still has high repeatability. 
+While the PCAST report states that uniqueness is not required for marks to be useful [@pcast], it clearly requires that the accuracy, repeatability, and reproducibility of a method be understood from empirical studies, and further requires that the studies be designed such that each comparison is independent, with the possibility that an unknown object has no match among the known samples (an "open" study), ideally with a kit of separate, statistically independent comparison problems. 
+The importance of using an open-set study design with statistically independent comparison problems has been thoroughly documented [@ourAffidavit2022;@inconclusives;@cuellarMethodologicalProblemsEvery2024].
+We will instead focus on PCAST's requirements for a determination that a method is based on valid scientific principles. 
+
+- **reliability** - the method must reach a conclusion which is consistent with ground truth.     
+Reliability is evaluated using error rate(s). Multiple rates may be considered: while the overall accuracy rate provides some information, an accurate overall error rate requires that study designs emulate the frequency of same-source and different source comparisons which occur during casework, which is unknown. It is typically more useful to consider separately measures of the probabilities of different types of errors, such as the sensitivity and specificity, or the positive and negative predictive values. A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022. 
+
+- **repeatablity** - the same comparison performed using the same instrument (in this case, the examiner) must come to the same conclusion. This calculation does not depend at all on accuracy rates: an examiner who comes to the same wrong conclusion examining the same evidence still has high repeatability, even if they have low accuracy. 
 
 - **reproduciblity** - the same comparison performed using a different instrument (examiner) must come to the same conclusion. This calculation also does not depend on the accuracy of the conclusion; all that is required is that the two examiners agree.
 
-While the PCAST report states that uniqueness is not required for marks to be useful, it clearly requires that the accuracy, repeatability, and reproducibility of a method be understood from empirical studies, and further requires that the studies be designed such that each comparison is independent, with the possibility that an unknown object has no match among the known samples (an "open" study), ideally with a kit of separate, statistically independent comparison problems. 
 
 ### Reliability and Error Rates
 
 PCAST indicates that as of the publication of that report, only one study was sufficient to estimate reliability, and in order for there to be sufficient evidence for foundational validity of toolmark examination, there must be at least two studies conducted by independent groups that are appropriately designed and statistically reliable.
-Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [See @cuellarMethodologicalProblemsEvery2024, which is also under review in Law, Probability, and Risk].
+Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [See @cuellarMethodologicalProblemsEvery2024, which is also under review in Law, Probability, and Risk, and @ourAffidavit2022].
 
 In addition to the experimental design and reporting concerns, there are significant concerns with how error rates are calculated in firearms examination error rate studies. 
 Most studies consider inconclusive results to be correct, which is in accordance with the AFTE Theory of Identification[^ctsincl], but, scientifically, this is sub-optimal and the subject of considerable debate in both the scientific  [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019;@inconclusives;@dorfmanInconclusivesErrorsError2022] and the legal community [@kayeToolmarkComparisonTestimonyReport2022]. 
 Under this evaluation scheme, an examiner who turns in an answer sheet with every answer marked as inconclusive would score 100%, even though they provided no information about the similarity (or lack thereof) of the examined evidence. 
 
- [^ctsincl]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
+[^ctsincl]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
     The error rates dropped from 12% (firearms) and 26% (toolmarks) to approximately 1.4% and 4% respectively.
     UNITED STATES OF AMERICA, v. Joseph MINERD, Defendant., 2002 WL 32995663 (W.D.Pa.)
 
@@ -82,4 +86,60 @@ Under this evaluation scheme, an examiner who turns in an answer sheet with ever
 At this time, only one study (published across several reports and journal articles) [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability], hereafter referred to as Ames II, examines the repeatability and reproducibility of visual firearms and toolmark comparisons. 
 While there are a significant number of flaws with the Ames II study, it is useful to specifically focus on the repeatability and reproducibility of firearms and toolmark examinations as they are conducted under the AFTE Theory of Identification. 
 Unfortunately, the published analysis of reproducibility and reliability is also flawed [@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the NIJ report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]. 
-The remainder of this assessment uses the data reported in @monson2023repeatability, with the caveat that the flaws described in @cuellarMethodologicalProblemsEvery2024 and @khanShiningLightForensic2023 are still present in Ames II; as a result, the conclusions from this analysis should be considered in light of the other design issues, such as drop-out rate, nonresponse, and self-selected, nonrepresentative participants. 
+The remainder of this assessment uses the data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
+
+
+# Examining Firearm and Toolmark Validity: Reliability, Repeatability, and Reproducibility in the Ames II study
+
+## Overall Study Design
+Ames II was designed to answer some of the primary objections raised in the PCAST and NRC reports to error-rate studies in firearms and toolmark analysis. 
+The study's design is extremely complicated, going to extreme lengths to vary the number of same-source and different-source comparisons while ensuring that no test kit contained sets which could be combined to gain additional information outside of the experimental design.
+
+### Firearms
+The study used Beretta and non-Beretta firearms (Jimenez slides for cartridge case comparisons, Ruger barrels for bullet comparisons). 
+Within the Beretta barrels, there were consecutively manufactured clusters taken from early, mid, and late points in the lifetime of the machining components, along with four nonconsecutive and unrelated additions. 
+Beretta slides had breech-faces which were primarily consecutively finished, with 4 nonconsecutive and unrelated additions. 
+Jimenez slides were consecutively finished (so breech faces were consecutively manufactured, but firing pins and extractors were not).  
+Ruger barrels were primarily consecutively manufactured (1-9), with an additional barrel included from sequence 33. 
+This design element represents a compromise between including close non-matches (consecutively manufactured components) and a spectrum of non-matches with some breadth in marking features.
+While it would be good to have more breadth in manufacturing time (e.g. taking consecutive batches from several months or years of manufacturing runs of a single manufacturing process), as well as additional manufacturers represented, any single study has to balance breadth and depth of representation along any single dimension.
+Ideally, similar study designs [^extrabullets] would be conducted by other research groups, using other manufacturers; the results would then be comparable to the results of this study and would provide some assurance that the reliability, repeatability, and reproducibility estimates from Ames II generalize across different types of firearms.
+
+[^extrabullets]: @monsonPlanningDesignLogistics2022 notes that consecutively manufactured Jimenez barrels were used in this study, though the bullets are not included; it seems likely that the authors may conduct another follow-up study that provides more data on bullet comparisons. While replication studies by other groups are required for full scientific validity [@pcast], there is certainly a benefit to replication studies on different firearms as well. 
+
+### Ammunition
+
+@monsonPlanningDesignLogistics2022 reports that only a single type of ammunition (Wolf Polyformance 9mm Luger steel case, with brass Berden primers and 115 grain FMJ bullets) was used in the Ames II study. 
+The authors justification for this choice is multi-faceted, but it seems that cost, comparison difficulty, and simplification of the experiment factored into the decision.
+As the authors note, steel-case ammunition is less common in casework than brass ammunition and does not mark as well as brass; thus, this simplification in the experimental design has the potential to reduce the generalizability of this study to comparisons common in casework. 
+The authors suggest that steel-case ammunition comparisons may have fewer identifying marks, but no data is offered to support this assertion. 
+While it is desirable to have studies which include difficult comparisons, at present, there is no way to empirically establish how difficult the comparisons in one study are to those in another study: the fired ammunition used is not made available to other researchers, and 3D microscopy data for each piece of ammunition used in the study is also not released to the community, even though this data would both increase the utility of the study long-term and would allow outside researchers to establish difficulty indices for cross-study comparisons.
+
+### Participants
+The primary design flaw with the Ames II study in terms of statistical validity is in the recruitment and attrition rate of participants (as well as in how this was reported). 
+@monsonPlanningDesignLogistics2022 describes an initial plan for 300 participants, initial agreement of 256 participants at the beginning of the study, that 173 participants completed at least one round of the 6 rounds of testing, and that 79 participants completed all rounds of testing.
+The authors describe the participant attrition and recruitment process in a manner that makes it impossible to reconstruct how many participants were involved at any given stage of the study. 
+
+> "Once the first mailing of specimen packets was distributed and volunteers became fully aware of the amount of work required, many examiners decided to drop out of the study without analyzing the first test packet. Additional examiners withdrew from the study over the course of the data collection period. Other examiners joined the study after it was underway."
+
+This description makes it impossible to reconstruct the number of packets completed in each round of the study, the number of participants who initially dropped out, the total number of participants recruited, and other quantities which are essential to calculate the participant drop-out rate. 
+In addition, there is no information given about how the participants who joined during the study were recruited, whether they meaningfully differ from those who were initially recruited, which participants (anonymized) completed each of the 6 rounds of the study, and so-on. 
+One of the biggest threats to statistical validity is the participant drop-out rate and the item nonresponse bias; failure to report information which could be used to reconstruct these values (or the full data from which study results are calculated, as is customary in other scientific disciplines) means that this study's reported rates for accuracy, repeatability, and reproducibility are utterly unreliable by scientific standards.
+Fundamentally, because these numbers are not reported, it is impossible to adjust observed data to account for nonresponse bias.
+Moreover, the authors of this series of papers identify that participants may have dropped out differentially due to concerns over the amount of work. 
+An alternate, plausible explanation is that, as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study, which would likely mean that had these participants not dropped out, the reported errors might be considerably higher.
+
+If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `r sprintf("%.2f%%", (1 - 173/256)*100)`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
+While this is not a completely accurate estimate of the drop-out rate for the entire study (some of the 173 participants were added after round 1, and the 256 initial recruits does not include these individuals), it is illustrative. 
+If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `r sprintf("%.2f%%", (1 - 79/173)*100)`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
+Of those who were initially recruited, only `r sprintf("%.2f%%", 1 - 79/256)` completed all six rounds of the study. 
+
+In addition, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
+Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item nonresponses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
+Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `r sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)` for bullets and `r sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
+This upper estimate is actually not a complete upper bound: another type of nonresponse is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
+In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
+We know that it is most likely somewhere between 0 and `r sprintf("%.2f%%", (1 - (10020+10110)/(256*30*6))*100)`, but we cannot provide statistically valid assurances for a specific number within this interval. 
+
+## Reliability
+
