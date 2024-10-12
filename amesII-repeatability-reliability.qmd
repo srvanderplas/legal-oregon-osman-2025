@@ -19,6 +19,9 @@ biblio-style: abbrvnat
 csl: bluebook-law-review.csl
 ---
 
+
+
+
 # Introduction
 
 Firearms and toolmark examination involves the visual comparison of a 'known' piece of fired ammunition with a corresponding 'unknown' in order to make a statement about the similarity or dissimilarity of the two items. 
@@ -69,10 +72,11 @@ Reliability is evaluated using error rate(s). Multiple rates may be considered: 
 - **reproduciblity** - the same comparison performed using a different instrument (examiner) must come to the same conclusion. This calculation also does not depend on the accuracy of the conclusion; all that is required is that the two examiners agree.
 
 
-### Reliability and Error Rates
+### Reliability and Error Rates {#sec-reliability-error-rates}
 
 PCAST indicates that as of the publication of that report, only one study was sufficient to estimate reliability, and in order for there to be sufficient evidence for foundational validity of toolmark examination, there must be at least two studies conducted by independent groups that are appropriately designed and statistically reliable.
 Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [See @cuellarMethodologicalProblemsEvery2024, which is also under review in Law, Probability, and Risk, and @ourAffidavit2022].
+PCAST cited the Ames 1 study as being sufficient to estimate reliability, overlooking concerns with the drop-out rate, nonresponse rate, and sampling methodology present in the study; these concerns have a large effect on the potential estimated error rate, and as a result, I disagree with the PCAST report's evaluation of Ames I as a reliable study, not primarily because of its design, but because of its sampling, execution, analysis, and complete reporting of study results.
 
 In addition to the experimental design and reporting concerns, there are significant concerns with how error rates are calculated in firearms examination error rate studies. 
 Most studies consider inconclusive results to be correct, which is in accordance with the AFTE Theory of Identification[^ctsincl], but, scientifically, this is sub-optimal and the subject of considerable debate in both the scientific  [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019;@inconclusives;@dorfmanInconclusivesErrorsError2022] and the legal community [@kayeToolmarkComparisonTestimonyReport2022]. 
@@ -84,8 +88,8 @@ Under this evaluation scheme, an examiner who turns in an answer sheet with ever
 
 
 At this time, only one study (published across several reports and journal articles) [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability], hereafter referred to as Ames II, examines the repeatability and reproducibility of visual firearms and toolmark comparisons. 
-While there are a significant number of flaws with the Ames II study, it is useful to specifically focus on the repeatability and reproducibility of firearms and toolmark examinations as they are conducted under the AFTE Theory of Identification. 
-Unfortunately, the published analysis of reproducibility and reliability is also flawed [@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the NIJ report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]. 
+While there are a significant number of flaws with the Ames II study, it is useful to specifically focus it as the most complete study presently published, with a particular focus on the repeatability and reproducibility of firearms and toolmark examinations as they are conducted under the AFTE guidelines. 
+Unfortunately, the published analysis of reproducibility and reliability is flawed[@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the NIJ report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]; here, we will primarily work with the published data. 
 The remainder of this assessment uses the data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
 
 
@@ -126,8 +130,113 @@ This description makes it impossible to reconstruct the number of packets comple
 In addition, there is no information given about how the participants who joined during the study were recruited, whether they meaningfully differ from those who were initially recruited, which participants (anonymized) completed each of the 6 rounds of the study, and so-on. 
 One of the biggest threats to statistical validity is the participant drop-out rate and the item nonresponse bias; failure to report information which could be used to reconstruct these values (or the full data from which study results are calculated, as is customary in other scientific disciplines) means that this study's reported rates for accuracy, repeatability, and reproducibility are utterly unreliable by scientific standards.
 Fundamentally, because these numbers are not reported, it is impossible to adjust observed data to account for nonresponse bias.
-Moreover, the authors of this series of papers identify that participants may have dropped out differentially due to concerns over the amount of work. 
-An alternate, plausible explanation is that, as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study, which would likely mean that had these participants not dropped out, the reported errors might be considerably higher.
+Moreover, the authors of this series of papers identify that participants may have dropped out due to concerns over the amount of work. 
+An alternate explanation is that as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study. 
+If this is the case, it seems reasonable that these participants might have had a higher error rate than those who continued with the study. 
+Statistically, the presence of a plausible alternate explanation for an effect of this magnitude is sufficient to question the overall results produced by the study. 
+
+```{r, include = F}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+reliability_orig <- read_csv("data/AmesII-reliability.csv")
+repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
+reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
+
+
+conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
+
+repeatability <- repeatability_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+
+repeatability_us <- repeatability |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+reproducibility <- reproducibility_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+  
+reproducibility_us <- reproducibility |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+reliability <- reliability_orig |>
+  filter(!str_detect(Eval, "Total")) |>
+  group_by(Type, Comparison) |>
+  rename(Count = Total) |>
+  mutate(Total = sum(Count), comparison_pct = Count/Total*100)
+
+reliability_us <- filter(reliability, Eval == "US")
+
+reliability_csdr <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(csd = (Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL")) |>
+  group_by(Type, Comparison) |>
+  mutate(Total = sum(Count)) |>
+  ungroup() |>
+  group_by(Type, csd) |>
+  summarize(Count = sum(Count)) |>
+  group_by(Type) |>
+  mutate(csdr = Count/sum(Count)*100) |>
+  filter(csd) |>
+  select(Type, csdr)
+
+reliability_sens_spec <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = !((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_sens <- filter(reliability_sens_spec, Comparison == "SS")
+reliability_spec <- filter(reliability_sens_spec, Comparison == "DS")
+
+
+reliability_fp_fn <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "EL") | (Comparison == "DS" & Eval == "ID"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_fn <- filter(reliability_fp_fn, Comparison == "SS")
+reliability_fp <- filter(reliability_fp_fn, Comparison == "DS")
+
+reliability_ppv_npv <- reliability |>
+  filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Eval) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_ppv <- filter(reliability_ppv_npv, Eval == "ID")
+reliability_npv <- filter(reliability_ppv_npv, Eval == "EL")
+```
 
 ```{r, include = F}
 first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
@@ -136,19 +245,78 @@ recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
 bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
 cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
 overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
+
+
 ```
 
 If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `{r} first_round`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
 While this is not a completely accurate estimate of the drop-out rate for the entire study (some of the 173 participants were added after round 1, and the 256 initial recruits does not include these individuals), it is illustrative. 
 If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `{r} first_to_last_round`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
-Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study. 
+Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study.
+Science relies on shared data; that the authors of this study have not published anonymized data which allows others to calculate these measures precisely is another indication that the study was not conducted in line with scientific best practices. 
 
-In addition, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
+In addition to the participant drop-out rate, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
 Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item nonresponses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
 Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
 This upper estimate is actually not a complete upper bound: another type of nonresponse is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
 In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
 We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
 
+## Unsuitable Evidence
+Unsuitable evidence, according to the examples provided by the AFTE range of conclusions, is fragmented or severely damaged to the point where it has no value for comparison. 
+As even misshapen bullets with no microscopic characteristics can still be weighed to establish class characteristics such as caliber, it seems that unsuitable must be reserved for fragmented, incomplete evidence. 
+The authors of the Ames II study describe the procedures used to ensure the fired ammunition was collected with minimal incidental damage - bullets were fired into a water tank and cartridges caught with a net; between study rounds, bullets were cleaned carefully and any debris or markings were removed. 
+The authors devote considerable care to describing the process of designing the experiment and collecting the data; surely they would have mentioned any damaged bullets recovered and included in the test kits as evidence of the realism of the study design. 
+The lack of any documentation, combined with the general care with which the exemplars for the study were collected, suggest that any fired ammunition in the test kits were not fragmented or damaged.
+
+Each lab has protocols determining how the AFTE range of conclusions is applied, including whether an examiner may eliminate based on individual characteristics. 
+Furthermore, each examiner has their own individual standards for each category in the AFTE range. 
+As a result, the notion that there is a uniform evaluation process in firearms examination is, ultimately, a fiction.
+This does not, of course, preclude estimation of a discipline-wide error rate, but as unsuitable evaluations are  excluded from subsequent error rate calculations in these studies, it is worth considering unsuitable evaluations on their own.
+Given the examples of unsuitable evidence in the AFTE range of conclusions, examiners trained to compare minuscule details in fired ammunition should be able to identify whether evidence is too damaged to compare with an incredibly high rate of correspondence; that is, the repeatability and reproduciblity rates should be extremely high. 
+
+@monsonAccuracyComparisonDecisions2023 reports that in the first round, between `{r} sprintf("%0.2f%%", min(reliability_us$comparison_pct))` and `{r} sprintf("%0.2f%%", max(reliability_us$comparison_pct))` of comparisons were labeled as unsuitable.
+More interesting is whether examiners agree with their own previous evaluations (repeatability) or the evaluations of other examiners as to the suitability of the evidence for comparison. 
+We would expect that unsuitable evidence would be unsuitable even upon further examination; there should be little ambiguity in this categorization compared with the choice to use one of the 3 subcategories of inconclusive, for example. 
+However, @monson2023repeatability reports that examiners evaluated suitability differently `{r} sprintf("%0.2f%%", repeatability_us$Conflict)` of the time when examining the same evidence (computed across ground truth and evidence type). 
+Examiners should be using the same lab protocol and individual standards for unsuitability determinations, and there should be minimal ambiguity in suitability both due to the experimental design and the severity of the examples of unsuitable evidence in the AFTE range of conclusions.
+When different examiners evaluated the same comparisons ("reproducibility"), the rate of disagreement across ground truth and evidence type was `{r} sprintf("%0.2f%%", reproducibility_us$Conflict)`, which is slightly higher than the repeatability estimate, which would be expected given the variability in examiner standards and protocol across labs. 
+
 ## Reliability
+
+The AFTE range of conclusions provides categories beyond those corresponding to ground truth, which complicates the calculation of error rates, as described in @sec-reliability-error-rates. 
+We can evaluate the reliability of firearms examination using many different metrics:
+
+- Correct Source Decision Rate: The number of comparisons which are correctly identified (for same source) or eliminated (for different source), divided by the total number of comparisons. @monsonAccuracyComparisonDecisions2023 reports the CSDR for bullets and cartridges as `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])`, respectively. Higher values indicate better methods.
+
+- Sensitivity and Specificity:
+
+  - Sensitivity: Ability to correctly identify same-source evidence. Strictly calculated as the number of same-source identifications divided by the total number of same source comparisons (e.g. inconclusives are not consistent with ground truth). Under this definition, the Ames II accuracy study obtained sensitivity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_sens$rate[1], reliability_sens$rate[2])`, respectively. Higher values are better. 
+
+  - Specificity: Ability to correctly identify different-source evidence, calculated as the number of different source eliminations divided by the total number of different source comparisons. Under this definition, the Ames II accuracy study observed specificity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_spec$rate[1], reliability_spec$rate[2])`, respectively.  Higher values are better.
+
+
+- False positive rate (FPR) and False negative rate (FNR):
+
+  - FPR: Probability of making an identification when examining a different-source comparison. Under this definition, @monsonAccuracyComparisonDecisions2023 observed false positive rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fp$rate[1], reliability_fp$rate[2])`, respectively. Lower values are better. 
+  
+  - FNR: Probability of making an elimination when examining a same-source comparison. Under this definition, the Ames II accuracy study observed false negative rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fn$rate[1], reliability_fn$rate[2])`, respectively.  Lower values are better. 
+  
+- Positive predictive value (PPV) and negative predictive value (NPV):
+
+  - PPV: Probability that when an examiner makes an identification, the comparison is same-source, calculated as the number of same-source identifications divided by the total number of identifications.  Under this definition, examiners in the Ames II accuracy study making an identification have a `{r} sprintf("%.2f%% and %.2f%%", reliability_ppv$rate[1], reliability_ppv$rate[2])` chance that the comparison is same-source for bullets and cartridges, respectively. Higher values are better. 
+  
+  
+  - NPV: Probability that when an examiner makes an elimination, the comparison is different-source, calculated as the number of different-source eliminations divided by the total number of eliminations.  Under this definition, examiners in the Ames II accuracy study making an elimination have a `{r} sprintf("%.2f%% and %.2f%%", reliability_npv$rate[1], reliability_npv$rate[2])` chance that the comparison is different-source comparison for bullets and cartridges, respectively. Higher values are better. 
+  
+Fundamentally, the discrepancy between the relatively low FPR/FNR and high PPV/NPV, which indicate that the method is reasonably reliable, and the low sensitivity/specificity and correct source decision rate is due to the treatment of inconclusive decisions. 
+Examiners argue that inconclusive decisions should not be considered errors, as often, there are insufficient markings available to make a conclusive decision in either direction; in addition, some laboratories do not allow examiners to eliminate based on individual characteristic mismatches, leaving examiners with no choice but to label a comparison as inconclusive-C.
+On the other hand, under this philosophy, an examiner could label every comparison as inconclusive and report a 0% error rate, which is clearly ridiculous. 
+In medicine, patients with inconclusive tests can be sent back to the lab for a repeat test or a test with a higher resolution, but forensic examiners do not have this option. 
+As a result, the discipline must wrestle with the proper way to evaluate the effectiveness of the examination method, and so far, there has been little consensus.
+Automatic evidence evaluation algorithms which automatically evaluate bullet and cartridge case scans tend not to have an inconclusive option, and perform with low error rates [@hare2017automatic;@krishnanAdaptingChumbleyScore2019;@zemmelsStudyReproducibilityCongruent2023;@chenFiredBulletSignature2019].
+Firearms examination could be considerably more reliable (and could dispense with the inconclusive option) by utilizing these tools to provide quantitative, repeatable, and objective evaluations of evidence.
+There is little incentive to adopt these measures, however, until examiners are held to higher standards that encourage conclusive decisions. 
+
+
 
