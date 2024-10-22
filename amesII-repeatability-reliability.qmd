@@ -89,7 +89,7 @@ Under this evaluation scheme, an examiner who turns in an answer sheet with ever
 
 At this time, only one study (published across several reports and journal articles) [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability], hereafter referred to as Ames II, examines the repeatability and reproducibility of visual firearms and toolmark comparisons. 
 While there are a significant number of flaws with the Ames II study, it is useful to specifically focus it as the most complete study presently published, with a particular focus on the repeatability and reproducibility of firearms and toolmark examinations as they are conducted under the AFTE guidelines. 
-Unfortunately, the published analysis of reproducibility and reliability is flawed[@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the NIJ report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]; here, we will primarily work with the published data. 
+Unfortunately, the published analysis of reproducibility and reliability is flawed[@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the final grant report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]; here, we will primarily work with the published data. 
 The remainder of this assessment uses the data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
 
 
@@ -98,6 +98,9 @@ The remainder of this assessment uses the data reported in @monsonPlanningDesign
 ## Overall Study Design
 Ames II was designed to answer some of the primary objections raised in the PCAST and NRC reports to error-rate studies in firearms and toolmark analysis. 
 The study's design is extremely complicated, going to extreme lengths to vary the number of same-source and different-source comparisons while ensuring that no test kit contained sets which could be combined to gain additional information outside of the experimental design.
+While this is not a bad thing, this additional complexity makes it difficult to reconstruct information about the study's conduct; in addition, in the interests of confidentiality, the study authors have not released results which would be necessary to conduct different analyses on the collected data, such as individual result sheets or kits for each round of the study.
+In this respect, the study's design is a net negative, as it is not possible to fully understand or assess the study due to the combination of unpublished results and a complicated experimental design. 
+
 
 ### Firearms
 The study used Beretta and non-Beretta firearms (Jimenez slides for cartridge case comparisons, Ruger barrels for bullet comparisons). 
@@ -140,12 +143,15 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(RColorBrewer)
 reliability_orig <- read_csv("data/AmesII-reliability.csv")
 repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
 reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
 
 
 conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
+
+res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
 
 repeatability <- repeatability_orig |>
   filter(!str_detect(X1st.eval, "Total")) |>
@@ -262,6 +268,14 @@ This upper estimate is actually not a complete upper bound: another type of nonr
 In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
 We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
 
+## Analysis Methods
+
+The Ames II journal articles and reports present both the tabulated results of the experiment and analyses which attempt to provide context or a basis for statistical inference. 
+Unfortunately, the analyses presented in the repeatability and reproducibility paper have been shown to be inappropriate [@dorfmanReAnalysisRepeatabilityReproducibility2022]; the authors had time to address these complaints, which were based on the NIJ final grant report, but chose not to do so and instead published the same analysis in their peer-reviewed articles. 
+While there are problems with the expected agreement analysis in @monson2023repeatability, a plain examination of the tabular results is sufficient to demonstrate that firearm and toolmark analysis as performed using  AFTE standards and conclusions has major threats to scientific validity, even ignoring the issues outlined in the previous section that are common to all firearms black-box studies. 
+As a result, this assessment will focus solely on simple probability calculations from tabular results reported in the series of Ames II publications. 
+
+
 ## Unsuitable Evidence
 Unsuitable evidence, according to the examples provided by the AFTE range of conclusions, is fragmented or severely damaged to the point where it has no value for comparison. 
 As even misshapen bullets with no microscopic characteristics can still be weighed to establish class characteristics such as caliber, it seems that unsuitable must be reserved for fragmented, incomplete evidence. 
@@ -281,6 +295,7 @@ We would expect that unsuitable evidence would be unsuitable even upon further e
 However, @monson2023repeatability reports that examiners evaluated suitability differently `{r} sprintf("%0.2f%%", repeatability_us$Conflict)` of the time when examining the same evidence (computed across ground truth and evidence type). 
 Examiners should be using the same lab protocol and individual standards for unsuitability determinations, and there should be minimal ambiguity in suitability both due to the experimental design and the severity of the examples of unsuitable evidence in the AFTE range of conclusions.
 When different examiners evaluated the same comparisons ("reproducibility"), the rate of disagreement across ground truth and evidence type was `{r} sprintf("%0.2f%%", reproducibility_us$Conflict)`, which is slightly higher than the repeatability estimate, which would be expected given the variability in examiner standards and protocol across labs. 
+
 
 ## Reliability
 
@@ -319,4 +334,79 @@ Firearms examination could be considerably more reliable (and could dispense wit
 There is little incentive to adopt these measures, however, until examiners are held to higher standards that encourage conclusive decisions. 
 
 
+## Repeatability
 
+Repeatability is another measurement of whether a method is scientifically valid: if the same inputs do not produce the same outputs when the same process is performed, this signals that there is a level of randomness in the process. 
+Ideally, this randomness is extremely small: a deterministic computer procedure might fail to produce the same results 0.001% of the time, but this is an acceptably small level of inconsistency. 
+Ames II is the only study which evaluated repeatability - in a 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5). 
+As the experimenters did not share the full data from the study or even the full design specification that would indicate how, exactly, the replication process was determined, we must be content with analyzing the tabulated data provided in @monson2023repeatability. 
+
+Almost 2% of the repeated evaluations involved a mis-match in suitability assessment, but if we condition on the comparison being rated as suitable for evaluation both times, we can assess whether an examiner comes to the same conclusion given the same evidence (and same instrument, lab protocols, and evaluation criteria).
+There are twenty five different possible outcomes when a kit is evaluated twice: each of the five AFTE conclusions could occur during either examination. 
+Evaluating what each of these different combinations means can be very confusing, so in the interests of interpretability, we will start off with a calculation that should be favorable to FATM examiners: given that the first examination was an identification, what is the probability that the second is also an identification?
+Examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations a bit more complicated to evaluate.
+
+Repeatability does not consider the correctness of the decision: we are more interested in consistency at this point than accuracy. 
+There were 665 evaluations which were both identifications, and 740 first evaluations which were identifications, for same-source bullets; for different-source bullets, there were 2 double-identifications out of 19 which were identifications on the first evaluation. 
+If an examiner makes an identification, there is a $100\times \frac{665+2}{740+19}$ = `r sprintf("%.02f%%", 100*(667/759))` chance that a second evaluation will also be an identification. 
+That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence (with at least ~6 weeks or more between examinations). 
+While other non-identification options include inconclusives (and inconclusive-A, which indicates significant, but insufficient, similarity), this result indicates that examiners individually held thresholds are not even internally consistent. 
+Even if examiners have to make a judgment call to decide between identification and inconclusive A, a single examiner's threshold is variable enough that they do not make the same call in over 10% of repeated evaluations.
+Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
+
+```{r}
+#| label: tbl-conditional-repeatability
+#| tbl-cap: Repeatability of an examiner's second decision, given that the first decision ("Evaluation 1") is specified, across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34%. 
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+repeatability |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  pivot_wider(names_from = Type, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  kable()
+```
+
+## Reproducibility
+
+As with repeatability, reproducibility does not consider the correctness of a decision; rather, reproducibility assesses whether different examiners come to the same conclusion given the same evidence.
+There is more variability in reproducibility - different examiners may have different microscopes, or work under different lab policies; in addition, each examiner's training and experience are different, and the AFTE standard is explicitly designed around an examiner's experience. 
+As a result, we would expect reproducibility to be lower than repeatability, because of the increase in variability when different examiners are included.
+As with repeatability, we will take a simple approach to examining Ames II's reported results by considering the second examiner's decision given (statistically, conditioned on) the first examiner's decision. 
+
+```{r}
+#| label: tbl-conditional-reproducibility
+#| tbl-cap: Reproducibility of an examiner's decision. Given the first examiner's decision ("Evaluation 1"), we calculate the probability that the second examiner agrees with the first, across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), reproducibility is below 85%; when Inconclusive-A is the initial decision, repeatability is below 15% for bullets and even lower for cartridge cases. Reproducibility, unlike repeatability, seems to be different for cartridge cases than bullets.  
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+reproducibility |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  pivot_wider(names_from = Type, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  kable()
+```
+
+# Conclusion
+
+Ultimately, firearms and toolmark analysis has a scientific validity problem. 
+Under the best conditions, an examiner makes a different conclusion than they previously made more than 10% of the time; a different examiner would come to a different conclusion under those same circumstances more than 17% of the time. 
+While firearms and toolmark examiners like to promote low error rates, these error rates are a mirage - a combination of carefully specified calculations and blindness to issues of nonresponse and drop-out rates which combine with the imprecise AFTE range of conclusions to lead triers of fact to conclude that firearms and toolmark examination is a scientific discipline, similar to DNA comparisons in both error rate and scientific validity. 
+It is not. 
+While the underlying evidence may be reliable, a straightforward look at the reliability, repeatability, and reproducibility measurements reported in the Ames II publications suggests that as a whole, the current practice of visual examination and subjective evaluation is not using that evidence effectively. 
+Quantitative, repeatable, reproducible algorithms that have been validated for use on firearms and toolmark evidence provide the same general benefit (the ability to link evidence to tools) with less variability, more objectiveness, and better scientific validity. 
+Moreover, open-source algorithms that are freely available can be tested by external researchers, and their performance evaluated on new datasets, without the time and expense that goes into studies like Ames II. 
+While labs would have to invest time into developing protocols for the use of these algorithms and money into digital microscopes, these investments are small compared to the societal costs of errors in either direction made by subjective evaluations of evidence.
+Until such time as FATM examination adopts more quantitative, objective, scientific tools, the "best" black-box error rate study in the field serves to demonstrate the staggering lack of scientificity in current practice.

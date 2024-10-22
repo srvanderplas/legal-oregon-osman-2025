@@ -59,7 +59,7 @@ ames2_agreement_sum <- ames2_agreement |>
   summarize(Count = sum(Count)) |>
   bind_rows(
     select(ames2_suitable, Type, Comparison, Count = Discordant) |>
-      mutate(res = 5)
+      mutate(res = -5)
   ) |>
   arrange(Type, Comparison, res) |>
   mutate(res = factor(res, levels = res_labels, labels = names(res_labels), ordered = T)) |>
@@ -70,7 +70,7 @@ ames2_agreement_sum <- ames2_agreement |>
 
 ggplot(ames2_agreement_sum, aes(y = 1, weight = Prop, fill = res)) + 
   stat_count() + geom_bar(color = "black") +
-  facet_nested(Type + Comparison~., switch = "y") +
+  facet_nested(Comparison + Type ~., switch = "y") +
   scale_x_continuous("Proportion of Responses", minor_breaks = seq(0, 10)/10)  + 
   scale_fill_manual("Rating Change", values = res_scale) +
   theme(axis.ticks.y = element_blank(), 
@@ -113,3 +113,5 @@ ggplot(ames2_agreement_inc_same, aes(y = 1, weight = Prop, fill = res)) +
         legend.position = "top",
         legend.byrow = T) 
 
+
+library(ggpcp)
