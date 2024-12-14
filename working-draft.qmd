@@ -24,13 +24,18 @@ csl: bluebook-law-review.csl
 
 # Statement {.unnumbered}
 
-I declare under penalty of perjury and pursuant to Colorado law that the following is true and accurate to the best of my knowledge.
+We declare under penalty of perjury and pursuant to Colorado law that the following is true and accurate to the best of my knowledge.
 
 \vspace{.5in}
 \begin{minipage}{.495\linewidth}
 \rule{4cm}{0.4pt}
 
 Susan Vanderplas
+\end{minipage}
+\begin{minipage}{.495\linewidth}
+\rule{4cm}{0.4pt}
+
+Heike Hofmann
 \end{minipage}
 
 
@@ -42,12 +47,15 @@ Susan Vanderplas
 
 {{< include quals/susan-quals.qmd >}}
 
+{{< include quals/heike-quals.qmd >}}
 
 # Executive Summary
 
 
 
 # Introduction - Firearm and Toolmark Error Rates
+
+<!-- Summary: While there are many firearms studies, they all have significant flaws.  -->
 
 There are an impressive array of existing studies of the "validity" of firearms and toolmark comparisons [@keislerIsolatedPairsResearch2018] [@lightstonePotentialPersistenceSubclass2010] [@rivaObjectiveEvaluationSubclass2017] [@bunch2003comprehensive] [@mayland_validation_2012] [@duezDevelopmentValidationVirtual2018] [@pauw2013faid] [@neel2007comprehensive] [@hambyWorldwideStudyBullets2019] [@gouwe2008comparison] [@girouxEmpiricalValidationStudy2009] [@stromanEmpiricallyDeterminedFrequency2014] [@lyonsIdentificationConsecutivelyManufactured2009] [@mattijssenValidityReliabilityForensic2020] [@smithValidationStudyBullet2016] [@monsonAccuracyComparisonDecisions2023] [@chapnickResults3DVirtual2021] [@guyllValidityForensicCartridgecase2023] [@baldwinStudyExaminerAccuracy2023] across different firearms, ammunition types, types of marks made, and even across different countries with different protocols for training and firearms and toolmark examination.
 As statisticians, however, we have significant qualms with the state of error rate studies in firearms and toolmark examination.
@@ -57,9 +65,6 @@ Furthermore, all of the studies we are aware of which are applicable to the stat
 Here, I will lay out some of the fundamental problems with the state of firearms and toolmark examination error rate studies.
 I approach these problems both as a statistician who has experience in the design and conduct of scientific experiments and as a researcher in statistical applications to forensic evidence.
 I have worked extensively with forensic examiners, metrologists, and other subject-matter experts, and I have an understanding of both the process of firearms and toolmark examination and the statistical underpinnings of estimation of error rates.
-
-This assessment is an update of a brief submitted in @ourAffidavit2022 to incorporate studies published since that brief was submitted as well as some of the arguments made in response [@FBIResponse2022] [@BBCResponse2022].
-This updated version incorporates some of the responses as well as additional studies which have been published since the original brief was written.
 
 For the most part, even groups who strongly disagree on some points of error rate study interpretation can agree on the following:
 
@@ -82,11 +87,20 @@ I begin by establishing the characteristics which are required for a scientifica
 
 # Conceptual Overview of Study Design Characteristics
 
+::: {.callout-tip icon=false}
+#### Summary
+
+Good experiments must be designed without structural biases.
+Studies should ensure that participants have the opportunity to make every type of error, without using structural information that is not available during casework.
+The best studies use a "kit" design that provides sets of known-unknown comparisons where there is one unknown and one known firearm (there may be multiple fired components from each weapon). 
+It is also critical that experiments record the rate of participant drop-out and the rate of item non-response (leaving questions blank).
+Studies which omit these critical components do not produce statistically reliable error rate estimates. 
+:::
+
 A statistical estimate is only as reliable as the data used to generate that estimate.
-In the case of black-box studies, this data has two sources: the types of comparisons included in the study, and the examiners who participate in the study.
+Here, we focus primarily on characteristics of the experiment: the study design, how experimenters recruit participants, and how participant responses are reported. 
 
 ## Participant Selection
-
 
 In order for statistical estimates to be unbiased, the participants selected from the population to participate in the study (the sample) must be representative.
 The best way to ensure that a sample is representative is to randomly select this set of participants from the population.
@@ -105,7 +119,7 @@ It is extremely important that when reporting study results, authors clearly sta
 Studies should be designed in such a way as to directly evaluate the desired conclusions and/or produce the desired numerical estimates.
 If a study is intended to assess the false positive error rate of firearms and toolmark evaluation, then examiners need to have the opportunity to make a false positive error.
 While this seems straightforward, many common firearms and toolmark black-box study designs do not allow for estimation of the number of different-source comparisons, which ensures that it is not possible to calculate the overall error rate, the correct source decision rate, or the true negative rate (the specificity).
-This problem is detailed at length in @inconclusives as well as in the PCAST [@pcast] and National Research Council [@nrc] reports.
+This problem is detailed at length in @inconclusives as well as in the PCAST [@pcast] and National Research Council [@NRCStrengthening2009;@NRCBallisticImaging2008] reports.
 A well designed black-box study should have a defined number of pairwise comparisons, where each comparison is completed by the examiner with no possibility of eliminating comparisons based on the structure of the test set.
 In practice, this means that black-box studies should be open set studies (no guarantee that an unknown item matches any provided knowns in the set) and should involve the comparison of one standard (known sample) and one or more unknown samples at a time.
 
@@ -119,7 +133,7 @@ It is difficult (and sometimes, impossible) to reconstruct the full set of aggre
 Experimenters should provide data at the individual level if it is possible to do so without identifying participants, and if this is not possible, data should be provided at the lowest level of aggregation which maintains participant anonymity.
 To date, this condition has not been met by any validation study in the field of firearms and toolmark analysis.
 
-## Common Black-Box Study Designs
+### Common Black-Box Study Designs
 
 In firearms and toolmark validation studies, there are several characteristics that are found across multiple studies; here, we provide a brief summary.
 
@@ -141,7 +155,15 @@ An improvement on the open-set study design discussed above is to restrict the e
 This design is the most reliable design used in studies to date [@baldwinStudyExaminerAccuracy2023; @lawEvaluatingFirearmExaminer2021; @baldwinStudyFalsePositiveFalseNegative2014; @keislerIsolatedPairsResearch2018; @guyllValidityForensicCartridgecase2023; @monsonAccuracyComparisonDecisions2023;@mattijssenValidityReliabilityForensic2020;@pauw2013faid], because it allows for direct calculation of the number of comparisons performed by each examiner and does not allow for any structural information to be deduced by the examiner beyond the comparisons that are to be performed.
 While these studies are the "gold standard" in terms of study designs, simply having the proper study design does not ensure that the error rate estimates produced by the study are reliable or should be generalized to firearms comparisons as a whole.
 
-## Types of Validity
+# Types of Statistical Validity
+
+::: {.callout-tip icon=false}
+#### Summary
+
+Statistical **validity** measures how well a study represents reality. 
+No one experiment will meet all validity conditions; science instead depends many studies conducted using different methods, experimental designs, and participants to establish **convergent validity**. 
+Convergent validity does not exist when there are common flaws shared by every study performed, as in the case of firearms examination.
+:::
 
 <!-- Why validity matters -->
 
@@ -206,46 +228,67 @@ This type of validity affects both internal and external validity, because the r
 It is worth noting that almost any experiment conducted will not have perfect internal, external, statistical, construct, and ecological validity.
 However, if multiple experiments have been conducted on the same basic topic, it is important to assess whether the total set of experiments collectively demonstrates each type of validity.
 This is one condition necessary to obtain **convergent validity** [@BBCResponse2022 pg 21].
-The validation studies which currently exist have consistent flaws that are persistent across all studies; as a result, it is not possible to take the total set of validation studies and argue that they have convergent validity.
 
-<!-- Kori Comments: I uploaded the emails. I don't like submitting emails to others for public record without telling the other parties involved. So, if we want to include it, I'll reach out to Max first. I think it's okay to not include it as well, since we are swearing these things are true. -->
+![Each study may have some validity problems. Ideally, several studies conducted using different methods would have no common problems, and in aggregate these studies would provide convergent validity. Firearms examination black-box studies have several common flaws, and as a result, we cannot conclude that the overall discipline is sound based on existing studies.](Swiss_cheese.png){#fig-swiss}
+
+An analogy is helpful here: each study may have a few holes, much like Swiss cheese (@fig-swiss).
+When multiple studies are considered together, hopefully, these holes occur in different places; as a result, the total set of studies might be considered to be valid if they reach similar conclusions despite different flaws.
+If every study has the same flaws, however, there will be a hole that goes all the way through the stack of cheese slices.
+The result of an aggregated group of similarly flawed studies does not have convergent validity, even if the studies reach similar conclusions. 
+This is the situation that currently exists with black-box studies of firearms examination: all studies have consistent, repeated flaws. 
+As a result, it is not possible to take the total set of validation studies and argue that they have convergent validity.
+
+In the next sections, we highlight specific threats to validity common across the different studies of firearms examination error rates. 
 
 # Sampling: Threats to External Validity
 
 ## Participant Sampling
+
+::: {.callout-tip icon=false}
+#### Summary
+
+Studies which do not use a representative sample of participants from the population cannot reliably generalize results from the study to the full population. 
+To date, there are no studies which use random sampling from a defined population of firearms examiners. 
+As a result, error rates from these studies are not representative of the overall error rate of firearms examination.
+:::
 
 One of the primary concerns with error rates provided by "well-designed" studies is that even well designed, well-executed studies cannot compensate for sampling bias in the participant pool.
 **Sampling bias** occurs when some members of the population are more likely to be selected to be part of the experiment; the results of a biased experiment will more closely resemble these members of the population.
 That is, no matter how well the experiment is laid out, if the participants are not a representative sample from the population (in this case, all qualified firearms examiners in the United States), the results of the study do not generalize to that population.
 
 Participant sampling problems represent a threat to **external validity**.
-This principle is taught in even basic undergraduate statistics courses; it is fundamental to our discipline.
-One of the easiest ways to ensure that a sample is representative is to randomly select participants from the population; a more labor-intensive option is to conduct a full census of the population at a certain time; in both cases, however, the experimenters must then use their selection criteria to argue that the study sample is representative of the population.
+This principle is taught in even introductory undergraduate statistics courses; it is fundamental to our discipline.
+One of the easiest ways to ensure that a sample is representative is to randomly select participants from the population; a more labor-intensive option is to conduct a full census of the population at a certain time.
+In both cases, the experimenters must use their selection criteria to argue that the study sample is representative across important aspects of the population.
 
 Fundamentally, because all but one current black-box studies use volunteers, it is likely that the participants in these studies  meaningfully differ from those who did not volunteer to participate.
-Some of these differences are likely not related to the error rates estimated by the studies, but there are many potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
-For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
-In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018].
 The one non-volunteer study that exists @neumanBlindTestingFirearms2022 describes the results of a blind testing program implemented at Houston Forensic Science Center; while its results cannot be generalized beyond HFSC, it does provide a unique perspective on error rates in firearms and toolmark comparisons.
 By the nature of blind testing (participants are unaware the case they are working on is a test), participants do not self-select into the study; they are included as a condition of their employment.
+
+In all of the remaining black-box studies, many of the potential differences between volunteers and the general population likely have no impact on estimated error rates, but there are many potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
+For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
+In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018].
+
 
 Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
 Thus, these examiners would be over-represented in the study-wide estimate of the error rate, in that they account for fewer cases than the examiners who do not have time to participate in a voluntary study.
 As a result, the estimated error rate from the study would not be representative of the error rate of all examiners.
+
+It is important to note that we cannot tell which of these effects may be true: both are plausible, but without a random selection method, studies are vulnerable to many different arguments about systematic participant selection bias.
+When participants are randomly selected from the population, these effects may still exist due to sampling variability, but over many studies, small biases in any direction will cancel out, and even in single studies, we can estimate the effect of sampling variability. 
 There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation.
 
 An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which leads to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership boards).
 There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^ [@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
 
-The presence of a confounding variable (a variable whose effect on the response cannot be separated from the explanatory variable) is sufficient to remove our ability to make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable) [Section 4.1 Summary, @tintle2015introduction].
+The presence of a **confounding variable** (a variable whose effect on the response cannot be separated from the explanatory variable) ensures that researchers cannot make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable) [Section 4.1 Summary, @tintle2015introduction].
 Thus, statisticians acknowledge the presence of a confounding (or "lurking") variable (in this case, an examiner's experience, duty, education, confidence, and available time) that might co-vary with the dependent variable (in this case, the likelihood that an examiner self-selects into a study).
 These statements are almost always hypothetical because the presence of such a variable precludes decisive statements [^5].
 In this case, the presence of such lurking variables without the ability to compare the volunteer sample's demographics to the wider demographics of the population makes it logically difficult to argue that results from a self-selected sample can be generalized to the population.
 
  [^5]: One easy example of a lurking variable is that the number of baby births are correlated with the number of storks in European countries.
     It would be relatively easy to falsely draw the conclusion that storks are associated with babies, but this ignores the lurking variable of the geographic size (and population size) of the country.
-    Causation cannot be inferred when there are lurking variables or when the study is observational in nature.
-    @mayyasiStorksDeliverBabies2014
+    Causation cannot be inferred when there are lurking variables or when the study is observational in nature. @mayyasiStorksDeliverBabies2014
 
 Current methods for recruitment in black-box studies preclude generalization to the whole population; any study only speaks for the error rate of the participants of that study.
 Random selection of participants mitigates these potential biases by ensuring that any differences in the sample of selected participants are the product of random assortment - while any single experiment might have a random sample of participants who are not fully representative of the population, each experiment's different samples will produce overall unbiased results.
@@ -289,13 +332,14 @@ While many scientific journals rely on peer review to identify and correct these
 However, all journals rely on the study's authors to describe the study recruitment and selection methods clearly and in detail.
 This does not typically happen in validation studies.
 
-Participant sampling bias affects all studies conducted in the United States to date.
+Participant sampling bias affects **all studies conducted in the United States to date**.
 Currently, there is no way to randomly sample all qualified examiners and compel them to participate, in part because research participation must be voluntary in the United States. [^7] 
 This problem is less pervasive in Europe, where lab certification and validation studies are conducted to assess this type of error rate and certification is conditioned upon participation.
 
  [^7]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
     Voluntary participation is somewhat difficult to define; for instance, some error rate studies mention that participants were compelled to participate by their employer: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
-    I am not an expert in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
+    We are not experts in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
+    Researchers might be able to use a cluster sampling approach, sampling first the laboratories accredited by an outside organization and then sampling from within each lab to get participants. While this approach is not a simple random sample, it may provide a more representative approach to sampling from the population of examiners employed by accredited laboratories, and would thus produce results which could be generalized to that population. 
 
 Statistically, what is required for external validity is to argue that the sample is **representative** of the population characteristics.
 This burden falls on the experimenters; it is up to them to make the affirmative argument that the sample is representative of the population.
