@@ -242,6 +242,13 @@ In the next sections, we highlight specific threats to validity common across th
 
 # Sampling: Threats to External Validity
 
+::: {.callout-tip icon=false}
+#### Summary
+The design and conduct of studies of firearms examination contain numerous threats to the external validity of estimates of the error rate. 
+Participants are volunteers, have high drop-out rates, and frequently do not answer all of the questions, and study authors often do not provide enough information to assess the impact of these issues on the error rate. In addition, most studies are designed to test firearms and ammunition combinations that "mark well", even though casework may involve combinations which do not have this feature. 
+As a result, error rate estimates produced by existing studies likely under-estimate the error rate of firearms examination methods. 
+:::
+
 ## Participant Sampling
 
 ::: {.callout-tip icon=false}
@@ -357,6 +364,15 @@ To support this, it might be helpful if accrediting organizations maintained a r
 ```
 ## Material Sampling
 
+::: {.callout-tip icon=false}
+#### Summary
+
+Generalizing error rate studies to casework requires a broad range of studies that include both studies involving consecutively manufactured firearms and studies of multiple nonconsecutively manufactured firearms. 
+Studies also must compare marks made by the same firearms using different types of ammunition. 
+Data reporting the types of firearms and ammunition present in casework also must be made available to researchers. 
+Without studies which establish these facts and compare existing studies to casework in the relevant jurisdiction, we cannot generalize the results of existing studies to the discipline as a whole. 
+:::
+
 Scientists want to derive knowledge that is generalizable to the population, that is, our goal is (usually) external validity.
 The population includes all decisions made from a combination of one or more firearms of interest, and the ammunition that interacts with those firearms.
 This combination of characteristics is then evaluated by an examiner.
@@ -368,37 +384,38 @@ This is a known issue mentioned in the 2009 NRC report [@NRCStrengthening2009]; 
 
 Many black-box studies are performed on a single type of firearm and a single type of ammunition.
 In some cases, these firearms are consecutively manufactured, which allows firearms examiners to prove that they can distinguish individual firearms on the basis of fine details, even when these firearms are manufactured closely in time.
-However, this does reduce the generalizability of the conclusions from these small studies: by examining only firearms of the same make and model manufactured closely in time, researchers lose the ability to make broad, sweeping claims about the discipline as a whole.
+However, consecutive manufacturing reduces the generalizability of the conclusions from these small studies: by examining only firearms of the same make and model manufactured closely in time, researchers lose the ability to make broad, sweeping claims about the discipline as a whole.
 Some studies explicitly document that small manufacturing companies with limited operations (and thus generalizability to the wider population) were selected because it was more convenient to obtain consecutively manufactured components [@lyonsIdentificationConsecutivelyManufactured2009].
 
-The FBI's response to a previous brief [@FBIResponse2022] suggests that rather than focusing on every combination of firearm and ammunition, it is important to instead ensure that there are studies across different firearm or tool manufacturing methods, and I largely concur with this assessment.
+The FBI's response to a previous brief [@FBIResponse2022] suggests that rather than focusing on every combination of firearm and ammunition, it is important to instead ensure that there are studies across different firearm or tool manufacturing methods, and we largely concur with this assessment.
 However, it is important for those conducting such studies to identify the manufacturing method and to list the types of weapons a study might be reasonably applied to on the basis of similar manufacturing.
 That is, the authors of a study should be responsible for outlining the reasonable scope of generalization for a study, and this should be explicitly stated in the discussion of the study's results.
+To support this assessment, examiners should publish the rates of firearms confiscated, the rates of comparisons of different types performed in lab work, and similar information; until this information is made public, it is hard to determine whether  there are sufficient studies establishing error rates for relevant firearms. 
 
 Just as it is important to ensure that validation studies can be generalized to the population of examiners and do not contain systematic biases that might over- or under-estimate the error rate of firearms and toolmark comparisons, it is also important that error rate studies are conducted on types of firearms (or manufacturing methods) and ammunition which are likely to be compared in casework.
 That is, the concerns about firearm manufacture and ammunition materials boil down to concerns about the *external validity* of error rate studies.
 
-There must be many different black box studies, including studies that examine large numbers of firearms as well as studies that examine minute differences.
-We are not currently aware of any study of a large number of firearms of even one specific model, though we are aware of some data which has been collected but not published examining 600 Berettas confiscated by the LAPD; more data sets like this across multiple firearms, combined with corresponding black-box studies, may alleviate this problem in the future.
-Error rates from small, consecutively manufactured firearm studies cannot be generalized to the entire population of firearms examinations, and as a result, no one can estimate an error rate of the discipline  as whole on the basis of these studies. 
-
-Not all firearms and ammunition mark equally well [^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
-In addition, some ammunition marks better than other ammunition.
-While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
-@baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
-If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
-This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
-
- [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
-    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
+External validity for material sampling requires many different black box studies, including studies that examine large numbers of firearms as well as studies that examine minute differences.
+We are not currently aware of any study of a large number of firearms of even one specific model, though we are aware of some data which has been collected (but not published) examining 600 Berettas confiscated by the LAPD; more data sets like this across multiple firearms, combined with corresponding black-box studies, may alleviate this problem in the future.
+Error rates from small, consecutively manufactured firearm studies cannot be generalized to the entire population of firearms examinations without broader studies across multiple manufacturing runs.
+As a result, no one can estimate an error rate of the discipline  as whole on the basis of these studies. 
 
 Researchers are well aware of these limitations and typically characterize their findings in a much more limited fashion than some professional expert witnesses.
-@rivaObjectiveEvaluationSubclass2017 suggest their study is limited in scope and conclusions: "Finally, even if the results obtained in this study illustrate the impact of subclass characteristics for a given make and model of firearm, they cannot be easily transposed to all firearms at this stage. We remain conscious of the limitation of the sample used here. It is known that the quality and the quantity of these features will vary as a function of the type of firearms and the manufacturing process."
+@rivaObjectiveEvaluationSubclass2017 suggest their study is limited in scope and conclusions: "Finally, even if the results obtained in this study illustrate the impact of subclass characteristics for a given make and model of firearm, they cannot be easily transposed to all firearms at this stage. 
+We remain conscious of the limitation of the sample used here. 
+It is known that the quality and the quantity of these features will vary as a function of the type of firearms and the manufacturing process."
 
-When there has not been any systematic attempt to assess the impact of these factors on error rates or on the visual information available to examiners that would be expected to influence error rates, this issue of external validity remains unresolved.
+When there has not been any systematic attempt to assess the impact of factors like ammunition type, manufacturing process, and consecutive manufacturing on error rates or on the visual information available to examiners that would be expected to influence error rates, this issue of external validity remains unresolved.
 As a result, material sampling issues continue to limit the external validity of existing error rate studies, even though this issue was identified in both the 2009 NRC report [@NRCStrengthening2009] and the 2016 PCAST report [@pcast].
 
+
 ## Missing Data and Non-response Bias
+::: {.callout-tip icon=false}
+#### Summary
+Studies of error rates in firearms examination often do not report drop-out and nonresponse rates, which has the potential to artificially reduce error rate estimates as examiners fail to answer questions about difficult comparisons. 
+Without accurate reporting of drop-out and nonresponse rates over the course of a study, it is impossible to determine how much of a threat these issues are to the overall validity of error rate estimates produced by the studies. 
+:::
+
 
 In addition to the fundamental problems with volunteer-only participation in black-box studies, there are additional statistical issues which plague most black-box studies: even participants who volunteer for the study may not return the full set of answers (or any answers).
 That is, most studies have a drop-out rate where participants who initially volunteered for the study did not complete the full study.
@@ -446,6 +463,45 @@ In summary, item nonresponse and drop-out bias are significant problems in curre
 Given what scientists know about why people drop out of studies, I expect that studies with non response bias under-estimate the error rate.
 Because error rate studies typically do not acknowledge the issue or release study response data, it is hard to conclusively bound this problem's effect on error rate studies.
 This refusal to release data is contrary to scientific best practice; even in disciplines where there are privacy concerns, such as psychology and medicine, it is still common to release anonymized data upon request.
+
+
+## Comparison Difficulty
+
+::: {.callout-tip icon=false}
+#### Summary
+
+Black box studies of firearms examination error rates are designed around well-marking firearm/ammunition combinations that are not necessarily representative of casework.
+Without assessments of error rates which include challenging close non-match comparisons or an objective assessment of comparison difficulty (such as comparing examiner error rates to an objective computer algorithm), it is difficult to establish how examiner error rates might change with comparison difficulty.
+In addition, the use of inconclusives as a category allows examiners to opt out of difficult comparisons, artificially deflating the error rates reported in studies. 
+:::
+
+Not all firearms and ammunition mark equally well [^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
+In addition, some ammunition marks better than other ammunition.
+While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
+@baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
+If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
+This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
+
+ [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
+    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
+    @rivaComparisonInterpretationImpressed2020 discusses the effect of ammunition type on likelihood ratios computed to describe fired ammunition comparisons.
+    
+In addition to the material sampling issues that influence comparison difficulty, there are other dynamics at play.
+In the US and Canada, black-box studies are designed primarily to showcase the reliability of the discipline; in the UK and Europe, studies seem to be designed to assess the limits of examiners' ability to discriminate. 
+This, combined with the use of methods such as likelihood ratios rather than the AFTE categorical conclusions, produce error rates which are higher in studies outside of North America [@pauw2013faid;@mattijssenValidityReliabilityForensic2020;@mattijssenFirearmExaminationExaminer2021]. 
+
+Examiners are not necessarily good at estimating the difficulty of a comparison or identifying comparisons which they are unsure about: @mattijssenFirearmExaminationExaminer2021 provides error rates computed from all source decisions as well as source decisions examiners felt confident to report. 
+This set of probabilities is the result of an experimental method which attempts to allow for both European style examination and generalization to the AFTE categories: examiners were asked to make a decision, and then were asked whether they were confident in the decision or would prefer to report an inconclusive. 
+The process used in the study is significantly different than the AFTE process; as a result, we cannot generalize the error rates to the AFTE framework, but the information is still informative in a general sense. 
+For breechface (cartridge impression) comparisons, the false positive rate for all source decisions was 13.8% compared to 11.2% for "confident" decisions, and the false negative rate was 4.6% for all decisions and 2.9% for "confident" decisions. 
+This discrepancy suggests that it is difficult for examiners to identify situations which might result in a false positive error. 
+The study also compares examiner decisions to computer-based methods, finding a lower false positive rate (8.3%) and a slightly higher false negative rate (5.6%) for the same breech face comparisons evaluated by examiners. 
+In examining the results of the study, the authors identify the crux of the issue: "By stating that they did not feel confident to report their source decisions, examiners could remove 'difficult' comparisons from the test set."
+Furthermore, examiners made use of other methods to remove difficult comparisons from the test: "The inclination to state that there are no suitable features for comparison varied considerably between examiners, with examiners' source decision rates ranging from 0.44 to 1. When the examiners were also allowed to state that they did not feel confident to report their source decision (inconclusive judgments), their source decision rates ranged from 0.06 to 1... all examiners were provided with the same features for comparison."
+
+Taking the experimental results, the author evaluations, and the known differences in marking of different firearms and ammunition into consideration, it is critically important that the difficulty of comparisons be varied intentionally in studies, and that some objective measure of this difficulty be provided along with examiner results. 
+To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner nonresponse [@gutierrezBowlingBumperRails2023]. 
+
 
 # Error Rate Calculations
 
