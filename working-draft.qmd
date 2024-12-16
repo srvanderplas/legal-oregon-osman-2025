@@ -24,7 +24,7 @@ csl: bluebook-law-review.csl
 
 # Statement {.unnumbered}
 
-We declare under penalty of perjury and pursuant to Colorado law that the following is true and accurate to the best of my knowledge.
+We declare under penalty of perjury and pursuant to Colorado law that the following is true and accurate to the best of our knowledge.
 
 \vspace{.5in}
 \begin{minipage}{.495\linewidth}
@@ -62,9 +62,9 @@ As statisticians, however, we have significant qualms with the state of error ra
 Many studies are poorly designed, with problems ranging from a complete inability to characterize the full error rate [@hambyWorldwideStudyBullets2019;@gouwe2008comparison;@girouxEmpiricalValidationStudy2009;@fadul;@lyonsIdentificationConsecutivelyManufactured2009] to the acknowledged inability of examiners to follow the instructions set out by the researchers [@baldwinStudyFalsePositiveFalseNegative2014] and incorrect reporting of calculated error rates in the study's report [@bajicValidationStudyAccuracy2020].
 Furthermore, all of the studies we are aware of which are applicable to the state of firearms and toolmark examination as practiced in the United States at this time suffer from sampling and non-response bias that renders them unreliable for the purposes of establishing the science of firearms and toolmark examination as a reliable discipline.
 
-Here, I will lay out some of the fundamental problems with the state of firearms and toolmark examination error rate studies.
-I approach these problems both as a statistician who has experience in the design and conduct of scientific experiments and as a researcher in statistical applications to forensic evidence.
-I have worked extensively with forensic examiners, metrologists, and other subject-matter experts, and I have an understanding of both the process of firearms and toolmark examination and the statistical underpinnings of estimation of error rates.
+Here, we describe out some of the fundamental problems with the state of firearms and toolmark examination error rate studies.
+We approach these problems both as a statistician who has experience in the design and conduct of scientific experiments and as a researcher in statistical applications to forensic evidence.
+We have worked extensively with forensic examiners, metrologists, and other subject-matter experts, and we have an understanding of both the process of firearms and toolmark examination and the statistical underpinnings of estimation of error rates.
 
 For the most part, even groups who strongly disagree on some points of error rate study interpretation can agree on the following:
 
@@ -72,22 +72,22 @@ For the most part, even groups who strongly disagree on some points of error rat
 -   Firearms and toolmark examiners are observing real phenomena - the conclusions they draw are based in observable, verifiable markings on the evidence that can provide information about the likely source of the evidence.
 -   There should be additional research on firearms and toolmark examination focusing on scientific foundations and error rates.
 
-In addition, I agree with @BBCResponse2022 that current studies are not useful for establishing a discipline-wide error rate.
+In addition, we agree with @BBCResponse2022 that current studies are not useful for establishing a discipline-wide error rate.
 
-While there are many differences in how scientists might interpret error rates and existing error rate studies, it is important to recognize that there is also a substantial amound of common ground.
+While there are many differences in how scientists might interpret error rates and existing error rate studies, it is important to recognize that there is also a substantial amount of common ground.
 While our justice system is adversarial, the scientific method is not, and scientists have a duty to interpret the available evidence without regard for which side of the adversarial system benefits.
-I approach the problem of scientific support for firearm and toolmark analysis as a statistician and a scientist who regularly conducts studies with human participants.
+We approach the problem of scientific support for firearm and toolmark analysis as statisticians and scientists who regularly conducts studies with human participants.
 Statisticians regularly help other scientists design experiments that are able to make scientifically valid claims about observable phenomena.
-I have experience working in situations where lives hang in the balance when errors are made: scientific communication, nuclear engineering, and the forensic science, among others.
+We have experience working in situations where lives hang in the balance when errors are made: scientific communication, nuclear engineering, and the forensic science, among others.
 In these situations, it is even more important that experimental designs be as rigorous as possible, and that the conclusions from the studies be interpreted as carefully as possible, because the consequences for being wrong are so serious.
-It is with this mindset that I approach the topic of error rate studies in firearms and toolmark examination.
-While I do offer what may seem to be harsh critiques of the state of scientific evidence in this field, my intent is constructive: until the extent of the cancer is identified, treatment cannot begin.
+It is with this mindset that we approach the topic of error rate studies in firearms and toolmark examination.
+While we do offer what may seem to be harsh critiques of the state of scientific evidence in this field, our intent is constructive: until the extent of the cancer is identified, treatment cannot begin.
 
-I begin by establishing the characteristics which are required for a scientifically reliable study.
+We begin by establishing the characteristics which are required for a scientifically reliable study.
 
 # Conceptual Overview of Study Design Characteristics
 
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 
 Good experiments must be designed without structural biases.
@@ -95,6 +95,7 @@ Studies should ensure that participants have the opportunity to make every type 
 The best studies use a "kit" design that provides sets of known-unknown comparisons where there is one unknown and one known firearm (there may be multiple fired components from each weapon). 
 It is also critical that experiments record the rate of participant drop-out and the rate of item non-response (leaving questions blank).
 Studies which omit these critical components do not produce statistically reliable error rate estimates. 
+It is important to examine study design choices when aggregating across multiple studies: small choices may have large impacts on observed results and the ability to generalize to a wider population. 
 :::
 
 A statistical estimate is only as reliable as the data used to generate that estimate.
@@ -114,7 +115,7 @@ In these situations, the risk to the statistical validity of the study is that p
 One general guideline is that if less than 5% of the participants drop out, there is little threat to the statistical validity of the study, but if more than 10-20% of the participants drop out, the study's validity is severely compromised [@bennett2001can; @schulzSampleSizeSlippages2002].
 It is extremely important that when reporting study results, authors clearly state the level of participant drop out and assess whether there is any evidence of bias in the participants who remain relative to the participants who dropped out [@khanHierarchicalBayesianNonresponse2023].
 
-## Study Design
+## Study Design {#sec-study-design}
 
 Studies should be designed in such a way as to directly evaluate the desired conclusions and/or produce the desired numerical estimates.
 If a study is intended to assess the false positive error rate of firearms and toolmark evaluation, then examiners need to have the opportunity to make a false positive error.
@@ -155,9 +156,22 @@ An improvement on the open-set study design discussed above is to restrict the e
 This design is the most reliable design used in studies to date [@baldwinStudyExaminerAccuracy2023; @lawEvaluatingFirearmExaminer2021; @baldwinStudyFalsePositiveFalseNegative2014; @keislerIsolatedPairsResearch2018; @guyllValidityForensicCartridgecase2023; @monsonAccuracyComparisonDecisions2023;@mattijssenValidityReliabilityForensic2020;@pauw2013faid], because it allows for direct calculation of the number of comparisons performed by each examiner and does not allow for any structural information to be deduced by the examiner beyond the comparisons that are to be performed.
 While these studies are the "gold standard" in terms of study designs, simply having the proper study design does not ensure that the error rate estimates produced by the study are reliable or should be generalized to firearms comparisons as a whole.
 
+### Additional Study Design Considerations
+
+One factor that has a direct impact on estimation of different types of error rates is the designed proportion of same-source and different-source comparisons which examiners evaluate in a study. 
+The proportion of same source comparisons and different source comparisons varies considerably between studies: The Ames studies [@baldwinStudyFalsePositiveFalseNegative2014; @monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while @duezDevelopmentValidationVirtual2018 has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies [@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
+Obviously, the proportion of same-source and different-source comparisons may influence the precision with which any study can estimate certain error rates.
+
+Another important factor is the composition of the different source comparisons: some open set studies include comparisons from marks with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics. 
+Including items with different class characteristics allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics [@bunch2003comprehensive].
+Obviously, a class characteristic mismatch should be easier to identify than a mismatch of "individual" characteristics; see @sec-comparison-difficulty for more discussion of how difficulty may vary across studies. 
+This design choice also influences the proportion of inconclusive responses received, which has a large impact on computed reliability estimates. 
+
+
+
 # Types of Statistical Validity
 
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 
 Statistical **validity** measures how well a study represents reality. 
@@ -240,18 +254,21 @@ As a result, it is not possible to take the total set of validation studies and 
 
 In the next sections, we highlight specific threats to validity common across the different studies of firearms examination error rates. 
 
-# Sampling: Threats to External Validity
+# Threats to External Validity In Error-Rate Studies
 
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 The design and conduct of studies of firearms examination contain numerous threats to the external validity of estimates of the error rate. 
-Participants are volunteers, have high drop-out rates, and frequently do not answer all of the questions, and study authors often do not provide enough information to assess the impact of these issues on the error rate. In addition, most studies are designed to test firearms and ammunition combinations that "mark well", even though casework may involve combinations which do not have this feature. 
-As a result, error rate estimates produced by existing studies likely under-estimate the error rate of firearms examination methods. 
+Participants are volunteers, have high drop-out rates, and frequently do not answer all of the questions, and study authors often do not provide enough information to assess the impact of these issues on the error rate. 
+In addition, most studies are designed to test firearms and ammunition combinations that "mark well", even though casework may involve combinations which do not have this feature. 
+When different studies produce wildly different error rate estimates, it is important to consider the study design, comparison difficulty, and the types of marks used for comparison, as different marks contain different types and regions of "individualizable" characteristics. 
+
+As a result of participant and material selection effects, error rate estimates produced by existing studies likely under-estimate the error rate of firearms examination methods. 
 :::
 
 ## Participant Sampling
 
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 
 Studies which do not use a representative sample of participants from the population cannot reliably generalize results from the study to the full population. 
@@ -364,7 +381,7 @@ To support this, it might be helpful if accrediting organizations maintained a r
 ```
 ## Material Sampling
 
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 
 Generalizing error rate studies to casework requires a broad range of studies that include both studies involving consecutively manufactured firearms and studies of multiple nonconsecutively manufactured firearms. 
@@ -409,15 +426,90 @@ When there has not been any systematic attempt to assess the impact of factors l
 As a result, material sampling issues continue to limit the external validity of existing error rate studies, even though this issue was identified in both the 2009 NRC report [@NRCStrengthening2009] and the 2016 PCAST report [@pcast].
 
 
+
+## Comparison Difficulty
+
+::: {.callout-note icon=false}
+#### Summary
+
+Black box studies of firearms examination error rates are designed around well-marking firearm/ammunition combinations that are not necessarily representative of casework.
+Without assessments of error rates which include challenging close non-match comparisons or an objective assessment of comparison difficulty (such as comparing examiner error rates to an objective computer algorithm), it is difficult to establish how examiner error rates might change with comparison difficulty.
+In addition, the use of inconclusives as a category allows examiners to opt out of difficult comparisons, artificially deflating the error rates reported in studies. 
+:::
+
+Not all firearms and ammunition mark equally well [^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
+In addition, some ammunition marks better than other ammunition.
+While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
+@baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
+If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
+This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
+
+ [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
+    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
+    @rivaComparisonInterpretationImpressed2020 discusses the effect of ammunition type on likelihood ratios computed to describe fired ammunition comparisons.
+    
+In addition to the material sampling issues that influence comparison difficulty, there are other dynamics at play.
+The difficulty level across different studies is also not necessarily comparable: in studies of European examiners, the goal is typically to differentiate between labs and procedures in skill and effectiveness, so the evaluations may be more difficult in order to separate good examiners and labs from those who are uniquely skilled.
+As a result, in these studies [@pauw2013faid; @mattijssenValidityReliabilityForensic2020], comparisons are typically harder and error rates much higher than in studies conducted in the US, where the study goal is typically to validate the process of firearms and toolmark evaluation.
+In studies based in the US, this goal may unconsciously bias researchers to design studies to in such a way that low error rates are a likely outcome, sacrificing the ability of the study to assess the limits of what is possible for examiners to distinguish successfully.
+This, combined with the use of methods such as likelihood ratios rather than the AFTE categorical conclusions, produce error rates which are higher in studies outside of North America [@pauw2013faid;@mattijssenValidityReliabilityForensic2020;@mattijssenFirearmExaminationExaminer2021]. 
+
+Examiners are not necessarily good at estimating the difficulty of a comparison or identifying comparisons which they are unsure about: @mattijssenFirearmExaminationExaminer2021 provides error rates computed from all source decisions as well as source decisions examiners felt confident to report. 
+This set of probabilities is the result of an experimental method which attempts to allow for both European style examination and generalization to the AFTE categories: examiners were asked to make a decision, and then were asked whether they were confident in the decision or would prefer to report an inconclusive. 
+The process used in the study is significantly different than the AFTE process; as a result, we cannot generalize the error rates to the AFTE framework, but the information is still informative in a general sense. 
+For breech face (cartridge impression) comparisons, the false positive rate for all source decisions was 13.8% compared to 11.2% for "confident" decisions, and the false negative rate was 4.6% for all decisions and 2.9% for "confident" decisions. 
+This discrepancy suggests that it is difficult for examiners to identify situations which might result in a false positive error. 
+The study also compares examiner decisions to computer-based methods, finding a lower false positive rate (8.3%) and a slightly higher false negative rate (5.6%) for the same breech face comparisons evaluated by examiners. 
+In examining the results of the study, the authors identify the crux of the issue: 
+
+> "By stating that they did not feel confident to report their source decisions, examiners could remove 'difficult' comparisons from the test set."
+
+Furthermore, examiners made use of other methods to remove difficult comparisons from the test: 
+
+> "The inclination to state that there are no suitable features for comparison varied considerably between examiners, with examiners' source decision rates ranging from 0.44 to 1. When the examiners were also allowed to state that they did not feel confident to report their source decision (inconclusive judgments), their source decision rates ranged from 0.06 to 1... all examiners were provided with the same features for comparison."
+
+Taking the experimental results, the author evaluations, and the known differences in marking of different firearms and ammunition into consideration, it is critically important that the difficulty of comparisons be varied intentionally in studies, and that some objective measure of this difficulty be provided along with examiner results. 
+To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner nonresponse [@gutierrezBowlingBumperRails2023]. 
+
+
+## Types of Marks
+
+::: {.callout-note icon=false}
+#### Summary
+Not all toolmarks are the same: firearms comparisons can include impression marks as well as striations, which would be expected to require different types of visual comparisons.
+In addition, even in striated marks made by barrel lands or ejection machinery, the amount of available marks and external structure of the marks may differ.
+All of these factors would be expected to impact error rates.
+It is important to be cautious when grouping studies of different mark types together as a common overall error rate estimate.
+:::
+
+It is common to talk of error rates for firearms and toolmark examination as a whole.
+While it is certainly true that there are some similarities across different comparison types (toolmarks, bullet land-engraved areas, and cartridge case obturation marks all involve comparisons of striae), there are many different types of marks used for firearms and toolmark examination, and it would not be reasonable to assume they all have the same error rates.
+For example, striations on land engraved areas usually involve comparison of a number of different lands, most of which must match for the overall comparison to be deemed an identification.
+There is some redundancy in this comparison, in that a sequence of 5 or more lands would usually be expected to match, whereas the comparison of a single scrape from a screwdriver involves only one set of striae.
+This redundancy (in the case of bullet comparisons) is one check on the problem of multiple comparisons in toolmark comparisons described in @vanderplasHiddenMultipleComparisons2024, but breech face comparisons, aperture shear marks, firing pin impressions, and toolmarks do not have the same structural advantage. 
+
+Even though land-to-land comparisons and toolmark comparisons are objectively similar in that the examiner is visually comparing striae, we would not expect them to have similar error rates because there is an internal check on incidental matches when bullets are compared that does not exist with other toolmark comparisons.
+Similarly, the number of striae present on a cartridge case obturation mark is usually small relative to the number of striae on a toolmark or a bullet land engraved area; thus, there is less physical evidence present for the examiner to evaluate, which we might expect to lead to somewhat higher error rates for cartridge obturation marks than for toolmarks or bullet land engraved areas.
+
+Expert witnesses [^11] have previously testified about high error rates in a closed-set study [@mayland_validation_2012] and low error rates in an open-set study [@keislerIsolatedPairsResearch2018].
+What is particularly remarkable about this portion of the testimony is that @mayland_validation_2012 examined obturation marks, while @keislerIsolatedPairsResearch2018 examined breech face impressions.
+These two types of marks are entirely different in character, and thus the error rates should never be directly compared.
+Of the studies we have cited on firearms and toolmark examination, some examine bullet striae [@hambyWorldwideStudyBullets2019; @pauw2013faid; @monsonAccuracyComparisonDecisions2023; @neumanBlindTestingFirearms2022; @pauw2013faid; @smithBerettaBarrelFired2021], extractors [@lyonsIdentificationConsecutivelyManufactured2009], cartridge cases [@baldwinStudyFalsePositiveFalseNegative2014; @bunch2003comprehensive; @monsonAccuracyComparisonDecisions2023; @baldwinStudyExaminerAccuracy2023; @duezDevelopmentValidationVirtual2018; @guyllValidityForensicCartridgecase2023; @keislerIsolatedPairsResearch2018; @lawEvaluatingFirearmExaminer2021; @neumanBlindTestingFirearms2022; @smithValidationStudyBullet2016; @stromanEmpiricallyDeterminedFrequency2014; @chapnickResults3DVirtual2021; @pauw2013faid], aperture marks [@mattijssenValidityReliabilityForensic2020], obturation marks [@mayland_validation_2012], and tool marks [@girouxEmpiricalValidationStudy2009].
+It is not reasonable to assume that the error rates in these different disciplines (with different amounts of information available to the examiners) would be similar; after all, studies which provide examiners with the full cartridge case instead of a sub-region of the case (such as the aperture shear or obturation marks) give examiners more information on which to make a decision, which should lower the error rate significantly.
+This testimony was designed to imply that PCAST's concern for study design was misplaced, when instead it is an egregious use of apples-to-oranges comparisons.
+
+ [^11]: Todd Weller, California v Auimatagi, February 2021
+
+
 ## Missing Data and Non-response Bias
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 Studies of error rates in firearms examination often do not report drop-out and nonresponse rates, which has the potential to artificially reduce error rate estimates as examiners fail to answer questions about difficult comparisons. 
 Without accurate reporting of drop-out and nonresponse rates over the course of a study, it is impossible to determine how much of a threat these issues are to the overall validity of error rate estimates produced by the studies. 
 :::
 
 
-In addition to the fundamental problems with volunteer-only participation in black-box studies, there are additional statistical issues which plague most black-box studies: even participants who volunteer for the study may not return the full set of answers (or any answers).
+In addition to the fundamental problems with volunteer-only participation in black-box studies, there is an additional issue which plague most black-box studies: even participants who volunteer for the study may not return the full set of answers (or any answers).
 That is, most studies have a drop-out rate where participants who initially volunteered for the study did not complete the full study.
 In statistics, this sort of missing data is more problematic if it is "missing not-at-random" - that is, if the participants who do not return full sets of answers are systematically different from those who do return full sets of answers.
 There are many statistical methods used to produce valid estimates even in the face of missing data and non-response bias [^9], and @khanHierarchicalBayesianNonresponse2023 use statistical modeling to explore the effect of drop-out and item nonresponse on error rates.
@@ -426,7 +518,8 @@ There are many statistical methods used to produce valid estimates even in the f
     For some examples, see @little2019statistical and @kim2014statistical.
 
 Some studies deal with this issue in ways that would not be considered statistically valid: @lyonsIdentificationConsecutivelyManufactured2009 contacted someone who returned an incomplete answer sheet to prompt them to complete the questions and provide more satisfactory answers; @smithBerettaBarrelFired2021 also contacted those with suspected transcription errors, but at least presented the data with and without these corrections.
-In @lawEvaluatingFirearmExaminer2021, the drop-out rate is acknowledged and errors made by the participant who withdrew after completing 20 of the 21 comparisons in the study are reported; however, this participant had 5 errors, compared with 1 error for all of the remaining 17 participants in the study combined; this suggests that the participant might have withdrawn because the study was difficult. This is the only study which reports sufficiently detailed data to assess this situation, and the results are not encouraging.
+In @lawEvaluatingFirearmExaminer2021, the drop-out rate is acknowledged and errors made by the participant who withdrew after completing 20 of the 21 comparisons in the study are reported; however, this participant had 5 errors, compared with 1 error for all of the remaining 17 participants in the study combined; this suggests that the participant might have withdrawn because the study was difficult. 
+This is the only study which reports sufficiently detailed data to assess this situation, and the results are not encouraging.
 In other studies [@chumbley2021accuracy], the issue is acknowledged but not mitigated or even assessed for its' impact on the error rate estimates reported [^10]; the issue is not discussed further in the peer-reviewed final paper [@monsonAccuracyComparisonDecisions2023].
 
  [^10]: "Slightly more cartridge case (10,110) than bullet (10,020) comparison are reported because some examiners returned partially-completed test packets that had results for all the cartridge case sets but not all the bullet sets." (@chumbley2021accuracy, page 8)
@@ -435,7 +528,8 @@ An example of a situation in which non response or missing not-at-random bias is
 People who are more likely to answer a phone call from an unknown number are different from those who do not answer phone calls from unknown numbers [@mcclainMostAmericansDon2020]; those people who continue on the phone call to answer all of the poll questions are more likely to be engaged in their communities and have a higher sense of civic responsibility [@mitchellWhatLowResponse2017].
 These biases can sometimes be corrected for statistically when they are a well-studied quantity (as in political polling), but even the models which allow for pollsters to adjust their estimates to account for these biases are sometimes wrong, leading to systematically biased polls.
 The same set of problems arise when researchers ignore non-response bias or missing-not-at-random data in black-box studies. 
-Unfortunately, statisticians do not have sufficient data to adjust the estimates based on these issues, because black-box studies in forensics are not nearly as well studied as political polling.
+
+Unfortunately, statisticians do not have sufficient data to adjust the estimates based on these issues, because statistical corrections for nonresponse in FATM error rate studies are not nearly as well established as political polling.
 The scientific community also does not have the ability to start studying these issues because the authors of black box studies almost never make the data publicly available.
 This last point is particularly concerning given that the broader scientific community recognizes that publicly available data is necessary to ensure studies are reaching valid statistical conclusions [@albrightCallOpenScience2024; @wicherts2011willingness; @stodden2015reproducing].
 
@@ -460,64 +554,74 @@ Choosing the correct methods depends on exploring the patterns of missingness in
 Instead, currently, these researchers ignore the problem and proceed with inappropriate statistical analyses- despite the availability of existing appropriate methods that could be used.
 
 In summary, item nonresponse and drop-out bias are significant problems in current error rate studies.
-Given what scientists know about why people drop out of studies, I expect that studies with non response bias under-estimate the error rate.
+Given what scientists know about why people drop out of studies, we expect that studies with non response bias under-estimate the error rate.
 Because error rate studies typically do not acknowledge the issue or release study response data, it is hard to conclusively bound this problem's effect on error rate studies.
 This refusal to release data is contrary to scientific best practice; even in disciplines where there are privacy concerns, such as psychology and medicine, it is still common to release anonymized data upon request.
 
+# Metrics for Scientific Validity
 
-## Comparison Difficulty
-
-::: {.callout-tip icon=false}
+::: {.callout-note icon=false}
 #### Summary
 
-Black box studies of firearms examination error rates are designed around well-marking firearm/ammunition combinations that are not necessarily representative of casework.
-Without assessments of error rates which include challenging close non-match comparisons or an objective assessment of comparison difficulty (such as comparing examiner error rates to an objective computer algorithm), it is difficult to establish how examiner error rates might change with comparison difficulty.
-In addition, the use of inconclusives as a category allows examiners to opt out of difficult comparisons, artificially deflating the error rates reported in studies. 
+In order to establish the scientific validity of a technique, it needs to be reliable (have a low error rate), repeatable (same equipment, same conclusion), and reproducible (different equipment, same conclusion). 
+
+Reliability is typically assessed using a number of different quantities to describe errors; of these, the simplest single-number summary is the **correct source decision rate** (CSDR), which measures the proportion of the time a FATM examiner correctly identifies whether the samples came from same or different sources. 
+Reliability metrics are extremely sensitive to inconclusive results; a high proportion of inconclusives will impact some measures and leave others unaffected.
+
+Repeatability is a measure of whether the same examiner makes the same decision when evaluating evidence multiple times. 
+
+Reproducibility is a measure of whether different examiners (potentially using different equipment and procedures) come to the same conclusion evaluating the same evidence.
+
+All three measures must be established for FATM examination to be seen as scientifically valid; to date, only one study has even addressed all three criteria. 
+
 :::
 
-Not all firearms and ammunition mark equally well [^8]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
-In addition, some ammunition marks better than other ammunition.
-While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
-@baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
-If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
-This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
 
- [^8]: We are not experts on the intricacies of different types of ammunition, but it is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
-    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
-    @rivaComparisonInterpretationImpressed2020 discusses the effect of ammunition type on likelihood ratios computed to describe fired ammunition comparisons.
-    
-In addition to the material sampling issues that influence comparison difficulty, there are other dynamics at play.
-In the US and Canada, black-box studies are designed primarily to showcase the reliability of the discipline; in the UK and Europe, studies seem to be designed to assess the limits of examiners' ability to discriminate. 
-This, combined with the use of methods such as likelihood ratios rather than the AFTE categorical conclusions, produce error rates which are higher in studies outside of North America [@pauw2013faid;@mattijssenValidityReliabilityForensic2020;@mattijssenFirearmExaminationExaminer2021]. 
+While uniqueness is not required for marks to be informative [@pcast], scientific assessments of forensic pattern comparisons require that the accuracy, repeatability, and reproducibility of a method be understood from well-designed empirical studies.
+Here, we focus on PCAST's requirements for a determination that a method is based on valid scientific principles. 
 
-Examiners are not necessarily good at estimating the difficulty of a comparison or identifying comparisons which they are unsure about: @mattijssenFirearmExaminationExaminer2021 provides error rates computed from all source decisions as well as source decisions examiners felt confident to report. 
-This set of probabilities is the result of an experimental method which attempts to allow for both European style examination and generalization to the AFTE categories: examiners were asked to make a decision, and then were asked whether they were confident in the decision or would prefer to report an inconclusive. 
-The process used in the study is significantly different than the AFTE process; as a result, we cannot generalize the error rates to the AFTE framework, but the information is still informative in a general sense. 
-For breechface (cartridge impression) comparisons, the false positive rate for all source decisions was 13.8% compared to 11.2% for "confident" decisions, and the false negative rate was 4.6% for all decisions and 2.9% for "confident" decisions. 
-This discrepancy suggests that it is difficult for examiners to identify situations which might result in a false positive error. 
-The study also compares examiner decisions to computer-based methods, finding a lower false positive rate (8.3%) and a slightly higher false negative rate (5.6%) for the same breech face comparisons evaluated by examiners. 
-In examining the results of the study, the authors identify the crux of the issue: "By stating that they did not feel confident to report their source decisions, examiners could remove 'difficult' comparisons from the test set."
-Furthermore, examiners made use of other methods to remove difficult comparisons from the test: "The inclination to state that there are no suitable features for comparison varied considerably between examiners, with examiners' source decision rates ranging from 0.44 to 1. When the examiners were also allowed to state that they did not feel confident to report their source decision (inconclusive judgments), their source decision rates ranged from 0.06 to 1... all examiners were provided with the same features for comparison."
+- **reliability** - the method must reach a conclusion which is consistent with ground truth.     
+    Reliability is evaluated using error rate(s). Multiple rates may be considered: while the overall accuracy rate provides some information, an accurate overall error rate requires that study designs emulate the frequency of same-source and different source comparisons which occur during casework, which is unknown. 
+    It is typically more useful to consider separately measures of the probabilities of different types of errors, such as the sensitivity and specificity, or the positive and negative predictive values. 
+<!-- A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022.  -->
 
-Taking the experimental results, the author evaluations, and the known differences in marking of different firearms and ammunition into consideration, it is critically important that the difficulty of comparisons be varied intentionally in studies, and that some objective measure of this difficulty be provided along with examiner results. 
-To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner nonresponse [@gutierrezBowlingBumperRails2023]. 
+- **repeatablity** - the same comparison performed using the same instrument (in this case, the examiner) must come to the same conclusion. 
+    This calculation does not depend at all on accuracy rates: an examiner who comes to the same wrong conclusion examining the same evidence still has high repeatability, even if they have low accuracy. 
+
+- **reproduciblity** - the same comparison performed using a different instrument (examiner) must come to the same conclusion. 
+    This calculation also does not depend on the accuracy of the conclusion; all that is required is that the two examiners agree.
 
 
-# Error Rate Calculations
+We describe the important aspects of each facet of scientific validity below, and then calculate each facet based on tabular information in the Ames II studies in @sec-ames2-demo. 
+
+## Reliability {#sec-reliability-error-rates}
+
 
 Courts frequently ask expert witnesses to discuss the general error rate for a firearms and toolmark evidence comparison.
 This typically involves the expert identifying one or more studies and stating that the assessed error rate was incredibly small, and therefore, the probability of an error in a specific case is also incredibly small.
 While there are certainly some researchers who dispute the idea that a general error rate exists or is relevant [@BBCResponse2022], most statisticians (and scientists, more generally) believe in the efficacy and validity of inferential statistics.
-Specifically, this belief in inferential statistics translates into the belief that it is possible to use well-designed error rate studies to provide information about the likelihood of an error in a specific case, assuming the study or studies are representative of the case.
+Specifically, this belief in inferential statistics translates into the belief that it is possible to use well-designed error rate studies to provide information about the probability of an error in a specific case, assuming the study or studies are representative of the case.
 
-Expert witnesses are also typically asked to discuss the process by which an examiner might fail to reach a decision.
-This process, too, has an impact on the error rates calculated in the studies previously discussed.
-In this section, I examine these issues critically, with the goal of providing some contextual information to the different ways error rate studies are used, the treatment of inconclusives, and the different types of error rates which are calculated as part of these studies.
+The AFTE Theory of Identification allows for examiners to fail to reach a decision.
+This process has an impact on the error rates calculated from black-box studies.
+In this section, we examine these issues critically, with the goal of providing some contextual information to the different ways error rate studies are used, the treatment of inconclusives, and the different types of error rates which are calculated as part of these studies.
 
-First, let us consider the different types of error rates.
-These calculations can be confusing for those who are not familiar with them, but it can be helpful to provide visual reference to assist with the interpretation of later discussions.
+First, we consider the different types of error rates.
+These calculations can be confusing; it may be helpful to frequently reference table @tbl-error-reference for clarity.
 
-## Different Types of Error Rates {#sec-error-rates}
+### Different Types of Error Rates {#sec-error-rates}
+
+<!-- ::: {.callout-note icon=false} -->
+<!-- #### Summary -->
+
+<!-- Error rates are complicated in part because the AFTE classification system does not match the state of nature. -->
+<!-- The addition of an inconclusive category breaks the standard assumed relationship between different values, such as the sensitivity and the false positive rate.  -->
+<!-- At minimum, it is important to consider both the inconclusive rate and the error rate for both false-positive and false-negative decisions.  -->
+<!-- In courtroom settings, where we do not know ground truth but do know what the examiner's decision was, it is more useful to consider the positive and negative predictive values, as these provide context-sensitive error rates.  -->
+<!-- If a single-number summary is necessary, the correct source decision rate (CSDR) is the best summary available, as it provides an estimate of the probability of a correct source decision.  -->
+<!-- $1 - CSDR$ provides an estimate of the probability that the examiner does not correctly identify the source and serves as an aggregate error rate that includes inconclusives.  -->
+<!-- ::: -->
+
 
 Suppose that a study generates data which can be laid out into the following table:
 
@@ -527,7 +631,7 @@ Suppose that a study generates data which can be laid out into the following tab
 |   Diff Source    |                       d |                     e |                    f | DS = d + e + f |
 | Response Totals  |                   a + d |                 b + e |                c + f |              N |
 
-: Results Table for Generic Validation Study. There are $N = a + b + c + d + e + f$ total comparisons, $SS = a + b + c$ same source comparisons, and $DS = d + e + f$ different source comparisons.
+: Results Table for Generic Validation Study. There are $N = a + b + c + d + e + f$ total comparisons, $SS = a + b + c$ same source comparisons, and $DS = d + e + f$ different source comparisons. {#tbl-error-reference}
 
 There are multiple different error rates which can be calculated from this simple layout, which is the most direct way to lay out results from validation studies.
 Many studies do not report all of these values individually, instead opting to report the total number of inconclusives separately and focusing solely on $a$ and $f$ relative to the total number of comparisons $N$.
@@ -546,8 +650,17 @@ The false positive rate is a measure of how likely a different-source comparison
 These measures were developed for classification problems where the labels have the same structure as the known ground truth; they can be a bit confusing when applied to a classification problem with an "unknown" category such as that used by firearms examiners.
 For instance, it is common to calculate the specificity as $\text{specificity} = 1 - \text{FPR}$; this works when we have only two possible category labels, but when we have an inconclusive category, $\text{specificity} = \frac{f}{DS}$ and $1 - \text{FPR}  = 1 - \frac{d}{DS} = \frac{e + f}{DS}$, which implicitly treats different-source inconclusives as eliminations.
 The logical fallacy with this calculation is evident when we complete the same calculation for sensitivity and FNR: $\text{sensitivity} = \frac{a}{SS}$, but $\text{sensitivity} = 1 - FNR = 1 - \frac{c}{SS} = \frac{a + b}{SS}$. 
-This implicitly treats same-source inconclusives as identifications: that is, by inverting these calculations in a classification system with an 'unknown' output class, such as the AFTE Theory of Identification, we treat inconclusives differently based on the ground truth.
+This implicitly treats same-source inconclusives as identifications: that is, by inverting these calculations in a classification system with an 'unknown' output class, such as the AFTE Theory of Identification, we treat inconclusives differently based on the ground truth value.
+
+Most black-box error rate studies consider inconclusive results to be correct, in accordance with the AFTE Theory of Identification[^ctsincl], but, scientifically, this is sub-optimal and the subject of considerable debate in both the scientific  [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019;@inconclusives;@dorfmanInconclusivesErrorsError2022] and the legal community [@kayeToolmarkComparisonTestimonyReport2022;gutierrezBowlingBumperRails2023]. 
+Under this evaluation scheme, an examiner who turns in an answer sheet with every answer marked as inconclusive would score 100%, even though they provided no information about the similarity (or lack thereof) of the examined evidence. 
+
+[^ctsincl]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
+    The error rates dropped from 12% (firearms) and 26% (toolmarks) to approximately 1.4% and 4% respectively.
+    UNITED STATES OF AMERICA, v. Joseph MINERD, Defendant., 2002 WL 32995663 (W.D.Pa.)
+
 This is a deviation from standard practice; even though inconclusives are present, calculations should be carefully computed in order to maintain the intended interpretation.
+@gutierrezBowlingBumperRails2023 identifies the treatment of inconclusives in error rate calculations in black box studies as one of the major factors responsible for artificially decreasing the error rate of firearms examination procedures. 
 
 Sensitivity and specificity require that the proportion of same source and different source comparisons in a study (or in casework) is known in order to interpret the two numbers properly.
 While in validation studies, ground truth is known and these proportions can be calculated, in casework, ground truth is unknown and thus, the proportion of comparisons from same or different sources cannot be calculated. 
@@ -558,62 +671,26 @@ These measures are the **positive predictive value (PPV)** and **negative predic
 The positive predictive value is the probability that if an examiner declares a comparison to be an identification, the evidence originates from the same source, that is $\text{PPV} = \frac{a}{a + d}$ and $\text{NPV} = \frac{c}{c + f}$ .
 These numbers are often used to provide context to e.g. medical tests, but in the case of firearms and toolmark examination, they are useful because it is possible to calculate how often an examiner makes identifications and eliminations overall, and the PPV and NPV can be interpreted in light of those numbers.
 The PPV and NPV have the advantage of only relying on information which is known during the court case (e.g. the examiner's decision, and the examiner's historical proportion of identifications and eliminations) to interpret the results.
+
+
 Finally, if the goal is to come up with a single number which can be used to compare studies, we recommend the **correct source decision rate**, or $\text{CDSR} = \frac{a + f}{N}$ .
 The CDSR can be used as a single-number summary of a method, and essentially calculates the proportion of the time examiners correctly identify the source (same or different) among all comparisons that are completed in a study.
 
-## Repeatability and Reproducibility
+<!-- ## Repeatability and Reproducibility -->
 
-While error rates are one way to establish that firearms and toolmark examination is scientifically valid, there are other measurements which provide useful context to these error rates.
+<!-- While error rates are one way to establish that firearms and toolmark examination is scientifically valid, there are other measurements which provide useful context to these error rates. -->
 
-**Repeatability** is the probability that an examiner will make the same decision when examining the same evidence on separate occasions.
-**Reproducibility** is the probability that two examiners will make the same decision when evaluating the same evidence.
-Only one study in firearm and toolmark examination attempts to measure these two quantities [@bajicValidationStudyAccuracy2020], however, the analysis of repeatability and reproducibility has numerous problems [@dorfmanReAnalysisRepeatabilityReproducibility2022].
-Dorfman & Valiant's re-analysis of the data in the Ames II report suggests that the repeatability and reproducibility of firearms examination comparisons is poor and that the original statistical analysis was flawed and misleading.
+<!-- **Repeatability** is the probability that an examiner will make the same decision when examining the same evidence on separate occasions. -->
+<!-- **Reproducibility** is the probability that two examiners will make the same decision when evaluating the same evidence. -->
+<!-- Only one study in firearm and toolmark examination attempts to measure these two quantities [@bajicValidationStudyAccuracy2020], however, the analysis of repeatability and reproducibility has numerous problems [@dorfmanReAnalysisRepeatabilityReproducibility2022]. -->
+<!-- Dorfman & Valiant's re-analysis of the data in the Ames II report suggests that the repeatability and reproducibility of firearms examination comparisons is poor and that the original statistical analysis was flawed and misleading. -->
 
-Given that there is no other evidence by which to assess reproducibility and repeatability of firearms examination, it is clear that this is another area where firearms examination lacks necessary criteria for scientific validity.
-If the same examiner does not reliably come to the same conclusion when evaluating the same evidence, then it is hard to argue that current subjective methods are scientifically valid, even if the overall error rate is relatively low.
+<!-- Given that there is no other evidence by which to assess reproducibility and repeatability of firearms examination, it is clear that this is another area where firearms examination lacks necessary criteria for scientific validity. -->
+<!-- If the same examiner does not reliably come to the same conclusion when evaluating the same evidence, then it is hard to argue that current subjective methods are scientifically valid, even if the overall error rate is relatively low. -->
 
-## Types of Marks and Study Difficulty
 
-It is common to talk of error rates for firearms and toolmark examination as a whole.
-While it is certainly true that there are some similarities across different comparison types (toolmarks, bullet land-engraved areas, and cartridge case obturation marks all involve comparisons of striae), there are many different types of marks used for firearms and toolmark examination, and it would not be reasonable to assume they all have the same error rates.
-For example, striations on land engraved areas usually involve comparison of a number of different lands, most of which must match for the overall comparison to be deemed an identification.
-There is some redundancy in this comparison, in that a sequence of 5 or more lands would usually be expected to match, whereas the comparison of a single scrape from a screwdriver involves only one set of striae.
-This redundancy (in the case of bullet comparisons) is one check on the problem of multiple comparisons in toolmark comparisons described in @vanderplasHiddenMultipleComparisons2024, but breech face comparisons, aperture shear marks, firing pin impressions, and toolmarks do not have the same structural advantage. 
 
-Even though land-to-land comparisons and toolmark comparisons are objectively similar in that the examiner is visually comparing striae, we would not expect them to have similar error rates because there is an internal check on incidental matches when bullets are compared that does not exist with other toolmark comparisons.
-Similarly, the number of striae present on a cartridge case obturation mark is usually small relative to the number of striae on a toolmark or a bullet land engraved area; thus, there is less physical evidence present for the examiner to evaluate, which we might expect to lead to somewhat higher error rates for cartridge obturation marks than for toolmarks or bullet land engraved areas.
-
-Expert witnesses [^11] have previously testified about high error rates in a closed-set study [@mayland_validation_2012] and low error rates in an open-set study [@keislerIsolatedPairsResearch2018].
-What is particularly remarkable about this portion of the testimony is that @mayland_validation_2012 examined obturation marks, while @keislerIsolatedPairsResearch2018 examined breech face impressions.
-These two types of marks are entirely different in character, and thus the error rates should never be directly compared.
-Of the studies we have cited on firearms and toolmark examination, some examine bullet striae [@hambyWorldwideStudyBullets2019; @pauw2013faid; @monsonAccuracyComparisonDecisions2023; @neumanBlindTestingFirearms2022; @pauw2013faid; @smithBerettaBarrelFired2021], extractors [@lyonsIdentificationConsecutivelyManufactured2009], cartridge cases [@baldwinStudyFalsePositiveFalseNegative2014; @bunch2003comprehensive; @monsonAccuracyComparisonDecisions2023; @baldwinStudyExaminerAccuracy2023; @duezDevelopmentValidationVirtual2018; @guyllValidityForensicCartridgecase2023; @keislerIsolatedPairsResearch2018; @lawEvaluatingFirearmExaminer2021; @neumanBlindTestingFirearms2022; @smithValidationStudyBullet2016; @stromanEmpiricallyDeterminedFrequency2014; @chapnickResults3DVirtual2021; @pauw2013faid], aperture marks [@mattijssenValidityReliabilityForensic2020], obturation marks [@mayland_validation_2012], and tool marks [@girouxEmpiricalValidationStudy2009].
-It is not reasonable to assume that the error rates in these different disciplines (with different amounts of information available to the examiners) would be similar; after all, studies which provide examiners with the full cartridge case instead of a sub-region of the case (such as the aperture shear or obturation marks) give examiners more information on which to make a decision, which should lower the error rate significantly.
-This testimony was designed to imply that PCAST's concern for study design was misplaced, when instead it is an egregious use of apples-to-oranges comparisons.
-
- [^11]: Todd Weller, California v Auimatagi, February 2021
-
-Before making direct comparisons between error rates in studies, it is also important to consider other factors beyond the type of comparison made which might make a difference in the reported error rate.
-Some open set studies include comparisons from marks with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics (this allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics) [@bunch2003comprehensive].
-Thus, the level of difficulty of comparisons varies considerably between studies.
-In addition, the proportion of same source comparisons and different source comparisons varies considerably between studies: The Ames studies [@baldwinStudyFalsePositiveFalseNegative2014; @monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while @duezDevelopmentValidationVirtual2018 has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies [@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
-Obviously, the proportion of same-source and different-source comparisons may influence the precision with which any study can estimate certain error rates.
-
-The difficulty level across different studies is also not necessarily comparable: in studies of European examiners, the goal is typically to differentiate between labs and procedures in skill and effectiveness, so the evaluations may be more difficult in order to separate good examiners and labs from those who are uniquely skilled.
-As a result, in these studies [@pauw2013faid; @mattijssenValidityReliabilityForensic2020], comparisons are typically harder and error rates much higher than in studies conducted in the US, where the study goal is typically to validate the process of firearms and toolmark evaluation.
-In studies based in the US, this goal may unconsciously bias researchers to design studies to in such a way that low error rates are a likely outcome, sacrificing the ability of the study to assess the limits of what is possible for examiners to distinguish successfully.
-
-## Inconclusives and Error Rates
-
-The firearms examination community is very aware of the fact that sometimes samples are difficult to match to each other.
-This issue is so pervasive that the AFTE theory of identification allows for a middle category between identification and elimination: inconclusive.
-More accurately, the AFTE theory of identification allows for 3 different levels of inconclusive on the continuum between identification and elimination.
-Under the AFTE theory of identification, all of the hard decisions are automatically correct because firearms and toolmark examiners don't have to make a decision between elimination and identification.
-The treatment of inconclusives under the AFTE theory of identification is controversial [^12] and has recently seen significant scrutiny from the scientific community [@drorMisUseScientific2020; @drorCannotDecideFine2019; @biedermannAreInconclusiveDecisions2019] and the legal community [@kayeToolmarkComparisonTestimonyReport2022].
-
- [^12]: CTS used to treat inconclusives as errors, but in 1998 changed to treating inconclusives as correct decisions.
-    The error rates dropped from 12% (firearms) and 26% (toolmarks) to approximately 1.4% and 4% respectively.
-    UNITED STATES OF AMERICA, v. Joseph MINERD, Defendant., 2002 WL 32995663 (W.D.Pa.)
+### Treatment of Inconclusives
 
 At the heart of the discussion of whether inconclusives should be treated as errors or not is the undisputed fact that sometimes not all marks which could be recorded by a firearm or tool are actually recorded.
 Firing a gun involves a controlled explosion, and one may use a tool in multiple different ways; in both cases, it is reasonable that information might not be recorded identically between separate tool/surface interactions.
@@ -621,20 +698,20 @@ The information censoring resulting from the physical processes in play produces
 In theory, an examiner should be looking both for differences and similarities, and should reach a decision of inconclusive if there are not sufficient differences between the two items to conclude that they arose from different sources, nor sufficient similarities to conclude that they arose from the same source.
 
 When considering this problem from the perspective of the known source, an inconclusive result has to be automatically incorrect: a comparison is either from a same-source or a different-source.
-When pproaching this problem from the perspective of what the examiner can observe, however, inconclusive results make some sense: if the physical evidence does not contain any overlapping similarities, but also has no notable dissimilarities, perhaps it makes sense to decide 'not to decide' and return an inconclusive decision.
+When approaching this problem from the perspective of what the examiner can observe, however, inconclusive results make some sense: if the physical evidence does not contain any overlapping similarities, but also has no notable dissimilarities, perhaps it makes sense to decide 'not to decide' and return an inconclusive decision.
 
 This is a subject of widespread, ongoing discussion within both the examiner community and the academic research community; if you ask three academics familiar with this issue for an opinion, you might get four different opinions within the scope of a short discussion [@drorCannotDecideFine2019; @dorfmanInconclusivesErrorsError2022; @guyllValidityForensicCartridgecase2023; @biedermannAreInconclusiveDecisions2019].
 There are a number of valid ways to consider the problem of inconclusives given available studies, and while some of them have more empirical support, ultimately, many of the disagreements come down to philosophical and discipline-specific differences in how researchers think about the role of errors, examiner decisions, what is permissible and not in legal settings, and so on, rather than the data itself.
-Here, I lay out the *problems* with the current treatment of inconclusives, focusing primarily on interpretations that are misleading and identifying areas which might be investigated in order to shore up holes in existing validation studies.
+Here, we lay out the *problems* with the current treatment of inconclusives, focusing primarily on interpretations that are misleading and identifying areas which might be investigated in order to shore up holes in existing validation studies.
 
 Under AFTE rules, inconclusives are correct decisions.
 When translated to calculations, however, this means that inconclusives can be counted as both identifications (for same-source ground truth) and eliminations (for different-source ground truth) when calculating error rates.
 This calculation method artificially reduces reported error rates.
-While there are many different ways to calculate error rates, as discussed in @sec-error-rates, let us first demonstrate the magnitude of the problem.
+While there are many different ways to calculate error rates, it is useful to demonstrate the magnitude of the problem.
 The correct source decision rate (CSDR) is a calculation that looks at the number of examiner conclusions which correctly reflect the known ground truth, e.g. inconclusives are implicitly treated as incorrect via this calculation.
 In @pauw2013faid, the CSDR for bullet comparisons is only 49%, that is, in 51% of the comparisons, the examiner did not correctly determine whether the comparison was from the same source or a different source.
 This is statistically worse than random chance - that is, examiners would perform about as well if they were flipping a coin to make the decision!
-While I do not necessarily advocate that examiners be forced to make a decision between identification and elimination, it is clear that the existence of inconclusive results has a large impact on the interpretation of the reported error rate.
+While we do not necessarily advocate that examiners be forced to make a decision between identification and elimination, it is clear that the existence of inconclusive results has a large impact on the interpretation of the reported error rate.
 A table containing error rates and correct source decision rates for cited studies is provided in the Appendix in @tbl-csdr.
 
 @BBCResponse2022 suggests that the use of error rates from validity studies to provide information about error rates in casework is fundamentally flawed; that is, they dispute that *inferential statistics* have any use in this conversation and advocate for the use of strictly *descriptive* statistics instead.
@@ -668,7 +745,8 @@ In some laboratories, including at the FBI, examiners are not allowed to make an
 This is one reason why studies involving the FBI firearms lab often do not report sensitivity, specificity, or the correct source decision rate directly: when inconclusives are considered, the correct source decision rate looks abysmal: 52.22% in @bunch2003comprehensive and 37.5% in @girouxEmpiricalValidationStudy2009.
 
 In order to truly assess whether inconclusives are a reasonable response to the available evidence, researchers must first assess each possible pairwise comparison in a study to determine whether there is sufficient evidence available to make an identification or elimination.
-This is challenging: the decision should be made via consensus across multiple examiners, and even under this type of setup, it would still be hard to say that an inconclusive decision is correct: examiners will typically admit that their threshold for identification or elimination is different than anyone else's and that this is a personal judgement call.
+This is challenging, as the decision should be made via consensus across multiple examiners.
+Even under this type of setup, it would still be hard to say that an inconclusive decision is correct, as examiners will say that their threshold for identification or elimination is a personal judgement call.
 
 Another possible solution to the bias that exists in current inconclusive comparisons is to address it during examiner training and via examination procedures.
 Examiners are typically trained to look for similarities, rather than differences; it is possible that the bias in inconclusive results is thus due to examiner training.
@@ -689,7 +767,42 @@ At this time, only @guyllValidityForensicCartridgecase2023 and @lawEvaluatingFir
 Studies should report correct source decision rates in addition to other calculated error rates; this will provide some information about the overall potential of the method to properly discriminate between same source and different source evidence.
 Overall, treatment of inconclusives in error rate studies tends to result in calculated error rates which under-estimate the overall error rate.
 
+## Repeatability
+
+Repeatability is another measurement of whether a method is scientifically valid: if the same inputs do not produce the same outputs when the same process is performed, this signals that there is a level of randomness in the process. 
+Ideally, this randomness is extremely small: a deterministic computer procedure might fail to produce the same results 0.001% of the time, but this is an acceptably small level of inconsistency. 
+
+In firearms and toolmark studies, repeatability assessments require that the same examiner(s) are sent the same evidence multiple times, and ideally, we would expect that the same evidence produces the same conclusion each time it is evaluated.
+Obviously, repeatability assessment requires studies conducted over multiple rounds, designed so that examiners do not realize they are assessing the same evidence.
+As a result, these studies are expensive, require significant time investment from the examiner, and due to the long data collection period, these studies also tend to have higher drop-out rates, which makes obtaining reliable statistical estimates more difficult.
+
+## Reproducibility
+
+As with repeatability, reproducibility does not consider the correctness of a decision; rather, reproducibility assesses whether different examiners come to the same conclusion given the same evidence.
+There is more variability in reproducibility than in repeatability: different examiners may have different microscopes, or work under different lab policies; in addition, each examiner's training and experience are different, and the AFTE standard is explicitly designed around an examiner's experience. 
+As a result, we would expect reproducibility to be lower than repeatability, because of the increase in variability when different examiners are included.
+
+Black-box studies which examine reproducibility must send the same evidence to multiple examiners.
+This can be accomplished in multiple ways: 
+
+- kits can be sent out to one examiner, returned, and sent to another examiner
+- high-resolution replicates of fired ammunition can be created using casting, and multiple identical replicates can be sent to examiners
+- digital microscopy studies can assign the same digital scans of evidence to multiple examiners
+
+Each of these methods has some drawbacks, but ultimately, reproducibility assessment is feasible with existing technology and methods. 
+
+
 # Use of Algorithms in Firearm and Toolmark Comparisons
+
+::: {.callout-note icon=false}
+#### Summary
+
+Objective algorithms can address many of the issues with FATM examination black-box  studies in part because computer time is much cheaper than human time. 
+However, algorithms used for screening comparisons, such as those in NIBIN/IBIS and BallisticsIQ, have the potential to significantly increase the false positive rate by identifying close non-matches. 
+Algorithms which simply evaluate the similarity of two pieces of evidence without a database search have a much stronger statistical footing and can provide objective evidence to support the subjective findings of human examiners. 
+Forensic algorithms should be open-source, benchmarked on public datasets for comparison purposes, and carefully validated before use in casework.
+
+:::
 
 Certain types of algorithms are beginning to make their way into practical application in crime labs.
 This section examines the differences between different types of algorithms related to firearms and toolmark comparisons, ways algorithms can be validated, and how the algorithms currently used in practice conform to this ideal.
@@ -761,6 +874,45 @@ Algorithm developers make this choice primarily out of convenience, as any other
 Of the issues outlined above, only material sampling and concerns about pooling error rates across different types of marks are still relevant when considering calculating error rates based on algorithms instead of human examiners.
 This is one reason why @pcast so heavily suggested the development of pairwise evaluation algorithms as a solution to the problems facing forensic science.
 
+
+# Judges, Juries, and Error Rates
+
+::: {.callout-note icon=false}
+#### Summary
+
+People are notoriously poor at understanding and acting on probabilities in a rational manner. 
+Considering this, judges should ensure that evidence which does not meet standards for scientific validity is not presented to the jury. 
+:::
+
+As @sec-error-rates demonstrates, the calculation and interpretation of different summaries of error rate studies can be extremely complicated.
+Even though we are statisticians, and regularly use sensitivity and specificity, false positive and false negative rates, and other criteria to evaluate our models, we often have to pull out references ^[Such as https://en.wikipedia.org/wiki/Confusion_matrix, which is a very useful summary of many of the different quantities we use for these studies.] and use extreme caution to ensure that we are calculating the correct values. 
+
+Unfortunately, there is a large amount of scientific research suggesting that humans are terrible at understanding probabilities and making rational decisions based on probabilistic information. 
+We write this at the conclusion of the Fall semester in 2024, having recently overheard a student in the hallway complain to a friend "You had an \*\*\*\* 15% chance of winning! You should not have won!". 
+While anecdotal, this illustrates a common problem: a 15% chance is roughly equivalent to a chance of 1 in 6, or the probability of rolling a 6 on a fair dice. 
+While other outcomes might be more or equally probable, this outcome is not so rare to be considered *un*likely.
+This effect has also been noted in popular media, most notably in critiques of election prediction sites such as fivethirtyeight.com, which in 2016 estimated the probability of a Trump win to be around 30%; post-election, many people did not understand how an outcome they perceived as low-probability could have happened. 
+It seems that psychologically, humans tend to latch onto the most probable outcome and attach more certainty to that outcome; as a result, we are particularly bad at evaluating the risk of high-consequence, low-probability outcomes. 
+
+
+Risk communication is its own discipline [@spiegelhalterRiskUncertaintyCommunication2017], and while it tends to focus on everyday concerns, such as medical decision making and forecasting severe weather events, the findings are also applicable in the courtroom. 
+Chance statements, such as "there is a 2% mortality rate from this surgery" or "this surgery has a 98% success rate" can often be framed in a positive or negative manner; if the goal is unbiased perception, part-to-whole comparisons may help - that is, showing a set of 100 dots, two of which are shaded black to indicate deaths from surgery.
+As both the positive and negative framing are subject to biased decisions (a 98% success rate sounds pretty good, after all), probabilistic statements are risky in an adversarial situation where both sides may correctly describe accurate probabilities in a way that induces biased perceptions.
+A number of studies [@kayeCanJurorsUnderstand1991;@koehlerWhenArePeople2001a] suggest that jurors' interpretation of probabilistic evidence is more conservative than would be warranted under Bayesian models of probability, which assume that prior beliefs are influenced by accumulating evidence. 
+Experimental studies comparing random match probabilities (RMPs) to likelihood ratios (LRs) and verbal LR equivalents suggests that the presentation method matters (RMPs are more effective), but  that the type of evidence matters as well [@thompsonLayUnderstandingForensic2015;@martireForensicScienceEvidence2019]. 
+More generally, studies suggest that effects of frequency vs. probability framing (10% vs. 10 in 100) are present for individuals with lower numerical ability but disappear in high numeracy individuals [@petersNumeracyPerceptionCommunication2008]. 
+
+Given the complexities of presenting error rates accurately, it is important that jurors focus on the single task of integrating the available evidence in proportion to its reliability. 
+Jurors should not have to additionally make the determination of whether FATM examination is scientifically valid.
+Studies have found that opposing expert testimony has limited ability to educate jurors about the quality and limitations of scientific evidence, and that expert testimony does not help jurors distinguish between valid and flawed scientific methods [@levettEffectivenessOpposingExpert2008], though it may increase overall skepticism of the jurors. 
+These results suggest that it is sensible to separate these tasks, allowing only evidence which has been shown to be scientifically reliable to be presented to the jury. 
+
+While we are statisticians and not lawyers, we deal with probabilities on a daily basis.
+Eventually, practice can overcome some of these biases, but it is unreasonable to expect that sufficient practice could occur over the course of a courtroom trial.
+We urge judges to take a more active role in determining which evidence should be presented to a jury, ensuring that jurors do not have to juggle validity determination with integrating different types of evidence to reach an overall assessment of a defendant's guilt or innocence. 
+
+
+
 ```{r}
 #| echo: false
 #| message: false
@@ -789,55 +941,435 @@ reliable_studies <- clean_studies %>%
 reliable_study_cite <- paste(' [', paste(paste0('@', unique(reliable_studies$`Study Key`)), collapse = ";"), ']', sep = '')
 ```
 
-# Summary
+```{r, include = F}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(RColorBrewer)
+reliability_orig <- read_csv("data/AmesII-reliability.csv")
+repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
+reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
+
+
+conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
+
+res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
+
+repeatability <- repeatability_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+
+repeatability_us <- repeatability |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+reproducibility <- reproducibility_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+  
+reproducibility_us <- reproducibility |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+reliability <- reliability_orig |>
+  filter(!str_detect(Eval, "Total")) |>
+  group_by(Type, Comparison) |>
+  rename(Count = Total) |>
+  mutate(Total = sum(Count), comparison_pct = Count/Total*100)
+
+reliability_us <- filter(reliability, Eval == "US")
+
+reliability_csdr <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(csd = (Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL")) |>
+  group_by(Type, Comparison) |>
+  mutate(Total = sum(Count)) |>
+  ungroup() |>
+  group_by(Type, csd) |>
+  summarize(Count = sum(Count)) |>
+  group_by(Type) |>
+  mutate(csdr = Count/sum(Count)*100) |>
+  filter(csd) |>
+  select(Type, csdr)
+
+reliability_sens_spec <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = !((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_sens <- filter(reliability_sens_spec, Comparison == "SS")
+reliability_spec <- filter(reliability_sens_spec, Comparison == "DS")
+
+
+reliability_fp_fn <- reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "EL") | (Comparison == "DS" & Eval == "ID"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_fn <- filter(reliability_fp_fn, Comparison == "SS")
+reliability_fp <- filter(reliability_fp_fn, Comparison == "DS")
+
+reliability_ppv_npv <- reliability |>
+  filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Eval) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+reliability_ppv <- filter(reliability_ppv_npv, Eval == "ID")
+reliability_npv <- filter(reliability_ppv_npv, Eval == "EL")
+
+
+repeatability_id <- repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  group_by(Type) |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count)) |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+repeatability_all <- repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  group_by(Type) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+repeatability_sep <- repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  group_by(Type) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))
+
+
+reproducibility_id <- reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  group_by(Type) |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count))
+
+
+reproducibility_all <- reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  group_by(Type) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  
+
+```
+
+```{r, include = F}
+first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
+first_to_last_round <- sprintf("%.2f%%", (1 - 79/173)*100)
+recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
+bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
+cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
+overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
+
+
+```
+# Assessing Reliability, Repeatability, and Reproducibility: Ames II {#sec-ames2-demo}
+
+::: {.callout-note icon=false}
+#### Summary
+
+The Ames II study [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability] allows for assessment of the three features required for scientific validity: reliability, repeatability, and reproducibility. 
+While the study is one of the better designs at present, it shares common flaws with all other available studies [@cuellarMethodologicalProblemsEvery2024]. 
+In particular, the drop-out and nonresponse rates in Ames II are high enough to cast doubt on the statistical estimates of error rates produced by the study.
+
+Acknowledging these flaws, the Ames II study showed:
+
+- **Reliability**: The CSDR for bullets and cartridges are `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])`, respectively (higher is better, calculated from tables in  @monsonAccuracyComparisonDecisions2023). Examiners identify the correct source for bullet comparisons less than 50% of the time, which is worse than guessing. 
+
+- **Repeatability**: With at least 6 weeks between evaluations, for both bullets and cartridge cases,
+    - If the first evaluation is an identification, at least `{r} sprintf("%.2f%%", 100*repeatability_id)` of the time the examiner will come to a conclusion other than identification. 
+    - Across all 5 AFTE categories, an examiner will come to a different conclusion at least `{r} sprintf("%.2f%%", 100*repeatability_all)`  of the time.
+
+- **Reproducibility**: 
+    - If the first examiner makes an identification, a second examiner will come to a different conclusion `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_id$Prop[1], reproducibility_id$Prop[2])` of the time for bullets and cartridge cases, respectively.
+    - Across all 5 AFTE categories, a second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_all$Prop[1], reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
+    
+Even with the many flaws of the design of the Ames II study, it is the most reliable study to date. 
+It provides significant evidence that firearms examination lacks the reliability, repeatability and reproducibility required for scientific validity. 
+Ames II thus provides positive evidence against the scientific validity of firearms examination using the AFTE theory of identification. 
+:::
+
+
+Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [@cuellarMethodologicalProblemsEvery2024;@gutierrezBowlingBumperRails2023].
+PCAST cited the Ames I study as being sufficient to estimate reliability, overlooking concerns with the drop-out rate, nonresponse rate, and sampling methodology present in the study. 
+These concerns have a large effect on the potential estimated error rate [@khanHierarchicalBayesianNonresponse2023], and as a result, we disagree with the PCAST report's evaluation of Ames I as a reliable study, not primarily because of its design, but because of its sampling, execution, analysis, and incomplete reporting of study results.
+
+A follow-up study, Ames II, extended the Ames I design to assess repeatability and reproducibility in addition to reliability.
+This study was published across several reports and journal articles [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability].
+It preserves most of the flaws of the Ames I study, but at present, it is the most complete study presently published. 
+It is the first study to focus on repeatability and reproducibility of firearms and toolmark examinations  conducted under the AFTE guidelines. 
+Unfortunately, the published analysis of reproducibility and reliability is flawed [@dorfmanReAnalysisRepeatabilityReproducibility2022 discusses the flaws in the final grant report which was briefly published alongside @bajicValidationStudyAccuracy2020 and then swiftly removed from the web. The analysis was later published in @monson2023repeatability, but has the same flaws with the expected vs. observed accuracy analysis]; here, we will primarily work with the published tabular data directly. 
+
+The remainder of this assessment uses the tabular data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
+
+
+## Study Design
+Ames II was designed to answer some of the primary objections raised in the PCAST and NRC reports to error-rate studies in firearms and toolmark analysis. 
+The study's design is extremely complicated, going to extreme lengths to vary the number of same-source and different-source comparisons while ensuring that no test kit contained sets which could be combined to gain additional information outside of the experimental design.
+While this is not a bad thing, this additional complexity makes it difficult to reconstruct information about the study's conduct; in addition, in the interests of confidentiality, the study authors have not released results which would be necessary to conduct different analyses on the collected data, such as individual result sheets or kits for each round of the study.
+In this respect, the study's design is a net negative, as it is not possible to fully understand or assess the study due to the combination of unpublished results and a complicated experimental design. 
+
+
+### Firearms
+The study used Beretta and non-Beretta firearms (Jimenez slides for cartridge case comparisons, Ruger barrels for bullet comparisons). 
+Within the Beretta barrels, there were consecutively manufactured clusters taken from early, mid, and late points in the lifetime of the machining components, along with four nonconsecutive and unrelated additions. 
+Beretta slides had breech-faces which were primarily consecutively finished, with 4 nonconsecutive and unrelated additions. 
+Jimenez slides were consecutively finished (so breech faces were consecutively manufactured, but firing pins and extractors were not).  
+Ruger barrels were primarily consecutively manufactured (1-9), with an additional barrel included from sequence 33. 
+This design element represents a compromise between including close non-matches (consecutively manufactured components) and a spectrum of non-matches with some breadth in marking features.
+While it would be good to have more breadth in manufacturing time (e.g. taking consecutive batches from several months or years of manufacturing runs of a single manufacturing process), as well as additional manufacturers represented, any single study has to balance breadth and depth of representation along any single dimension.
+Ideally, similar study designs [^extrabullets] would be conducted by other research groups, using other manufacturers; the results would then be comparable to the results of this study and would provide some assurance that the reliability, repeatability, and reproducibility estimates from Ames II generalize across different types of firearms.
+
+[^extrabullets]: @monsonPlanningDesignLogistics2022 notes that consecutively manufactured Jimenez barrels were used in this study, though the bullets are not included; it seems likely that the authors may conduct another follow-up study that provides more data on bullet comparisons. While replication studies by other groups are required for full scientific validity [@pcast], there is certainly a benefit to replication studies on different firearms as well. 
+
+### Ammunition
+
+@monsonPlanningDesignLogistics2022 reports that only a single type of ammunition (Wolf Polyformance 9mm Luger steel case, with brass Berden primers and 115 grain FMJ bullets) was used in the Ames II study. 
+The authors justification for this choice is multi-faceted, but it seems that cost, comparison difficulty, and simplification of the experiment factored into the decision.
+As the authors note, steel-case ammunition is less common in casework than brass ammunition and does not mark as well as brass; thus, this simplification reduces the generalizability of this study to comparisons common in casework. 
+The authors also suggest that steel-case ammunition comparisons may have fewer identifying marks, but no data is offered to support this assertion. 
+While it is desirable to have studies which include difficult comparisons, at present, there is no way to empirically establish how difficult the comparisons in one study are to those in another study: the fired ammunition used is not made available to other researchers, and 3D microscopy data for each piece of ammunition used in the study is also not released to the community, even though this data would both increase the utility of the study long-term and would allow outside researchers to establish difficulty indices for cross-study comparisons.
+
+### Participants
+The primary design flaw with the Ames II study in terms of statistical validity is in the recruitment and attrition rate of participants (as well as in how this was reported). 
+@monsonPlanningDesignLogistics2022 describes an initial plan for 300 participants, initial agreement of 256 participants at the beginning of the study, that 173 participants completed at least one round of the 6 rounds of testing, and that 79 participants completed all rounds of testing.
+The authors describe the participant attrition and recruitment process in a manner that makes it impossible to reconstruct how many participants were involved at any given stage of the study. 
+
+> "Once the first mailing of specimen packets was distributed and volunteers became fully aware of the amount of work required, many examiners decided to drop out of the study without analyzing the first test packet. Additional examiners withdrew from the study over the course of the data collection period. Other examiners joined the study after it was underway."
+
+This description makes it impossible to reconstruct the number of packets completed in each round of the study, the number of participants who initially dropped out, the total number of participants recruited, and other quantities which are essential to calculate the participant drop-out rate. 
+In addition, there is no information given about how the participants who joined during the study were recruited, whether they meaningfully differ from those who were initially recruited, which participants (anonymized) completed each of the 6 rounds of the study, and so-on. 
+One of the biggest threats to statistical validity is the participant drop-out rate and the item nonresponse bias; failure to report information which could be used to reconstruct these values (or the full data from which study results are calculated, as is customary in other scientific disciplines) means that this study's reported rates for accuracy, repeatability, and reproducibility are utterly unreliable by scientific standards.
+Fundamentally, because these numbers are not reported, it is impossible to adjust observed data to account for nonresponse bias.
+Moreover, the authors of this series of papers identify that participants may have dropped out due to concerns over the amount of work. 
+An alternate explanation is that as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study. 
+If this is the case, it seems reasonable that these participants might have had a higher error rate than those who continued with the study. 
+Statistically, the presence of a plausible alternate explanation for an effect of this magnitude is sufficient to question the overall results produced by the study. 
+
+
+If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `{r} first_round`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
+While this is not a completely accurate estimate of the drop-out rate for the entire study (some of the 173 participants were added after round 1, and the 256 initial recruits does not include these individuals), it is illustrative. 
+If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `{r} first_to_last_round`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
+Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study.
+Science relies on shared data; that the authors of this study have not published anonymized data which allows others to calculate these measures precisely is another indication that the study was not conducted in line with scientific best practices. 
+
+In addition to the participant drop-out rate, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
+Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item nonresponses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
+Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
+This upper estimate is actually not a complete upper bound: another type of nonresponse is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
+In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
+We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
+
+## Analysis Methods
+
+The Ames II journal articles and reports present both the tabulated results of the experiment and analyses which attempt to provide context or a basis for statistical inference. 
+Unfortunately, the analyses presented in the repeatability and reproducibility paper have been shown to be inappropriate [@dorfmanReAnalysisRepeatabilityReproducibility2022]; the authors had time to address these complaints, which were based on the NIJ final grant report, but chose not to do so and instead published the same analysis in their peer-reviewed articles. 
+While there are problems with the expected agreement analysis in @monson2023repeatability, a plain examination of the tabular results is sufficient to demonstrate that firearm and toolmark analysis as performed using  AFTE standards and conclusions has major threats to scientific validity, even ignoring the issues outlined in the previous section that are common to all firearms black-box studies. 
+As a result, this example will focus solely on simple probability calculations from tabular results reported in the series of Ames II publications. 
+
+
+## Unsuitable Evidence
+
+Unsuitable evidence, according to the examples provided by the AFTE range of conclusions, is fragmented or severely damaged to the point where it has no value for comparison. 
+As even misshapen bullets with no microscopic characteristics can still be weighed to establish class characteristics such as caliber, it seems that unsuitable must be reserved for fragmented, incomplete evidence. 
+The authors of the Ames II study describe the procedures used to ensure the fired ammunition was collected with minimal incidental damage - bullets were fired into a water tank and cartridges caught with a net; between study rounds, bullets were cleaned carefully and any debris or markings were removed. 
+The authors devote considerable care to describing the process of designing the experiment and collecting the data; surely they would have mentioned any damaged bullets recovered and included in the test kits as evidence of the realism of the study design. 
+The lack of any documentation, combined with the general care with which the exemplars for the study were collected, suggest that any fired ammunition in the test kits were not fragmented or damaged.
+
+Each lab has protocols determining how the AFTE range of conclusions is applied, including whether an examiner may eliminate based on individual characteristics. 
+Furthermore, each examiner has their own individual standards for each category in the AFTE range. 
+As a result, the notion that there is a uniform evaluation process in firearms examination is, ultimately, a fiction.
+This does not, of course, preclude estimation of a discipline-wide error rate, but as unsuitable evaluations are  excluded from subsequent error rate calculations in these studies, it is worth considering unsuitable evaluations on their own.
+Given the examples of unsuitable evidence in the AFTE range of conclusions, examiners trained to compare minuscule details in fired ammunition should be able to identify whether evidence is too damaged to compare with an incredibly high rate of correspondence; that is, the repeatability and reproduciblity rates should be extremely high. 
+
+@monsonAccuracyComparisonDecisions2023 reports that in the first round, between `{r} sprintf("%0.2f%%", min(reliability_us$comparison_pct))` and `{r} sprintf("%0.2f%%", max(reliability_us$comparison_pct))` of comparisons were labeled as unsuitable.
+More interesting is whether examiners agree with their own previous evaluations (repeatability) or the evaluations of other examiners as to the suitability of the evidence for comparison. 
+We would expect that unsuitable evidence would be unsuitable even upon further examination; there should be little ambiguity in this categorization compared with the choice to use one of the 3 subcategories of inconclusive, for example. 
+However, @monson2023repeatability reports that examiners evaluated suitability differently `{r} sprintf("%0.2f%%", repeatability_us$Conflict)` of the time when examining the same evidence (computed across ground truth and evidence type). 
+Examiners should be using the same lab protocol and individual standards for unsuitability determinations, and there should be minimal ambiguity in suitability both due to the experimental design and the severity of the examples of unsuitable evidence in the AFTE range of conclusions.
+When different examiners evaluated the same comparisons ("reproducibility"), the rate of disagreement across ground truth and evidence type was `{r} sprintf("%0.2f%%", reproducibility_us$Conflict)`, which is slightly higher than the repeatability estimate, which would be expected given the variability in examiner standards and protocol across labs. 
+
+
+## Reliability
+
+The AFTE range of conclusions provides categories beyond those corresponding to ground truth, which complicates the calculation of error rates, as described in @sec-reliability-error-rates. 
+We can evaluate the reliability of firearms examination using many different metrics:
+
+- Correct Source Decision Rate: The number of comparisons which are correctly identified (for same source) or eliminated (for different source), divided by the total number of comparisons. @monsonAccuracyComparisonDecisions2023 reports the CSDR for bullets and cartridges as `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])`, respectively. Higher values indicate better methods. Note that a CSDR under 50% is worse than random chance for a choice between two outcomes (same or different source). 
+
+- Sensitivity and Specificity:
+
+  - Sensitivity: Ability to correctly identify same-source evidence. Strictly calculated as the number of same-source identifications divided by the total number of same source comparisons (e.g. inconclusives are not consistent with ground truth). Under this definition, the Ames II accuracy study obtained sensitivity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_sens$rate[1], reliability_sens$rate[2])`, respectively. Higher values are better. 
+
+  - Specificity: Ability to correctly identify different-source evidence, calculated as the number of different source eliminations divided by the total number of different source comparisons. Under this definition, the Ames II accuracy study observed specificity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_spec$rate[1], reliability_spec$rate[2])`, respectively.  Higher values are better.
+
+
+- False positive rate (FPR) and False negative rate (FNR):
+
+  - FPR: Probability of making an identification when examining a different-source comparison. Under this definition, @monsonAccuracyComparisonDecisions2023 observed false positive rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fp$rate[1], reliability_fp$rate[2])`, respectively. Lower values are better. 
+  
+  - FNR: Probability of making an elimination when examining a same-source comparison. Under this definition, the Ames II accuracy study observed false negative rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fn$rate[1], reliability_fn$rate[2])`, respectively.  Lower values are better. 
+  
+- Positive predictive value (PPV) and negative predictive value (NPV):
+
+  - PPV: Probability that when an examiner makes an identification, the comparison is same-source, calculated as the number of same-source identifications divided by the total number of identifications.  Under this definition, examiners in the Ames II accuracy study making an identification have a `{r} sprintf("%.2f%% and %.2f%%", reliability_ppv$rate[1], reliability_ppv$rate[2])` chance that the comparison is same-source for bullets and cartridges, respectively. Higher values are better. 
+  
+  
+  - NPV: Probability that when an examiner makes an elimination, the comparison is different-source, calculated as the number of different-source eliminations divided by the total number of eliminations.  Under this definition, examiners in the Ames II accuracy study making an elimination have a `{r} sprintf("%.2f%% and %.2f%%", reliability_npv$rate[1], reliability_npv$rate[2])` chance that the comparison is different-source comparison for bullets and cartridges, respectively. Higher values are better. 
+  
+Fundamentally, the relatively low FPR/FNR and high PPV/NPV indicate that the method is reasonably reliable, but  the low sensitivity/specificity and correct source decision rate cast doubt on this reliability.
+The apparent contradiction between these facts is due to the treatment of inconclusive decisions. 
+
+Automatic evidence evaluation algorithms which automatically evaluate bullet and cartridge case scans tend not to have an inconclusive option, and perform with low error rates [@hare2017automatic;@krishnanAdaptingChumbleyScore2019;@zemmelsStudyReproducibilityCongruent2023;@chenFiredBulletSignature2019].
+Firearms examination could be considerably more reliable (and could dispense with the inconclusive option) by utilizing these tools to provide quantitative, repeatable, and objective evaluations of evidence.
+There is little incentive to adopt these measures, however, until examiners are held to higher standards that encourage conclusive decisions. 
+
+
+## Repeatability {#sec-ames2-repeatability-ex}
+
+Ames II is the only study which evaluated repeatability - in a 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5). 
+As the experimenters did not share the full data from the study or even the full design specification that would indicate how, exactly, the replication process was determined, we must be content with analyzing the tabulated data provided in @monson2023repeatability. 
+
+Almost 2% of the repeated evaluations involved a mis-match in suitability assessment. 
+If we condition on the comparison being rated as suitable for evaluation both times, we can assess whether an examiner comes to the same conclusion given the same evidence (and same instrument, lab protocols, and evaluation criteria).
+There are twenty five different possible outcomes when a kit is evaluated twice: each of the five AFTE conclusions could occur during either examination. 
+Evaluating what each of these different combinations means can be very confusing, so in the interests of interpretability, we will start off with a calculation that should be favorable to FATM examiners: given that the first examination was an identification, what is the probability that the second is also an identification?
+Examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations a bit more complicated to evaluate.
+
+Repeatability does not consider the correctness of the decision: we are more interested in consistency at this point than accuracy. 
+There were 665 evaluations which were both identifications, and 740 first evaluations which were identifications, for same-source bullets; for different-source bullets, there were 2 double-identifications out of 19 which were identifications on the first evaluation. 
+If an examiner makes an identification, there is a $100\times \frac{665+2}{740+19}$ = `r sprintf("%.02f%%", 100*(667/759))` chance that a second evaluation will also be an identification. 
+That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence (with at least ~6 weeks or more between examinations). 
+While other non-identification options include inconclusives (and inconclusive-A, which indicates significant, but insufficient, similarity), this result indicates that examiners individually held thresholds are not even internally consistent. 
+Even if examiners have to make a judgment call to decide between identification and inconclusive A, a single examiner's threshold is variable enough that they do not make the same call in over 10% of repeated evaluations.
+Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
+
+```{r}
+#| label: tbl-conditional-repeatability
+#| tbl-cap: Repeatability of an examiner's second decision. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34%. 
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+repeatability |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  pivot_wider(names_from = Type, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  kable()
+```
+
+## Reproducibility
+
+As with repeatability, reproducibility does not consider the correctness of a decision; rather, reproducibility assesses whether different examiners come to the same conclusion given the same evidence.
+There is more variability in reproducibility - different examiners may have different microscopes, or work under different lab policies; in addition, each examiner's training and experience are different, and the AFTE standard is explicitly designed around an examiner's experience. 
+As a result, we would expect reproducibility to be lower than repeatability, because of the increase in variability when different examiners are included.
+As with repeatability, we will take a simple approach to examining Ames II's reported results by considering the second examiner's decision given (statistically, conditioned on) the first examiner's decision. 
+
+```{r}
+#| label: tbl-conditional-reproducibility
+#| tbl-cap: Reproducibility of an examiner's decision. Given the first examiner's decision ("Evaluation 1"), we calculate the probability that the second examiner agrees with the first, across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), reproducibility is below 85%; when Inconclusive-A is the initial decision, repeatability is below 15% for bullets and even lower for cartridge cases. Reproducibility, unlike repeatability, seems to be different for cartridge cases than bullets.  
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+reproducibility |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  pivot_wider(names_from = Type, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  kable()
+```
+
+
+# Conclusion
 
 <!-- Last paragraph: Invert order of issues, attempting to ballpark error estimates at each step -->
 
-This brief outlines several problems with the state of error rate studies on firearm and toolmark examination.
-Fundamentally, it is not possible to estimate error rates for these types of comparisons.
+This document outlines several problems with the state of error rate studies on firearm and toolmark examination.
+Available studies of FATM examination error rates share consistent, fatal flaws that make estimation of error rates for the discipline scientifically unsound. 
 This is a failure of the scientific study of toolmarks, rather than the examiners themselves.
 Scientifically reliable studies must meet the following criteria (these are not all-inclusive, but are places where currently existing studies fail to meet the bar):
 
 -   Good study design (open set, comparisons involve a single known and one or more unknowns)
 -   Low drop-out rates, or statistical methods for assessing the impact of drop-out rates and nonresponse bias on the error estimates
 -   Representative samples of examiners
+-   Data available on request so that other researchers can use different analysis methods
 
 In addition, there should be studies across multiple firearm manufacturing methods and ammunition materials in order for a discipline to be considered generally valid.
 
-The error rates on different types of toolmarks are substantially different, and there are not multiple studies that even allow the estimation of the necessary error and accuracy rates (false positive rate, false negative rate, and correct source decision rate) for most types of evidence.
+There are not multiple studies that even allow the estimation of the necessary error and accuracy rates (false positive rate, false negative rate, and correct source decision rate) for most types of evidence.
 Multiple studies are necessary because any set of participants and required comparisons may be non-representative in some way.
-Science thrives on replication of studies in slightly different conditions over a period of time; firearms and toolmark examination is no exception.
 In only two disciplines (bullet evaluation and cartridge case evaluation) are there more than two studies which are designed in such a way that the full set of error rates are reliably estimable `r reliable_study_cite`.
-Of these studies, two were conducted using evaluation methods other than the AFTE Theory of Identification [@mattijssenValidityReliabilityForensic2020;@pauw2013faid] and on an international set of examiners; as a result, they may not  have sufficient external validity to provide useful information about error rates for firearms and toolmark examination in the United States.
-@lawEvaluatingFirearmExaminer2021 has a small sample size of examiners and was conducted on casts of cartridge cases rather than the cases themselves; the combination of the two issues in addition to sampling issues common to all studies lessens the benefit of including it in this set.
+Of these studies, two were conducted using evaluation methods other than the AFTE Theory of Identification [@mattijssenValidityReliabilityForensic2020;@pauw2013faid] and on an international set of examiners; as a result, they cannot be generalized to examiners in the US.
 
-In these studies, overall error rates are between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$Overall_Error, na.rm = T)), collapse = " and ")`. 
-While these error rates are relatively low, the studies these error rates are based on still have fundamental flaws that suggest that the true error rates in casework may be significantly higher.
-Of these studies, results from one of the most highly regarded studies are not even published in peer-reviewed journals [@baldwinStudyFalsePositiveFalseNegative2014].
+In addition, the AFTE scale of conclusions as implemented by labs is fundamentally flawed in a way that makes scientifically evaluating the error rate of FATM examination problematic. 
+If inconclusives are errors, even if these errors are not necessarily attributable to the examiners' skill level, then examiners make the correct decision in black-box tests of bullet evaluations at rates that are worse than if they used coin flips to determine their answers (across multiple studies!).
 
-In addition, there are some ongoing issues with how the discipline interprets errors.
-If inconclusives are errors, even if these errors are not necessarily attributable to the examiners' skill level, then examiners make the correct decision in black-box tests of bullet evaluations at rates that are worse than if they used coin flips to determine their answers (49.68%).
-Correct source decision rates for many of the studies mentioned in this assessment are provided in @tbl-csdr; CSDRs for studies with reliable designs are between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`.
-Even if inconclusives are considered correct decisions, as recommended by the Association of Firearms and Toolmark Examiners, however, there are still other problems with this evidence.
 
-One of the major issues with the studies that do exist is that they are plagued by non-response bias.
-In many disciplines, non-response biases of greater than 20% are sufficient to invalidate study results, and rates greater than 5% are sufficient cause for concern.
-Most studies in this discipline do not report non-response rates.
-Few studies report sufficient details to begin to estimate the non-response rates, as seen for the studies reviewed in @tbl-dropout.
-For these studies, where sufficient details were reported, drop-out rates are up to 35% and item non-response are up to 36%.
-That most studies do not report drop-out rates is statistical malpractice; failure to report or address this information when reported is particularly egregious in studies that have practicing statisticians as authors.
-While it is theoretically possible that examiners who drop out of studies or leave missing items are similar to examiners who complete the studies (leading to an unchanged error rate), it is significantly more likely that if these examiners had completed the study, the error rate would have been higher.
-In the worst case scenario, the actual error rate could be as high as the sum of the dropout rate and the reported error rate.
-There is no possibility of assessing the true impact of non-response bias in these studies when the authors do not make their data available to other researchers: as was the case in all but one study [@guyllValidityForensicCartridgecase2023] in @tbl-csdr.
+<!-- Correct source decision rates for many of the studies mentioned in this assessment are provided in @tbl-csdr; CSDRs for studies with reliable designs are between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`. -->
 
-Even when non-response bias is ignored, there are further issues with the state of error rate studies in firearm and toolmark examination: studies do not cover a wide enough range of firearms and ammunition to generalize to the discipline as a whole.
-As not all firearm and ammunition combinations mark equally well, there is an obvious bias when studies are conducted using firearms and ammunition that are known to mark.
-This difference between the firearms and ammunition used in studies and those evaluated as part of casework makes it difficult to generalize error rates from studies to a specific combination of ammunition and firearm in a particular case.
-Similarly, the firearms examiners who participate in studies are likely to be fundamentally different from the full population of firearms examiners.
-This, too, precludes generalization of error rates from studies conducted on volunteers to the entire set of qualified firearms examiners.
+A detailed examination of one of the best (though still deeply flawed) studies to date even provides affirmative evidence that FATM examination does not meet the bar for scientific validity:
 
-What I can say with confidence is that the sampling issues with firearms examination studies are problematic, casting doubt on the ability to generalize error rates from these studies to the wider population of all examiners.
-As a result of these compounding issues, it is my opinion as a statistician and researcher in forensic science that error rates established from studies with sampling flaws, methodological flaws, non-response and attrition bias, and misleading treatment of inconclusive results are not reliable estimates of the discipline-wide error rate.
+- **Reliability**: FATM examiners only identify the correct source (same or different) `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])` of the time, respectively, for cartridge cases and bullets. 
+
+- **Repeatability**: When an examiner evaluates the same evidence after at least 6 weeks, they will come to a different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%% and %.2f%%", 100*repeatability_sep$Prop[1], 100*repeatability_sep$Prop[2])`  of the time for bullets and cartridge cases, respectively.
+
+- **Reproducibility**: A second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_all$Prop[1], reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
+
+
+While only a single study is available that suggests that FATM examination lacks repeatability and reproducibility, multiple reliable studies estimate the CSDR at  between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`. 
+This is sufficient to cast serious doubt on the scientific validity of FATM examination as currently practiced under the AFTE guidelines. 
+We acknowledge that all current studies have serious flaws that limit their external validity and may under-estimate the error rates involved in FATM examination, but even if we do not adjust for nonresponse and volunteer sampling, the existing evidence suggests there are serious problems with the repeatability and reproducibility of subjective FATM examination procedures.
+
+The evidence from these new studies shifts the burden of proof - no longer should subjective firearms and toolmark examination be considered to have general scientific acceptance. 
+Instead, the burden must be on FATM examiners, forensic labs, and accrediting agencies to show how policies and procedures have been changed to make subjective FATM examinations more objective and scientific. 
+Until labs and agencies have made shifts that produce demonstrated improvements in the reliability, repeatability, and reproducibility of FATM examinations, this evidence should be treated with considerable skepticism. 
+
 
 <!-- # References -->
 
@@ -854,13 +1386,24 @@ Some abbreviations and relevant terms:
 - SS: Same Source comparisons
 - DS: Different Source comparisons
 - CSDR: Correct Source Decision Rate
-- Vol. Samp: Does the study use volunteer (self-selected) participants?
+- Rep. Samp: Does the study use a representative sample of participants? Studies that use volunteer (self-selected) participants do not have a representative sample.
 - Data Avail: Is the full data for the study published?
-- Phys Item: Did the study use physical ammunition, or did it use casts, photos, or virtual microscopy?
+<!-- - Phys Item: Did the study use physical ammunition, or did it use casts, photos, or virtual microscopy? -->
 - Pair Set: Does the study compare one or more knowns to a single unknown? Or are there multiple knowns and multiple unknowns (a kit study)?
 - Open Set: Does the study include comparisons that do not match provided knowns? Note that all pair set studies are by default open if there are any non-matching comparisons.
 - Peer Rev: Is the study published in a peer reviewed venue?
 - Sci Journ: Is the study published in a scientific journal, as opposed to as a report or a publication in a trade journal such as AFTE Journal?
+
+Types of comparisons:
+
+- AS: aperture shear
+- BF: breech face
+- B: bullet
+- C: cartridge
+- E: extractor
+- S: slide
+
+\clearpage
 
 ## Table of Study Reliability Metrics
 
@@ -869,17 +1412,21 @@ Some abbreviations and relevant terms:
 #| message: false
 #| error: false
 #| warning: false
-#| tbl-cap: Study Characteristics, where available. Y indicates a potential problem occurring when the listed characteristic is true, N indicates a potential problem occurring when a characteristic is false. P indicates partial data available.
+#| tbl-cap: Study Characteristics. N indicates a problem with the study; P indicates that partial data is available. Studies with more problems should be seen as less likely to generalize to the full population of examiners or less consistent with principles of good science. For instance,  there are only two studies with partial data available. Only one study includes a "representative sample", and that study includes only one forensic laboratory; as a result, even that study cannot generalize beyond the Houston Forensic Science center. Studies without pair sets and studies that are not open-set studies make it difficult to fully calculate all relevant error rates, because it is not possible to determine the total number of comparisons performed.
 #| label: tbl-study-char
+#| classes: smaller
+
+types <- c("Aperture shear" = "AS", "Breech Face" = "BF", "Bullet" = "B" ,  "Cartridge" = "C" ,  "Extractor" = "E", "Slide" =  "S")
+
 clean_studies %>%
   filter(!Algorithm) %>%
   select(Study = `Study Key`, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal) %>%
   arrange(Study, ExamType) %>%
   group_by(Study) %>%
-  mutate(ExamType = paste(ExamType, collapse = ", ")) %>%
+  mutate(ExamType = paste(ExamType, collapse = ", ") |> str_replace_all(types)) %>%
   ungroup() %>%
   mutate(Study = paste0("@", Study),
-         Volunteers = ifelse(Volunteers, "Y", ""),
+         RepSample = ifelse(Volunteers, "N", ""),
          isPhysical = ifelse(isPhysical,  "", "N"),
          Open = ifelse(Open, "", "N"),
          isPairStudy = ifelse(isPairStudy, "", "N"),
@@ -887,11 +1434,14 @@ clean_studies %>%
          isSciJournal = ifelse(isSciJournal, "", "N"),
   ) %>%
   arrange(ExamType, Volunteers, Data_Available, isPairStudy, Open, isPeerReviewed) %>%
-  rename(Type = ExamType, `Vol. Samp.` = Volunteers, `Data Avail` = Data_Available, `Phys Item` = isPhysical, `Open Set` = Open, `Pair Set` = isPairStudy, `Peer Rev.` = isPeerReviewed, `Sci. Journ.` = isSciJournal) %>%
+  rename(Type = ExamType, `Rep Samp` = RepSample, `Data Avail` = Data_Available, `Phys Item` = isPhysical, `Open Set` = Open, `Pair Set` = isPairStudy, `Peer Rev.` = isPeerReviewed, `Sci. Journ.` = isSciJournal) %>%
   unique() %>%
+  select(Study,  Type, `Rep Samp`, `Data Avail`:`Sci. Journ.`)|>
+  select(-`Phys Item`) |>
   knitr::kable()
 ```
 
+\clearpage
 
 ## Table of CSDR, Error, and Inconclusive Rates {.appendix}
 
@@ -901,15 +1451,16 @@ clean_studies %>%
 #| error: false
 #| warning: false
 #| cache: false
-#| tbl-cap: Calculated study error and correct source decision rates (where such rates can be calculated). 
+#| tbl-cap: Calculated study error and correct source decision rates (where such rates can be calculated). When the study's design does not allow for calculation of the number of comparisons performed, the quantity is indicated with "?". Poorly designed studies do not allow for calculation of some or all of the relevant error rates. What is notable is that of the studies which have fully estimable error rates, most have CSDR estimates below 75%, that is, more than 25% of the time, examiners do not correctly identify whether evidence is from the same source or from different sources. 
 #| label: tbl-csdr
 clean_studies %>%
   filter(!Algorithm) %>%
   arrange(ExamType, Year) %>%
-  select(Study = `Study Key`, Type = ExamType, `#SS` = SS_Tot, `#DS` = DS_Tot, CSDR, `Overall Err. Rate` = Overall_Error, `Inconcl. Rate` = Inconclusive_Rate) %>%
+  mutate(ExamType = str_replace_all(ExamType, types)) %>%
+  select(Study = `Study Key`, Type = ExamType, `# Same Source` = SS_Tot, `# Diff Source` = DS_Tot, `Correct Source Decision Rate` = CSDR, `Overall Err. Rate` = Overall_Error, `Inconcl. Rate` = Inconclusive_Rate) %>%
     mutate(Study = paste0("@", Study)) %>%
-  mutate(across(c(`#SS`, `#DS`), ~sprintf("% 5d", as.numeric(.)) %>% str_replace("NA", " ?"))) %>%
-  mutate(across(c(CSDR, `Overall Err. Rate`, `Inconcl. Rate`), ~sprintf("%0.4f", .) %>% str_replace("NA", "?"))) %>%
+  mutate(across(c(`# Same Source`, `# Diff Source`), ~sprintf("% 5d", as.numeric(.)) %>% str_replace("NA", " ?"))) %>%
+  mutate(across(c(`Correct Source Decision Rate` , `Overall Err. Rate`, `Inconcl. Rate`), ~sprintf("%0.4f", .) %>% str_replace("NA", "?"))) %>%
   knitr::kable(digits = 4, align = 'llrrrrrr')
 ```
 
@@ -937,32 +1488,34 @@ Note this is a lower bound for the item non-response as it does not account for 
 #| cache: false
 #| tbl-cap: Participant sampling types, data availability, drop-out rates, and item non-response rates. Only studies for which one of drop-out rates and item non-response rates are specified are included. This table focuses on data used to calculate accuracy of examiners conclusions.
 #| label: tbl-dropout
-clean_studies %>%
+nonresponse <- clean_studies %>%
   filter(!Algorithm) %>%
   select(Study = `Study Key`, Year, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal, Drop_Out_Rate, Item_Nonresponse_Rate) %>%
   mutate(Study = paste0("@", Study),
          Volunteers = ifelse(Volunteers, "Y", ""),
          isPhysical = ifelse(isPhysical,  "", "N"),
          Open = ifelse(Open, "", "N"),
-         Drop_Out_Rate_Format = str_replace(Drop_Out_Rate, "0\\.? [\\d]*", "%0.4f"),
-         Drop_Out_Rate = as.numeric(str_extract(Drop_Out_Rate, "0\\.? [\\d]*")),
-         Item_Nonresponse_Rate_Format = str_replace(Item_Nonresponse_Rate, "0\\.? [\\d]*", "%0.4f"),
-         Item_Nonresponse_Rate = as.numeric(str_extract(Item_Nonresponse_Rate, "0\\.? [\\d]*")),
+         num_Drop_Out_Rate = round(as.numeric(Drop_Out_Rate), digits = 4),
+         Drop_Out_Rate_Format = str_replace(Drop_Out_Rate, "^[\\d.]{1,}$", "%0.4f"),
+         num_Item_Nonresponse_Rate = round(as.numeric(Item_Nonresponse_Rate), digits = 4),
+         Item_Nonresponse_Rate_Format = str_replace(Item_Nonresponse_Rate, "^[\\d.]{1,}$", "%0.4f"),
          isPairStudy = ifelse(isPairStudy, "", "N"),
          isPeerReviewed = ifelse(isPeerReviewed,  "", "N"),
          isSciJournal = ifelse(isSciJournal, "", "N"),
   ) %>%  
   arrange(Study, ExamType, Year) %>%
   group_by(Study) %>%
-  mutate(ExamType = paste(ExamType, collapse = ", ")) %>%
+  mutate(ExamType = paste(ExamType, collapse = ", ") |> str_replace_all(types)) %>%
   ungroup() %>%
   arrange(ExamType, Year, Volunteers, Data_Available, isPairStudy, Open, isPeerReviewed) %>%
   filter(!is.na(Drop_Out_Rate) | !is.na(Item_Nonresponse_Rate) | !is.na(Drop_Out_Rate_Format)) %>%
   filter(!Study %in% c("bunch2003comprehensive")) %>%
   # filter(Study %in% c("@lyonsIdentificationConsecutivelyManufactured2009", "@mayland2012validation", "@fadulEmpiricalStudyImprove2013a", "@stromanEmpiricallyDeterminedFrequency2014", "@baldwinStudyFalsePositiveFalseNegative2014", "@smithValidationStudyBullet2016", "@keislerIsolatedPairsResearch2018", "@hambyWorldwideStudyBullets2019", "@chapnickResults3DVirtual2021", "@monsonAccuracyComparisonDecisions2023", "@smith2021beretta")) %>%
-  mutate(Drop_Out_Rate_Format = ifelse(str_detect(Drop_Out_Rate_Format, "%"), sprintf(Drop_Out_Rate_Format, Drop_Out_Rate), Drop_Out_Rate_Format),
-         Item_Nonresponse_Rate_Format = ifelse(str_detect(Item_Nonresponse_Rate_Format, "%"), sprintf(Item_Nonresponse_Rate_Format, Item_Nonresponse_Rate), Item_Nonresponse_Rate_Format)) %>%
-  select(Study, Type = ExamType, `Vol. Samp.` = Volunteers, `Data Avail` = Data_Available, `Drop Out Rate` = Drop_Out_Rate_Format, `Item Nonresponse Rate` = Item_Nonresponse_Rate_Format) %>%
+  mutate(Drop_Out_Rate_Format = ifelse(str_detect(Drop_Out_Rate_Format, "%"), sprintf(Drop_Out_Rate_Format, num_Drop_Out_Rate), Drop_Out_Rate_Format),
+         Item_Nonresponse_Rate_Format = ifelse(str_detect(Item_Nonresponse_Rate_Format, "%"), sprintf(Item_Nonresponse_Rate_Format, num_Item_Nonresponse_Rate), Item_Nonresponse_Rate_Format)) 
+
+nonresponse %>%
+  select(Study, Type = ExamType, `Vol. Samp.` = Volunteers, `Data Avail` = Data_Available, `Drop out Rate` = Drop_Out_Rate_Format, `Item Nonresponse Rate` = Item_Nonresponse_Rate_Format) %>%
   unique() %>%
   knitr::kable(digits = 2)
 ```
@@ -1008,7 +1561,11 @@ As a result of the blind testing protocol, it appears (though is not stated) tha
 
 # Susan Vanderplas CV {.appendix}
 
-\includepdf[pages=-,width=\textwidth,pagecommand={\pagestyle{fancy}}]{quals/vanderplas-CV.pdf}
+\includepdf[pages=-,width=\textwidth,pagecommand={\pagestyle{fancy}},trim=1in 1in 1in 1in]{quals/vanderplas-CV.pdf}
+
+# Heike Hofmann CV {.appendix}
+
+\includepdf[pages=-,width=\textwidth,pagecommand={\pagestyle{fancy}},trim=1in 1in 1in 1in]{quals/Hofmann-CV.pdf}
 
 
 <!-- # Alicia Carriquiry CV {.appendix} -->
@@ -1019,5 +1576,5 @@ As a result of the blind testing protocol, it appears (though is not stated) tha
 
 <!-- \includepdf[pages=-,scale=0.9,pagecommand={\pagestyle{fancy}}]{khan.pdf} -->
 
-<!-- --> -->
+<!-- --> 
 <!-- ``` -->
