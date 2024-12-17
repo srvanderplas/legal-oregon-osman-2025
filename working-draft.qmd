@@ -384,7 +384,7 @@ To support this, it might be helpful if accrediting organizations maintained a r
 ::: {.callout-note icon=false}
 #### Summary
 
-Generalizing error rate studies to casework requires a broad range of studies that include both studies involving consecutively manufactured firearms and studies of multiple nonconsecutively manufactured firearms. 
+Generalizing error rate studies to casework requires a broad range of studies that include both studies involving consecutively manufactured firearms and studies of multiple non-consecutively manufactured firearms. 
 Studies also must compare marks made by the same firearms using different types of ammunition. 
 Data reporting the types of firearms and ammunition present in casework also must be made available to researchers. 
 Without studies which establish these facts and compare existing studies to casework in the relevant jurisdiction, we cannot generalize the results of existing studies to the discipline as a whole. 
@@ -469,7 +469,7 @@ Furthermore, examiners made use of other methods to remove difficult comparisons
 > "The inclination to state that there are no suitable features for comparison varied considerably between examiners, with examiners' source decision rates ranging from 0.44 to 1. When the examiners were also allowed to state that they did not feel confident to report their source decision (inconclusive judgments), their source decision rates ranged from 0.06 to 1... all examiners were provided with the same features for comparison."
 
 Taking the experimental results, the author evaluations, and the known differences in marking of different firearms and ammunition into consideration, it is critically important that the difficulty of comparisons be varied intentionally in studies, and that some objective measure of this difficulty be provided along with examiner results. 
-To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner nonresponse [@gutierrezBowlingBumperRails2023]. 
+To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner non response [@gutierrezBowlingBumperRails2023]. 
 
 
 ## Types of Marks
@@ -504,15 +504,15 @@ This testimony was designed to imply that PCAST's concern for study design was m
 ## Missing Data and Non-response Bias
 ::: {.callout-note icon=false}
 #### Summary
-Studies of error rates in firearms examination often do not report drop-out and nonresponse rates, which has the potential to artificially reduce error rate estimates as examiners fail to answer questions about difficult comparisons. 
-Without accurate reporting of drop-out and nonresponse rates over the course of a study, it is impossible to determine how much of a threat these issues are to the overall validity of error rate estimates produced by the studies. 
+Studies of error rates in firearms examination often do not report drop-out and non response rates, which has the potential to artificially reduce error rate estimates as examiners fail to answer questions about difficult comparisons. 
+Without accurate reporting of drop-out and non response rates over the course of a study, it is impossible to determine how much of a threat these issues are to the overall validity of error rate estimates produced by the studies. 
 :::
 
 
 In addition to the fundamental problems with volunteer-only participation in black-box studies, there is an additional issue which plague most black-box studies: even participants who volunteer for the study may not return the full set of answers (or any answers).
 That is, most studies have a drop-out rate where participants who initially volunteered for the study did not complete the full study.
 In statistics, this sort of missing data is more problematic if it is "missing not-at-random" - that is, if the participants who do not return full sets of answers are systematically different from those who do return full sets of answers.
-There are many statistical methods used to produce valid estimates even in the face of missing data and non-response bias [^9], and @khanHierarchicalBayesianNonresponse2023 use statistical modeling to explore the effect of drop-out and item nonresponse on error rates.
+There are many statistical methods used to produce valid estimates even in the face of missing data and non-response bias [^9], and @khanHierarchicalBayesianNonresponse2023 use statistical modeling to explore the effect of drop-out and item non response on error rates.
 
  [^9]: There are, in fact, entire areas of statistical research devoted to such methods.
     For some examples, see @little2019statistical and @kim2014statistical.
@@ -529,13 +529,13 @@ People who are more likely to answer a phone call from an unknown number are dif
 These biases can sometimes be corrected for statistically when they are a well-studied quantity (as in political polling), but even the models which allow for pollsters to adjust their estimates to account for these biases are sometimes wrong, leading to systematically biased polls.
 The same set of problems arise when researchers ignore non-response bias or missing-not-at-random data in black-box studies. 
 
-Unfortunately, statisticians do not have sufficient data to adjust the estimates based on these issues, because statistical corrections for nonresponse in FATM error rate studies are not nearly as well established as political polling.
+Unfortunately, statisticians do not have sufficient data to adjust the estimates based on these issues, because statistical corrections for non response in FATM error rate studies are not nearly as well established as political polling.
 The scientific community also does not have the ability to start studying these issues because the authors of black box studies almost never make the data publicly available.
 This last point is particularly concerning given that the broader scientific community recognizes that publicly available data is necessary to ensure studies are reaching valid statistical conclusions [@albrightCallOpenScience2024; @wicherts2011willingness; @stodden2015reproducing].
 
 <!-- In order to begin to address these problems, researchers first have to consistently acknowledge them. -->
-<!-- In most studies we have reviewed, the limitations due to nonresponse and drop-out bias are not acknowledged. -->
-<!-- No study utilizes common statistical methods for assessing the impact of nonresponse and drop-out bias [@woodAreMissingOutcome2004]. -->
+<!-- In most studies we have reviewed, the limitations due to non response and drop-out bias are not acknowledged. -->
+<!-- No study utilizes common statistical methods for assessing the impact of non response and drop-out bias [@woodAreMissingOutcome2004]. -->
 <!-- More troubling, these studies do not release any data to facilitate other researchers filling in these gaps. -->
 
 One option to bound the problem is to estimate the error rate with an assumed drop-out rate to determine the magnitude of the issue if the participants who dropped out had completely incorrect responses.
@@ -553,7 +553,7 @@ As the holders of the data, the researchers conducting validation studies are th
 Choosing the correct methods depends on exploring the patterns of missingness in the data.
 Instead, currently, these researchers ignore the problem and proceed with inappropriate statistical analyses- despite the availability of existing appropriate methods that could be used.
 
-In summary, item nonresponse and drop-out bias are significant problems in current error rate studies.
+In summary, item non response and drop-out bias are significant problems in current error rate studies.
 Given what scientists know about why people drop out of studies, we expect that studies with non response bias under-estimate the error rate.
 Because error rate studies typically do not acknowledge the issue or release study response data, it is hard to conclusively bound this problem's effect on error rate studies.
 This refusal to release data is contrary to scientific best practice; even in disciplines where there are privacy concerns, such as psychology and medicine, it is still common to release anonymized data upon request.
@@ -800,7 +800,7 @@ Each of these methods has some drawbacks, but ultimately, reproducibility assess
 Objective algorithms can address many of the issues with FATM examination black-box  studies in part because computer time is much cheaper than human time. 
 However, algorithms used for screening comparisons, such as those in NIBIN/IBIS and BallisticsIQ, have the potential to significantly increase the false positive rate by identifying close non-matches. 
 Algorithms which simply evaluate the similarity of two pieces of evidence without a database search have a much stronger statistical footing and can provide objective evidence to support the subjective findings of human examiners. 
-Forensic algorithms should be open-source, benchmarked on public datasets for comparison purposes, and carefully validated before use in casework.
+Forensic algorithms should be open-source, benchmarked on public data sets for comparison purposes, and carefully validated before use in casework.
 
 :::
 
@@ -1106,7 +1106,7 @@ overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
 
 The Ames II study [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability] allows for assessment of the three features required for scientific validity: reliability, repeatability, and reproducibility. 
 While the study is one of the better designs at present, it shares common flaws with all other available studies [@cuellarMethodologicalProblemsEvery2024]. 
-In particular, the drop-out and nonresponse rates in Ames II are high enough to cast doubt on the statistical estimates of error rates produced by the study.
+In particular, the drop-out and non response rates in Ames II are high enough to cast doubt on the statistical estimates of error rates produced by the study.
 
 Acknowledging these flaws, the Ames II study showed:
 
@@ -1127,7 +1127,7 @@ Ames II thus provides positive evidence against the scientific validity of firea
 
 
 Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [@cuellarMethodologicalProblemsEvery2024;@gutierrezBowlingBumperRails2023].
-PCAST cited the Ames I study as being sufficient to estimate reliability, overlooking concerns with the drop-out rate, nonresponse rate, and sampling methodology present in the study. 
+PCAST cited the Ames I study as being sufficient to estimate reliability, overlooking concerns with the drop-out rate, non response rate, and sampling methodology present in the study. 
 These concerns have a large effect on the potential estimated error rate [@khanHierarchicalBayesianNonresponse2023], and as a result, we disagree with the PCAST report's evaluation of Ames I as a reliable study, not primarily because of its design, but because of its sampling, execution, analysis, and incomplete reporting of study results.
 
 A follow-up study, Ames II, extended the Ames I design to assess repeatability and reproducibility in addition to reliability.
@@ -1175,8 +1175,8 @@ The authors describe the participant attrition and recruitment process in a mann
 
 This description makes it impossible to reconstruct the number of packets completed in each round of the study, the number of participants who initially dropped out, the total number of participants recruited, and other quantities which are essential to calculate the participant drop-out rate. 
 In addition, there is no information given about how the participants who joined during the study were recruited, whether they meaningfully differ from those who were initially recruited, which participants (anonymized) completed each of the 6 rounds of the study, and so-on. 
-One of the biggest threats to statistical validity is the participant drop-out rate and the item nonresponse bias; failure to report information which could be used to reconstruct these values (or the full data from which study results are calculated, as is customary in other scientific disciplines) means that this study's reported rates for accuracy, repeatability, and reproducibility are utterly unreliable by scientific standards.
-Fundamentally, because these numbers are not reported, it is impossible to adjust observed data to account for nonresponse bias.
+One of the biggest threats to statistical validity is the participant drop-out rate and the item non response bias; failure to report information which could be used to reconstruct these values (or the full data from which study results are calculated, as is customary in other scientific disciplines) means that this study's reported rates for accuracy, repeatability, and reproducibility are utterly unreliable by scientific standards.
+Fundamentally, because these numbers are not reported, it is impossible to adjust observed data to account for non response bias.
 Moreover, the authors of this series of papers identify that participants may have dropped out due to concerns over the amount of work. 
 An alternate explanation is that as the participants had access to the first test packet, they may have balked at the difficulty of the comparisons in the study. 
 If this is the case, it seems reasonable that these participants might have had a higher error rate than those who continued with the study. 
@@ -1189,10 +1189,10 @@ If we compute the drop-out rate as those who completed at least one round but di
 Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study.
 Science relies on shared data; that the authors of this study have not published anonymized data which allows others to calculate these measures precisely is another indication that the study was not conducted in line with scientific best practices. 
 
-In addition to the participant drop-out rate, there are some instances of item nonresponse as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
-Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item nonresponses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
-Under this assumption (that all nonresponses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
-This upper estimate is actually not a complete upper bound: another type of nonresponse is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
+In addition to the participant drop-out rate, there are some instances of item non response as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
+Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item non-responses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
+Under this assumption (that all non-responses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
+This upper estimate is actually not a complete upper bound: another type of non-response is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
 In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
 We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
 
@@ -1336,7 +1336,7 @@ This is a failure of the scientific study of toolmarks, rather than the examiner
 Scientifically reliable studies must meet the following criteria (these are not all-inclusive, but are places where currently existing studies fail to meet the bar):
 
 -   Good study design (open set, comparisons involve a single known and one or more unknowns)
--   Low drop-out rates, or statistical methods for assessing the impact of drop-out rates and nonresponse bias on the error estimates
+-   Low drop-out rates, or statistical methods for assessing the impact of drop-out rates and non-response bias on the error estimates
 -   Representative samples of examiners
 -   Data available on request so that other researchers can use different analysis methods
 
@@ -1364,7 +1364,7 @@ A detailed examination of one of the best (though still deeply flawed) studies t
 
 While only a single study is available that suggests that FATM examination lacks repeatability and reproducibility, multiple reliable studies estimate the CSDR at  between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`. 
 This is sufficient to cast serious doubt on the scientific validity of FATM examination as currently practiced under the AFTE guidelines. 
-We acknowledge that all current studies have serious flaws that limit their external validity and may under-estimate the error rates involved in FATM examination, but even if we do not adjust for nonresponse and volunteer sampling, the existing evidence suggests there are serious problems with the repeatability and reproducibility of subjective FATM examination procedures.
+We acknowledge that all current studies have serious flaws that limit their external validity and may under-estimate the error rates involved in FATM examination, but even if we do not adjust for non-response and volunteer sampling, the existing evidence suggests there are serious problems with the repeatability and reproducibility of subjective FATM examination procedures.
 
 The evidence from these new studies shifts the burden of proof - no longer should subjective firearms and toolmark examination be considered to have general scientific acceptance. 
 Instead, the burden must be on FATM examiners, forensic labs, and accrediting agencies to show how policies and procedures have been changed to make subjective FATM examinations more objective and scientific. 
@@ -1553,7 +1553,7 @@ nonresponse %>%
 
 Note that @neumanBlindTestingFirearms2022 is not included in this table because it is an observational study, rather than an experiment.
 It did not manipulate the types of comparisons systematically.
-As a result, it is difficult to evaluate it in a manner similar to the other experimental studies, and the definitions of drop-out and item nonresponse rate provided above are consistent with experiments, not observational studies.
+As a result, it is difficult to evaluate it in a manner similar to the other experimental studies, and the definitions of drop-out and item non response rate provided above are consistent with experiments, not observational studies.
 As a result of the blind testing protocol, it appears (though is not stated) that all comparisons were completed as directed.
 
 
