@@ -49,9 +49,6 @@ Heike Hofmann
 
 {{< include quals/heike-quals.qmd >}}
 
-# Executive Summary
-
-
 
 # Introduction - Firearm and Toolmark Error Rates
 
