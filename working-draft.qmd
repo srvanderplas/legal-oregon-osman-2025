@@ -5,6 +5,16 @@ bibliography: refs.bib
 classoption: table
 header-includes: |
   \usepackage{booktabs}
+  \usepackage[multiple]{footmisc}
+  \usepackage{etoolbox}
+    
+  \makeatletter
+  % Argument: custom value to use locally for \floatingpenalty inside footnotes
+  \newcommand*{\mySpecialfootnotes}[1]{%
+    \patchcmd{\@footnotetext}{\floatingpenalty\@MM}{\floatingpenalty#1\relax}%
+             {}{\errmessage{Couldn't patch \string\@footnotetext}}%
+  }
+  \makeatother
 format:
   pdf:
     include-in-header: "preamble.tex"
@@ -273,34 +283,35 @@ To date, there are no studies which use random sampling from a defined populatio
 As a result, error rates from these studies are not representative of the overall error rate of firearms examination.
 :::
 
-One of the primary concerns with error rates provided by "well-designed" studies is that even well designed, well-executed studies cannot compensate for sampling bias in the participant pool.
-**Sampling bias** occurs when some members of the population are more likely to be selected to be part of the experiment; the results of a biased experiment will more closely resemble these members of the population.
+One of the primary concerns with error rates provided by studies that would be considered "well-designed" under PCAST principles is that even well designed, well-executed studies cannot compensate for sampling bias in the participant pool.
+**Sampling bias** occurs when some members of the population are more likely to be selected to be part of the experiment. 
+The results of a biased experiment will more closely resemble these members of the population.
 That is, no matter how well the experiment is laid out, if the participants are not a representative sample from the population (in this case, all qualified firearms examiners in the United States), the results of the study do not generalize to that population.
 
 Participant sampling problems represent a threat to **external validity**.
 This principle is taught in even introductory undergraduate statistics courses; it is fundamental to our discipline.
 One of the easiest ways to ensure that a sample is representative is to randomly select participants from the population; a more labor-intensive option is to conduct a full census of the population at a certain time.
-In both cases, the experimenters must use their selection criteria to argue that the study sample is representative across important aspects of the population.
+There are, of course, many variations between a simple random sample and a full census that are used in other fields to get a representative sample from a difficult-to-quantify population^[@morrisExplorationMusicianResilience2013, for instance, describes a method for sampling jazz musicians after Hurricane Katrina in New Orleans, based on the premise that you're not a jazz musician if you don't know at least a couple of other jazz musicians; this type of peer-to-peer sampling method (snowball sampling) is particularly useful in cases where there is no sampling frame which lists all of the members of a specific population.].
+In cases where a full census is not completed, experimenters must use the defined selection criteria to argue that the study sample is representative across important aspects of the population.
 
 Fundamentally, because all but one current black-box studies use volunteers, it is likely that the participants in these studies  meaningfully differ from those who did not volunteer to participate.
 The one non-volunteer study that exists @neumanBlindTestingFirearms2022 describes the results of a blind testing program implemented at Houston Forensic Science Center; while its results cannot be generalized beyond HFSC, it does provide a unique perspective on error rates in firearms and toolmark comparisons.
 By the nature of blind testing (participants are unaware the case they are working on is a test), participants do not self-select into the study; they are included as a condition of their employment.
 
-In all of the remaining black-box studies, many of the potential differences between volunteers and the general population likely have no impact on estimated error rates, but there are many potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
+In all of the remaining black-box studies, many of the potential differences between volunteers and the general population likely have no impact on estimated error rates, but there are also several potential lurking covariates that would meaningfully affect the error rates estimated by the studies.
 For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
 In fact, in studies which differentiate between trainee and qualified examiners, we find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018].
-
 
 Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
 Thus, these examiners would be over-represented in the study-wide estimate of the error rate, in that they account for fewer cases than the examiners who do not have time to participate in a voluntary study.
 As a result, the estimated error rate from the study would not be representative of the error rate of all examiners.
 
 It is important to note that we cannot tell which of these effects may be true: both are plausible, but without a random selection method, studies are vulnerable to many different arguments about systematic participant selection bias.
-When participants are randomly selected from the population, these effects may still exist due to sampling variability, but over many studies, small biases in any direction will cancel out, and even in single studies, we can estimate the effect of sampling variability. 
-There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation.
+When participants are randomly selected from the population, these effects may still exist due to sampling variability, but over many studies, small biases in any direction will cancel out, and even in single studies, we can quantify (and bound) the effect of sampling variability. 
+There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation, employment in a forensic lab (vs. independent consultant status).
 
-An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which leads to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership boards).
-There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^ [@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
+An additional source of participant recruitment bias is that many studies recruit via the AFTE membership forums [@fadul; @keislerIsolatedPairsResearch2018; @monsonAccuracyComparisonDecisions2023], which leads to an over-representation of AFTE members and certified examiners (and in particular, those who spend time on the membership forums).
+There is not a list of examiners who are allowed to testify in court which could be used for sampling for such a study, but we might expect that people who are active in AFTE are more invested in the discipline, may have more training, and may thus have a lower error rate^[@neumanBlindTestingFirearms2022 indicates that about half of examiners at HFSC are members of AFTE; 63% of examiners in @khanShiningLightForensic2023 were members of AFTE].
 
 The presence of a **confounding variable** (a variable whose effect on the response cannot be separated from the explanatory variable) ensures that researchers cannot make a causal statement about the association between two variables (e.g. the explanatory variable causes the change in the response variable) [Section 4.1 Summary, @tintle2015introduction].
 Thus, statisticians acknowledge the presence of a confounding (or "lurking") variable (in this case, an examiner's experience, duty, education, confidence, and available time) that might co-vary with the dependent variable (in this case, the likelihood that an examiner self-selects into a study).
@@ -310,6 +321,15 @@ In this case, the presence of such lurking variables without the ability to comp
  [^5]: One easy example of a lurking variable is that the number of baby births are correlated with the number of storks in European countries.
     It would be relatively easy to falsely draw the conclusion that storks are associated with babies, but this ignores the lurking variable of the geographic size (and population size) of the country.
     Causation cannot be inferred when there are lurking variables or when the study is observational in nature. @mayyasiStorksDeliverBabies2014
+    
+An additional factor lurking beneath the surface in the discussion of participant recruitment in black-box studies is that anyone participating in these studies has a financial and reputational stake in the study outcome. 
+In this, forensic examiners serve not only as experimenters (as many of these experiments are run by or in consultation with examiners) but also as participants, reviewers, and beneficiaries.
+When things go wrong, as in a recent proficiency test which had a much higher than expected false positive rate ^[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024. 61/280 participants, or 21.8% had at least one false identification out of four comparisons on the proficiency test.], examiners are also the investigators and judges; the cause analysis of the report was performed by an ad-hoc AFTE committee and the report was released to AFTE members^[The report was available on the AFTE website and did not require password access, but would have been hard to find without the emailed link. It has since been archived with The Internet Archive (https://archive.org/details/ptrc-final-report-2024-11-25) to ensure that it remains available.]. 
+In DNA forensics, there are non-forensic applications of the same technology that ensure that the threshold for "general scientific acceptance" extends beyond the relatively tight-knit group of forensic examiners. 
+In pattern evidence, and particularly in FATM examination, there are very few outside applications of the same techniques; as a result, the discipline is particularly insular.
+As a result, examiners feel a very real investment in the results of the studies they participate in, and may have a sense of collective responsibility to not provide any reason to express doubt in the accuracy or validity of a specific process, lest it be used against the entire community.
+This bias has been noted as a threat to external validity in *United States v. Adams* ^[444 F.Supp.3d 1248 (D. Or. 2020).]: test takers know that under AFTE rules, the only way to do poorly is to record a false positive, creating an incentive to answer inconclusive instead, resulting in an underestimate of the false positive rate in tests compared to real-world examinations. 
+Under these circumstances, it is particularly important to select a sample of participants which is representative of the population and not solely assembled from volunteers. 
 
 Current methods for recruitment in black-box studies preclude generalization to the whole population; any study only speaks for the error rate of the participants of that study.
 Random selection of participants mitigates these potential biases by ensuring that any differences in the sample of selected participants are the product of random assortment - while any single experiment might have a random sample of participants who are not fully representative of the population, each experiment's different samples will produce overall unbiased results.
@@ -354,28 +374,24 @@ However, all journals rely on the study's authors to describe the study recruitm
 This does not typically happen in validation studies.
 
 Participant sampling bias affects **all studies conducted in the United States to date**.
-Currently, there is no way to randomly sample all qualified examiners and compel them to participate, in part because research participation must be voluntary in the United States. [^7] 
+Currently, there is no simple way to randomly sample all qualified examiners and compel them to participate, in part because research participation must be voluntary in the United States. [^7] 
 This problem is less pervasive in Europe, where lab certification and validation studies are conducted to assess this type of error rate and certification is conditioned upon participation.
 
  [^7]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
     Voluntary participation is somewhat difficult to define; for instance, some error rate studies mention that participants were compelled to participate by their employer: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
     We are not experts in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
-    Researchers might be able to use a cluster sampling approach, sampling first the laboratories accredited by an outside organization and then sampling from within each lab to get participants. While this approach is not a simple random sample, it may provide a more representative approach to sampling from the population of examiners employed by accredited laboratories, and would thus produce results which could be generalized to that population. 
+    Researchers might be able to use a cluster sampling approach, sampling first the laboratories accredited by an outside organization and then sampling from within each lab to get participants. 
+    Another option would be to use snowball sampling, where an initial set of known examiners are asked to provide names of other examiners working in the field, and so on, until a reasonable subset of the population is assembled; researchers could then randomly sample from this generated sampling frame.
+    While neither of these approaches are a simple random sample, either one would likely provide a more representative approach to sampling from the population of examiners employed by accredited laboratories, and would thus produce results with more external validity than existing black-box studies.
+
 
 Statistically, what is required for external validity is to argue that the sample is **representative** of the population characteristics.
 This burden falls on the experimenters; it is up to them to make the affirmative argument that the sample is representative of the population.
-Polling AFTE members might reach a set of participants who are more invested in the discipline and that individuals who have the time and/or lower caseloads to participate in studies might not be representative of the wider population of firearms examiners in part because these are things that were not addressed by study authors when describing the participant selection in the study.
+Polling AFTE members might reach a set of participants who are more invested in the discipline. 
+Individuals who have the time and/or lower caseloads to participate in studies might not be representative of the wider population of firearms examiners in part because these are things that were not addressed by study authors when describing the participant selection in the study.
 In order to make the argument that the sampled participants are representative, study authors need to track participation, compute demographic summaries of the sample which may be relevant (geography, age, training level, case load, professional memberships), and compare these to the wider population.
 To support this, it might be helpful if accrediting organizations maintained a register of people who have accreditation in each discipline to assist with having some population statistics to compare against.
 
-```{=html}
-<!--
-- Non-random sample of participants
-    - Issue: participants who are likely to participate differ meaningfully from those who do not participate. This is not necessarily solely a matter of skill - examiners who do not have time to participate due to heavy case loads, for instance, may be less likely to be represented in these black-box studies. This would mean that the black-box study error rate does not account for examiners who have heavy case loads (and possibly those who have the most experience) -- so most of the casework may be completed by examiners not represented by the error rate studies.
-    - Potential bias: error rates might be higher or lower than reported, but might not account for a significant portion of the casework being completed. We cannot evaluate whether this omission leads to conservative or nonconservative bias in the error rate - it is simply unknown.
-    - Studies affected - all published black-box studies
--->
-```
 ## Material Sampling
 
 ::: {.callout-note icon=false}
@@ -424,7 +440,7 @@ As a result, material sampling issues continue to limit the external validity of
 
 
 
-## Comparison Difficulty
+## Comparison Difficulty {#sec-comparison-difficulty}
 
 ::: {.callout-note icon=false}
 #### Summary
@@ -658,6 +674,8 @@ Under this evaluation scheme, an examiner who turns in an answer sheet with ever
 
 This is a deviation from standard practice; even though inconclusives are present, calculations should be carefully computed in order to maintain the intended interpretation.
 @gutierrezBowlingBumperRails2023 identifies the treatment of inconclusives in error rate calculations in black box studies as one of the major factors responsible for artificially decreasing the error rate of firearms examination procedures. 
+@texasforensicsciencecenterFinalReportComplaint2024 identifies the issue of false-positive and false-negative error rates with inconclusives and recommends a comprehensive approach that describes both the error rate of conclusive decisions as well as the rate of inconclusive decisions, using a set of 2x2 and 3x3 tables. 
+
 
 Sensitivity and specificity require that the proportion of same source and different source comparisons in a study (or in casework) is known in order to interpret the two numbers properly.
 While in validation studies, ground truth is known and these proportions can be calculated, in casework, ground truth is unknown and thus, the proportion of comparisons from same or different sources cannot be calculated. 
@@ -697,7 +715,7 @@ In theory, an examiner should be looking both for differences and similarities, 
 When considering this problem from the perspective of the known source, an inconclusive result has to be automatically incorrect: a comparison is either from a same-source or a different-source.
 When approaching this problem from the perspective of what the examiner can observe, however, inconclusive results make some sense: if the physical evidence does not contain any overlapping similarities, but also has no notable dissimilarities, perhaps it makes sense to decide 'not to decide' and return an inconclusive decision.
 
-This is a subject of widespread, ongoing discussion within both the examiner community and the academic research community; if you ask three academics familiar with this issue for an opinion, you might get four different opinions within the scope of a short discussion [@drorCannotDecideFine2019; @dorfmanInconclusivesErrorsError2022; @guyllValidityForensicCartridgecase2023; @biedermannAreInconclusiveDecisions2019].
+This is a subject of widespread, ongoing discussion within both the examiner community and the academic research community; if you ask three academics familiar with this issue for an opinion, you might get four different opinions within the scope of a short discussion [@drorCannotDecideFine2019; @dorfmanInconclusivesErrorsError2022; @guyllValidityForensicCartridgecase2023; @biedermannAreInconclusiveDecisions2019;@texasforensicsciencecenterFinalReportComplaint2024].
 There are a number of valid ways to consider the problem of inconclusives given available studies, and while some of them have more empirical support, ultimately, many of the disagreements come down to philosophical and discipline-specific differences in how researchers think about the role of errors, examiner decisions, what is permissible and not in legal settings, and so on, rather than the data itself.
 Here, we lay out the *problems* with the current treatment of inconclusives, focusing primarily on interpretations that are misleading and identifying areas which might be investigated in order to shore up holes in existing validation studies.
 
@@ -709,6 +727,7 @@ The correct source decision rate (CSDR) is a calculation that looks at the numbe
 In @pauw2013faid, the CSDR for bullet comparisons is only 49%, that is, in 51% of the comparisons, the examiner did not correctly determine whether the comparison was from the same source or a different source.
 This is statistically worse than random chance - that is, examiners would perform about as well if they were flipping a coin to make the decision!
 While we do not necessarily advocate that examiners be forced to make a decision between identification and elimination, it is clear that the existence of inconclusive results has a large impact on the interpretation of the reported error rate.
+This problem is sufficiently well known that  the Texas Forensic Science Commission has both addressed it with relevant examples [pg 28, @texasforensicsciencecenterFinalReportComplaint2024] and 
 A table containing error rates and correct source decision rates for cited studies is provided in the Appendix in @tbl-csdr.
 
 @BBCResponse2022 suggests that the use of error rates from validity studies to provide information about error rates in casework is fundamentally flawed; that is, they dispute that *inferential statistics* have any use in this conversation and advocate for the use of strictly *descriptive* statistics instead.
@@ -829,7 +848,8 @@ Evaluation algorithms are algorithms which are provided some derived form of evi
 <!-- While a database may be employed to train the algorithm, the database is not necessarily used when evaluating the comparisons.  -->
 <!-- would not expect the validity of the evaluation to hinge on whether the database contains an image of another item from the same source as $A$. -->
 In the simplest case, where raw similarity scores are used by examiners directly, an error rate identified during the validation of the algorithm may be used as a direct estimate of the error of the comparison of $A$ to $B$.
-This distinction is one reason why statisticians tend to be wary of the use of screening algorithms relative to the use of evaluation algorithms.
+In more complicated cases, raw similarity scores may be compared to previously generated comparisons to assess whether a score is more likely to come from a same- or different-source comparison ^[An example of this can be seen in Figure 4 of @proficiencytestreviewadhoccommitteeReportAssociationFirearm2024]. 
+This distinction is one reason why statisticians tend to be wary of the use of screening algorithms relative to the use of evaluation algorithms, even when both involve databases: databases of comparison results are categorically different than databases of exemplars used for matching.
 
 <!-- While ideally the examiner would use an evaluation algorithm as part of a linear sequential unmasking process to prevent any confirmation bias, currently, no such algorithms are in practical use in labs to our knowledge. -->
 <!-- In any case, there is a fundamental difference between comparisons to a database which may not contain all relevant information for the comparison but will pull out the $K$ most likely (non?)matches and an evaluation algorithm that takes only information that is directly part of a pre-existing case and provides objective decision support to the examiner. -->
@@ -1093,9 +1113,8 @@ recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
 bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
 cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
 overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
-
-
 ```
+
 # Assessing Reliability, Repeatability, and Reproducibility: Ames II {#sec-ames2-demo}
 
 ::: {.callout-note icon=false}
@@ -1323,9 +1342,54 @@ reproducibility |>
 ```
 
 
+
+# Proficiency Testing and Error Rates
+
+:::{.callout-note icon=false}
+#### Summary
+
+In a recent proficiency test produced by CTS, domestic FATM examiners had an error rate of at least 9.2% (the full set of responses is not provided in the AFTE report), while the overall participant error rate was 21.8%. 
+This test was described by an early participant as "more similar to casework" than typical proficiency tests, indicating that proficiency tests do not usually match the difficulty of casework. 
+:::
+
+A common criticism of black-box studies from the examiner perspective is that these studies do not accurately mimic procedures used in case work. 
+In designed experiments, statisticians often want to control extraneous variability, such as different lab protocols for independent verification, and restrict study comparisons to only a single examiner.
+This is completely reasonable, if the goal is to establish the error rate of the comparison method in isolation; additional tests can then be used to establish the error rate of the process (or researchers can model that statistically with additional assumptions of statistical independence). 
+That is, black-box studies are intended to establish the accuracy of a method, rather than a lab or an individual.
+
+Proficiency testing, on the other hand, is designed to establish the accuracy of an examiner - to provide some assurance that each individual or lab "knows their stuff".
+The results of a series of proficiency tests might be offered as evidence that an examiner has a low error rate, or the results of a set of examiners in a lab might be used to provide support for the ability of the lab to correctly make source decisions as a group.
+Proficiency tests can be used to support accreditation, along with audits of processes and procedures, education, and training requirements.
+Examiners may be required to complete proficiency tests as part of their employment, but independent individuals can also register for the test; it is not required that participants be affiliated with an accredited organization. 
+
+Recently, CTS, a testing agency, produced and conducted a proficiency test (23-5262) that had a higher than expected false-positive rate. 
+Of the four comparisons provided in the test, none were a match to the reference ammunition: three questioned items were from the same type of conventionally-rifled weapon, while a fourth item was from a weapon with polygonal rifling ^[Polygonal rifling is much harder, if not impossible, to use in examinations]. 
+The class-characteristic mismatch between traditional and polygonal rifling was intended to allow examiners in labs which do not allow elimination on individual characteristics to make an elimination on one of the four comparisons.
+
+In predistribution testing, no false positive errors were reported (8 of the 9 evaluations that shared class characteristics were inconclusive, with one elimination). 
+One participant stated "that it was the most difficult proficiency test they have ever received, but that it was more similar to casework and further observed that there could be an increase in inconclusive results." ^[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024, page 4.]
+This indicates that proficiency tests are typically less difficult than casework, at least according to this examiner.
+While it would be ideal to have a quantitative indicator of the difficulty level, or some objective standard to compare against, we do at least have some qualitative indication that this test might be more representative of casework.
+Based on this comment, there are some indications that the results from this proficiency test may have higher external validity, at least on the comparison difficulty metric, than many of the black-box studies that are published.
+
+Another participant mentioned limited reproduction of individual characteristics in the known bullets, making identification challenging; this may indicate an expectation that proficiency tests include at least one identification in the set. 
+This prior expectation may have impacted the results, but also illustrates a problem with unblinded testing: participants know they are being tested, have expectations about the test composition, and conform to those expectations -- an example of the Hawthorne effect in action.
+This comment might be expected to reduce the external validity of the test somewhat, as the expectations in this case would not translate to casework. 
+
+The results of the proficiency testing indicate that of the 280 examiners participating in this test, 21.8% (61 of 280) made at least one false identification; this is a significant change from the overall 1.1% rate of false positive errors on proficiency tests between 1978 and 1991 (admittedly, these estimates are dated). 
+AFTE's analysis of the results broken down by lab accreditation status and location are informative, but even among domestic labs, at least 9.2% of examiners made at least one false positive error, which is an alarming error rate.
+Automated analyses of test samples using 3D digital microscopy suggest that there was no support for same-source determinations when using objective tools; this  held true even for known-to-known inter-comparisons, indicating that the firearm used to generate the known samples may not have marked consistently.
+Nonetheless, it is clear that subjective visual examinations by examiners performed poorly relative to two different manufacturers' objective tests.
+While there are many other conclusions which can be drawn about the difficulty and design of this particular proficiency test, it provides additional evidence that the current state of subjective, visual examination by examiners is insufficient relative to the objective, statistically validated algorithms developed in the wake of the PCAST report in 2016.  
+
+We can conclude that while proficiency testing is not equivalent to a designed study in terms of validity, this particular proficiency test at least had a difficulty level which was seen as more consistent with casework. 
+While examiner expectations that proficiency tests will contain an identification may have artificially inflated the error rate, this conformity to prior expectations demonstrates that the subjective visual comparisons examiners rely upon are prone to bias in ways that can significantly impact the reliability of these visual assessments.
+In addition, objective, algorithmic assessments seem to have avoided the false positive errors associated with subjective visual examination.
+Taken together with the results of the designed Ames II study, these results cast serious doubt on the scientific validity of visual comparisons of firearms and toolmark evidence and reinforce PCAST's conclusion that objective, validated tools are necessary to support FATM examiners and increase the overall reliability of the discipline.
+
+
 # Conclusion
 
-<!-- Last paragraph: Invert order of issues, attempting to ballpark error estimates at each step -->
 
 This document outlines several problems with the state of error rate studies on firearm and toolmark examination.
 Available studies of FATM examination error rates share consistent, fatal flaws that make estimation of error rates for the discipline scientifically unsound. 
@@ -1336,6 +1400,7 @@ Scientifically reliable studies must meet the following criteria (these are not 
 -   Low drop-out rates, or statistical methods for assessing the impact of drop-out rates and non-response bias on the error estimates
 -   Representative samples of examiners
 -   Data available on request so that other researchers can use different analysis methods
+-   Difficulty of comparisons similar to that present in case work
 
 In addition, there should be studies across multiple firearm manufacturing methods and ammunition materials in order for a discipline to be considered generally valid.
 
@@ -1376,20 +1441,23 @@ Until labs and agencies have made shifts that produce demonstrated improvements 
 
 \clearpage
 
+
 # Study Summary Tables {#app-csdr .appendix}
+
+## Table of Study Reliability Metrics
 
 Some abbreviations and relevant terms:
 
 - SS: Same Source comparisons
 - DS: Different Source comparisons
 - CSDR: Correct Source Decision Rate
-- Rep. Samp: Does the study use a representative sample of participants? Studies that use volunteer (self-selected) participants do not have a representative sample.
-- Data Avail: Is the full data for the study published?
-<!-- - Phys Item: Did the study use physical ammunition, or did it use casts, photos, or virtual microscopy? -->
+- Representative Samp: Does the study use a representative sample of participants? Studies that use volunteer (self-selected) participants do not have a representative sample. Representative samples can be obtained via random sampling, cluster sampling, snowball sampling, and other statistical sampling methods. 
+- Data Available: Is the full data for the study published so that other researchers can examine it? This includes both participant responses and e.g. scans of the items used for comparison, though the technology to record scans is recent, and lack of scans of studies conducted before digital microscopy is reasonable given the technology available at the time. 
+- Physical Item: Did the study use physical ammunition, or did it use casts, photos, or virtual microscopy?
 - Pair Set: Does the study compare one or more knowns to a single unknown? Or are there multiple knowns and multiple unknowns (a kit study)?
 - Open Set: Does the study include comparisons that do not match provided knowns? Note that all pair set studies are by default open if there are any non-matching comparisons.
-- Peer Rev: Is the study published in a peer reviewed venue?
-- Sci Journ: Is the study published in a scientific journal, as opposed to as a report or a publication in a trade journal such as AFTE Journal?
+- Peer Review: Is the study published in a peer reviewed venue?
+- Scientific Journal: Is the study published in a scientific journal, as opposed to as a report or a publication in a trade journal such as AFTE Journal?
 
 Types of comparisons:
 
@@ -1400,10 +1468,8 @@ Types of comparisons:
 - E: extractor
 - S: slide
 
-\clearpage
 
-## Table of Study Reliability Metrics
-
+::: {.landscape}
 ```{r}
 #| echo: false
 #| message: false
@@ -1415,15 +1481,20 @@ Types of comparisons:
 
 types <- c("Aperture shear" = "AS", "Breech Face" = "BF", "Bullet" = "B" ,  "Cartridge" = "C" ,  "Extractor" = "E", "Slide" =  "S")
 
+library(RefManageR)
+mybib <- RefManageR::ReadBib("refs.bib")
+
+clean_studies <- clean_studies %>%
+  mutate(Study = purrr::map_chr(`Study Key`, ~cite(keys = ., bib = mybib, bibpunct=c("", "",  ",", ", ", ","))))
+
 clean_studies %>%
   filter(!Algorithm) %>%
-  select(Study = `Study Key`, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal) %>%
+  select(Study, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal) %>%
   arrange(Study, ExamType) %>%
   group_by(Study) %>%
   mutate(ExamType = paste(ExamType, collapse = ", ") |> str_replace_all(types)) %>%
   ungroup() %>%
-  mutate(Study = paste0("@", Study),
-         RepSample = ifelse(Volunteers, "N", ""),
+  mutate(RepSample = ifelse(Volunteers, "N", ""),
          isPhysical = ifelse(isPhysical,  "", "N"),
          Open = ifelse(Open, "", "N"),
          isPairStudy = ifelse(isPairStudy, "", "N"),
@@ -1431,17 +1502,22 @@ clean_studies %>%
          isSciJournal = ifelse(isSciJournal, "", "N"),
   ) %>%
   arrange(ExamType, Volunteers, Data_Available, isPairStudy, Open, isPeerReviewed) %>%
-  rename(Type = ExamType, `Rep Samp` = RepSample, `Data Avail` = Data_Available, `Phys Item` = isPhysical, `Open Set` = Open, `Pair Set` = isPairStudy, `Peer Rev.` = isPeerReviewed, `Sci. Journ.` = isSciJournal) %>%
+  rename(Type = ExamType, `Representative Sample` = RepSample, `Data Available` = Data_Available, `Physical Item` = isPhysical, `Open Set` = Open, `Paired Set` = isPairStudy, `Peer Review` = isPeerReviewed, `Scientific Journal` = isSciJournal) %>%
   unique() %>%
-  select(Study,  Type, `Rep Samp`, `Data Avail`:`Sci. Journ.`)|>
-  select(-`Phys Item`) |>
+  select(Study,  Type, `Representative Sample`, `Data Available`:`Scientific Journal`)|>
   knitr::kable()
 ```
-
-\clearpage
+:::
 
 ## Table of CSDR, Error, and Inconclusive Rates {.appendix}
 
+Studies that have an unknown number of different source comparisons cannot be analyzed to produce a correct source decision rate because the total number of comparisons performed (and the number of correct eliminations) cannot be computed.
+These studies are usually multiple-known to multiple-unknown designs, where it is not possible to determine how many comparisons an examiner did before making an identification.
+Many of these studies are closed set designs, but not all: @smithBerettaBarrelFired2021 is an open-set design where it is still not possible to determine how many comparisons were performed.
+Totals from @smithValidationStudyBullet2016 are recreated using reported marginal totals and internal counts; the study results are internally inconsistent, so the approach with the least obfuscation and adjustment was taken for simplicity.
+The discrepancy in @smithValidationStudyBullet2016 also stems from the study design's inability to determine how many comparisons were conducted, but it is at least designed in a way that allows for the calculation of the minimal number of necessary comparisons.
+
+::: {.landscape}
 ```{r}
 #| echo: false
 #| message: false
@@ -1454,18 +1530,13 @@ clean_studies %>%
   filter(!Algorithm) %>%
   arrange(ExamType, Year) %>%
   mutate(ExamType = str_replace_all(ExamType, types)) %>%
-  select(Study = `Study Key`, Type = ExamType, `# Same Source` = SS_Tot, `# Diff Source` = DS_Tot, `Correct Source Decision Rate` = CSDR, `Overall Err. Rate` = Overall_Error, `Inconcl. Rate` = Inconclusive_Rate) %>%
-    mutate(Study = paste0("@", Study)) %>%
+  select(Study, Type = ExamType, `# Same Source` = SS_Tot, `# Diff Source` = DS_Tot, `Correct Source Decision Rate` = CSDR, `Overall Error Rate` = Overall_Error, `Inconclusive Rate` = Inconclusive_Rate) %>%
   mutate(across(c(`# Same Source`, `# Diff Source`), ~sprintf("% 5d", as.numeric(.)) %>% str_replace("NA", " ?"))) %>%
-  mutate(across(c(`Correct Source Decision Rate` , `Overall Err. Rate`, `Inconcl. Rate`), ~sprintf("%0.4f", .) %>% str_replace("NA", "?"))) %>%
+  mutate(across(c(`Correct Source Decision Rate` , `Overall Error Rate`, `Inconclusive Rate`), ~sprintf("%0.4f", .) %>% str_replace("NA", "?"))) %>%
   knitr::kable(digits = 4, align = 'llrrrrrr')
 ```
 
-Studies that have an unknown number of different source comparisons cannot be analyzed to produce a correct source decision rate because the total number of comparisons performed (and the number of correct eliminations) cannot be computed.
-These studies are usually multiple-known to multiple-unknown designs, where it is not possible to determine how many comparisons an examiner did before making an identification.
-Many of these studies are closed set designs, but not all: @smithBerettaBarrelFired2021 is an open-set design where it is still not possible to determine how many comparisons were performed.
-Totals from @smithValidationStudyBullet2016 are recreated using reported marginal totals and internal counts; the study results are internally inconsistent, so the approach with the least obfuscation and adjustment was taken for simplicity.
-The discrepancy in @smithValidationStudyBullet2016 also stems from the study design's inability to determine how many comparisons were conducted, but it is at least designed in a way that allows for the calculation of the minimal number of necessary comparisons.
+:::
 
 
 ## Table of Participant Sampling, Data Availability, Drop-out Rates, and Item Non-Response Rates {#table-of-participant-sampling-data-availability-drop-out-rates-and-item-non-response-rates .appendix}
@@ -1477,6 +1548,14 @@ We are calculating the proportion of items missing only for participants who are
 Note this is a lower bound for the item non-response as it does not account for the items not responded to by participants who dropped out.
 "Unreported" indicates the authors did not provide sufficient information to calculate this number.\
 
+
+@neumanBlindTestingFirearms2022 is not included in this table because it is an observational study, rather than an experiment.
+It did not manipulate the types of comparisons systematically.
+As a result, it is difficult to evaluate it in a manner similar to the other experimental studies, and the definitions of drop-out and item non response rate provided above are consistent with experiments, not observational studies.
+As a result of the blind testing protocol, it appears (though is not stated) that all comparisons were completed as directed.
+
+
+::: {.landscape}
 ```{r}
 #| echo: false
 #| message: false
@@ -1487,9 +1566,8 @@ Note this is a lower bound for the item non-response as it does not account for 
 #| label: tbl-dropout
 nonresponse <- clean_studies %>%
   filter(!Algorithm) %>%
-  select(Study = `Study Key`, Year, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal, Drop_Out_Rate, Item_Nonresponse_Rate) %>%
-  mutate(Study = paste0("@", Study),
-         Volunteers = ifelse(Volunteers, "Y", ""),
+  select(Study, Year, ExamType, Volunteers, Data_Available, isPhysical, isPairStudy, Open, isPeerReviewed:isSciJournal, Drop_Out_Rate, Item_Nonresponse_Rate) %>%
+  mutate(Volunteers = ifelse(Volunteers, "Y", ""),
          isPhysical = ifelse(isPhysical,  "", "N"),
          Open = ifelse(Open, "", "N"),
          num_Drop_Out_Rate = round(as.numeric(Drop_Out_Rate), digits = 4),
@@ -1506,8 +1584,7 @@ nonresponse <- clean_studies %>%
   ungroup() %>%
   arrange(ExamType, Year, Volunteers, Data_Available, isPairStudy, Open, isPeerReviewed) %>%
   filter(!is.na(Drop_Out_Rate) | !is.na(Item_Nonresponse_Rate) | !is.na(Drop_Out_Rate_Format)) %>%
-  filter(!Study %in% c("bunch2003comprehensive")) %>%
-  # filter(Study %in% c("@lyonsIdentificationConsecutivelyManufactured2009", "@mayland2012validation", "@fadulEmpiricalStudyImprove2013a", "@stromanEmpiricallyDeterminedFrequency2014", "@baldwinStudyFalsePositiveFalseNegative2014", "@smithValidationStudyBullet2016", "@keislerIsolatedPairsResearch2018", "@hambyWorldwideStudyBullets2019", "@chapnickResults3DVirtual2021", "@monsonAccuracyComparisonDecisions2023", "@smith2021beretta")) %>%
+  filter(!Study %in% c("Bunch and Murphy, 2003")) %>%
   mutate(Drop_Out_Rate_Format = ifelse(str_detect(Drop_Out_Rate_Format, "%"), sprintf(Drop_Out_Rate_Format, num_Drop_Out_Rate), Drop_Out_Rate_Format),
          Item_Nonresponse_Rate_Format = ifelse(str_detect(Item_Nonresponse_Rate_Format, "%"), sprintf(Item_Nonresponse_Rate_Format, num_Item_Nonresponse_Rate), Item_Nonresponse_Rate_Format)) 
 
@@ -1516,6 +1593,7 @@ nonresponse %>%
   unique() %>%
   knitr::kable(digits = 2)
 ```
+:::
 
 
 <!-- | Study                                             | Volunteer Participants | Data Publicly Available | Drop-out Rate    | Item Non-Response Rate | -->
@@ -1547,12 +1625,6 @@ nonresponse %>%
  [^18]: Partial data has been released for accuracy stages but does not include all assigned comparisons, only those with participant responses.
 
  [^19]: A previous version of this table included item non-response of 17%. At the time, this was the best estimate for item non-response of only the accuracy stage of the study. Since that time, the [Ames II authors] released some of the accuracy data, and the item non-response for the accuracy stage can now be explicitly calculated as 18.2%. Note, the Ames II study included accuracy, repeatability, and reliability stages. The item non-response across all stages is 35.6%. For consistency with the other studies in this table, we include 35.6% here.
-
-Note that @neumanBlindTestingFirearms2022 is not included in this table because it is an observational study, rather than an experiment.
-It did not manipulate the types of comparisons systematically.
-As a result, it is difficult to evaluate it in a manner similar to the other experimental studies, and the definitions of drop-out and item non response rate provided above are consistent with experiments, not observational studies.
-As a result of the blind testing protocol, it appears (though is not stated) that all comparisons were completed as directed.
-
 
 \clearpage
 
