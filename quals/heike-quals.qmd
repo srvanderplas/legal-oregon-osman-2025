@@ -1,7 +1,7 @@
 
 ## Heike Hofmann
 
-I, Heike Hofmann, am a tenured full professor in Statistics at Iowa State University and the professor in charge of the data science program.
+I, Heike Hofmann, am a tenured full professor in Statistics at the University of Nebraska-Lincoln since Aug 2024. Between Jan 2002 and July 2024 I was with the Department of Statistics at Iowa State University as assistant (until 2008), associate (until 2014), and full professor, since.
 I have been a faculty member of the Center for Statistics and Applications in Forensic Evidence (CSAFE) since 2015.
 CSAFE is supported by a cooperative agreement with the National Institute of Standards and Technology (NIST).
 In my role as CSAFE faculty I have been a key contributor for the work that received the ASA SPAIG (Statistical Partnerships Among Academe, Industry & Government) award in 2018.
@@ -12,4 +12,4 @@ I serve as a member of the ASA committee on forensic statistics.
 
 I have published extensively in peer reviewed, scientific journals.
 My publications cover several areas including computationally intensive methodology for automatic matching of pattern and image evidence, error rate analyses and development of open-source software for reproducible, accessible comparison of firearm evidence.
-I maintain the `bulletxtrctr` and `x3ptools` R packages, which have been released to the community to facilitate analysis of bullets and 3D scans respectively.
+I maintain the `bulletxtrctr` and `x3ptools` R packages, which have been released to the community to facilitate similarity analysis of striation patterns in high-resolution 3D scans.
