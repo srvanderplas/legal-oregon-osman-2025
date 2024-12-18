@@ -924,7 +924,7 @@ Jurors should not have to additionally make the determination of whether FATM ex
 Studies have found that opposing expert testimony has limited ability to educate jurors about the quality and limitations of scientific evidence, and that expert testimony does not help jurors distinguish between valid and flawed scientific methods [@levettEffectivenessOpposingExpert2008], though it may increase overall skepticism of the jurors. 
 These results suggest that it is sensible to separate these tasks, allowing only evidence which has been shown to be scientifically reliable to be presented to the jury. 
 
-While we are statisticians and not lawyers, we deal with probabilities on a daily basis.
+As statisticians we deal with probabilities on a daily basis.
 Eventually, practice can overcome some of these biases, but it is unreasonable to expect that sufficient practice could occur over the course of a courtroom trial.
 We urge judges to take a more active role in determining which evidence should be presented to a jury, ensuring that jurors do not have to juggle validity determination with integrating different types of evidence to reach an overall assessment of a defendant's guilt or innocence. 
 
