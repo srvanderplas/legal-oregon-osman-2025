@@ -909,7 +909,7 @@ We write this at the conclusion of the Fall semester in 2024, having recently ov
 While anecdotal, this illustrates a common problem: a 15% chance is roughly equivalent to a chance of 1 in 6, or the probability of rolling a 6 on a fair dice. 
 While other outcomes might be more or equally probable, this outcome is not so rare to be considered *un*likely.
 This effect has also been noted in popular media, most notably in critiques of election prediction sites such as fivethirtyeight.com, which in 2016 estimated the probability of a Trump win to be around 30%; post-election, many people did not understand how an outcome they perceived as low-probability could have happened. 
-It seems that psychologically, humans tend to latch onto the most probable outcome and attach more certainty to that outcome; as a result, we are particularly bad at evaluating the risk of high-consequence, low-probability outcomes. 
+Our heuristic approach to probabilities is to latch onto the most probable outcome and attach more certainty to that outcome; as a result, we are particularly bad at evaluating the risk of high-consequence, low-probability outcomes. 
 
 
 Risk communication is its own discipline [@spiegelhalterRiskUncertaintyCommunication2017], and while it tends to focus on everyday concerns, such as medical decision making and forecasting severe weather events, the findings are also applicable in the courtroom. 
