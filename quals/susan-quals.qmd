@@ -4,7 +4,7 @@
 I, Susan Vanderplas, hold a Bachelor of Science in Applied Mathematical Sciences and Psychology from Texas A&M University, a Masters of Science in Statistics from Iowa State University, and a Ph.D. in Statistics from Iowa State University.
 
 I am an Associate Professor in Statistics at University of Nebraska Lincoln as of August 2024, and have been at UNL since January 2020.
-My areas of expertise include data visualization, perception, and communication of statistical information, as well as machine learning algorithms for statistical analysis of forensic pattern evidence, including firearms and footwear.
+My areas of expertise include data visualization, cognition, visual perception, and communication of statistical information, as well as machine learning algorithms for statistical analysis of forensic pattern evidence, including firearms and footwear. I primarily teach courses on data science, technical communication, statistical programming, and data visualization. 
 
 Between 2018 and 2020 I served as a research assistant professor at the Center for Statistics and Applications in Forensics (CSAFE) at Iowa State University. 
 CSAFE is a collaboration across several universities and partner institutions (including University of Nebraska Lincoln) and brings together scholars conducting research on how to collect more accurate forensic evidence and more reliably convey that forensic evidence in court.
