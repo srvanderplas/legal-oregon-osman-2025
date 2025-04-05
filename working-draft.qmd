@@ -33,7 +33,7 @@ csl: bluebook-law-review.csl
 
 # Statement {.unnumbered}
 
-We declare under penalty of perjury and pursuant to Colorado law that the following is true and accurate to the best of our knowledge.
+I declare under penalty of perjury and pursuant to Oregon law that the following is true and accurate to the best of my knowledge.
 
 \vspace{.5in}
 \begin{minipage}{.495\linewidth}
@@ -41,11 +41,7 @@ We declare under penalty of perjury and pursuant to Colorado law that the follow
 
 Susan Vanderplas
 \end{minipage}
-\begin{minipage}{.495\linewidth}
-\rule{4cm}{0.4pt}
 
-Heike Hofmann
-\end{minipage}
 
 
 ```{=tex}
@@ -56,21 +52,19 @@ Heike Hofmann
 
 {{< include quals/susan-quals.qmd >}}
 
-{{< include quals/heike-quals.qmd >}}
-
 
 # Introduction - Firearm and Toolmark Error Rates
 
 <!-- Summary: While there are many firearms studies, they all have significant flaws.  -->
 
-There are an impressive array of existing studies of the "validity" of firearms and toolmark comparisons [@keislerIsolatedPairsResearch2018] [@lightstonePotentialPersistenceSubclass2010] [@rivaObjectiveEvaluationSubclass2017] [@bunch2003comprehensive] [@mayland_validation_2012] [@duezDevelopmentValidationVirtual2018] [@pauw2013faid] [@neel2007comprehensive] [@hambyWorldwideStudyBullets2019] [@gouwe2008comparison] [@girouxEmpiricalValidationStudy2009] [@stromanEmpiricallyDeterminedFrequency2014] [@lyonsIdentificationConsecutivelyManufactured2009] [@mattijssenValidityReliabilityForensic2020] [@smithValidationStudyBullet2016] [@monsonAccuracyComparisonDecisions2023] [@chapnickResults3DVirtual2021] [@guyllValidityForensicCartridgecase2023] [@baldwinStudyExaminerAccuracy2023] across different firearms, ammunition types, types of marks made, and even across different countries with different protocols for training and firearms and toolmark examination.
-As statisticians, however, we have significant qualms with the state of error rate studies in firearms and toolmark examination.
+There are an impressive array of existing studies of the "validity" of firearms and toolmark (FATM) comparisons [@keislerIsolatedPairsResearch2018;@lightstonePotentialPersistenceSubclass2010; @rivaObjectiveEvaluationSubclass2017; @bunch2003comprehensive; @mayland_validation_2012; @duezDevelopmentValidationVirtual2018; @pauw2013faid; @neel2007comprehensive; @hambyWorldwideStudyBullets2019; @gouwe2008comparison; @girouxEmpiricalValidationStudy2009; @stromanEmpiricallyDeterminedFrequency2014; @lyonsIdentificationConsecutivelyManufactured2009; @mattijssenValidityReliabilityForensic2020; @smithValidationStudyBullet2016; @monsonAccuracyComparisonDecisions2023; @chapnickResults3DVirtual2021; @guyllValidityForensicCartridgecase2023; @baldwinStudyExaminerAccuracy2023] across different firearms, ammunition types, types of marks made, and even across different countries with different protocols for training and firearms and toolmark examination.
+Statisticians have significant qualms with the state of error rate studies in firearms and toolmark examination.
 Many studies are poorly designed, with problems ranging from a complete inability to characterize the full error rate [@hambyWorldwideStudyBullets2019;@gouwe2008comparison;@girouxEmpiricalValidationStudy2009;@fadul;@lyonsIdentificationConsecutivelyManufactured2009] to the acknowledged inability of examiners to follow the instructions set out by the researchers [@baldwinStudyFalsePositiveFalseNegative2014] and incorrect reporting of calculated error rates in the study's report [@bajicValidationStudyAccuracy2020].
-Furthermore, all of the studies we are aware of which are applicable to the state of firearms and toolmark examination as practiced in the United States at this time suffer from sampling and non-response bias that renders them unreliable for the purposes of establishing the science of firearms and toolmark examination as a reliable discipline.
+Furthermore, the studies applicable to FATM examination in the United States all suffer from sampling and non-response bias that renders them unreliable for the purposes of establishing the science of firearms and toolmark examination as a reliable discipline [@khanHierarchicalBayesianNonresponse2023;@khanShiningLightForensic2023].
 
-Here, we describe out some of the fundamental problems with the state of firearms and toolmark examination error rate studies.
-We approach these problems both as a statistician who has experience in the design and conduct of scientific experiments and as a researcher in statistical applications to forensic evidence.
-We have worked extensively with forensic examiners, metrologists, and other subject-matter experts, and we have an understanding of both the process of firearms and toolmark examination and the statistical underpinnings of estimation of error rates.
+This article lays out some of the fundamental problems with the state of firearms and toolmark examination error rate studies.
+I approach these problems both as a statistician who has experience in the design and conduct of scientific experiments and as a researcher in statistical applications to forensic evidence.
+I have worked extensively with forensic examiners, metrologists, and other subject-matter experts, and I have an understanding of both the process of firearms and toolmark examination and the statistical underpinnings of estimation of error rates.
 
 For the most part, even groups who strongly disagree on some points of error rate study interpretation can agree on the following:
 
@@ -78,13 +72,13 @@ For the most part, even groups who strongly disagree on some points of error rat
 -   Firearms and toolmark examiners are observing real phenomena - the conclusions they draw are based in observable, verifiable markings on the evidence that can provide information about the likely source of the evidence.
 -   There should be additional research on firearms and toolmark examination focusing on scientific foundations and error rates.
 
-In addition, we agree with @BBCResponse2022 that current studies are not useful for establishing a discipline-wide error rate.
+In addition, I agree with @BBCResponse2022 that current studies are not useful for establishing a discipline-wide error rate.
 
 While there are many differences in how scientists might interpret error rates and existing error rate studies, it is important to recognize that there is also a substantial amount of common ground.
 While our justice system is adversarial, the scientific method is not, and scientists have a duty to interpret the available evidence without regard for which side of the adversarial system benefits.
-We approach the problem of scientific support for firearm and toolmark analysis as statisticians and scientists who regularly conducts studies with human participants.
-Statisticians regularly help other scientists design experiments that are able to make scientifically valid claims about observable phenomena.
-We have experience working in situations where lives hang in the balance when errors are made: scientific communication, nuclear engineering, and the forensic science, among others.
+I approach the problem of scientific support for firearm and toolmark analysis as a statistician who regularly conducts studies with human participants.
+Statisticians are often tasked with helping other scientists design studies that draw scientifically valid conclusions about observable phenomena.
+I have experience working in situations where lives hang in the balance when errors are made: nuclear power generation, scientific communication, and forensic science, among others.
 In these situations, it is even more important that experimental designs be as rigorous as possible, and that the conclusions from the studies be interpreted as carefully as possible, because the consequences for being wrong are so serious.
 It is with this mindset that we approach the topic of error rate studies in firearms and toolmark examination.
 While we do offer what may seem to be harsh critiques of the state of scientific evidence in this field, our intent is constructive: until the extent of the cancer is identified, treatment cannot begin.
@@ -838,7 +832,7 @@ This is one major factor cited in the DOJ's review of the Brandon Mayfield case 
 
 > "In addition, the Mayfield case illustrates a particular hazard of the IAFIS computer program. IAFIS is designed to find candidate fingerprints having the most minutiae arrangements similar to the encoded minutiae from the latent print. These candidates should include the correct match of the print (if it is in the FBI database), but will also include the closest possible non-matches. In this case, the true source of the print was not in the IAFIS database, but the computer found an unusually close non-match. The enormous size of the IAFIS database and the power of the IAFIS program can find a confusingly similar candidate print. The Mayfield case demonstrates the need for particular care in conducting latent fingerprint examinations involving IAFIS candidates because of the elevated danger of encountering a close non-match"
 
-<!-- This hazard of database similarity searches is present even if examiners are not aware of the source of the lead; however, studies have demonstrated that confirmation bias can have an extreme effect on forensic examiners, causing them to reverse previous conclusions or make false identifications [@coleMoreZeroAccounting2004] [@czebeImpactBiasLatent2015] [@kassinForensicConfirmationBias2013] [@boltonkingPreventingMiscarriagesJustice2016]. -->
+<!-- This hazard of database similarity searches is present even if examiners are not aware of the source of the lead; however, studies have demonstrated that confirmation bias can have an extreme effect on forensic examiners, causing them to reverse previous conclusions or make false identifications [@coleMoreZeroAccounting2004; @czebeImpactBiasLatent2015; @kassinForensicConfirmationBias2013; @boltonkingPreventingMiscarriagesJustice2016]. -->
 <!-- If examiners do not take appropriate countermeasures, such as the use of linear sequential unmasking [@quigleymcbridePracticalToolInformation2022], to manage this additional information, the possibility that the human examination of the evidence is improperly influenced by confirmation bias remains. -->
 
 In contrast, an **evaluation algorithm** is not subject to higher false positive errors.
