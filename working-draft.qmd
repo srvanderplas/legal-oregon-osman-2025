@@ -57,7 +57,8 @@ Susan Vanderplas
 
 <!-- Summary: While there are many firearms studies, they all have significant flaws.  -->
 
-There are an impressive array of existing studies of the "validity" of firearms and toolmark (FATM) comparisons [@keislerIsolatedPairsResearch2018;@lightstonePotentialPersistenceSubclass2010; @rivaObjectiveEvaluationSubclass2017; @bunch2003comprehensive; @mayland_validation_2012; @duezDevelopmentValidationVirtual2018; @pauw2013faid; @neel2007comprehensive; @hambyWorldwideStudyBullets2019; @gouwe2008comparison; @girouxEmpiricalValidationStudy2009; @stromanEmpiricallyDeterminedFrequency2014; @lyonsIdentificationConsecutivelyManufactured2009; @mattijssenValidityReliabilityForensic2020; @smithValidationStudyBullet2016; @monsonAccuracyComparisonDecisions2023; @chapnickResults3DVirtual2021; @guyllValidityForensicCartridgecase2023; @baldwinStudyExaminerAccuracy2023] across different firearms, ammunition types, types of marks made, and even across different countries with different protocols for training and firearms and toolmark examination.
+There are an impressive array of existing studies of the "validity" of firearms and toolmark (FATM) comparisons across different firearms, ammunition types, types of marks made, and even across different countries with different protocols for training and firearms and toolmark examination.
+<!-- [@keislerIsolatedPairsResearch2018;@lightstonePotentialPersistenceSubclass2010; @rivaObjectiveEvaluationSubclass2017; @bunch2003comprehensive; @mayland_validation_2012; @duezDevelopmentValidationVirtual2018; @pauw2013faid; @neel2007comprehensive; @hambyWorldwideStudyBullets2019; @gouwe2008comparison; @girouxEmpiricalValidationStudy2009; @stromanEmpiricallyDeterminedFrequency2014; @lyonsIdentificationConsecutivelyManufactured2009; @mattijssenValidityReliabilityForensic2020; @smithValidationStudyBullet2016; @monsonAccuracyComparisonDecisions2023; @chapnickResults3DVirtual2021; @guyllValidityForensicCartridgecase2023; @baldwinStudyExaminerAccuracy2023]  -->
 Statisticians have significant qualms with the state of error rate studies in firearms and toolmark examination.
 Many studies are poorly designed, with problems ranging from a complete inability to characterize the full error rate [@hambyWorldwideStudyBullets2019;@gouwe2008comparison;@girouxEmpiricalValidationStudy2009;@fadul;@lyonsIdentificationConsecutivelyManufactured2009] to the acknowledged inability of examiners to follow the instructions set out by the researchers [@baldwinStudyFalsePositiveFalseNegative2014] and incorrect reporting of calculated error rates in the study's report [@bajicValidationStudyAccuracy2020].
 Furthermore, the studies applicable to FATM examination in the United States all suffer from sampling and non-response bias that renders them unreliable for the purposes of establishing the science of firearms and toolmark examination as a reliable discipline [@khanHierarchicalBayesianNonresponse2023;@khanShiningLightForensic2023].
@@ -91,15 +92,13 @@ We begin by establishing the characteristics which are required for a scientific
 #### Summary
 
 Good experiments must be designed without structural biases.
-Studies should ensure that participants have the opportunity to make every type of error, without using structural information that is not available during casework.
-The best studies use a "kit" design that provides sets of known-unknown comparisons where there is one unknown and one known firearm (there may be multiple fired components from each weapon). 
-It is also critical that experiments record the rate of participant drop-out and the rate of item non-response (leaving questions blank).
-Studies which omit these critical components do not produce statistically reliable error rate estimates. 
-It is important to examine study design choices when aggregating across multiple studies: small choices may have large impacts on observed results and the ability to generalize to a wider population. 
+Studies should ensure that participants can make **every type of error**, without the use of structural information that is not available during casework.
+The best studies use a "kit" design that provides *sets with one unknown and one known firearm* (there may be multiple fired components from each weapon). 
+A reliable study must also record the rate of participant drop-out and item non-response (leaving questions blank) and account for these issues when calculating error rate estimates.
 :::
 
 A statistical estimate is only as reliable as the data used to generate that estimate.
-Here, we focus primarily on characteristics of the experiment: the study design, how experimenters recruit participants, and how participant responses are reported. 
+Here, we focus primarily on characteristics of the experiment: how experimenters recruit participants, the study design, and how participant responses are reported. 
 
 ## Participant Selection
 
@@ -121,17 +120,20 @@ Studies should be designed in such a way as to directly evaluate the desired con
 If a study is intended to assess the false positive error rate of firearms and toolmark evaluation, then examiners need to have the opportunity to make a false positive error.
 While this seems straightforward, many common firearms and toolmark black-box study designs do not allow for estimation of the number of different-source comparisons, which ensures that it is not possible to calculate the overall error rate, the correct source decision rate, or the true negative rate (the specificity).
 This problem is detailed at length in @inconclusives as well as in the PCAST [@pcast] and National Research Council [@NRCStrengthening2009;@NRCBallisticImaging2008] reports.
-A well designed black-box study should have a defined number of pairwise comparisons, where each comparison is completed by the examiner with no possibility of eliminating comparisons based on the structure of the test set.
-In practice, this means that black-box studies should be open set studies (no guarantee that an unknown item matches any provided knowns in the set) and should involve the comparison of one standard (known sample) and one or more unknown samples at a time.
+A well designed black-box study should have a **defined number of pairwise comparisons**, where each comparison is completed by the examiner with no possibility of eliminating comparisons based on the structure of the test set.
+In practice, this means that black-box studies should be open set studies (no guarantee that an unknown item matches any provided knowns in the set) and should involve the comparison of one standard (known sample) and one unknown sample at a time.
 
 Executing a well-designed study is not an easy task, but it is important that during the study experimenters not provide participants with additional information.
-This means that experimenters must take care to provide different examiners with test samples which are not shared between examiners in the same lab, and which may have different numbers of same-source and different-source samples.
+This means that experimenters must take care to provide examiners with test samples which are not shared with other  examiners in the same lab, and which may have different numbers of same-source and different-source samples.
 This prevents information from "leaking" from examiner to examiner within a relatively small community.
-In addition, experimenters should observe strict protocols when communicating with participants to avoid sharing information about the task beyond what is specified in the instructions.
+In addition, experimenters must observe strict protocols when communicating with participants to avoid sharing information about the task beyond what is specified in the instructions.
+Experiments are often "pilot tested" before the main data collection phase; there should not be any overlap between pilot test participants and participants in the main study, unlike in @hicklinAccuracyReproducibilityBullet2024 to avoid introducing a practice effect that might decrease the error rate estimate.
 
 Finally, it is important that experimenters provide the community with all relevant information when reporting study results.
 It is difficult (and sometimes, impossible) to reconstruct the full set of aggregated answers when the only data reported in a study is the error rate.
-Experimenters should provide data at the individual level if it is possible to do so without identifying participants, and if this is not possible, data should be provided at the lowest level of aggregation which maintains participant anonymity.
+Experimenters should provide data at the individual level if it is possible to do so without identifying participants. 
+If this is not possible, data should be provided at the lowest level of aggregation which maintains participant anonymity.
+It is often possible to include individual comparison answers for each participant while separating the demographic question answers and reporting these in aggregate. 
 To date, this condition has not been met by any validation study in the field of firearms and toolmark analysis.
 
 ### Common Black-Box Study Designs
@@ -951,22 +953,22 @@ reliable_studies <- clean_studies %>%
 reliable_study_cite <- paste(' [', paste(paste0('@', unique(reliable_studies$`Study Key`)), collapse = ";"), ']', sep = '')
 ```
 
-```{r, include = F}
+```{r ames2, include = F}
 library(readr)
 library(dplyr)
 library(tidyr)
 library(stringr)
 library(RColorBrewer)
-reliability_orig <- read_csv("data/AmesII-reliability.csv")
-repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
-reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
+ames2_reliability_orig <- read_csv("data/AmesII-reliability.csv")
+ames2_repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
+ames2_reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
 
 
-conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
+ames2_conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
 
-res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
+ames2_res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
 
-repeatability <- repeatability_orig |>
+ames2_repeatability <- ames2_repeatability_orig |>
   filter(!str_detect(X1st.eval, "Total")) |>
   pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
   filter(!str_detect(X2nd.eval, "Total")) |>
@@ -975,7 +977,7 @@ repeatability <- repeatability_orig |>
   group_by(Type, Comparison) |>
   mutate(comparison_pct = Count/sum(Count)*100)
 
-repeatability_us <- repeatability |> 
+ames2_repeatability_us <- ames2_repeatability |> 
   mutate(suitable1 = eval1 != "US", 
          suitable2 = eval2 != "US", 
          match = (suitable1 == suitable2)) |>
@@ -988,7 +990,7 @@ repeatability_us <- repeatability |>
   select(-Count) |>
   pivot_wider(names_from = class, values_from = rate, values_fn = sum)
 
-reproducibility <- reproducibility_orig |>
+ames2_reproducibility <- ames2_reproducibility_orig |>
   filter(!str_detect(X1st.eval, "Total")) |>
   pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
   filter(!str_detect(X2nd.eval, "Total")) |>
@@ -997,7 +999,7 @@ reproducibility <- reproducibility_orig |>
   group_by(Type, Comparison) |>
   mutate(comparison_pct = Count/sum(Count)*100)
   
-reproducibility_us <- reproducibility |> 
+ames2_reproducibility_us <- ames2_reproducibility |> 
   mutate(suitable1 = eval1 != "US", 
          suitable2 = eval2 != "US", 
          match = (suitable1 == suitable2)) |>
@@ -1010,15 +1012,15 @@ reproducibility_us <- reproducibility |>
   select(-Count) |>
   pivot_wider(names_from = class, values_from = rate, values_fn = sum)
 
-reliability <- reliability_orig |>
+ames2_reliability <- ames2_reliability_orig |>
   filter(!str_detect(Eval, "Total")) |>
   group_by(Type, Comparison) |>
   rename(Count = Total) |>
   mutate(Total = sum(Count), comparison_pct = Count/Total*100)
 
-reliability_us <- filter(reliability, Eval == "US")
+ames2_reliability_us <- filter(ames2_reliability, Eval == "US")
 
-reliability_csdr <- reliability |>
+ames2_reliability_csdr <- ames2_reliability |>
   filter(!Eval %in% c("US", "Other")) |>
   mutate(csd = (Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL")) |>
   group_by(Type, Comparison) |>
@@ -1031,33 +1033,33 @@ reliability_csdr <- reliability |>
   filter(csd) |>
   select(Type, csdr)
 
-reliability_sens_spec <- reliability |>
+ames2_reliability_sens_spec <- ames2_reliability |>
   filter(!Eval %in% c("US", "Other")) |>
   mutate(error = !((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
   group_by(Type, Comparison) |>
   summarize(rate = sum(Count*error)/sum(Count) * 100)
-reliability_sens <- filter(reliability_sens_spec, Comparison == "SS")
-reliability_spec <- filter(reliability_sens_spec, Comparison == "DS")
+ames2_reliability_sens <- filter(ames2_reliability_sens_spec, Comparison == "SS")
+ames2_reliability_spec <- filter(ames2_reliability_sens_spec, Comparison == "DS")
 
 
-reliability_fp_fn <- reliability |>
+ames2_reliability_fp_fn <- ames2_reliability |>
   filter(!Eval %in% c("US", "Other")) |>
   mutate(error = ((Comparison == "SS" & Eval == "EL") | (Comparison == "DS" & Eval == "ID"))) |>
   group_by(Type, Comparison) |>
   summarize(rate = sum(Count*error)/sum(Count) * 100)
-reliability_fn <- filter(reliability_fp_fn, Comparison == "SS")
-reliability_fp <- filter(reliability_fp_fn, Comparison == "DS")
+ames2_reliability_fn <- filter(ames2_reliability_fp_fn, Comparison == "SS")
+ames2_reliability_fp <- filter(ames2_reliability_fp_fn, Comparison == "DS")
 
-reliability_ppv_npv <- reliability |>
+ames2_reliability_ppv_npv <- ames2_reliability |>
   filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
   mutate(error = ((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
   group_by(Type, Eval) |>
   summarize(rate = sum(Count*error)/sum(Count) * 100)
-reliability_ppv <- filter(reliability_ppv_npv, Eval == "ID")
-reliability_npv <- filter(reliability_ppv_npv, Eval == "EL")
+ames2_reliability_ppv <- filter(ames2_reliability_ppv_npv, Eval == "ID")
+ames2_reliability_npv <- filter(ames2_reliability_ppv_npv, Eval == "EL")
 
 
-repeatability_id <- repeatability |>
+ames2_repeatability_id <- ames2_repeatability |>
   filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
   filter(eval1 == "ID") |>
   mutate(alsoID = eval2 == "ID") |>
@@ -1067,7 +1069,7 @@ repeatability_id <- repeatability |>
   magrittr::extract2("Prop")
 
 
-repeatability_all <- repeatability |>
+ames2_repeatability_all <- ames2_repeatability |>
   filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
   mutate(same = eval1 == eval2) |>
   group_by(Type) |>
@@ -1076,14 +1078,14 @@ repeatability_all <- repeatability |>
   magrittr::extract2("Prop")
 
 
-repeatability_sep <- repeatability |>
+ames2_repeatability_sep <- ames2_repeatability |>
   filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
   mutate(same = eval1 == eval2) |>
   group_by(Type) |>
   summarize(Prop = 1 - sum(same * Count)/sum(Count))
 
 
-reproducibility_id <- reproducibility |>
+ames2_reproducibility_id <- ames2_reproducibility |>
   filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
   filter(eval1 == "ID") |>
   mutate(alsoID = eval2 == "ID") |>
@@ -1091,7 +1093,7 @@ reproducibility_id <- reproducibility |>
   summarize(Prop = 1 - sum(alsoID * Count)/sum(Count))
 
 
-reproducibility_all <- reproducibility |>
+ames2_reproducibility_all <- ames2_reproducibility |>
   filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
   mutate(same = eval1 == eval2) |>
   group_by(Type) |>
@@ -1099,16 +1101,21 @@ reproducibility_all <- reproducibility |>
 
 ```
 
-```{r, include = F}
-first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
-first_to_last_round <- sprintf("%.2f%%", (1 - 79/173)*100)
-recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
-bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
-cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
-overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
+```{r ames2-stats, include = F}
+ames2_first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
+ames2_first_to_last_round <- sprintf("%.2f%%", (1 - 79/173)*100)
+ames2_recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
+ames2_bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
+ames2_cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
+ames2_overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
 ```
 
-# Assessing Reliability, Repeatability, and Reproducibility: Ames II {#sec-ames2-demo}
+# Assessing Reliability, Repeatability, and Reproducibility
+
+At this time, there are two different studies, conducted by different research groups, which assess the reliability, repeatability, and reproducibility of firearms and toolmark assessment. 
+Both studies are open-set kit studies, and while there are significant differences in the experimental design of each study as well as the number of factors examined by each study, 
+
+## Ames II {#sec-ames2-demo}
 
 ::: {.callout-note icon=false}
 #### Summary
@@ -1119,15 +1126,15 @@ In particular, the drop-out and non response rates in Ames II are high enough to
 
 Acknowledging these flaws, the Ames II study showed:
 
-- **Reliability**: The CSDR for bullets and cartridges are `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])`, respectively (higher is better, calculated from tables in  @monsonAccuracyComparisonDecisions2023). Examiners identify the correct source for bullet comparisons less than 50% of the time, which is worse than guessing. 
+- **Reliability**: The CSDR for bullets and cartridges are `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_csdr$csdr[1], ames2_reliability_csdr$csdr[2])`, respectively (higher is better, calculated from tables in  @monsonAccuracyComparisonDecisions2023). Examiners identify the correct source for bullet comparisons less than 50% of the time, which is worse than guessing. 
 
 - **Repeatability**: With at least 6 weeks between evaluations, for both bullets and cartridge cases,
-    - If the first evaluation is an identification, at least `{r} sprintf("%.2f%%", 100*repeatability_id)` of the time the examiner will come to a conclusion other than identification. 
-    - Across all 5 AFTE categories, an examiner will come to a different conclusion at least `{r} sprintf("%.2f%%", 100*repeatability_all)`  of the time.
+    - If the first evaluation is an identification, at least `{r} sprintf("%.2f%%", 100*ames2_repeatability_id)` of the time the examiner will come to a conclusion other than identification. 
+    - Across all 5 AFTE categories, an examiner will come to a different conclusion at least `{r} sprintf("%.2f%%", 100*ames2_repeatability_all)`  of the time.
 
 - **Reproducibility**: 
-    - If the first examiner makes an identification, a second examiner will come to a different conclusion `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_id$Prop[1], reproducibility_id$Prop[2])` of the time for bullets and cartridge cases, respectively.
-    - Across all 5 AFTE categories, a second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_all$Prop[1], reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
+    - If the first examiner makes an identification, a second examiner will come to a different conclusion `{r} sprintf("%.2f%%  and %.2f%%", ames2_reproducibility_id$Prop[1], ames2_reproducibility_id$Prop[2])` of the time for bullets and cartridge cases, respectively.
+    - Across all 5 AFTE categories, a second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", ames2_reproducibility_all$Prop[1], ames2_reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
     
 Even with the many flaws of the design of the Ames II study, it is the most reliable study to date. 
 It provides significant evidence that firearms examination lacks the reliability, repeatability and reproducibility required for scientific validity. 
@@ -1137,7 +1144,7 @@ Ames II thus provides positive evidence against the scientific validity of firea
 
 Since 2016, there have been several studies conducted which are open-set, but at present, all studies have common, critical flaws which limit our ability to reliably estimate the error rate of subjective comparisons made by examiners [@cuellarMethodologicalProblemsEvery2024;@gutierrezBowlingBumperRails2023].
 PCAST cited the Ames I study as being sufficient to estimate reliability, overlooking concerns with the drop-out rate, non response rate, and sampling methodology present in the study. 
-These concerns have a large effect on the potential estimated error rate [@khanHierarchicalBayesianNonresponse2023], and as a result, we disagree with the PCAST report's evaluation of Ames I as a reliable study, not primarily because of its design, but because of its sampling, execution, analysis, and incomplete reporting of study results.
+These concerns have a large effect on the potential estimated error rate [@khanHierarchicalBayesianNonresponse2023], and as a result, many statisticians disagree with the PCAST report's evaluation of Ames I as a reliable study, not primarily because of its design, but because of its sampling, execution, analysis, and incomplete reporting of study results.
 
 A follow-up study, Ames II, extended the Ames I design to assess repeatability and reproducibility in addition to reliability.
 This study was published across several reports and journal articles [@bajicValidationStudyAccuracy2020;@chumbleyAccuracyRepeatabilityReproducibility2021;@monsonPlanningDesignLogistics2022;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability].
@@ -1148,14 +1155,14 @@ Unfortunately, the published analysis of reproducibility and reliability is flaw
 The remainder of this assessment uses the tabular data reported in @monsonPlanningDesignLogistics2022, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability. 
 
 
-## Study Design
+### Study Design
 Ames II was designed to answer some of the primary objections raised in the PCAST and NRC reports to error-rate studies in firearms and toolmark analysis. 
 The study's design is extremely complicated, going to extreme lengths to vary the number of same-source and different-source comparisons while ensuring that no test kit contained sets which could be combined to gain additional information outside of the experimental design.
 While this is not a bad thing, this additional complexity makes it difficult to reconstruct information about the study's conduct; in addition, in the interests of confidentiality, the study authors have not released results which would be necessary to conduct different analyses on the collected data, such as individual result sheets or kits for each round of the study.
 In this respect, the study's design is a net negative, as it is not possible to fully understand or assess the study due to the combination of unpublished results and a complicated experimental design. 
 
 
-### Firearms
+#### Firearms
 The study used Beretta and non-Beretta firearms (Jimenez slides for cartridge case comparisons, Ruger barrels for bullet comparisons). 
 Within the Beretta barrels, there were consecutively manufactured clusters taken from early, mid, and late points in the lifetime of the machining components, along with four nonconsecutive and unrelated additions. 
 Beretta slides had breech-faces which were primarily consecutively finished, with 4 nonconsecutive and unrelated additions. 
@@ -1167,7 +1174,7 @@ Ideally, similar study designs [^extrabullets] would be conducted by other resea
 
 [^extrabullets]: @monsonPlanningDesignLogistics2022 notes that consecutively manufactured Jimenez barrels were used in this study, though the bullets are not included; it seems likely that the authors may conduct another follow-up study that provides more data on bullet comparisons. While replication studies by other groups are required for full scientific validity [@pcast], there is certainly a benefit to replication studies on different firearms as well. 
 
-### Ammunition
+#### Ammunition
 
 @monsonPlanningDesignLogistics2022 reports that only a single type of ammunition (Wolf Polyformance 9mm Luger steel case, with brass Berden primers and 115 grain FMJ bullets) was used in the Ames II study. 
 The authors justification for this choice is multi-faceted, but it seems that cost, comparison difficulty, and simplification of the experiment factored into the decision.
@@ -1175,7 +1182,7 @@ As the authors note, steel-case ammunition is less common in casework than brass
 The authors also suggest that steel-case ammunition comparisons may have fewer identifying marks, but no data is offered to support this assertion. 
 While it is desirable to have studies which include difficult comparisons, at present, there is no way to empirically establish how difficult the comparisons in one study are to those in another study: the fired ammunition used is not made available to other researchers, and 3D microscopy data for each piece of ammunition used in the study is also not released to the community, even though this data would both increase the utility of the study long-term and would allow outside researchers to establish difficulty indices for cross-study comparisons.
 
-### Participants
+#### Participants
 The primary design flaw with the Ames II study in terms of statistical validity is in the recruitment and attrition rate of participants (as well as in how this was reported). 
 @monsonPlanningDesignLogistics2022 describes an initial plan for 300 participants, initial agreement of 256 participants at the beginning of the study, that 173 participants completed at least one round of the 6 rounds of testing, and that 79 participants completed all rounds of testing.
 The authors describe the participant attrition and recruitment process in a manner that makes it impossible to reconstruct how many participants were involved at any given stage of the study. 
@@ -1192,20 +1199,20 @@ If this is the case, it seems reasonable that these participants might have had 
 Statistically, the presence of a plausible alternate explanation for an effect of this magnitude is sufficient to question the overall results produced by the study. 
 
 
-If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `{r} first_round`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
+If we assume that the 173 participants who completed some portion of the 6 rounds of the study were all recruited at the beginning of the study (which they were not) and completed the first round, the drop-out rate for only the first round of the study would be `{r} ames2_first_round`, which is well above the 5-10% drop-out rate which is considered reasonable [@khanShiningLightForensic2023]. 
 While this is not a completely accurate estimate of the drop-out rate for the entire study (some of the 173 participants were added after round 1, and the 256 initial recruits does not include these individuals), it is illustrative. 
-If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `{r} first_to_last_round`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
-Of those who were initially recruited, only `{r} recruited_completed_all` completed all six rounds of the study.
+If we compute the drop-out rate as those who completed at least one round but did not complete all six rounds, then we would get `{r} ames2_first_to_last_round`, which is even more alarming (and does not account for those who dropped out after seeing the first test packet). 
+Of those who were initially recruited, only `{r} ames2_recruited_completed_all` completed all six rounds of the study.
 Science relies on shared data; that the authors of this study have not published anonymized data which allows others to calculate these measures precisely is another indication that the study was not conducted in line with scientific best practices. 
 
 In addition to the participant drop-out rate, there are some instances of item non response as well: @monson2023repeatability reports that some examiners did not complete bullet comparisons but did complete cartridge case comparisons. 
 Using the information available to us, we can come up with an approximate upper bound for the error estimate by assuming that any participant and item non-responses would have been incorrect (obviously, this will produce an inflated error estimate, but it is illustrative to show the magnitude of the problem). 
-Under this assumption (that all non-responses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} bullet_nonresponse` for bullets and `{r} cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
+Under this assumption (that all non-responses would have been incorrect, and that all responses were correct), error rates could be as high as `{r} ames2_bullet_nonresponse` for bullets and `{r} ames2_cartridge_nonresponse` for cartridge cases (using the total number of sets analyzed in all rounds reported in Table 1 of @monson2023repeatability, compared with 256 participants $\times$ 15 comparisons per kit $\times$ 6 rounds of the study). 
 This upper estimate is actually not a complete upper bound: another type of non-response is the failure to make a conclusive decision (e.g. one of the 3 levels of inconclusive allowed by the study); due to the way comparisons are reported, it is incredibly difficult to determine an upper bound for the error rate if one counts inconclusives as either omitted answers or as incorrect over all six rounds of the study. 
 In any case, without proper measurement of how participants who only completed a portion of the study differ from those who signed up to participate and from those who completed the full study, it is impossible to determine where the error rate for firearms and toolmark comparisons is. 
-We know that it is most likely somewhere between 0 and `{r} overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
+We know that it is most likely somewhere between 0 and `{r} ames2_overall_nonresponse`, but we cannot provide statistically valid assurances for a specific number within this interval. 
 
-## Analysis Methods
+### Analysis Methods
 
 The Ames II journal articles and reports present both the tabulated results of the experiment and analyses which attempt to provide context or a basis for statistical inference. 
 Unfortunately, the analyses presented in the repeatability and reproducibility paper have been shown to be inappropriate [@dorfmanReAnalysisRepeatabilityReproducibility2022]; the authors had time to address these complaints, which were based on the NIJ final grant report, but chose not to do so and instead published the same analysis in their peer-reviewed articles. 
@@ -1213,7 +1220,7 @@ While there are problems with the expected agreement analysis in @monson2023repe
 As a result, this example will focus solely on simple probability calculations from tabular results reported in the series of Ames II publications. 
 
 
-## Unsuitable Evidence
+### Unsuitable Evidence
 
 Unsuitable evidence, according to the examples provided by the AFTE range of conclusions, is fragmented or severely damaged to the point where it has no value for comparison. 
 As even misshapen bullets with no microscopic characteristics can still be weighed to establish class characteristics such as caliber, it seems that unsuitable must be reserved for fragmented, incomplete evidence. 
@@ -1227,40 +1234,40 @@ As a result, the notion that there is a uniform evaluation process in firearms e
 This does not, of course, preclude estimation of a discipline-wide error rate, but as unsuitable evaluations are  excluded from subsequent error rate calculations in these studies, it is worth considering unsuitable evaluations on their own.
 Given the examples of unsuitable evidence in the AFTE range of conclusions, examiners trained to compare minuscule details in fired ammunition should be able to identify whether evidence is too damaged to compare with an incredibly high rate of correspondence; that is, the repeatability and reproduciblity rates should be extremely high. 
 
-@monsonAccuracyComparisonDecisions2023 reports that in the first round, between `{r} sprintf("%0.2f%%", min(reliability_us$comparison_pct))` and `{r} sprintf("%0.2f%%", max(reliability_us$comparison_pct))` of comparisons were labeled as unsuitable.
+@monsonAccuracyComparisonDecisions2023 reports that in the first round, between `{r} sprintf("%0.2f%%", min(ames2_reliability_us$comparison_pct))` and `{r} sprintf("%0.2f%%", max(ames2_reliability_us$comparison_pct))` of comparisons were labeled as unsuitable.
 More interesting is whether examiners agree with their own previous evaluations (repeatability) or the evaluations of other examiners as to the suitability of the evidence for comparison. 
 We would expect that unsuitable evidence would be unsuitable even upon further examination; there should be little ambiguity in this categorization compared with the choice to use one of the 3 subcategories of inconclusive, for example. 
-However, @monson2023repeatability reports that examiners evaluated suitability differently `{r} sprintf("%0.2f%%", repeatability_us$Conflict)` of the time when examining the same evidence (computed across ground truth and evidence type). 
+However, @monson2023repeatability reports that examiners evaluated suitability differently `{r} sprintf("%0.2f%%", ames2_repeatability_us$Conflict)` of the time when examining the same evidence (computed across ground truth and evidence type). 
 Examiners should be using the same lab protocol and individual standards for unsuitability determinations, and there should be minimal ambiguity in suitability both due to the experimental design and the severity of the examples of unsuitable evidence in the AFTE range of conclusions.
-When different examiners evaluated the same comparisons ("reproducibility"), the rate of disagreement across ground truth and evidence type was `{r} sprintf("%0.2f%%", reproducibility_us$Conflict)`, which is slightly higher than the repeatability estimate, which would be expected given the variability in examiner standards and protocol across labs. 
+When different examiners evaluated the same comparisons ("reproducibility"), the rate of disagreement across ground truth and evidence type was `{r} sprintf("%0.2f%%", ames2_reproducibility_us$Conflict)`, which is slightly higher than the repeatability estimate, which would be expected given the variability in examiner standards and protocol across labs. 
 
 
-## Reliability
+### Reliability
 
 The AFTE range of conclusions provides categories beyond those corresponding to ground truth, which complicates the calculation of error rates, as described in @sec-reliability-error-rates. 
 We can evaluate the reliability of firearms examination using many different metrics:
 
-- Correct Source Decision Rate: The number of comparisons which are correctly identified (for same source) or eliminated (for different source), divided by the total number of comparisons. @monsonAccuracyComparisonDecisions2023 reports the CSDR for bullets and cartridges as `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])`, respectively. Higher values indicate better methods. Note that a CSDR under 50% is worse than random chance for a choice between two outcomes (same or different source). 
+- Correct Source Decision Rate: The number of comparisons which are correctly identified (for same source) or eliminated (for different source), divided by the total number of comparisons. @monsonAccuracyComparisonDecisions2023 reports the CSDR for bullets and cartridges as `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_csdr$csdr[1], ames2_reliability_csdr$csdr[2])`, respectively. Higher values indicate better methods. Note that a CSDR under 50% is worse than random chance for a choice between two outcomes (same or different source). 
 
 - Sensitivity and Specificity:
 
-  - Sensitivity: Ability to correctly identify same-source evidence. Strictly calculated as the number of same-source identifications divided by the total number of same source comparisons (e.g. inconclusives are not consistent with ground truth). Under this definition, the Ames II accuracy study obtained sensitivity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_sens$rate[1], reliability_sens$rate[2])`, respectively. Higher values are better. 
+  - Sensitivity: Ability to correctly identify same-source evidence. Strictly calculated as the number of same-source identifications divided by the total number of same source comparisons (e.g. inconclusives are not consistent with ground truth). Under this definition, the Ames II accuracy study obtained sensitivity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_sens$rate[1], ames2_reliability_sens$rate[2])`, respectively. Higher values are better. 
 
-  - Specificity: Ability to correctly identify different-source evidence, calculated as the number of different source eliminations divided by the total number of different source comparisons. Under this definition, the Ames II accuracy study observed specificity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_spec$rate[1], reliability_spec$rate[2])`, respectively.  Higher values are better.
+  - Specificity: Ability to correctly identify different-source evidence, calculated as the number of different source eliminations divided by the total number of different source comparisons. Under this definition, the Ames II accuracy study observed specificity rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_spec$rate[1], ames2_reliability_spec$rate[2])`, respectively.  Higher values are better.
 
 
 - False positive rate (FPR) and False negative rate (FNR):
 
-  - FPR: Probability of making an identification when examining a different-source comparison. Under this definition, @monsonAccuracyComparisonDecisions2023 observed false positive rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fp$rate[1], reliability_fp$rate[2])`, respectively. Lower values are better. 
+  - FPR: Probability of making an identification when examining a different-source comparison. Under this definition, @monsonAccuracyComparisonDecisions2023 observed false positive rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_fp$rate[1], ames2_reliability_fp$rate[2])`, respectively. Lower values are better. 
   
-  - FNR: Probability of making an elimination when examining a same-source comparison. Under this definition, the Ames II accuracy study observed false negative rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", reliability_fn$rate[1], reliability_fn$rate[2])`, respectively.  Lower values are better. 
+  - FNR: Probability of making an elimination when examining a same-source comparison. Under this definition, the Ames II accuracy study observed false negative rates for bullets and cartridges of `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_fn$rate[1], ames2_reliability_fn$rate[2])`, respectively.  Lower values are better. 
   
 - Positive predictive value (PPV) and negative predictive value (NPV):
 
-  - PPV: Probability that when an examiner makes an identification, the comparison is same-source, calculated as the number of same-source identifications divided by the total number of identifications.  Under this definition, examiners in the Ames II accuracy study making an identification have a `{r} sprintf("%.2f%% and %.2f%%", reliability_ppv$rate[1], reliability_ppv$rate[2])` chance that the comparison is same-source for bullets and cartridges, respectively. Higher values are better. 
+  - PPV: Probability that when an examiner makes an identification, the comparison is same-source, calculated as the number of same-source identifications divided by the total number of identifications.  Under this definition, examiners in the Ames II accuracy study making an identification have a `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_ppv$rate[1], ames2_reliability_ppv$rate[2])` chance that the comparison is same-source for bullets and cartridges, respectively. Higher values are better. 
   
   
-  - NPV: Probability that when an examiner makes an elimination, the comparison is different-source, calculated as the number of different-source eliminations divided by the total number of eliminations.  Under this definition, examiners in the Ames II accuracy study making an elimination have a `{r} sprintf("%.2f%% and %.2f%%", reliability_npv$rate[1], reliability_npv$rate[2])` chance that the comparison is different-source comparison for bullets and cartridges, respectively. Higher values are better. 
+  - NPV: Probability that when an examiner makes an elimination, the comparison is different-source, calculated as the number of different-source eliminations divided by the total number of eliminations.  Under this definition, examiners in the Ames II accuracy study making an elimination have a `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_npv$rate[1], ames2_reliability_npv$rate[2])` chance that the comparison is different-source comparison for bullets and cartridges, respectively. Higher values are better. 
   
 Fundamentally, the relatively low FPR/FNR and high PPV/NPV indicate that the method is reasonably reliable, but  the low sensitivity/specificity and correct source decision rate cast doubt on this reliability.
 The apparent contradiction between these facts is due to the treatment of inconclusive decisions. 
@@ -1270,7 +1277,7 @@ Firearms examination could be considerably more reliable (and could dispense wit
 There is little incentive to adopt these measures, however, until examiners are held to higher standards that encourage conclusive decisions. 
 
 
-## Repeatability {#sec-ames2-repeatability-ex}
+### Repeatability {#sec-ames2-repeatability-ex}
 
 Ames II is the only study which evaluated repeatability - in a 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5). 
 As the experimenters did not share the full data from the study or even the full design specification that would indicate how, exactly, the replication process was determined, we must be content with analyzing the tabulated data provided in @monson2023repeatability. 
@@ -1290,17 +1297,17 @@ Even if examiners have to make a judgment call to decide between identification 
 Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
 
 ```{r}
-#| label: tbl-conditional-repeatability
+#| label: tbl-ames2-conditional-repeatability
 #| tbl-cap: Repeatability of an examiner's second decision. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34%. 
 #| echo: false
 #| message: false
 #| warning: false
 
 library(knitr)
-repeatability |>
+ames2_repeatability |>
   filter(eval1 != "US" & eval2 != "US") |>
-  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
   group_by(Type, eval1) |>
   summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
   pivot_wider(names_from = Type, values_from = prop) |>
@@ -1308,7 +1315,7 @@ repeatability |>
   kable()
 ```
 
-## Reproducibility
+### Reproducibility
 
 As with repeatability, reproducibility does not consider the correctness of a decision; rather, reproducibility assesses whether different examiners come to the same conclusion given the same evidence.
 There is more variability in reproducibility - different examiners may have different microscopes, or work under different lab policies; in addition, each examiner's training and experience are different, and the AFTE standard is explicitly designed around an examiner's experience. 
@@ -1316,17 +1323,17 @@ As a result, we would expect reproducibility to be lower than repeatability, bec
 As with repeatability, we will take a simple approach to examining Ames II's reported results by considering the second examiner's decision given (statistically, conditioned on) the first examiner's decision. 
 
 ```{r}
-#| label: tbl-conditional-reproducibility
+#| label: tbl-ames2-conditional-reproducibility
 #| tbl-cap: Reproducibility of an examiner's decision. Given the first examiner's decision ("Evaluation 1"), we calculate the probability that the second examiner agrees with the first, across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), reproducibility is below 85%; when Inconclusive-A is the initial decision, repeatability is below 15% for bullets and even lower for cartridge cases. Reproducibility, unlike repeatability, seems to be different for cartridge cases than bullets.  
 #| echo: false
 #| message: false
 #| warning: false
 
 library(knitr)
-reproducibility |>
+ames2_reproducibility |>
   filter(eval1 != "US" & eval2 != "US") |>
-  mutate(eval1 = factor(eval1, conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, conclusion_levels[1:5], ordered = T)) |>
+  mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
   group_by(Type, eval1) |>
   summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
   pivot_wider(names_from = Type, values_from = prop) |>
@@ -1336,6 +1343,203 @@ reproducibility |>
 
 
 
+
+
+```{r hicklin, include = F}
+library(readxl)
+hicklin_reliability_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 1)
+hicklin_repeatability_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 2, skip = 1) |>
+  rename(eval1=`1st Eval`)
+hicklin_reproducibility_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 3, skip = 1) |>
+  rename(eval1=`1st Eval`)
+
+
+hicklin_conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL")
+
+hicklin_res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
+
+hicklin_repeatability <- hicklin_repeatability_orig |>
+  filter(!str_detect(eval1, "Total")) |>
+  pivot_longer(ID:EL, names_to = "eval2", values_to = "Count") |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  mutate(across(matches("eval", ~factor(., levels = hicklin_conclusion_levels, ordered = T))))
+
+# hicklin_repeatability |>
+#   group_by(Source, eval1, eval2) |>
+#   summarize(Count = sum(Count)) |>
+#   group_by(Source) |>
+#   pivot_wider(names_from = 'eval2', values_from = 'Count') |> 
+#   ungroup() |>
+#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |> 
+#   arrange(Source, eval1) |> View()
+
+
+
+hicklin_reproducibility <- hicklin_reproducibility_orig |>
+  filter(!str_detect(eval1, "Total")) |>
+  pivot_longer(ID:EL, names_to = "eval2", values_to = "Count") |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  mutate(across(matches("eval", ~factor(., levels = hicklin_conclusion_levels, ordered = T))))
+  
+# hicklin_reproducibility |>
+#   group_by(Source, eval1, eval2) |>
+#   summarize(Count = sum(Count)) |>
+#   group_by(Source) |>
+#   pivot_wider(names_from = 'eval2', values_from = 'Count') |> 
+#   ungroup() |>
+#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |> 
+#   arrange(Source, eval1) |> View()
+
+hicklin_reliability <- hicklin_reliability_orig |>
+  select(-matches("Total")) |>
+  pivot_longer(ID:US, names_to="Eval", values_to="Count") |>
+  group_by(ComparisonType, Source) |>
+  mutate(Total = sum(Count), comparison_pct = Count/Total*100) |>
+  mutate(across(Polygonal:SameGunModel, ~.=="T"))
+
+tmp <- hicklin_reliability |>
+  mutate(csd = (Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL")) |>
+  group_by(ComparisonType, Source) |>
+  mutate(Total = sum(Count)) |>
+  ungroup()
+
+
+
+library(confintr)
+
+make_ci_tbl <- function(x, n){
+  res <- ci_proportion(x, n)
+  data.frame(Estimate = res$estimate, CI_LB = res$interval[1], CI_UB = res$interval[2])
+}
+
+
+make_csdr_ci <- function(tbl) {
+  nest(tbl, data = -c(x, n))|>
+  mutate(ci = map2(x, n, make_ci_tbl)) |>
+    unnest(c(data, ci)) |>
+    select(-c(csd, Count, x))
+}
+
+format_csdr_ci_tbl <- function(tbl, format="%0.4f") {
+  est_str <- sprintf("%s (%s, %s)", format, format, format)
+  tbl |>
+    arrange(desc(Estimate)) |>
+    mutate("Estimate (95% CI)" = sprintf(est_str, Estimate, CI_LB, CI_UB)) |>
+    select(-c(CI_LB, CI_UB))
+}
+
+hicklin_reliability_csdr <- list(
+  # QQ and KQ
+  "Comparison Type" = tmp |>
+    group_by(ComparisonType, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(ComparisonType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Polygonal
+  "Polygonal" = tmp |>
+    mutate(Polygonal = if_else(Polygonal, "Polygonal", "NonPR")) |>
+    group_by(Polygonal, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(Polygonal) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Caliber
+  "Ammunition" = tmp |>
+    mutate(SameCaliber = if_else(SameCaliber, "Same Caliber", "Diff Caliber")) |>
+    mutate(SameAmmoType = if_else(SameAmmoType, "Same Ammo", "Diff Ammo")) |>
+    group_by(SameCaliber, SameAmmoType, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(SameCaliber,SameAmmoType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Firearm Make
+  "Firearm Make and Model" = tmp |>
+    mutate(SameGunMake = if_else(SameGunMake, "Same Gun Make", "Diff Gun Make")) |>
+    mutate(SameGunModel = if_else(SameGunModel, "Same Gun Model", "Diff Gun Model")) |>
+    group_by(SameGunMake, SameGunModel, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(SameGunMake, SameGunModel) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl()
+)
+
+
+
+
+hicklin_reliability_sens_spec <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = !((Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL"))) |>
+  group_by(ComparisonType, Source) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_sens <- filter(hicklin_reliability_sens_spec, Source == "SS")
+hicklin_reliability_spec <- filter(hicklin_reliability_sens_spec, Source == "DS")
+
+
+hicklin_reliability_fp_fn <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = ((Source == "SS" & Eval == "EL") | (Source == "DS" & Eval == "ID"))) |>
+  group_by(ComparisonType, Source) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_fn <- filter(hicklin_reliability_fp_fn, Source == "SS")
+hicklin_reliability_fp <- filter(hicklin_reliability_fp_fn, Source == "DS")
+
+hicklin_reliability_ppv_npv <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
+  mutate(error = ((Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL"))) |>
+  group_by(ComparisonType, Eval) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_ppv <- filter(hicklin_reliability_ppv_npv, Eval == "ID")
+hicklin_reliability_npv <- filter(hicklin_reliability_ppv_npv, Eval == "EL")
+
+
+hicklin_repeatability_id <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count)) |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+hicklin_repeatability_all <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+hicklin_repeatability_sep <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  group_by(Source) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))
+
+
+hicklin_reproducibility_id <- hicklin_reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count))
+
+
+hicklin_reproducibility_all <- hicklin_reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  
+
+```
 # Proficiency Testing and Error Rates
 
 :::{.callout-note icon=false}
@@ -1410,11 +1614,11 @@ If inconclusives are errors, even if these errors are not necessarily attributab
 
 A detailed examination of one of the best (though still deeply flawed) studies to date even provides affirmative evidence that FATM examination does not meet the bar for scientific validity:
 
-- **Reliability**: FATM examiners only identify the correct source (same or different) `{r} sprintf("%.2f%% and %.2f%%", reliability_csdr$csdr[1], reliability_csdr$csdr[2])` of the time, respectively, for cartridge cases and bullets. 
+- **Reliability**: FATM examiners only identify the correct source (same or different) `{r} sprintf("%.2f%% and %.2f%%", ames2_reliability_csdr$csdr[1], ames2_reliability_csdr$csdr[2])` of the time, respectively, for cartridge cases and bullets. 
 
-- **Repeatability**: When an examiner evaluates the same evidence after at least 6 weeks, they will come to a different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%% and %.2f%%", 100*repeatability_sep$Prop[1], 100*repeatability_sep$Prop[2])`  of the time for bullets and cartridge cases, respectively.
+- **Repeatability**: When an examiner evaluates the same evidence after at least 6 weeks, they will come to a different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%% and %.2f%%", 100*ames2_repeatability_sep$Prop[1], 100*ames2_repeatability_sep$Prop[2])`  of the time for bullets and cartridge cases, respectively.
 
-- **Reproducibility**: A second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", reproducibility_all$Prop[1], reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
+- **Reproducibility**: A second examiner will come to different conclusion on the 5-category AFTE scale `{r} sprintf("%.2f%%  and %.2f%%", ames2_reproducibility_all$Prop[1], ames2_reproducibility_all$Prop[2])` of the time for bullets and cartridge cases, respectively.
 
 
 While only a single study is available that suggests that FATM examination lacks repeatability and reproducibility, multiple reliable studies estimate the CSDR at  between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`. 
