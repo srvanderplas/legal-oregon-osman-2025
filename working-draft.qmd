@@ -573,14 +573,21 @@ This refusal to release data is contrary to scientific best practice; even in di
 
 In order to establish the scientific validity of a technique, it needs to be reliable (have a low error rate), repeatable (same equipment, same conclusion), and reproducible (different equipment, same conclusion). 
 
-Reliability is typically assessed using a number of different quantities to describe errors; of these, the simplest single-number summary is the **correct source decision rate** (CSDR), which measures the proportion of the time a FATM examiner correctly identifies whether the samples came from same or different sources. 
-Reliability metrics are extremely sensitive to inconclusive results; a high proportion of inconclusives will impact some measures and leave others unaffected.
+**Reliability** is a measure of how often process produces a result that matches reality. 
+Reliability is assessed using a number of different quantities that describe different types of errors.
+The simplest single-number summary of reliability is the **correct source decision rate** (CSDR), which measures the proportion of the time a FATM examiner correctly identifies whether the samples came from same or different sources. 
+Reliability metrics are *extremely sensitive to inconclusive results*; a high proportion of inconclusives will impact some measures and leave others unaffected.
 
-Repeatability is a measure of whether the same examiner makes the same decision when evaluating evidence multiple times. 
+**Repeatability** is a measure of whether the same examiner makes the same decision when evaluating evidence multiple times. 
+As firearms and toolmark examination is a subjective process, this measure tells us about the variability present in an examination because of the subjectivity. 
+Objective, deterministic algorithms would be expected to come to the same conclusion each time, but human examiners may not. 
 
-Reproducibility is a measure of whether different examiners (potentially using different equipment and procedures) come to the same conclusion evaluating the same evidence.
+**Reproducibility** is a measure of whether different examiners (potentially using different equipment and procedures) come to the same conclusion evaluating the same evidence.
+Reproducibility should be lower than repeatability, because it includes additional sources of variation: different examiners, equipment, and procedures. 
 
-All three measures must be established for FATM examination to be seen as scientifically valid; to date, only one study has even addressed all three criteria. 
+
+**All three measures** must be established experimentally, and must be high enough to meet the criteria for scientific validity. 
+While many studies have been conducted to assess reliability, to date only two studies also address repeatability and reproducibility. 
 
 :::
 
@@ -591,7 +598,7 @@ Here, we focus on PCAST's requirements for a determination that a method is base
 - **reliability** - the method must reach a conclusion which is consistent with ground truth.     
     Reliability is evaluated using error rate(s). Multiple rates may be considered: while the overall accuracy rate provides some information, an accurate overall error rate requires that study designs emulate the frequency of same-source and different source comparisons which occur during casework, which is unknown. 
     It is typically more useful to consider separately measures of the probabilities of different types of errors, such as the sensitivity and specificity, or the positive and negative predictive values. 
-<!-- A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022.  -->
+A more detailed consideration of the merits of different error rates is provided in @inconclusives and @dorfmanInconclusivesErrorsError2022.
 
 - **repeatablity** - the same comparison performed using the same instrument (in this case, the examiner) must come to the same conclusion. 
     This calculation does not depend at all on accuracy rates: an examiner who comes to the same wrong conclusion examining the same evidence still has high repeatability, even if they have low accuracy. 
@@ -617,7 +624,7 @@ In this section, we examine these issues critically, with the goal of providing 
 First, we consider the different types of error rates.
 These calculations can be confusing; it may be helpful to frequently reference table @tbl-error-reference for clarity.
 
-### Different Types of Error Rates {#sec-error-rates}
+#### Different Types of Error Rates {#sec-error-rates}
 
 <!-- ::: {.callout-note icon=false} -->
 <!-- #### Summary -->
@@ -641,8 +648,11 @@ Suppose that a study generates data which can be laid out into the following tab
 
 : Results Table for Generic Validation Study. There are $N = a + b + c + d + e + f$ total comparisons, $SS = a + b + c$ same source comparisons, and $DS = d + e + f$ different source comparisons. {#tbl-error-reference}
 
-There are multiple different error rates which can be calculated from this simple layout, which is the most direct way to lay out results from validation studies.
+Multiple different error rates can be calculated from a validation study when the data are laid out in this simple and direct format.
 Many studies do not report all of these values individually, instead opting to report the total number of inconclusives separately and focusing solely on $a$ and $f$ relative to the total number of comparisons $N$.
+Additionally, studies which use different firearms, ammunition, or other factors may provide individual tables for each design element. 
+While more complicated studies are common, the results from subgroup analyses can still be assessed using a simple table of results like @tbl-error-reference.
+
 
 The most commonly reported rates are the **sensitivity** and **specificity**.
 The **sensitivity** is also known as the true positive rate or the recall rate, and should be calculated as $\text{sensitivity} = \frac{a}{SS}$.
@@ -700,7 +710,7 @@ The CDSR can be used as a single-number summary of a method, and essentially cal
 
 
 
-### Treatment of Inconclusives
+#### Treatment of Inconclusives
 
 At the heart of the discussion of whether inconclusives should be treated as errors or not is the undisputed fact that sometimes not all marks which could be recorded by a firearm or tool are actually recorded.
 Firing a gun involves a controlled explosion, and one may use a tool in multiple different ways; in both cases, it is reasonable that information might not be recorded identically between separate tool/surface interactions.
@@ -781,7 +791,7 @@ Overall, treatment of inconclusives in error rate studies tends to result in cal
 ## Repeatability
 
 Repeatability is another measurement of whether a method is scientifically valid: if the same inputs do not produce the same outputs when the same process is performed, this signals that there is a level of randomness in the process. 
-Ideally, this randomness is extremely small: a deterministic computer procedure might fail to produce the same results 0.001% of the time, but this is an acceptably small level of inconsistency. 
+Ideally, this randomness is extremely small: a deterministic computer procedure might fail to produce the same results 0.00001% of the time, but this is an acceptably small level of inconsistency. 
 
 In firearms and toolmark studies, repeatability assessments require that the same examiner(s) are sent the same evidence multiple times, and ideally, we would expect that the same evidence produces the same conclusion each time it is evaluated.
 Obviously, repeatability assessment requires studies conducted over multiple rounds, designed so that examiners do not realize they are assessing the same evidence.
@@ -801,6 +811,20 @@ This can be accomplished in multiple ways:
 - digital microscopy studies can assign the same digital scans of evidence to multiple examiners
 
 Each of these methods has some drawbacks, but ultimately, reproducibility assessment is feasible with existing technology and methods. 
+
+## Acceptable Thresholds for Scientific Validity
+
+Legal standards for evaluation of evidence^[Frye, Daubert, and jurisdictional precedent modifying either decision] lack quantitative thresholds for acceptability. 
+Even the NRC and PCAST reports did not specify a threshold at which evidence would be considered sufficiently reliable, repeatable, or reproducible. 
+In order to evaluate black box studies according to these metrics, then, it is useful to consider standards for evidence in other fields. 
+
+The three characteristics necessary for scientific validity of an evidence evaluation process have an analogous counterpart in industrial statistics, where engineers and scientists often conduct Gage R&R (Repeatability & Reproducibility) studies. 
+The name is somewhat of a misnomer, as these studies also consider reliability, though in these studies it is often called effectiveness or accuracy for historical reasons. 
+In Gage R&R studies, a measurement method is considered acceptable when all three metrics exceed 90% (that is, when mismatches are $<10\%$) [@zanobiniRepeatabilityReproducibilityTechniques2016]. 
+These requirements are variable [@soaresGageRRStudies2022] depending on the application and context of the study, and the consequences of measurement variation. 
+For instance, acceptable R&R thresholds in fields such as nuclear and aviation should be higher than those for more general manufacturing, where the consequences of variability may be lower.  
+
+While it is not possible to demonstrate the use of Gage R&R analysis methods for black-box studies, this is only because the individual trial data has not been made available for a study assessing reliability, repeatability, and reproducibility. 
 
 
 # Use of Algorithms in Firearm and Toolmark Comparisons
