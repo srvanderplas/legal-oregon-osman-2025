@@ -27,7 +27,326 @@ geometry:
   - bottom=1in
 biblio-style: abbrvnat
 csl: bluebook-law-review.csl
+execute:
+  echo: false
+  message: false
+  warning: false
 ---
+```{r setup, include=F}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(RColorBrewer)
+library(readxl)
+```
+
+
+```{r ames2, include = F}
+ames2_reliability_orig <- read_csv("data/AmesII-reliability.csv")
+ames2_repeatability_orig <- read_csv("data/AmesII-repeatability.csv", skip = 1, name_repair = make.names)
+ames2_reproducibility_orig <- read_csv("data/AmesII-reproducibility.csv", skip = 1, name_repair = make.names)
+
+
+ames2_conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL", "US", "Other")
+
+ames2_res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
+
+ames2_repeatability <- ames2_repeatability_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+
+ames2_repeatability_us <- ames2_repeatability |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+ames2_reproducibility <- ames2_reproducibility_orig |>
+  filter(!str_detect(X1st.eval, "Total")) |>
+  pivot_longer(ID:Total.US, names_to = "X2nd.eval", values_to = "Count") |>
+  filter(!str_detect(X2nd.eval, "Total")) |>
+  rename(eval1 = X1st.eval, eval2 = X2nd.eval) |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  group_by(Type, Comparison) |>
+  mutate(comparison_pct = Count/sum(Count)*100)
+  
+ames2_reproducibility_us <- ames2_reproducibility |> 
+  mutate(suitable1 = eval1 != "US", 
+         suitable2 = eval2 != "US", 
+         match = (suitable1 == suitable2)) |>
+  group_by(suitable1, suitable2, match) |>
+  summarize(Count = sum(Count)) |>
+  ungroup() |>
+  mutate(class = if_else(match & suitable1, "Suitable", if_else(match, "Unsuitable", "Conflict"))) |>
+  select(-suitable1, -suitable2, -match) |>
+  mutate(rate = Count/sum(Count) * 100) |>
+  select(-Count) |>
+  pivot_wider(names_from = class, values_from = rate, values_fn = sum)
+
+ames2_reliability <- ames2_reliability_orig |>
+  filter(!str_detect(Eval, "Total")) |>
+  group_by(Type, Comparison) |>
+  rename(Count = Total) |>
+  mutate(Total = sum(Count), comparison_pct = Count/Total*100)
+
+ames2_reliability_us <- filter(ames2_reliability, Eval == "US")
+
+ames2_reliability_csdr <- ames2_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(csd = (Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL")) |>
+  group_by(Type, Comparison) |>
+  mutate(Total = sum(Count)) |>
+  ungroup() |>
+  group_by(Type, csd) |>
+  summarize(Count = sum(Count)) |>
+  group_by(Type) |>
+  mutate(csdr = Count/sum(Count)*100) |>
+  filter(csd) |>
+  select(Type, csdr)
+
+ames2_reliability_sens_spec <- ames2_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = !((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+ames2_reliability_sens <- filter(ames2_reliability_sens_spec, Comparison == "SS")
+ames2_reliability_spec <- filter(ames2_reliability_sens_spec, Comparison == "DS")
+
+
+ames2_reliability_fp_fn <- ames2_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "EL") | (Comparison == "DS" & Eval == "ID"))) |>
+  group_by(Type, Comparison) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+ames2_reliability_fn <- filter(ames2_reliability_fp_fn, Comparison == "SS")
+ames2_reliability_fp <- filter(ames2_reliability_fp_fn, Comparison == "DS")
+
+ames2_reliability_ppv_npv <- ames2_reliability |>
+  filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
+  mutate(error = ((Comparison == "SS" & Eval == "ID") | (Comparison == "DS" & Eval == "EL"))) |>
+  group_by(Type, Eval) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+ames2_reliability_ppv <- filter(ames2_reliability_ppv_npv, Eval == "ID")
+ames2_reliability_npv <- filter(ames2_reliability_ppv_npv, Eval == "EL")
+```
+
+```{r ames2-nonresponse, include = F}
+ames2_first_round <- sprintf("%.2f%%", (1 - 173/256)*100)
+ames2_first_to_last_round <- sprintf("%.2f%%", (1 - 79/173)*100)
+ames2_recruited_completed_all <-  sprintf("%.2f%%", (1 - 79/256)*100)
+ames2_bullet_nonresponse <- sprintf("%.2f%%", (1 - 10020/(256*15*6))*100)
+ames2_cartridge_nonresponse <- sprintf("%.2f%%", (1 - 10110/(256*15*6))*100)
+ames2_overall_nonresponse <- sprintf("%.2f%%", (1 - (10020 + 10110)/(256*30*6))*100)
+```
+
+```{r hicklin, include = F}
+hicklin_reliability_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 1)
+hicklin_repeatability_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 2, skip = 1) |>
+  rename(eval1=`1st Eval`)
+hicklin_reproducibility_orig <- read_excel("data/Hicklin2024.xlsx", sheet = 3, skip = 1) |>
+  rename(eval1=`1st Eval`)
+
+
+hicklin_conclusion_levels <- c("ID", "INC-A", "INC-B", "INC-C", "EL")
+
+hicklin_res_scale <- c(brewer.pal(5, "RdBu"), "grey", "black")
+
+hicklin_repeatability <- hicklin_repeatability_orig |>
+  filter(!str_detect(eval1, "Total")) |>
+  pivot_longer(ID:EL, names_to = "eval2", values_to = "Count") |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+  mutate(eval2 = factor(eval2, levels = hicklin_conclusion_levels, ordered = T))
+
+# hicklin_repeatability |>
+#   group_by(Source, eval1, eval2) |>
+#   summarize(Count = sum(Count)) |>
+#   group_by(Source) |>
+#   pivot_wider(names_from = 'eval2', values_from = 'Count') |>
+#   ungroup() |>
+#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |>
+#   arrange(Source, eval1) |> View()
+
+
+
+hicklin_reproducibility <- hicklin_reproducibility_orig |>
+  filter(!str_detect(eval1, "Total")) |>
+  pivot_longer(ID:EL, names_to = "eval2", values_to = "Count") |>
+  mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
+  mutate(across(matches("eval", ~factor(., levels = hicklin_conclusion_levels, ordered = T))))
+  
+# hicklin_reproducibility |>
+#   group_by(Source, eval1, eval2) |>
+#   summarize(Count = sum(Count)) |>
+#   group_by(Source) |>
+#   pivot_wider(names_from = 'eval2', values_from = 'Count') |> 
+#   ungroup() |>
+#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |> 
+#   arrange(Source, eval1) |> View()
+
+hicklin_reliability <- hicklin_reliability_orig |>
+  select(-matches("Total")) |>
+  pivot_longer(ID:US, names_to="Eval", values_to="Count") |>
+  group_by(ComparisonType, Source) |>
+  mutate(Total = sum(Count), comparison_pct = Count/Total*100) |>
+  mutate(across(Polygonal:SameGunModel, ~.=="T"))
+
+tmp <- hicklin_reliability |>
+  mutate(csd = (Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL")) |>
+  group_by(ComparisonType, Source) |>
+  mutate(Total = sum(Count)) |>
+  ungroup()
+
+
+
+library(confintr)
+
+make_ci_tbl <- function(x, n){
+  res <- ci_proportion(x, n)
+  data.frame(Estimate = res$estimate, CI_LB = res$interval[1], CI_UB = res$interval[2])
+}
+
+
+make_csdr_ci <- function(tbl) {
+  nest(tbl, data = -c(x, n))|>
+  mutate(ci = map2(x, n, make_ci_tbl)) |>
+    unnest(c(data, ci)) |>
+    select(-c(csd, Count, x))
+}
+
+format_csdr_ci_tbl <- function(tbl, format="%0.4f") {
+  est_str <- sprintf("%s (%s, %s)", format, format, format)
+  tbl |>
+    arrange(desc(Estimate)) |>
+    mutate("Estimate (95% CI)" = sprintf(est_str, Estimate, CI_LB, CI_UB)) |>
+    select(-c(CI_LB, CI_UB))
+}
+
+hicklin_reliability_csdr <- list(
+  # QQ and KQ
+  "Comparison Type" = tmp |>
+    group_by(ComparisonType, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(ComparisonType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Polygonal
+  "Polygonal" = tmp |>
+    mutate(Polygonal = if_else(Polygonal, "Polygonal", "NonPR")) |>
+    group_by(Polygonal, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(Polygonal) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Caliber
+  "Ammunition" = tmp |>
+    mutate(SameCaliber = if_else(SameCaliber, "Same Caliber", "Diff Caliber")) |>
+    mutate(SameAmmoType = if_else(SameAmmoType, "Same Ammo", "Diff Ammo")) |>
+    group_by(SameCaliber, SameAmmoType, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(SameCaliber,SameAmmoType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl(),
+  # Firearm Make
+  "Firearm Make and Model" = tmp |>
+    mutate(SameGunMake = if_else(SameGunMake, "Same Gun Make", "Diff Gun Make")) |>
+    mutate(SameGunModel = if_else(SameGunModel, "Same Gun Model", "Diff Gun Model")) |>
+    group_by(SameGunMake, SameGunModel, csd) |>
+    summarize(Count = sum(Count)) |>
+    group_by(SameGunMake, SameGunModel) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_csdr_ci_tbl()
+)
+
+
+
+
+hicklin_reliability_sens_spec <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = !((Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL"))) |>
+  group_by(ComparisonType, Source) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_sens <- filter(hicklin_reliability_sens_spec, Source == "SS")
+hicklin_reliability_spec <- filter(hicklin_reliability_sens_spec, Source == "DS")
+
+
+hicklin_reliability_fp_fn <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other")) |>
+  mutate(error = ((Source == "SS" & Eval == "EL") | (Source == "DS" & Eval == "ID"))) |>
+  group_by(ComparisonType, Source) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_fn <- filter(hicklin_reliability_fp_fn, Source == "SS")
+hicklin_reliability_fp <- filter(hicklin_reliability_fp_fn, Source == "DS")
+
+hicklin_reliability_ppv_npv <- hicklin_reliability |>
+  filter(!Eval %in% c("US", "Other") & !str_detect(Eval, "INC")) |>
+  mutate(error = ((Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL"))) |>
+  group_by(ComparisonType, Eval) |>
+  summarize(rate = sum(Count*error)/sum(Count) * 100)
+hicklin_reliability_ppv <- filter(hicklin_reliability_ppv_npv, Eval == "ID")
+hicklin_reliability_npv <- filter(hicklin_reliability_ppv_npv, Eval == "EL")
+
+
+hicklin_repeatability_id <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count)) |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+hicklin_repeatability_all <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  |>
+  filter(Prop == min(Prop)) |>
+  magrittr::extract2("Prop")
+
+
+hicklin_repeatability_sep <- hicklin_repeatability |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  group_by(Source) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))
+
+
+hicklin_reproducibility_id <- hicklin_reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  filter(eval1 == "ID") |>
+  mutate(alsoID = eval2 == "ID") |>
+  summarize(Prop = 1 - sum(alsoID * Count)/sum(Count))
+
+
+hicklin_reproducibility_all <- hicklin_reproducibility |>
+  filter(!eval1 %in% c("US", "Other") & !eval2 %in% c("US", "Other")) |>
+  mutate(same = eval1 == eval2) |>
+  summarize(Prop = 1 - sum(same * Count)/sum(Count))  
+
+```
 
 # Statement of Interest of Amicus Curiae
 
@@ -172,3 +491,112 @@ is firearms analysis repeatable and reproducible?
 Do the method’s error rates support its conclusions?
 
 [^ames-ii-withdrawn]: Bajic et al., Validation Study of the Accuracy, Repeatability, and Reproducibility of Firearm Comparisons, 127 (2020), https://www.scribd.com/document/586448513/Ames-FBI-Validation-Study. We reference the full 127 page report of the Ames Laboratory to the FBI, comprehensively detailing data and analysis estimating accuracy, repeatability, and reproducibility inter alia of forensic firearms examinations. It was released to the public in early 2021 and then withdrawn. Since then, portions have been republished, but differences between the original report and the publications are interesting.
+
+
+## The Current Domain-Wide Error Rate is Unknown
+
+While the state of research has matured to some degree, there remain significant and unaddressed problems with the design of the recent studies beyond the design of the test problem. 
+Addressing these issues is not an impossible task.
+Medicine, for example, employs strict standards for the design and execution of clinical trials before adopting any new test or method. 
+Unless and until the field employs the rigor seen in other scientifically mature disciplines, it is not possible to assess the utility of the current reported error rates.
+
+There are two quantities of interest when evaluating a particular diagnostic test.  
+Returning to medicine as an example, the sensitivity, or true positive rate, estimates how often the test identifies cancer when cancer is present.  
+The specificity, or true negative rate, estimates how often the test identifies no cancer is present when there is no cancer.  
+The sensitivity and specificity combined determine the overall accuracy rate and are useful for an agency such as the FDA in determining whether the test works as claimed. 
+
+A patient taking the test may be interested in different statistics describing the test performance.
+If the patient’s test was positive, they would be interested in the positive predictive value: the probability that the patient has cancer given a positive test.
+If the patient’s test was negative, they would instead be interested in the negative predictive value: the probability that the patient does not have cancer given a negative test^[To provide another example relevant to the current COVID pandemic, BinaxNow rapid antigen tests have a sensitivity of about 43% relative to PCR (55/127), but have a specificity of 100% relative to PCR (642/642). From an individual perspective, however, a positive BinaxNow test suggests a 100% chance of a positive PCR test (55/55), where a negative BinaxNow test suggests a 90% chance of a negative PCR test (642/714). That is,he BinaxNow test misses some COVID cases (because the PCR test is much more sensitive), but it is a very good screening tool because a positive antigen test is a very good indicator of an active COVID infection. Numbers from @krishnasurasiEffectivenessAbbottBinaxNOW].
+
+Error rate studies with independent pairwise comparisons allow scientists to calculate the sensitivity, specificity, and false positive and false negative rates because they explicitly measure how many comparisons were performed along with the outcome of the comparisons. 
+As alluded to before, however, this basic design characteristic is only present in a few modern firearms studies. 
+While these few studies involving a known number of single pair comparisons allow for the calculation of the full set of error rates, they have other significant flaws which make their error rate estimates misleading and unreliable for the Court’s purposes.
+In order to rely on these studies and generalize their error rates to casework, validation studies not only need to be well designed, but must also include test samples that are representative of comparisons found in casework^[The difficulty level of test samples varies considerably. @proficiencytestreviewadhoccommitteeReportAssociationFirearm2024 includes an examiner comment that "[Proficiency test 23-5262] was the most difficult proficiency test they  have ever received, but that it was more similar to casework and further observed that there could be an increase in inconclusive results." This comment suggests that proficiency tests are often not as difficult as casework, and as a result, indicates that these tests are not a valid basis for establishing error rates.]
+In addition, the calculated error rates must account for any study flaws so that if error rates cannot be precisely estimated, they can at least be bounded by a reasonable interval.
+
+The sections below discuss the issues in research design, both acknowledged by the firearms and toolmarks community, and those which are yet to be acknowledged.  
+Even looking only at factors that have been acknowledged, it is clear that the reported error rates are incorrect and misleading. 
+Without further research, however, it is impossible to know how significant an effect the unacknowledged factors have on the true error rate for the discipline.
+
+### Acknowledged Research Design Issues
+
+The following section discusses those issues which have been acknowledged by the firearms and toolmark community, though they remain currently unresolved.
+
+#### Reported Error Rates
+
+Current validation studies report error rates for the method between zero [@michellecazesValidationStudyResults2013;@hambyWorldwideStudyBullets2019;@brundageIdentificationConsecutivelyRifled1994] and 11.3 percent [@mattijssenValidityReliabilityForensic2020]. A zero percent error rate for any method, much less a subjective method using human judgment, is not scientifically plausible^["Although there is limited information about the accuracy and reliability . . . . claims that these analyses have zero error rates are not scientifically plausible.", pg. 142, @NRCStrengthening2009]. 
+Even though many of the studies in this list have previously-identified methodological issues, we will work with this range of estimates for the moment.   
+
+
+#### Inconclusive Responses
+
+One complication in calculating the error rates for firearms and toolmark examination is that the AFTE Theory of Identification (ToI) does not directly correspond with the physical state of the evidence, which is either from the same gun or from different guns. 
+Instead, the AFTE ToI allows for an examiner to make an identification (same gun), elimination (different gun), or to make an inconclusive decision, indicating that there is insufficient information to make either definitive conclusion. 
+Given this mismatch, there are many potential ways to deal with inconclusive responses when calculating the error rate.
+Inconclusive decisions can be (1) removed entirely, (2) included as correct responses, or (3) included as incorrect responses.
+These variations generate wildly different error rates based on the same data.
+
+```{r}
+options(digits=1)
+```
+
+A hypothetical example highlights the confounding nature of this factor when evaluating reported error rates.
+In a test with 10 questions, if an examiner answers three questions correctly, three questions incorrectly, and does not answer four questions, these three methods generate different results.
+Removing inconclusive responses entirely (1) means the examiner had a `{r} 3/6*100`% error rate.  
+This rate reflects only the error rate for the questions the examiner chose to answer, which may be the easier questions. 
+We do not know how the examiner would have performed on the four (potentially more difficult) questions she chose not to answer. 
+In this example, counting the four unanswered questions as correct (2) would generate a `{r} 7/10*100`% error rate. 
+Counting the inconclusive responses as wrong (3), however, would lead to a `{r} 3/10*100`% error rate.
+That these methods generate different error rates **for the same data** is a conundrum, as discussed in @dorfmanInconclusivesErrorsError2022 and @inconclusives. 
+Dorfman & Valliant conclude that inconclusives are at least potential errors, where Hofmann et al. encourage the use of positive and negative predictive values, which exclude inconclusives by default, may be of more use to the courts because they are specific to the evidence present in the case. 
+
+#### Repeatability 
+
+Recent data on the consistency of examiner decisions further undermines the discipline’s claim of a low and well-understood error rate.  
+A study conducted between 2016 and 2020, in collaboration between the Federal Bureau of Investigation (FBI) and Ames Laboratory-USDOE, (colloquially known as Ames II) was the first modern study to test the repeatability and reproducibility of firearms examiners [@bajicValidationStudyAccuracy2020;@monsonPlanningDesignLogistics2022;@baldwinStudyExaminerAccuracy2023;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability]. 
+In the 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5). 
+In addition, sets were sent to multiple examiners over different rounds, allowing for calculations of reproducibility as different examiners evaluated the same evidence.
+
+The experimenters have not released the full data from the study (or even the full design specification that would indicate how, exactly, the replication process was determined), we must be content with analyzing the tabulated data provided in @monson2023repeatability. 
+Considering only those comparisons where the evidence was rated as suitable for evaluation both times (excluding <2% of comparisons), there are twenty five different possible outcomes when a kit is evaluated twice: each of the five AFTE conclusions could occur during either examination. 
+Evaluating what each of these different combinations means can be very confusing, but it is reasonable to start with a calculation that should be favorable to FATM examiners: 
+given that the first examination was an identification, what is the probability that the second is also an identification?
+^[This is the situation that is most likely to be favorable in part because examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations more complicated to evaluate.]
+
+Repeatability does not consider the correctness of the decision, as it is more concerned with consistency than accuracy. 
+There were 665 evaluations which were both identifications, and 740 first evaluations which were identifications for same-source bullets; for different-source bullets, there were 2 double-identifications out of 19 which were identifications on the first evaluation. 
+If an examiner makes an identification, there is a $100\times \frac{665+2}{740+19}$ = `r sprintf("%.02f%%", 100*(667/759))` chance that a second evaluation will also be an identification. 
+That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence (with at least ~6 weeks or more between examinations). 
+
+```{r}
+#| label: tbl-ames2-conditional-repeatability
+#| tbl-cap: Repeatability of an examiner's second decision. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34%. 
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+ames2_repeatability |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  pivot_wider(names_from = Type, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  kable()
+```
+
+
+Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
+
+##### Repeatability
+
+
+
+##### Reproducibility
+
+
+
+
