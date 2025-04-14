@@ -39,6 +39,7 @@ library(tidyr)
 library(stringr)
 library(RColorBrewer)
 library(readxl)
+library(purrr)
 ```
 
 
@@ -187,7 +188,9 @@ hicklin_reproducibility <- hicklin_reproducibility_orig |>
   filter(!str_detect(eval1, "Total")) |>
   pivot_longer(ID:EL, names_to = "eval2", values_to = "Count") |>
   mutate(eval2 = str_replace(eval2, "\\.", "-")) |>
-  mutate(across(matches("eval", ~factor(., levels = hicklin_conclusion_levels, ordered = T))))
+  mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
+  mutate(eval2 = factor(eval2, levels = hicklin_conclusion_levels, ordered = T))
+
   
 # hicklin_reproducibility |>
 #   group_by(Source, eval1, eval2) |>
@@ -570,14 +573,14 @@ If an examiner makes an identification, there is a $100\times \frac{665+2}{740+1
 That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence (with at least ~6 weeks or more between examinations). 
 
 ```{r}
-#| label: tbl-ames2-conditional-repeatability
-#| tbl-cap: Repeatability of an examiner's second decision. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34%. 
+#| label: tbl-conditional-repeatability
+#| tbl-cap: Repeatability of an examiner's second decision, given the first decision, in Ames II and Hicklin. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34% (Ames) or 10% (Hicklin). Hicklin has lower repeatability across the board compared to Ames II. Note that in Hicklin, values are aggregated across several additional factors, including firearm make and model, ammunition type, rifling type, and whether the caliber matched or not. Repeatability broken down by these additional factors is provided in @sec-hicklin-repeatability-app.
 #| echo: false
 #| message: false
 #| warning: false
 
 library(knitr)
-ames2_repeatability |>
+tbl_start <- ames2_repeatability |>
   filter(eval1 != "US" & eval2 != "US") |>
   mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
@@ -585,18 +588,128 @@ ames2_repeatability |>
   summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
   pivot_wider(names_from = Type, values_from = prop) |>
   rename("Evaluation 1" = eval1) |>
+  rename("Ames II (Bullet)" = Bullet, "Ames II (Cartridge)" = Cartridge)
+
+tbl_start_n <-  ames2_repeatability |>
+  filter(eval1 != "US" & eval2 != "US") |>
+  mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
+  group_by(Type, eval1) |>
+  summarize(n =  sum(Count)) |>
+  summarize(n = sum(n)) |>
+  mutate(n = as.character(n)) |>
+  pivot_wider(names_from = Type, values_from = n) |>
+  mutate("Evaluation 1" = "Total Comparisons") |>
+  rename("Ames II (Bullet)" = Bullet, "Ames II (Cartridge)" = Cartridge)
+
+tbl_start2 <- hicklin_repeatability |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(eval1) |>
+  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("Hicklin (Bullet)" = "prop")
+tbl_start_2n <-  hicklin_repeatability |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(eval1) |>
+  summarize(n =  sum(Count)) |>
+  summarize(n = sum(n)) |>
+  mutate(n = as.character(n)) |>
+  mutate("Evaluation 1" = "Total Comparisons") |>
+  rename("Hicklin (Bullet)" = n) 
+
+left_join(tbl_start, tbl_start2) |>
+  bind_rows(left_join(tbl_start_n, tbl_start_2n)) |>
   kable()
 ```
 
 
 Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
 
-##### Repeatability
 
 
 
-##### Reproducibility
+
+# Appendix {.appendix}
+
+## Repeatability {.appendix}
+
+### Hicklin (2024) {.appendix #sec-hicklin-repeatability-app}
+In the following tables, percentages which are determined from fewer than 30 comparisons should not be considered informative. 
+One implication of the design in @hicklinAccuracyReproducibilityBullet2024 is that with many different factors, comparisons that 
 
 
+```{r}
+hicklin_repeatability |>
+  filter(Polygonal == "T") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(eval1) |>
+  summarize(prop = sprintf("%0.2f%% (n = %d)", 
+                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
+                           sum(Count))) |>
+  mutate(prop = str_replace(prop, "NaN%", "--")) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("P(E1 = E2)" = "prop") |>
+  kable(caption = "Repeatability for Comparisons of Polygonally Rifled Bullets (Hicklin 2024)")
 
+hicklin_repeatability |>
+  filter(!Polygonal=="T", SameCaliber=="T") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(eval1) |>
+  summarize(prop = sprintf("%0.2f%% (n = %d)", 
+                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
+                           sum(Count))) |>
+  mutate(prop = str_replace(prop, "NaN%", "--")) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("P(E1 = E2)" = "prop") |>
+  kable(caption = "Repeatability for Comparisons By Whether Caliber Matched  (Hicklin 2024)")
+
+hicklin_repeatability |>
+  filter(!Polygonal=="T") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(SameMake, eval1) |>
+  summarize(prop = sprintf("%0.2f%% (n = %d)", 
+                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
+                           sum(Count))) |>
+  mutate(prop = str_replace(prop, "NaN%", "--")) |>
+  pivot_wider(names_from = SameMake, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("Different Make" = "F", "Same Make" = "T") |>
+  kable(caption = "Repeatability for Comparisons By Firearm Make Match Status for Traditionally (Non-polygonally) Rifled Bullets (Hicklin 2024)")
+
+
+hicklin_repeatability |>
+  filter(!Polygonal=="T", SameMake!="F") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(SameModel, eval1) |>
+  summarize(prop = sprintf("%0.2f%% (n = %d)", 
+                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
+                           sum(Count))) |>
+  mutate(prop = str_replace(prop, "NaN%", "--")) |>
+  pivot_wider(names_from = SameModel, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("Different Model" = "F", "Same Model" = "T") |>
+  kable(caption = "Repeatability for Comparisons By Model Match Status for Comparisons arising from the Same (Traditionally Rifled) Make (Hicklin 2024).")
+
+
+hicklin_repeatability |>
+  filter(!Polygonal=="T", SameModel!="F") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(SameAmmo, eval1) |>
+  summarize(prop = sprintf("%0.2f%% (n = %d)", 
+                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
+                           sum(Count))) |>
+  mutate(prop = str_replace(prop, "NaN%", "--")) |>
+  pivot_wider(names_from = SameAmmo, values_from = prop) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("Different Ammo" = "F", "Same Ammo" = "T") |>
+  kable(caption = "Repeatability for Comparisons By Ammunition Type for Comparisons arising from the Same (Traditionally Rifled) Make and Model (Hicklin 2024).")
+
+```
 
