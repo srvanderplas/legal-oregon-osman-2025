@@ -32,7 +32,9 @@ execute:
   message: false
   warning: false
 ---
+
 ```{r setup, include=F}
+library(kableExtra)
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -40,8 +42,57 @@ library(stringr)
 library(RColorBrewer)
 library(readxl)
 library(purrr)
+library(confintr)
+library(knitr)
+library(ggplot2)
+library(ggh4x)
+theme_set(theme_bw())
 ```
 
+```{r useful-formatting-fns}
+make_ci_tbl <- function(x, n){
+  if (n > 10 & n > x) {
+    res <- ci_proportion(x, n)
+    data.frame(Estimate = res$estimate, CI_LB = res$interval[1], CI_UB = res$interval[2])
+  } else {
+    data.frame(Estimate = NA, CI_LB = NA, CI_UB = NA)
+  }
+}
+
+
+make_repeat_ci <- function(tbl) {
+  tbl|>
+    mutate(tbl = map2(x, n, make_ci_tbl)) |>
+    unnest(tbl) |>
+    select(-c(x, n))
+}
+
+make_csdr_ci <- function(tbl) {
+  nest(tbl, data = -c(x, n))|>
+  mutate(ci = map2(x, n, make_ci_tbl)) |>
+    unnest(c(data, ci)) |>
+    select(-c(csd, Count, x))
+}
+
+format_ci_tbl <- function(tbl, fmt="%0.2f") {
+  stopifnot(all(c("Estimate", "CI_LB", "CI_UB") %in% names(tbl)))
+  est_str <- sprintf("%s%%%% (%s, %s)", fmt, fmt, fmt)
+  tbl |>
+    mutate(est_ci = sprintf(est_str, Estimate*100, CI_LB*100, CI_UB*100)|>
+             str_replace("^NA.*$", "---")) |>
+    select(-c(Estimate, CI_LB, CI_UB))
+}
+
+add_overall_row <- function(df, ...) {
+  bind_rows(
+    df,
+    summarize(df, ...)
+  )
+}
+
+cdl_tbl_opts <- c("Overall", "ID", "INC-A", "INC-B", "INC-C", "EL")
+
+```
 
 ```{r ames2, include = F}
 ames2_reliability_orig <- read_csv("data/AmesII-reliability.csv")
@@ -172,17 +223,6 @@ hicklin_repeatability <- hicklin_repeatability_orig |>
   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
   mutate(eval2 = factor(eval2, levels = hicklin_conclusion_levels, ordered = T))
 
-# hicklin_repeatability |>
-#   group_by(Source, eval1, eval2) |>
-#   summarize(Count = sum(Count)) |>
-#   group_by(Source) |>
-#   pivot_wider(names_from = 'eval2', values_from = 'Count') |>
-#   ungroup() |>
-#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
-#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |>
-#   arrange(Source, eval1) |> View()
-
-
 
 hicklin_reproducibility <- hicklin_reproducibility_orig |>
   filter(!str_detect(eval1, "Total")) |>
@@ -191,100 +231,12 @@ hicklin_reproducibility <- hicklin_reproducibility_orig |>
   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
   mutate(eval2 = factor(eval2, levels = hicklin_conclusion_levels, ordered = T))
 
-  
-# hicklin_reproducibility |>
-#   group_by(Source, eval1, eval2) |>
-#   summarize(Count = sum(Count)) |>
-#   group_by(Source) |>
-#   pivot_wider(names_from = 'eval2', values_from = 'Count') |> 
-#   ungroup() |>
-#   mutate(eval1 = factor(eval1, levels = hicklin_conclusion_levels, ordered = T)) |>
-#   select(Source, eval1, ID, "INC-A", "INC-B", "INC-C", "EL") |> 
-#   arrange(Source, eval1) |> View()
-
 hicklin_reliability <- hicklin_reliability_orig |>
   select(-matches("Total")) |>
   pivot_longer(ID:US, names_to="Eval", values_to="Count") |>
   group_by(ComparisonType, Source) |>
   mutate(Total = sum(Count), comparison_pct = Count/Total*100) |>
   mutate(across(Polygonal:SameGunModel, ~.=="T"))
-
-tmp <- hicklin_reliability |>
-  mutate(csd = (Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL")) |>
-  group_by(ComparisonType, Source) |>
-  mutate(Total = sum(Count)) |>
-  ungroup()
-
-
-
-library(confintr)
-
-make_ci_tbl <- function(x, n){
-  res <- ci_proportion(x, n)
-  data.frame(Estimate = res$estimate, CI_LB = res$interval[1], CI_UB = res$interval[2])
-}
-
-
-make_csdr_ci <- function(tbl) {
-  nest(tbl, data = -c(x, n))|>
-  mutate(ci = map2(x, n, make_ci_tbl)) |>
-    unnest(c(data, ci)) |>
-    select(-c(csd, Count, x))
-}
-
-format_csdr_ci_tbl <- function(tbl, format="%0.4f") {
-  est_str <- sprintf("%s (%s, %s)", format, format, format)
-  tbl |>
-    arrange(desc(Estimate)) |>
-    mutate("Estimate (95% CI)" = sprintf(est_str, Estimate, CI_LB, CI_UB)) |>
-    select(-c(CI_LB, CI_UB))
-}
-
-hicklin_reliability_csdr <- list(
-  # QQ and KQ
-  "Comparison Type" = tmp |>
-    group_by(ComparisonType, csd) |>
-    summarize(Count = sum(Count)) |>
-    group_by(ComparisonType) |>
-    mutate(x = Count, n = sum(Count)) |>
-    filter(csd) |>
-    make_csdr_ci() |>
-    format_csdr_ci_tbl(),
-  # Polygonal
-  "Polygonal" = tmp |>
-    mutate(Polygonal = if_else(Polygonal, "Polygonal", "NonPR")) |>
-    group_by(Polygonal, csd) |>
-    summarize(Count = sum(Count)) |>
-    group_by(Polygonal) |>
-    mutate(x = Count, n = sum(Count)) |>
-    filter(csd) |>
-    make_csdr_ci() |>
-    format_csdr_ci_tbl(),
-  # Caliber
-  "Ammunition" = tmp |>
-    mutate(SameCaliber = if_else(SameCaliber, "Same Caliber", "Diff Caliber")) |>
-    mutate(SameAmmoType = if_else(SameAmmoType, "Same Ammo", "Diff Ammo")) |>
-    group_by(SameCaliber, SameAmmoType, csd) |>
-    summarize(Count = sum(Count)) |>
-    group_by(SameCaliber,SameAmmoType) |>
-    mutate(x = Count, n = sum(Count)) |>
-    filter(csd) |>
-    make_csdr_ci() |>
-    format_csdr_ci_tbl(),
-  # Firearm Make
-  "Firearm Make and Model" = tmp |>
-    mutate(SameGunMake = if_else(SameGunMake, "Same Gun Make", "Diff Gun Make")) |>
-    mutate(SameGunModel = if_else(SameGunModel, "Same Gun Model", "Diff Gun Model")) |>
-    group_by(SameGunMake, SameGunModel, csd) |>
-    summarize(Count = sum(Count)) |>
-    group_by(SameGunMake, SameGunModel) |>
-    mutate(x = Count, n = sum(Count)) |>
-    filter(csd) |>
-    make_csdr_ci() |>
-    format_csdr_ci_tbl()
-)
-
-
 
 
 hicklin_reliability_sens_spec <- hicklin_reliability |>
@@ -369,157 +321,183 @@ Specifically, existing research studies that evaluated accuracy, reliability, an
 Our conclusion is that firearms examination has not been demonstrated to be accurate, reliable, or reproducible.
 Error rates for firearms examination (e.g., false positive identifications) are currently unknown, since existing studies are inadequate to establish these.
 Issues with experimental design, participant selection, statistical analysis, and the interpretation of estimates pervade the current validation studies.
-As just one example, studies count inconclusive responses–those in which the examiner cannot make a definitive conclusion–as effectively correct (i.e., not as errors), which results in misleadingly low reported error rates^[Inconclusive responses are included in the total number of comparisons performed, but not included as errorso in the numerator.].
+As just one example, studies count inconclusive responses–those in which the examiner cannot make a definitive conclusion–as effectively correct (i.e., not as errors), which results in misleadingly low reported error rates[^1].
 Treating inconclusive responses as effectively correct results in reported error rates as low as zero percent.
 If inconclusives are instead treated as errors, error rates can be as high as 93%.
 The true error rate is likely between these two extremes, but until more well-designed research is performed, it remains unknown.
-While there are encouraging developments in research design, data from a recent study shows an alarming lack of consistency in decisions when the same examiner was presented with the same evidence twice, and when different examiners were presented with the same evidence[@bajicValidationStudyAccuracy2020]. 
+While there are encouraging developments in research design, data from a recent study shows an alarming lack of consistency in decisions when the same examiner was presented with the same evidence twice, and when different examiners were presented with the same evidence[@bajicValidationStudyAccuracy2020].
 These new data further undermine the claim of a well-developed, scientifically valid method and cannot go unaddressed.
 
+[^1]: Inconclusive responses are included in the total number of comparisons performed, but not included as errorso in the numerator.
 
 # Argument
 
 ## Relevant Expertise
 
-If the Court wishes to understand how weapons leave marks on fired ammunition, or how an examiner performs a comparison between two bullets or cartridge cases, practitioners are the best group to consult.  
+If the Court wishes to understand how weapons leave marks on fired ammunition, or how an examiner performs a comparison between two bullets or cartridge cases, practitioners are the best group to consult.\
 If, however, the determination the Court must make is not about how the forensic process is performed, but rather how well it is performed - or, in the ideal, how well it can be performed – the person to consult is the research scientist.
 
-An analogy to the field of medicine, a field with similarly high stakes consequences, is helpful.  
-The epidemiologist who researches disease has a very different role and skill set than the doctor who treats patients [^interested-party]. 
-If one wants to know about the effects of a disease on a population or how to slow the spread of an emerging virus, it is far more effective to consult the epidemiologist; if one wants to know how to treat a patient afflicted, then the doctor is the appropriate expert to consult. 
+An analogy to the field of medicine, a field with similarly high stakes consequences, is helpful.\
+The epidemiologist who researches disease has a very different role and skill set than the doctor who treats patients [^2].
+If one wants to know about the effects of a disease on a population or how to slow the spread of an emerging virus, it is far more effective to consult the epidemiologist; if one wants to know how to treat a patient afflicted, then the doctor is the appropriate expert to consult.
 
-[^interested-party]: Another relevant and important distinction is between interested and disinterested parties. Those with a financial or personal stake in the outcome are generally not the only people who should be tasked with researching a particular issue.
+[^2]: Another relevant and important distinction is between interested and disinterested parties.
+    Those with a financial or personal stake in the outcome are generally not the only people who should be tasked with researching a particular issue.
 
 ## Scientific Validity
 
-The basic requirements of any valid scientific method are that it must be:
-- accurate, meaning the conclusion reached is the correct one,
-- repeatable, meaning the examiner reaches the same conclusion when presented with the same evidence, 
-- reproducible, meaning different examiners reach the same conclusions when analyzing the same evidence.
+The basic requirements of any valid scientific method are that it must be: - accurate, meaning the conclusion reached is the correct one, - repeatable, meaning the examiner reaches the same conclusion when presented with the same evidence, - reproducible, meaning different examiners reach the same conclusions when analyzing the same evidence.
 
-A valid method or instrument gives consistent results.  
-A scale, for example, can be perfectly reliable and report the same weight for the same object each time it’s weighed.  
-That does not mean the scale is accurate; it may consistently report the wrong weight.  
+A valid method or instrument gives consistent results.\
+A scale, for example, can be perfectly reliable and report the same weight for the same object each time it’s weighed.\
+That does not mean the scale is accurate; it may consistently report the wrong weight.\
 Reliability, or consistency, is a necessary component of a scientifically valid method, but does not, on its own, establish scientific validity.
-A valid method produces accurate results.  
-It is not possible to assess the accuracy of a method without testing it on samples where ground truth is known, meaning testing using samples of known origin. 
+A valid method produces accurate results.\
+It is not possible to assess the accuracy of a method without testing it on samples where ground truth is known, meaning testing using samples of known origin.
 Because ground truth is unknown in case work – the examiner does not know if the two bullets were fired in the same gun or different guns – case work cannot serve to support the validity of the method, even when a second examiner agrees with the first examiner.
 
-The goal of any validation study is to understand the range of conditions under which the method works as required, how well it performs, and to identify conditions under which it is likely to fail. 
+The goal of any validation study is to understand the range of conditions under which the method works as required, how well it performs, and to identify conditions under which it is likely to fail.
 A high quality study design is needed in order to achieve these goals.
-Evaluating the validity of an entire discipline requires many studies, over a range of conditions, with some replication; in addition, studies used to support the validity of a discipline must be well-designed, using appropriate test problems, instructions, sampling procedures, and statistical practices when analyzing the results. 
-Scientifically, supporting studies should meet several conditions: they should be designed in consultation with statisticians, published in scholarly journals that require peer review by statisticians and subject matter experts[^peer-review], the results must hold up over time and replication[^poly-water], and the studies must be conducted over a wide range of conditions that are representative of those seen in applied settings. 
-As an analogy, consider what is required for regulators such as the U.S. Food and Drug Administration (FDA) to approve a new drug. 
-Multiple, high quality randomized trials are required, each of which needs to demonstrate efficacy of the drug for the target population. 
-For firearms examination, though there have been randomized experiments, even the best ones have significant flaws.
-Moreover, even if we look past the flaws, evidence is beginning to accumulate that firearms and toolmark examination is neither repeatable nor reproducible, and thus, is not scientifically valid.
+Evaluating the validity of an entire discipline requires many studies, over a range of conditions, with some replication; in addition, studies used to support the validity of a discipline must be well-designed, using appropriate test problems, instructions, sampling procedures, and statistical practices when analyzing the results.
+Scientifically, supporting studies should meet several conditions: they should be designed in consultation with statisticians, published in scholarly journals that require peer review by statisticians and subject matter experts[^3], the results must hold up over time and replication[^4], and the studies must be conducted over a wide range of conditions that are representative of those seen in applied settings
+. As an analogy, consider what is required for regulators such as the U.S
+. Food and Drug Administration (FDA) to approve a new drug
+. Multiple, high quality randomized trials are required, each of which needs to demonstrate efficacy of the drug for the target population
+. For firearms examination, though there have been randomized experiments, even the best ones have significant flaws
+. Moreover, even if we look past the flaws, evidence is beginning to accumulate that firearms and toolmark examination is neither repeatable nor reproducible, and thus, is not scientifically valid
+.
 
-[^peer-review]: Trade journals, including the AFTE Journal, are sometimes peer reviewed, but the peers are practitioners rather than research scientists; these reviews focus on the forensic procedures but neglect to consider the design of the study and the statistical validity of any reported results. As a result, studies from these journals often have serious methodological flaws. Research journals are not immune from this problem, but it is at least more likely that reviewers who are active research scientists and have training in statistical analysis and experimental design.
+[^3]: Trade journals, including the AFTE Journal, are sometimes peer reviewed, but the peers are practitioners rather than research scientists; these reviews focus on the forensic procedures but neglect to consider the design of the study and the statistical validity of any reported results.
+    As a result, studies from these journals often have serious methodological flaws.
+    Research journals are not immune from this problem, but it is at least more likely that reviewers who are active research scientists and have training in statistical analysis and experimental design.
 
-[^poly-water]: Note that even prestigious scientific journals and respected institutions have published scientific results which do not hold up to the test of time. @lippincottPolywaterVibrationalSpectra1969 and other follow-up papers demonstrated unique properties of a form of water called polywater, first discovered in the USSR and then replicated in US labs and at the National Bureau of Standards (now known as NIST). These properties were later shown to be identical to those of sweat, @rousseauPolywaterSweatSimilarities1971, suggesting that the original documented and peer-reviewed phenomenon was a result of replication of conditions producing laboratory contamination of samples. More details can be found in @strombergCuriousCasePolywater2013. 
-
-
+[^4]: Note that even prestigious scientific journals and respected institutions have published scientific results which do not hold up to the test of time.
+    @lippincottPolywaterVibrationalSpectra1969 and other follow-up papers demonstrated unique properties of a form of water called polywater, first discovered in the USSR and then replicated in US labs and at the National Bureau of Standards (now known as NIST).
+    These properties were later shown to be identical to those of sweat, @rousseauPolywaterSweatSimilarities1971, suggesting that the original documented and peer-reviewed phenomenon was a result of replication of conditions producing laboratory contamination of samples.
+    More details can be found in @strombergCuriousCasePolywater2013.
 
 ## Firearms and Toolmark Examination
 
-Firearms examiners compare two bullets or two cartridge cases under a comparison microscope.  Historically, the Association of Firearms and Tool Mark Examiners (AFTE) method permitted an examiner to render three subjective judgments – identification, meaning they were fired in the same gun, exclusion, meaning they were fired from different guns, and inconclusive. The AFTE Range of Conclusions also includes three inconclusive options^[AFTE Theory of Identification and AFTE Range of Conclusions, https://nij.ojp.gov/nij-hosted-online-training-courses/firearms-examiner-training/module-09/afte-theory-identification.] - 
+Firearms examiners compare two bullets or two cartridge cases under a comparison microscope.
+Historically, the Association of Firearms and Tool Mark Examiners (AFTE) method permitted an examiner to render three subjective judgments – identification, meaning they were fired in the same gun, exclusion, meaning they were fired from different guns, and inconclusive.
+The AFTE Range of Conclusions also includes three inconclusive options[^5] -
 
-a. Agreement of all discernible class characteristics and some agreement of individual characteristics, but insufficient for an identification. 
+[^5]: AFTE Theory of Identification and AFTE Range of Conclusions, https://nij.ojp.gov/nij-hosted-online-training-courses/firearms-examiner-training/module-09/afte-theory-identification.
 
-b. Agreement of all discernible class characteristics without agreement or disagreement of individual characteristics due to an absence, insufficiency, or lack of reproducibility. 
+a.  Agreement of all discernible class characteristics and some agreement of individual characteristics, but insufficient for an identification.
 
-c. Agreement of all discernable class characteristics and disagreement of individual characteristics, but insufficient for an elimination.
+b.  Agreement of all discernible class characteristics without agreement or disagreement of individual characteristics due to an absence, insufficiency, or lack of reproducibility.
 
-There are many ways to attempt to quantify how often judgments are wrong, and it is important to fully understand the strengths and weaknesses of each potential approach. 
-In the field of medicine, for example, the National Institutes of Health (NIH) has very strict requirements that ensure that the design of validation studies meet the highest standards, and the Food and Drug Administration regulates which tests can be used on patients[@nationalinstitutesofhealthInclusionWomenMinorities2022]
-There is currently no similar oversight mandating appropriately designed studies in the field of firearms and toolmark analysis.
+c.  Agreement of all discernable class characteristics and disagreement of individual characteristics, but insufficient for an elimination.
+
+There are many ways to attempt to quantify how often judgments are wrong, and it is important to fully understand the strengths and weaknesses of each potential approach.
+In the field of medicine, for example, the National Institutes of Health (NIH) has very strict requirements that ensure that the design of validation studies meet the highest standards, and the Food and Drug Administration regulates which tests can be used on patients[@nationalinstitutesofhealthInclusionWomenMinorities2022] There is currently no similar oversight mandating appropriately designed studies in the field of firearms and toolmark analysis.
 As such, the fact that a study was performed, or even published, does not mean that the results are reliable.
 One has to evaluate the design of the studies to determine whether they meaningfully contribute to the overall scientific validity of the discipline.
 
-
-
 ## Stages of Scientific Support for Firearms and Toolmark Analysis
 
-Examiners did not always claim to be able to identify a specific fired bullet to a specific gun.  
+Examiners did not always claim to be able to identify a specific fired bullet to a specific gun.\
 At the inception of firearms examination as a discipline, examiners made claims supported by their individual experience, borne of an understanding of the mechanics of firearms and the (relatively new) ability to accurately measure minute details of the firearm and ammunition [@hallMissileWeapon1900].
-These claims were supported by descriptive data, in that there were measurements being made in a laboratory setting, but examiners did not make source identification decisions nor establish any systematic data collection that would allow for inference that two bullets or cartridge cases were fired by the same gun. 
+These claims were supported by descriptive data, in that there were measurements being made in a laboratory setting, but examiners did not make source identification decisions nor establish any systematic data collection that would allow for inference that two bullets or cartridge cases were fired by the same gun.
 
-By the 1930s Valentine’s Day Massacre, however, examiners began to make claims about the individualizing nature of the firearms manufacturing process [@goddardValentineDayMassacre1930]. 
-These claims were still unsupported by any systematic data collection, but the claims were more expansive than previous written records, which highlight descriptive characteristics and do not attempt to draw a direct connection between fired ammunition and a specific weapon. 
+By the 1930s Valentine’s Day Massacre, however, examiners began to make claims about the individualizing nature of the firearms manufacturing process [@goddardValentineDayMassacre1930].
+These claims were still unsupported by any systematic data collection, but the claims were more expansive than previous written records, which highlight descriptive characteristics and do not attempt to draw a direct connection between fired ammunition and a specific weapon.
 Examiners had moved on to inferential claims, where the accumulated “data” of their past experiences were used to support more general claims about the methodology used in firearms and toolmark identification.
-Over the next 60 years, the field focused on research into the investigative method and procedures, with some forays into initial attempts at quantitative evaluation methods. 
+Over the next 60 years, the field focused on research into the investigative method and procedures, with some forays into initial attempts at quantitative evaluation methods.
 The next development of interest to the Court addressed the question of examiners’ ability to apply a procedure to evaluate a set of samples of known provenance and come up with the correct answer.
-Such “black-box” studies are so called because they treat the examiner and evaluation procedure as an unobservable entity and evaluate only the resulting answer (rather than assessing the reasoning behind it). 
+Such “black-box” studies are so called because they treat the examiner and evaluation procedure as an unobservable entity and evaluate only the resulting answer (rather than assessing the reasoning behind it).
 The subjective, visual comparisons performed during examiner evaluations cannot be tested step-by-step, a marked difference from disciplines like DNA where each step of a lab test can be audited separately.
 
 One of the first studies to attempt to test examiners’ ability to reach the correct conclusion was @brundageIdentificationConsecutivelyRifled1994, which served as a model for error rate studies in firearms and toolmark analysis for the next 15-20 years, with updated data published as recently as 2019 [@hambyWorldwideStudyBullets2019].
-Unfortunately, the design of the Brundage-Hamby studies is *deeply flawed*. 
-As a result, the re-use of this study design has resulted in a collection of studies which cannot be relied upon for calculation of an error rate. 
-These studies have two separate but related design flaws which, on their own, render the results unhelpful in understanding the performance of the method: they use multiple unknown and known samples in the same kit, and they are “closed-set” studies, meaning examiners know that all unknown samples have a matching known source[^other-flaws].
+Unfortunately, the design of the Brundage-Hamby studies is *deeply flawed*.
+As a result, the re-use of this study design has resulted in a collection of studies which cannot be relied upon for calculation of an error rate.
+These studies have two separate but related design flaws which, on their own, render the results unhelpful in understanding the performance of the method: they use multiple unknown and known samples in the same kit, and they are “closed-set” studies, meaning examiners know that all unknown samples have a matching known source[^6].
 
-[^other-flaws]: The studies suffer from other design flaws as well, as discussed more fully below.
+[^6]: The studies suffer from other design flaws as well, as discussed more fully below.
 
-When multiple unknown and known samples are included in the same kit, examiners do not list out all comparisons which were performed. 
-Instead, they fill in only the matching known sample for each unknown. 
-This does not allow us to calculate the error rate for a comparison, because we do not know how many comparisons were performed[^closed-set-explanation].
-As a result, it is impossible to estimate the probability of a missed elimination (where an examiner fails to eliminate samples from different sources). 
-In addition, due to the knowledge that all unknown samples match a provided known, examiners can select the closest known sample instead of making a positive identification based on the visible evidence. 
-All told, this leads to a misidentification rate that we can expect to be lower than in case work[^inconclusive-set-design].
-While these studies also have other issues (e.g. sampling bias), the structural flaws of the study are severe enough on their own to render the results unusable for evaluating examiners ability to reach the correct conclusion. 
+When multiple unknown and known samples are included in the same kit, examiners do not list out all comparisons which were performed.
+Instead, they fill in only the matching known sample for each unknown.
+This does not allow us to calculate the error rate for a comparison, because we do not know how many comparisons were performed[^7].
+As a result, it is impossible to estimate the probability of a missed elimination (where an examiner fails to eliminate samples from different sources).
+In addition, due to the knowledge that all unknown samples match a provided known, examiners can select the closest known sample instead of making a positive identification based on the visible evidence.
+All told, this leads to a misidentification rate that we can expect to be lower than in case work[^8]
+. While these studies also have other issues (e.g. sampling bias), the structural flaws of the study are severe enough on their own to render the results unusable for evaluating examiners ability to reach the correct conclusion
+.
 
-[^closed-set-explanation]: To illustrate why a closed set test prevents the researcher from knowing the number of comparisons conducted, consider the case when there are two unknowns (A and B) and two knowns (C and D). One examiner might compare each of the unknowns to each of the knowns (A-C, A-D, B-C, B-D) for a total of four comparisons. Another examiner, however, might first compare A to C and determine them a match, and therefore refrain from comparing A to D. Accounting for all the possibilities, there could be anywhere from 2 to 4 comparisons. As the number of unknowns and knowns grow, the range of possibilities also increases. For example, if there were four knowns and four unknowns, the possible number of comparisons completed can range from 4 to 16.
+[^7]: To illustrate why a closed set test prevents the researcher from knowing the number of comparisons conducted, consider the case when there are two unknowns (A and B) and two knowns (C and D).
+    One examiner might compare each of the unknowns to each of the knowns (A-C, A-D, B-C, B-D) for a total of four comparisons.
+    Another examiner, however, might first compare A to C and determine them a match, and therefore refrain from comparing A to D.
+    Accounting for all the possibilities, there could be anywhere from 2 to 4 comparisons.
+    As the number of unknowns and knowns grow, the range of possibilities also increases.
+    For example, if there were four knowns and four unknowns, the possible number of comparisons completed can range from 4 to 16.
 
-[^inconclusive-set-design]: The issue of inconclusive responses, which figures so prominently in better designed open studies, does not typically arise in "closed set studies," in part because the additional information that all unknown items share a source with known items presented as part of the set is used by examiners when making their comparisons. 
+[^8]: The issue of inconclusive responses, which figures so prominently in better designed open studies, does not typically arise in "closed set studies," in part because the additional information that all unknown items share a source with known items presented as part of the set is used by examiners when making their comparisons.
 
-Many studies which followed Brundage (1994) emulated the multiple-known to multiple-unknown study design, precluding a determination of the number of comparisons which is essential information for an error rate study, though not all of these studies were also closed-set studies. 
-In 2014, the Ames Laboratory undertook a study in conjunction with the Department of Defense.  Recognizing the confounding problem of the previous studies,[^ames-quote] the researchers modified the test problem design so that the number of comparisons could be calculated.  
-Similar designs were also adopted by @keislerIsolatedPairsResearch2018 and @chapnickResults3DVirtual2021. 
-While these studies have better test problem design (e.g. open v. closed), they still have some major flaws common to almost all studies in firearms and toolmark examination: 
-there are significant levels of participant drop-out which are not accounted for in the analysis of results[^participant-drop-out],
-participants self-select instead of being randomly selected as part of a representative sample[^representative-sample], and there is no objective assessment of the difficulty of comparisons in each study (which makes it difficult to compare studies or assess the relevance of a study to a specific case). 
-The treatment of inconclusive responses is also a significant issue discussed below.
+Many studies which followed Brundage (1994) emulated the multiple-known to multiple-unknown study design, precluding a determination of the number of comparisons which is essential information for an error rate study, though not all of these studies were also closed-set studies.
+In 2014, the Ames Laboratory undertook a study in conjunction with the Department of Defense.
+Recognizing the confounding problem of the previous studies,[^9] the researchers modified the test problem design so that the number of comparisons could be calculated.\
+Similar designs were also adopted by @keislerIsolatedPairsResearch2018 and @chapnickResults3DVirtual2021. While these studies have better test problem design (e.g. open v. closed), they still have some major flaws common to almost all studies in firearms and toolmark examination: there are significant levels of participant drop-out which are not accounted for in the analysis of results[^10], participants self-select instead of being randomly selected as part of a representative sample[^11], and there is no objective assessment of the difficulty of comparisons in each study (which makes it difficult to compare studies or assess the relevance of a study to a specific case
+). The treatment of inconclusive responses is also a significant issue discussed belo
+w.
 
-[^ames-quote]: "[T]he design of these previous studies, whether intended to measure error rates or not, did not include truly independent sample sets that would allow the unbiased determination of false-positive or false-negative error rates from the data in those studies." @baldwinStudyFalsePositiveFalseNegative2014.
+[^9]: "\[T\]he design of these previous studies, whether intended to measure error rates or not, did not include truly independent sample sets that would allow the unbiased determination of false-positive or false-negative error rates from the data in those studies." @baldwinStudyFalsePositiveFalseNegative2014.
 
-[^participant-drop-out]: Participant drop-out is of particular concern because in many cases it occurs after participants have seen the study materials. If the materials are difficult comparisons, then less-skilled or less-confident examiners may drop out because they do not want to increase the published error rates for the discipline. Of course, there are other reasons participants may drop out, such as casework overloads, but the fact that there are explanations for the drop-out rate that would be related to the calculated error rate make the estimates generated from these studies statistically questionable. That the researchers do not account for these issues when calculating possible error rates (as is common in other disciplines with participant drop-out, such as medicine) is much more problematic.
+[^10]: Participant drop-out is of particular concern because in many cases it occurs after participants have seen the study materials.
+    If the materials are difficult comparisons, then less-skilled or less-confident examiners may drop out because they do not want to increase the published error rates for the discipline.
+    Of course, there are other reasons participants may drop out, such as casework overloads, but the fact that there are explanations for the drop-out rate that would be related to the calculated error rate make the estimates generated from these studies statistically questionable.
+    That the researchers do not account for these issues when calculating possible error rates (as is common in other disciplines with participant drop-out, such as medicine) is much more problematic.
 
-[^representative-sample]: Most scientific studies involving humans take place on volunteer samples. What is problematic in FTE studies is that researchers make no effort to ensure that the participants in the study accurately reflect characteristics of the active examiner population, such as experience, lab type, training, and education level. Again, medical studies are a good comparison group: participants in pharmaceutical trials are also volunteers, but substantial effort is devoted to try to enroll participants who are representative of the general population, in accordance with guidelines from the NIH. Without a representative sample, it is difficult to justify generalizing the results of the study to the wider population – a critical step for utilizing these studies in a legal setting. @nationalinstitutesofhealthInclusionWomenMinorities2022
+[^11]: Most scientific studies involving humans take place on volunteer samples.
+    What is problematic in FTE studies is that researchers make no effort to ensure that the participants in the study accurately reflect characteristics of the active examiner population, such as experience, lab type, training, and education level.
+    Again, medical studies are a good comparison group: participants in pharmaceutical trials are also volunteers, but substantial effort is devoted to try to enroll participants who are representative of the general population, in accordance with guidelines from the NIH.
+    Without a representative sample, it is difficult to justify generalizing the results of the study to the wider population – a critical step for utilizing these studies in a legal setting.
+    @nationalinstitutesofhealthInclusionWomenMinorities2022
 
 As the discipline of firearms and toolmark analysis has matured, and as pressure to validate the conclusions made by examiners using scientific studies of the examination process has increased, more sophisticated study designs have been developed which provide more nuanced ways to assess the discipline than raw error rates.
-The most recent studies to be released examine not only error rate, but also the repeatability and reproducibility of examiner conclusions when assessing both bullets and cartridge cases. 
-The first study, colloquially known as Ames II, was published across a suite of papers examining, in turn, the design, reliability results, repeatability, and reproducibility of firearms comparisons.  [@bajicValidationStudyAccuracy2020;@monsonPlanningDesignLogistics2022;@baldwinStudyExaminerAccuracy2023;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability] [^ames-ii-withdrawn].
-The second study, @hicklinAccuracyReproducibilityBullet2024, was completed in collaboration with scientists at NIST, and examines the effects of different ammunition, polygonal rifling, and other factors on reliability, repeatability, and reproducibility. 
-While these studies still have many of the same flaws identified in other modern studies, these designs are much improved from the closed-set studies which dominated this field previously, and demonstrate that it is possible in the future to design studies which directly answer questions of interest to the Court: 
-is firearms analysis repeatable and reproducible? 
+The most recent studies to be released examine not only error rate, but also the repeatability and reproducibility of examiner conclusions when assessing both bullets and cartridge cases.
+The first study, colloquially known as Ames II, was published across a suite of papers examining, in turn, the design, reliability results, repeatability, and reproducibility of firearms comparisons.
+[@bajicValidationStudyAccuracy2020; @monsonPlanningDesignLogistics2022; @baldwinStudyExaminerAccuracy2023; @monsonAccuracyComparisonDecisions2023; @monson2023repeatability] [^12].
+The second study, @hicklinAccuracyReproducibilityBullet2024, was completed in collaboration with scientists at NIST, and examines the effects of different ammunition, polygonal rifling, and other factors on reliability, repeatability, and reproducibility.
+While these studies still have many of the same flaws identified in other modern studies, these designs are much improved from the closed-set studies which dominated this field previously, and demonstrate that it is possible in the future to design studies which directly answer questions of interest to the Court: is firearms analysis repeatable and reproducible?
 Do the method’s error rates support its conclusions?
 
-[^ames-ii-withdrawn]: Bajic et al., Validation Study of the Accuracy, Repeatability, and Reproducibility of Firearm Comparisons, 127 (2020), https://www.scribd.com/document/586448513/Ames-FBI-Validation-Study. We reference the full 127 page report of the Ames Laboratory to the FBI, comprehensively detailing data and analysis estimating accuracy, repeatability, and reproducibility inter alia of forensic firearms examinations. It was released to the public in early 2021 and then withdrawn. Since then, portions have been republished, but differences between the original report and the publications are interesting.
-
+[^12]: Bajic et al., Validation Study of the Accuracy, Repeatability, and Reproducibility of Firearm Comparisons, 127 (2020), https://www.scribd.com/document/586448513/Ames-FBI-Validation-Study.
+    We reference the full 127 page report of the Ames Laboratory to the FBI, comprehensively detailing data and analysis estimating accuracy, repeatability, and reproducibility inter alia of forensic firearms examinations.
+    It was released to the public in early 2021 and then withdrawn.
+    Since then, portions have been republished, but differences between the original report and the publications are interesting.
 
 ## The Current Domain-Wide Error Rate is Unknown
 
-While the state of research has matured to some degree, there remain significant and unaddressed problems with the design of the recent studies beyond the design of the test problem. 
+While the state of research has matured to some degree, there remain significant and unaddressed problems with the design of the recent studies beyond the design of the test problem.
 Addressing these issues is not an impossible task.
-Medicine, for example, employs strict standards for the design and execution of clinical trials before adopting any new test or method. 
+Medicine, for example, employs strict standards for the design and execution of clinical trials before adopting any new test or method.
 Unless and until the field employs the rigor seen in other scientifically mature disciplines, it is not possible to assess the utility of the current reported error rates.
 
-There are two quantities of interest when evaluating a particular diagnostic test.  
-Returning to medicine as an example, the sensitivity, or true positive rate, estimates how often the test identifies cancer when cancer is present.  
-The specificity, or true negative rate, estimates how often the test identifies no cancer is present when there is no cancer.  
-The sensitivity and specificity combined determine the overall accuracy rate and are useful for an agency such as the FDA in determining whether the test works as claimed. 
+There are two quantities of interest when evaluating a particular diagnostic test.\
+Returning to medicine as an example, the sensitivity, or true positive rate, estimates how often the test identifies cancer when cancer is present.\
+The specificity, or true negative rate, estimates how often the test identifies no cancer is present when there is no cancer.\
+The sensitivity and specificity combined determine the overall accuracy rate and are useful for an agency such as the FDA in determining whether the test works as claimed.
 
 A patient taking the test may be interested in different statistics describing the test performance.
 If the patient’s test was positive, they would be interested in the positive predictive value: the probability that the patient has cancer given a positive test.
-If the patient’s test was negative, they would instead be interested in the negative predictive value: the probability that the patient does not have cancer given a negative test^[To provide another example relevant to the current COVID pandemic, BinaxNow rapid antigen tests have a sensitivity of about 43% relative to PCR (55/127), but have a specificity of 100% relative to PCR (642/642). From an individual perspective, however, a positive BinaxNow test suggests a 100% chance of a positive PCR test (55/55), where a negative BinaxNow test suggests a 90% chance of a negative PCR test (642/714). That is,he BinaxNow test misses some COVID cases (because the PCR test is much more sensitive), but it is a very good screening tool because a positive antigen test is a very good indicator of an active COVID infection. Numbers from @krishnasurasiEffectivenessAbbottBinaxNOW].
+If the patient’s test was negative, they would instead be interested in the negative predictive value: the probability that the patient does not have cancer given a negative test[^13].
 
-Error rate studies with independent pairwise comparisons allow scientists to calculate the sensitivity, specificity, and false positive and false negative rates because they explicitly measure how many comparisons were performed along with the outcome of the comparisons. 
-As alluded to before, however, this basic design characteristic is only present in a few modern firearms studies. 
+[^13]: To provide another example relevant to the current COVID pandemic, BinaxNow rapid antigen tests have a sensitivity of about 43% relative to PCR (55/127), but have a specificity of 100% relative to PCR (642/642).
+    From an individual perspective, however, a positive BinaxNow test suggests a 100% chance of a positive PCR test (55/55), where a negative BinaxNow test suggests a 90% chance of a negative PCR test (642/714).
+    That is,he BinaxNow test misses some COVID cases (because the PCR test is much more sensitive), but it is a very good screening tool because a positive antigen test is a very good indicator of an active COVID infection.
+    Numbers from @krishnasurasiEffectivenessAbbottBinaxNOW
+
+Error rate studies with independent pairwise comparisons allow scientists to calculate the sensitivity, specificity, and false positive and false negative rates because they explicitly measure how many comparisons were performed along with the outcome of the comparisons.
+As alluded to before, however, this basic design characteristic is only present in a few modern firearms studies.
 While these few studies involving a known number of single pair comparisons allow for the calculation of the full set of error rates, they have other significant flaws which make their error rate estimates misleading and unreliable for the Court’s purposes.
-In order to rely on these studies and generalize their error rates to casework, validation studies not only need to be well designed, but must also include test samples that are representative of comparisons found in casework^[The difficulty level of test samples varies considerably. @proficiencytestreviewadhoccommitteeReportAssociationFirearm2024 includes an examiner comment that "[Proficiency test 23-5262] was the most difficult proficiency test they  have ever received, but that it was more similar to casework and further observed that there could be an increase in inconclusive results." This comment suggests that proficiency tests are often not as difficult as casework, and as a result, indicates that these tests are not a valid basis for establishing error rates.]
-In addition, the calculated error rates must account for any study flaws so that if error rates cannot be precisely estimated, they can at least be bounded by a reasonable interval.
+In order to rely on these studies and generalize their error rates to casework, validation studies not only need to be well designed, but must also include test samples that are representative of comparisons found in casework[^14] In addition, the calculated error rates must account for any study flaws so that if error rates cannot be precisely estimated, they can at least be bounded by a reasonable interval.
 
-The sections below discuss the issues in research design, both acknowledged by the firearms and toolmarks community, and those which are yet to be acknowledged.  
-Even looking only at factors that have been acknowledged, it is clear that the reported error rates are incorrect and misleading. 
+[^14]: The difficulty level of test samples varies considerably.
+    @proficiencytestreviewadhoccommitteeReportAssociationFirearm2024 includes an examiner comment that "\[Proficiency test 23-5262\] was the most difficult proficiency test they have ever received, but that it was more similar to casework and further observed that there could be an increase in inconclusive results." This comment suggests that proficiency tests are often not as difficult as casework, and as a result, indicates that these tests are not a valid basis for establishing error rates.
+
+The sections below discuss the issues in research design, both acknowledged by the firearms and toolmarks community, and those which are yet to be acknowledged.\
+Even looking only at factors that have been acknowledged, it is clear that the reported error rates are incorrect and misleading.
 Without further research, however, it is impossible to know how significant an effect the unacknowledged factors have on the true error rate for the discipline.
 
 ### Acknowledged Research Design Issues
@@ -528,14 +506,17 @@ The following section discusses those issues which have been acknowledged by the
 
 #### Reported Error Rates
 
-Current validation studies report error rates for the method between zero [@michellecazesValidationStudyResults2013;@hambyWorldwideStudyBullets2019;@brundageIdentificationConsecutivelyRifled1994] and 11.3 percent [@mattijssenValidityReliabilityForensic2020]. A zero percent error rate for any method, much less a subjective method using human judgment, is not scientifically plausible^["Although there is limited information about the accuracy and reliability . . . . claims that these analyses have zero error rates are not scientifically plausible.", pg. 142, @NRCStrengthening2009]. 
-Even though many of the studies in this list have previously-identified methodological issues, we will work with this range of estimates for the moment.   
+Current validation studies report error rates for the method between zero [@michellecazesValidationStudyResults2013; @hambyWorldwideStudyBullets2019; @brundageIdentificationConsecutivelyRifled1994] and 11.3 percent [@mattijssenValidityReliabilityForensic2020].
+A zero percent error rate for any method, much less a subjective method using human judgment, is not scientifically plausible[^15].
+Even though many of the studies in this list have previously-identified methodological issues, we will work with this range of estimates for the moment.
 
+[^15]: "Although there is limited information about the accuracy and reliability . . . . claims that these analyses have zero error rates are not scientifically plausible.", pg.
+    142, @NRCStrengthening2009
 
 #### Inconclusive Responses
 
-One complication in calculating the error rates for firearms and toolmark examination is that the AFTE Theory of Identification (ToI) does not directly correspond with the physical state of the evidence, which is either from the same gun or from different guns. 
-Instead, the AFTE ToI allows for an examiner to make an identification (same gun), elimination (different gun), or to make an inconclusive decision, indicating that there is insufficient information to make either definitive conclusion. 
+One complication in calculating the error rates for firearms and toolmark examination is that the AFTE Theory of Identification (ToI) does not directly correspond with the physical state of the evidence, which is either from the same gun or from different guns.
+Instead, the AFTE ToI allows for an examiner to make an identification (same gun), elimination (different gun), or to make an inconclusive decision, indicating that there is insufficient information to make either definitive conclusion.
 Given this mismatch, there are many potential ways to deal with inconclusive responses when calculating the error rate.
 Inconclusive decisions can be (1) removed entirely, (2) included as correct responses, or (3) included as incorrect responses.
 These variations generate wildly different error rates based on the same data.
@@ -546,170 +527,341 @@ options(digits=1)
 
 A hypothetical example highlights the confounding nature of this factor when evaluating reported error rates.
 In a test with 10 questions, if an examiner answers three questions correctly, three questions incorrectly, and does not answer four questions, these three methods generate different results.
-Removing inconclusive responses entirely (1) means the examiner had a `{r} 3/6*100`% error rate.  
-This rate reflects only the error rate for the questions the examiner chose to answer, which may be the easier questions. 
-We do not know how the examiner would have performed on the four (potentially more difficult) questions she chose not to answer. 
-In this example, counting the four unanswered questions as correct (2) would generate a `{r} 7/10*100`% error rate. 
+Removing inconclusive responses entirely (1) means the examiner had a `{r} 3/6*100`% error rate.\
+This rate reflects only the error rate for the questions the examiner chose to answer, which may be the easier questions.
+We do not know how the examiner would have performed on the four (potentially more difficult) questions she chose not to answer.
+In this example, counting the four unanswered questions as correct (2) would generate a `{r} 7/10*100`% error rate.
 Counting the inconclusive responses as wrong (3), however, would lead to a `{r} 3/10*100`% error rate.
-That these methods generate different error rates **for the same data** is a conundrum, as discussed in @dorfmanInconclusivesErrorsError2022 and @inconclusives. 
-Dorfman & Valliant conclude that inconclusives are at least potential errors, where Hofmann et al. encourage the use of positive and negative predictive values, which exclude inconclusives by default, may be of more use to the courts because they are specific to the evidence present in the case. 
+That these methods generate different error rates **for the same data** is a conundrum [@dorfmanInconclusivesErrorsError2022; @inconclusives].
+Dorfman & Valliant conclude that inconclusives are at least potential errors, where Hofmann et al. encourage the use of positive and negative predictive values, which exclude inconclusives by default, may be of more use to the courts because they are specific to the evidence present in the case.
 
-#### Repeatability 
 
-Recent data on the consistency of examiner decisions further undermines the discipline’s claim of a low and well-understood error rate.  
-A study conducted between 2016 and 2020, in collaboration between the Federal Bureau of Investigation (FBI) and Ames Laboratory-USDOE, (colloquially known as Ames II) was the first modern study to test the repeatability and reproducibility of firearms examiners [@bajicValidationStudyAccuracy2020;@monsonPlanningDesignLogistics2022;@baldwinStudyExaminerAccuracy2023;@monsonAccuracyComparisonDecisions2023;@monson2023repeatability]. 
-In the 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5). 
-In addition, sets were sent to multiple examiners over different rounds, allowing for calculations of reproducibility as different examiners evaluated the same evidence.
+#### Repeatability and Reproducibility
 
-The experimenters have not released the full data from the study (or even the full design specification that would indicate how, exactly, the replication process was determined), we must be content with analyzing the tabulated data provided in @monson2023repeatability. 
-Considering only those comparisons where the evidence was rated as suitable for evaluation both times (excluding <2% of comparisons), there are twenty five different possible outcomes when a kit is evaluated twice: each of the five AFTE conclusions could occur during either examination. 
-Evaluating what each of these different combinations means can be very confusing, but it is reasonable to start with a calculation that should be favorable to FATM examiners: 
-given that the first examination was an identification, what is the probability that the second is also an identification?
-^[This is the situation that is most likely to be favorable in part because examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations more complicated to evaluate.]
+Recent data on the consistency of examiner decisions further undermines the discipline’s claim of a low and well-understood error rate.
+Data about repeatability comes from two recent studies which have examined all three components of scientific validity, the study colloquially known as Ames II [@bajicValidationStudyAccuracy2020; @monsonPlanningDesignLogistics2022; @baldwinStudyExaminerAccuracy2023; @monsonAccuracyComparisonDecisions2023; @monson2023repeatability] and @hicklinAccuracyReproducibilityBullet2024. 
+Repeatability can be assessed when individual examiners are given the same evidence for comparison multiple times over the course of a study; reproducibility can be assessed when multiple examiners are given the same evidence for comparison during a study.
 
-Repeatability does not consider the correctness of the decision, as it is more concerned with consistency than accuracy. 
-There were 665 evaluations which were both identifications, and 740 first evaluations which were identifications for same-source bullets; for different-source bullets, there were 2 double-identifications out of 19 which were identifications on the first evaluation. 
-If an examiner makes an identification, there is a $100\times \frac{665+2}{740+19}$ = `r sprintf("%.02f%%", 100*(667/759))` chance that a second evaluation will also be an identification. 
-That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence (with at least ~6 weeks or more between examinations). 
+
+Note that in most cases, repeatability and reproducibility calculations do not consider the correctness of the decision, as these calculations are more concerned with similarity between repeated evaluations than with accuracy relative to ground truth.
+While both studies of repeatability and reproducibility allowed examiners to declare evidence unsuitable for comparison, it is simpler to consider only decisions of identification, inconclusive (A, B, C), or elimination. 
+There are thus twenty five different possible outcomes when a single piece of evidence is evaluated twice.
+
+![Table demonstrating how repeatability (and reproducibility) statistics are tabulated. Only comparisons which are the same for both evaluations are considered in the numerator (represented by blue checkmarks), while all comparisons are considered in the denominator. Overall estimates are calculated using all table cells. Conditional estimates are calculated for each row of the table separately.](repeatability-table.png){#fig-reliability-tbl width="50%"}
+
+@fig-reliability-tbl shows a schematic of a repeatability or reproducibility table, with twenty-five cells representing possible outcomes when comparisons are evaluated twice. 
+An overall repeatability or reproducibility estimate for such a table would be computed by dividing the total number of trials represented by check marks by the total number of trials in the table.
+This provides a general assessment of the probability that a second evaluation matches the first.
+Another quantity of interest is a conditional assessment of repeatability or reproducibility: given that the first evaluation was Y, what is the probability that the second evaluation is also Y?
+This calculation considers only the entries in a single row, dividing the trials represented by a single check mark by the total number of trials in that row. 
+Conditional estimates may be more useful to the court, as an examiner's decision on that evidence is known. 
+Conditional estimates from black-box studies would then provide repeatability or reproducibility estimates which are tailored to the specific case, subject to the limitations of participant selection and study design discussed throughout this document. 
+
+
+##### Repeatability {.nonumber}
+
+Repeatability studies provide the same examiner with the same evidence to evaluate multiple times, usually with some gap in time (at least 6 weeks in Ames II, and however much time elapsed between set 1 or 2 and 10 in Hicklin). 
+It is reasonable to start with a calculation that should be favorable to FATM examiners: given that the first examination was an identification, what is the probability that the second is also an identification?
+[^16]
+
+[^16]: This situation is most likely to be favorable in part because examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations more complicated to evaluate^[These lab policies should be consistent from examiner to examiner and not a relevant factor when considering repeatability.].
 
 ```{r}
 #| label: tbl-conditional-repeatability
-#| tbl-cap: Repeatability of an examiner's second decision, given the first decision, in Ames II and Hicklin. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. Under the best circumstances (bullets, where the first decision was an identification), repeatability is still below 90%; when Inconclusive-A is the initial decision, repeatability is below 34% (Ames) or 10% (Hicklin). Hicklin has lower repeatability across the board compared to Ames II. Note that in Hicklin, values are aggregated across several additional factors, including firearm make and model, ammunition type, rifling type, and whether the caliber matched or not. Repeatability broken down by these additional factors is provided in @sec-hicklin-repeatability-app.
+#| tbl-cap: Repeatability of an examiner's second decision, given the first decision, in Ames II and Hicklin. This table provides the probability that the examiner's second decision matches the specified first decision ("Evaluation 1"), across same-source and different-source comparisons. 
 #| echo: false
 #| message: false
 #| warning: false
 
 library(knitr)
-tbl_start <- ames2_repeatability |>
+ames2_cdl_repeat <- ames2_repeatability |>
   filter(eval1 != "US" & eval2 != "US") |>
   mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
   group_by(Type, eval1) |>
-  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
-  pivot_wider(names_from = Type, values_from = prop) |>
-  rename("Evaluation 1" = eval1) |>
+  summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  add_overall_row( x = sum(x), n = sum(n), eval1 = "Overall") |>
+  make_repeat_ci() 
+
+ames2_cdl_repeat_tbl <- ames2_cdl_repeat |> 
+  format_ci_tbl() |>
+  pivot_wider(names_from = Type, values_from = est_ci) |>
   rename("Ames II (Bullet)" = Bullet, "Ames II (Cartridge)" = Cartridge)
 
-tbl_start_n <-  ames2_repeatability |>
-  filter(eval1 != "US" & eval2 != "US") |>
-  mutate(eval1 = factor(eval1, ames2_conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, ames2_conclusion_levels[1:5], ordered = T)) |>
-  group_by(Type, eval1) |>
-  summarize(n =  sum(Count)) |>
-  summarize(n = sum(n)) |>
-  mutate(n = as.character(n)) |>
-  pivot_wider(names_from = Type, values_from = n) |>
-  mutate("Evaluation 1" = "Total Comparisons") |>
-  rename("Ames II (Bullet)" = Bullet, "Ames II (Cartridge)" = Cartridge)
-
-tbl_start2 <- hicklin_repeatability |>
+hicklin_cdl_repeat <- hicklin_repeatability |>
   mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
   group_by(eval1) |>
-  summarize(prop = sprintf("%0.2f%%", sum((eval2 == eval1) * Count) / sum(Count) * 100)) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("Hicklin (Bullet)" = "prop")
-tbl_start_2n <-  hicklin_repeatability |>
-  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(eval1) |>
-  summarize(n =  sum(Count)) |>
-  summarize(n = sum(n)) |>
-  mutate(n = as.character(n)) |>
-  mutate("Evaluation 1" = "Total Comparisons") |>
-  rename("Hicklin (Bullet)" = n) 
+  summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  add_overall_row(x = sum(x), n = sum(n), eval1 = "Overall") |> 
+  make_repeat_ci() 
 
-left_join(tbl_start, tbl_start2) |>
-  bind_rows(left_join(tbl_start_n, tbl_start_2n)) |>
+hicklin_cdl_repeat_tbl <- hicklin_cdl_repeat |> 
+  format_ci_tbl() |>
+  rename("Hicklin (Bullet)" = est_ci)
+
+combined_cdl_repeat <- bind_rows(
+  mutate(ames2_cdl_repeat, study="AmesII"), 
+  mutate(hicklin_cdl_repeat, study="Hicklin", Type = "Bullet"))
+
+left_join(ames2_cdl_repeat_tbl, hicklin_cdl_repeat_tbl) |>
+  mutate(eval1 = factor(eval1, cdl_tbl_opts, ordered = T)) |>
+  arrange(eval1) |>
+  rename("Evaluation 1" = eval1) |>
   kable()
 ```
 
 
-Existing quantitative evaluation tools, on the other hand, are deterministic - the same version of the tool will come to the same conclusion given the same input, every time. 
+In @monson2023repeatability, of those kits included in the repeatability assessment, there were 665 evaluations which were both identifications, and 740 first evaluations which were identifications for same-source bullets; for different-source bullets, there were 2 double-identifications out of 19 which were identifications on the first evaluation.
+If an examiner makes an identification, there is a $100\times \frac{665+2}{740+19}$ = `r sprintf("%.02f%%", 100*(667/759))` chance that a second evaluation will also be an identification.
+That is, more than 10% of the time, the examiner will come to a conclusion other than identification when given another look at evidence^[In Ames II, there were at least \~6 weeks between examinations].
+
+Overall estimates for repeatability range from `{r} min(filter(combined_cdl_repeat, eval1=="Overall")$Estimate*100)`% to `{r} max(filter(combined_cdl_repeat, eval1=="Overall")$Estimate*100)`%.
+Considering @tbl-conditional-repeatability, it is apparent that repeatability estimates from Ames II are higher than those from Hicklin. 
+@hicklinAccuracyReproducibilityBullet2024 examined many more factors (caliber, make, model, ammunition type, rifling type) than Ames II (model); repeatability estimates broken down by these additional factors are provided in @sec-hicklin-repeatability-app.
+With the exception of the inclusion of polygonal rifling and ammunition type, these additional factors should have made evaluating comparisons easier, rather than harder -- it should be simpler for examiners to make a comparison when the caliber or model of the weapon does not match.
+
+What is astonishing, taking both studies together, is that neither the overall repeatability estimates nor the conditional repeatability estimates exceed 90%. 
+While there is no legal threshold for what would be considered reliable, it is useful to assess these repeatability estimates in light of thresholds used in other areas.
+Gage R&R studies are often used to examine similar metrics of accuracy, repeatability, and reproducibility in manufacturing.
+Often, these studies use a threshold of at least 90% across all three measurements^[E.g. https://www.1factory.com/quality-academy/guide-gage-r-and-r.html and https://sixsigmastudyguide.com/repeatability-and-reproducibility-rr/ both suggest 90% thresholds for 'Attribute' studies with counts and categorical observations.], but stricter standards might be applied in situations with low tolerance for errors, such as the manufacturing of nuclear or aviation related components [@soaresGageRRStudies2022;@zanobiniRepeatabilityReproducibilityTechniques2016]. 
 
 
-
-
+#### Reproducibility
 
 # Appendix {.appendix}
 
+## Reliability {.appendix}
+
+```{r hicklin-tables-ci}
+#| tbl-cap: ["Comparison between reliability of Known-Questioned comparisons (which always use the same type of ammunition) and Questioned-Questioned comparisons (which sometimes use different ammunition types), as measured by correct source decision rate (CSDR).", "Comparison between reliability (CSDR) of traditionally and polygonally rifled bullets. All polygonally rifled bullets use the same ammunition; for comparison purposes, only same-ammunition non-polygonally rifled bullets are included in this comparison.", "Reliability (CSDR), calculated by whether the comparison occurred between same or different types of ammunition.", "Comparison between reliability (CSDR) of comparisons when caliber, make, and model are different. Note that different caliber implies that make/model are different and different make implies that the model is different."]
+
+
+hicklin_csdr <- hicklin_reliability |>
+  mutate(csd = (Source == "SS" & Eval == "ID") | (Source == "DS" & Eval == "EL")) |>
+  group_by(ComparisonType, Polygonal, SameCaliber, SameAmmoType, SameGunMake, SameGunModel) |>
+  mutate(Total = sum(Count)) |>
+  ungroup()
+
+
+short_labels <- tribble(~SameCaliber, ~SameMake, ~SameModel, ~Source, ~label,
+                        "F", "F", "F", "DS", "Diff Caliber",
+                        "T", "F", "F", "DS", "Diff Make",
+                        "T", "T", "F", "DS", "Diff Model",
+                        "T", "T", "T", "DS", "Diff Source",
+                        "T", "T", "T", "SS", "Same Source"
+)
+
+
+hicklin_reliability_csdr <- list(
+  # QQ and KQ
+  "Comparison Type" = hicklin_csdr |>
+    group_by(ComparisonType, csd) |>
+    summarize(Count = sum(Count), .groups="drop") |>
+    group_by(ComparisonType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_ci_tbl(),
+  # Polygonal
+  "Polygonal" = hicklin_csdr |>
+    mutate(Polygonal = if_else(Polygonal, "Polygonal", "NonPR")) |>
+    filter(!(Polygonal=="NonPR" & SameAmmoType=="F")) |>
+    group_by(Polygonal, csd) |>
+    summarize(Count = sum(Count), .groups="drop") |>
+    group_by(Polygonal) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_ci_tbl(),
+  # Caliber
+  "Ammunition" = hicklin_csdr |>
+    mutate(SameAmmoType = if_else(SameAmmoType, "Same", "Different")) |>
+    group_by(SameAmmoType, csd) |>
+    summarize(Count = sum(Count), .groups="drop") |>
+    group_by(SameAmmoType) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_ci_tbl(),
+  # Firearm Make
+  "Firearm Make and Model" = hicklin_csdr |>
+    mutate(SameCaliber = if_else(SameCaliber, "Same", "Different")) |>
+    mutate(SameGunMake = if_else(SameGunMake, "Same", "Different")) |>
+    mutate(SameGunModel = if_else(SameGunModel, "Same", "Different")) |>
+    group_by(SameCaliber, SameGunMake, SameGunModel, csd) |>
+    summarize(Count = sum(Count), .groups="drop") |>
+    ungroup() |>
+    full_join(short_labels) |>
+    group_by(SameCaliber, SameGunMake, SameGunModel) |>
+    mutate(x = Count, n = sum(Count)) |>
+    filter(csd) |>
+    make_csdr_ci() |>
+    format_ci_tbl()
+)
+
+
+
+hicklin_reliability_csdr[[1]][,c("ComparisonType", "est_ci", "n")] |>
+  set_names(c("Comparison Type", "Reliability (95% CI)",  "# Comparisons")) |>
+  kable()
+
+hicklin_reliability_csdr[[2]][,c("Polygonal", "est_ci", "n")] |>
+  set_names(c("Comparison Type","Reliability (95% CI)",  "# Comparisons")) |>
+  kable()
+
+
+hicklin_reliability_csdr[[3]][,c("SameAmmoType", "est_ci", "n")] |>
+  set_names(c("Ammunition Type", "Reliability (95% CI)",  "# Comparisons")) |>
+  kable()
+
+hicklin_reliability_csdr[[4]][,c("SameCaliber", "SameGunMake", "SameGunModel", "est_ci", "n")] |>
+  set_names(c("Gun Caliber", "Gun Make", "Gun Model", "Reliability (95% CI)",  "# Comparisons")) |>
+  kable()
+```
+
 ## Repeatability {.appendix}
 
-### Hicklin (2024) {.appendix #sec-hicklin-repeatability-app}
-In the following tables, percentages which are determined from fewer than 30 comparisons should not be considered informative. 
-One implication of the design in @hicklinAccuracyReproducibilityBullet2024 is that with many different factors, comparisons that 
+### Ames II {#sec-ames-repeatability-app .appendix}
+
+The Ames II study was conducted between 2016 and 2020, in collaboration between the Federal Bureau of Investigation (FBI) and Ames Laboratory-USDOE and was the first modern study to test the repeatability and reproducibility of firearms examiners.
+In the 6-round study, some examiners were sent the same comparisons to evaluate twice, separated by at least one round (e.g. the same comparisons might be sent in rounds 1 and 3, or 2 and 5).
+In addition, sets were sent to multiple examiners over different rounds, allowing for calculations of reproducibility as different examiners evaluated the same evidence.
+
+### Hicklin {#sec-hicklin-repeatability-app .appendix}
+
+One implication of the design in @hicklinAccuracyReproducibilityBullet2024 is that with many different factors, the number of comparisons used to determine any single factor is relatively small.
+Statisticians would use specific design techniques to ensure that the comparisons of interest are valid, but the experimental design used in this study does not seem to have utilized these techniques[^17] As a result of the small numbers available to estimate certain comparisons, reliability estimates computed from $<n=10$ trials have been suppressed (---) because there is insufficient data with which to generate a reliable estimate or confidence interval.
+Estimates are shown with 95% Pearson-Clopper confidence intervals computed using the `confintr` package in R [@confintr].
+
+[^17]: Specifically, the appropriate design would be a fractional factorial study, but as some factors (make and model) are not independent, the design would need to be modified to account for these variations.
+    @addelmanSymmetricalAsymmetricalFractional1962 and @franklinSelectingDefiningContrasts1985 discuss variations on fractional factorial designs to account for similar issues.
+
+```{r hicklin-repeat-tbl1}
+#| label: tbl-hicklin-repeat-rifle-cdl
+#| tbl-cap: "Repeatability for comparisons by rifling type in Hicklin 2024. All polygonally rifled bullets use the same firearm and ammunition type; for comparison purposes, only same-model, same-ammunition non-polygonally rifled bullets are included in these estimates. First-row estimates show the proportion of all second evaluations which were the same as the first evaluation; subsequent rows show the proportion of second evaluations which match the first evaluation in that row."
 
 
-```{r}
-hicklin_repeatability |>
-  filter(Polygonal == "T") |>
+hicklin_repeatability_rifle <- hicklin_repeatability |>
+  mutate(Polygonal = if_else(Polygonal == "T", "Polygonal", "NonPR")) |>
+  filter(!(Polygonal=="NonPR" & (SameAmmo=="F" | SameModel=="F"))) |>
   mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(eval1) |>
-  summarize(prop = sprintf("%0.2f%% (n = %d)", 
-                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
-                           sum(Count))) |>
-  mutate(prop = str_replace(prop, "NaN%", "--")) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("P(E1 = E2)" = "prop") |>
-  kable(caption = "Repeatability for Comparisons of Polygonally Rifled Bullets (Hicklin 2024)")
+  group_by(Polygonal, eval1) |>
+  summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  add_overall_row(x = sum(x), n = sum(n), eval1="Overall") |>
+  make_repeat_ci() 
 
-hicklin_repeatability |>
-  filter(!Polygonal=="T", SameCaliber=="T") |>
-  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(eval1) |>
-  summarize(prop = sprintf("%0.2f%% (n = %d)", 
-                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
-                           sum(Count))) |>
-  mutate(prop = str_replace(prop, "NaN%", "--")) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("P(E1 = E2)" = "prop") |>
-  kable(caption = "Repeatability for Comparisons By Whether Caliber Matched  (Hicklin 2024)")
+tmp <- hicklin_repeatability_rifle |>
+  format_ci_tbl() |>
+  mutate(eval1 = factor(eval1, levels = cdl_tbl_opts, ordered = T)) |>
+  arrange(Polygonal, eval1) |>
+  pivot_wider(names_from=c(Polygonal), values_from = est_ci) |>
+  rename("Eval 1" = eval1, "Trad Rifle" = "NonPR", "Polygonal Rifle" = "Polygonal")
+tmp |> kable()
+```
 
-hicklin_repeatability |>
+The overall repeatability of polygonally rifled evidence (@tbl-hicklin-repeat-rifle-cdl, "Overall") is not so dissimilar from traditionally rifled evidence; the former is estimated at between `{r} filter(hicklin_repeatability_rifle, Polygonal == "Polygonal", eval1=="Overall")$CI_LB*100`% and `{r} filter(hicklin_repeatability_rifle, Polygonal == "Polygonal", eval1=="Overall")$CI_UB*100`%, while the latter is estimated at between `{r} filter(hicklin_repeatability_rifle, Polygonal == "NonPR", eval1=="Overall")$CI_LB*100`% and `{r} filter(hicklin_repeatability_rifle, Polygonal == "NonPR", eval1=="Overall")$CI_UB*100`%,
+
+@tbl-hicklin-repeat-rifle-cdl provides reliability estimates for same-ammunition and same-model traditionally rifled and polygonally rifled evidence conditioned on the examiner's initial decision.
+The experiment only included one type of ammunition and one model of polygonally rifled firearms, so the traditionally rifled comparisons have been filtered to only include comparisons of the same ammunition and same model weapons.
+There are substantially fewer comparisons of polygonal rifled evidence, leading to wider confidence intervals.
+When an examiner's first decision is an identification, with traditionally rifled evidence, the probability that the second decision will also be an identification is between `{r} filter(hicklin_repeatability_rifle, Polygonal == "NonPR" , eval1=="ID")$CI_LB*100`% and `{r} filter(hicklin_repeatability_rifle, Polygonal == "NonPR" , eval1=="ID")$CI_UB*100`% .
+With polygonal rifled evidence, this chance drops to between `{r} filter(hicklin_repeatability_rifle, Polygonal == "Polygonal" , eval1=="ID")$CI_LB*100`% and `{r} filter(hicklin_repeatability_rifle, Polygonal == "Polygonal" , eval1=="ID")$CI_UB*100`%.
+Conversely, when an examiner's first decision is an inconclusive-B (no evidence in either direction) under the AFTE ToI, the probability that a second decision is also an inconclusive B is higher for polygonal rifling than for traditional rifling (likely because many examiners do not attempt to make source decisions on polygonally rifled evidence, either because of personal beliefs about the identifiability of such evidence or because of lab policy).
+
+::: landscape
+```{r hicklin-repeat-tbl2}
+#| label: tbl-hicklin-repeat-firearm-cdl
+#| tbl-cap: "Repeatability for comparisons of different caliber, make, and model configurations in Hicklin 2024 (only traditionally rifled comparisons are included). Estimates show the proportion of second evaluations which match the first evaluation (rows). First-row estimates show the proportion of all second evaluations which were the same as the first evaluation; subsequent rows show the proportion of second evaluations which match the first evaluation in that row."
+
+short_labels <- tribble(~SameCaliber, ~SameMake, ~SameModel, ~Source, ~label,
+                        "F", "F", "F", "DS", "Diff Caliber",
+                        "T", "F", "F", "DS", "Diff Make",
+                        "T", "T", "F", "DS", "Diff Model",
+                        "T", "T", "T", "DS", "Diff Source",
+                        "T", "T", "T", "SS", "Same Source"
+)
+
+
+
+hicklin_repeatability_gun <- hicklin_repeatability |>
   filter(!Polygonal=="T") |>
   mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(SameMake, eval1) |>
-  summarize(prop = sprintf("%0.2f%% (n = %d)", 
-                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
-                           sum(Count))) |>
-  mutate(prop = str_replace(prop, "NaN%", "--")) |>
-  pivot_wider(names_from = SameMake, values_from = prop) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("Different Make" = "F", "Same Make" = "T") |>
-  kable(caption = "Repeatability for Comparisons By Firearm Make Match Status for Traditionally (Non-polygonally) Rifled Bullets (Hicklin 2024)")
+  group_by(SameCaliber, SameMake, SameModel, Source, eval1) |>
+  summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  add_overall_row(x = sum(x), n = sum(n), eval1="Overall") |>
+  make_repeat_ci()
 
 
-hicklin_repeatability |>
-  filter(!Polygonal=="T", SameMake!="F") |>
-  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
-         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(SameModel, eval1) |>
-  summarize(prop = sprintf("%0.2f%% (n = %d)", 
-                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
-                           sum(Count))) |>
-  mutate(prop = str_replace(prop, "NaN%", "--")) |>
-  pivot_wider(names_from = SameModel, values_from = prop) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("Different Model" = "F", "Same Model" = "T") |>
-  kable(caption = "Repeatability for Comparisons By Model Match Status for Comparisons arising from the Same (Traditionally Rifled) Make (Hicklin 2024).")
+hicklin_repeatability_gun |>
+  format_ci_tbl() |>
+  ungroup() |>
+  full_join(short_labels) |>
+  select(-c(SameCaliber, SameMake, SameModel, Source)) |>
+  pivot_wider(names_from = label, values_from = est_ci) |>
+  mutate(eval1 = factor(eval1, levels = cdl_tbl_opts, ordered = T)) |>
+  arrange(eval1) |>
+  rename("Eval 1" = eval1) |>
+  kable(align = "lrrrrr", format.args = "class='small'")
+```
+
+```{r hicklin-repeat-tbl3}
+#| label: tbl-hicklin-repeat-ammo-overall
+#| tbl-cap: Overall repeatability for comparisons by ammunition composition in Hicklin 2024. Only non-polygonally rifled, same model comparisons are included in these estimates.
 
 
 hicklin_repeatability |>
   filter(!Polygonal=="T", SameModel!="F") |>
   mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
          eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
-  group_by(SameAmmo, eval1) |>
-  summarize(prop = sprintf("%0.2f%% (n = %d)", 
-                           sum((eval2 == eval1) * Count) / sum(Count) * 100,
-                           sum(Count))) |>
-  mutate(prop = str_replace(prop, "NaN%", "--")) |>
-  pivot_wider(names_from = SameAmmo, values_from = prop) |>
-  rename("Evaluation 1" = eval1) |>
-  rename("Different Ammo" = "F", "Same Ammo" = "T") |>
-  kable(caption = "Repeatability for Comparisons By Ammunition Type for Comparisons arising from the Same (Traditionally Rifled) Make and Model (Hicklin 2024).")
-
+  group_by(SameAmmo) |>
+summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  make_repeat_ci() |>
+  format_ci_tbl() |>
+  mutate(SameAmmo = str_replace_all(SameAmmo, c("F" = "Different", "T" = "Same"))) |>
+  rename(Ammmunition = SameAmmo, "Overall Repeatability (95% CI)" = est_ci) |>
+  kable()
 ```
 
+```{r hicklin-repeat-tbl3a}
+#| label: tbl-hicklin-repeat-ammo-cdl
+#| tbl-cap: Repeatability for same and different ammunition comparisons in Hicklin 2024 (only traditionally rifled, same-model comparisons are included). Estimates show the proportion of second evaluations which match the first evaluation.
+
+hicklin_repeatability |>
+  filter(!Polygonal=="T", SameModel!="F") |>
+  mutate(eval1 = factor(eval1, hicklin_conclusion_levels[1:5], ordered = T),
+         eval2 = factor(eval2, hicklin_conclusion_levels[1:5], ordered = T)) |>
+  group_by(SameAmmo, eval1) |>
+summarize(x = sum((eval2 == eval1) * Count),
+            n = sum(Count)) |>
+  make_repeat_ci() |>
+  format_ci_tbl() |>
+  ungroup() |>
+  pivot_wider(names_from = SameAmmo, values_from = est_ci) |>
+  rename("Evaluation 1" = eval1) |>
+  rename("Different Ammo" = "F", "Same Ammo" = "T") |>
+  kable(align = "lrr")
+```
+:::
+
+@tbl-hicklin-repeat-firearm-cdl (Overall, first row) suggests that when the caliber of the evidence in the comparison differs, examiners are consistently able to determine that these comparisons are different-source; as the comparisons increase in similarity, repeatability of comparisons decreases dramatically.
+While it is usually not that instructive to differentiate between same- and different-source comparisons at the repeatability stage, the hierarchical nature of the structure of these comparisons provides an opportunity to examine how repeatability changes as evidence becomes more similar.
+That is, it is not possible to have a same-source comparison with different calibers, makes, or models, so it is useful to assess how examiner reliability changes across different-source comparisons of the same model, and then to assess how examiner reliability changes when comparing same-model, different-source comparisons and same-model, same-source comparisons.
+
+Considering the conditional reliability estimates in @tbl-hicklin-repeat-firearm-cdl, it is evident that examiners are progressively more likely to return the same (correct) response of elimination as the firearms become more similar.
+Identifications are uncommon when the caliber is different, to the point that repeatability estimates cannot be reliably generated, but by the time that the model of firearm is the same, reliability estimates can be generated for all categories.
+When considering different-source, same-model comparisons, the probability that the examiner returns an elimination on the second examination given that the first examination was an elimination is `{r} filter(hicklin_repeatability_gun, SameModel=="T", Source=="DS", eval1=="EL")$Estimate*100`%, which is approximately one third of the repeatability for different-caliber comparisons.
+This reliability estimate is conditional both on evidence from different firearms of the same model and on the examiner's first conclusion being an elimination; if we consider the overall reliability of comparisons of evidence from different same-model firearms across all initial conclusions, we get `{r} filter(hicklin_repeatability_gun, SameModel=="T", Source=="DS", eval1=="Overall")$Estimate*100`% (`{r} filter(hicklin_repeatability_gun, SameModel=="T", Source=="DS", eval1=="EL")$CI_LB*100`%, `{r} filter(hicklin_repeatability_gun, SameModel=="T", Source=="DS", eval1=="EL")$CI_UB*100`%).
+
+The only situation where examiners meet a repeatability threshold of $>90%$ for any conclusion is when comparing different caliber evidence, and even this comparison is not reliably above 90%, as the confidence interval dips below that threshold.
+
+@tbl-hicklin-repeat-ammo-overall suggests that there is a repeatability hit when ammunition types are different.
+@tbl-hicklin-repeat-ammo-cdl provides further clarification - the repeatability difference between same and different ammunition is largest (20-30%) in identifications and eliminations, indicating that when ammunition is different, it is harder for examiners to make consistent conclusive decisions.
+This distinction is practically relevant for unknown-unknown comparisons between e.g. evidence found at linked crime scenes.
