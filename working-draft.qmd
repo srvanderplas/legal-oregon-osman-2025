@@ -199,18 +199,19 @@ A *reliable* method or instrument gives consistent results.
 A scale, for example, can be perfectly reliable and report the same weight for the same object each time it’s weighed.
 That does not mean the scale is accurate; it may consistently report the wrong weight.
 Reliability, or consistency, is a necessary component of a scientifically valid method, but does not, on its own, establish scientific validity.
+
 A *valid* method produces accurate results reliably -- that is, it is repeatable and reproducible.
+Valid studies accurately represent how the studied characteristic performs in practice. 
 It is not possible to assess the accuracy of a method without testing it on samples where ground truth is known, meaning testing using samples of known origin.
 Because ground truth is unknown in case work -- the examiner does not know if the two bullets were fired in the same gun or different guns -- case work cannot serve to support the validity of the method, even when a second examiner agrees with the first examiner.
 
 The goal of any validation study is to understand the range of conditions under which the method works as required, how well it performs, and to identify conditions under which it is likely to fail.
 A high quality study design is needed in order to achieve these goals.
 Evaluating the validity of an entire discipline requires many studies, over a range of conditions, with some replication; in addition, studies used to support the validity of a discipline must be well-designed, using appropriate test problems, instructions, sampling procedures, and statistical practices when analyzing the results.
+
 Scientifically, supporting studies should meet several conditions: they should be designed in consultation with statisticians, published in scholarly journals that require peer review by statisticians and subject matter experts[^3], the results must hold up over time and replication[^4], and the studies must be conducted over a wide range of conditions that are representative of those seen in applied settings. 
 As an analogy, consider what is required for regulators such as the U.S. Food and Drug Administration (FDA) to approve a new drug. 
 Multiple, high quality randomized trials are required, each of which needs to demonstrate efficacy of the drug for the target population. 
-For firearms examination, though there have been randomized experiments, even the best have significant flaws.
-Moreover, even if we look past the flaws, results from studies of repeatability and reproducibility suggest that firearms and toolmark examination is neither sufficiently repeatable nor reproducible, and thus, is not scientifically valid.
 
 [^3]: Trade journals, including the AFTE Journal, are sometimes peer reviewed, but the peers are practitioners rather than research scientists; these reviews focus on the forensic procedures but neglect to consider the design of the study and the statistical validity of any reported results.
     As a result, studies from these journals often have serious methodological flaws.
@@ -220,6 +221,24 @@ Moreover, even if we look past the flaws, results from studies of repeatability 
     @lippincottPolywaterVibrationalSpectra1969 and other follow-up papers demonstrated unique properties of a form of water called polywater, first discovered in the USSR and then replicated in US labs and at the National Bureau of Standards (now known as NIST).
     These properties were later shown to be identical to those of sweat, @rousseauPolywaterSweatSimilarities1971, suggesting that the original documented and peer-reviewed phenomenon was a result of replication of conditions producing laboratory contamination of samples.
     More details can be found in @strombergCuriousCasePolywater2013.
+
+This aspect of validity is **convergent validity**: the results of many studies converge to a common consensus. 
+Convergent validity cannot be established when there are common flaws shared by every study performed, as is the case with firearms examination.
+In addition to convergent validity, studies also should have **internal validity** - manipulations of the variable of interest should be connectable to the observed effects without alternate explanations due to e.g. bias. 
+While internal validity is often achieved through experimental control, **external validity** requires that the conditions of the experiment are such that they can be generalized beyond the study setting. 
+This type of validity is what allows scientists to take claims from an experiment and argue that those claims are representative of the real world. 
+A single study will not have perfect internal and external validity; however, a series of studies showing similar effects with different levels of experimental control can establish convergent validity. 
+An analogy is helpful here: each study may have a few holes, much like Swiss cheese (@fig-swiss).
+
+
+![Each study may have some validity problems. Ideally, several studies conducted using different methods would have no common problems, and in aggregate these studies would provide convergent validity. Firearms examination black-box studies have several common flaws, and as a result, we cannot conclude that the overall discipline is sound based on existing studies.](Swiss_cheese.png){#fig-swiss}
+
+When multiple studies are considered together, hopefully, these holes occur in different places; as a result, the total set of studies might be considered to be valid if they reach similar conclusions despite different flaws.
+If every study has the same flaws, however, there will be a hole that goes all the way through the stack of cheese slices.
+The result of an aggregated group of similarly flawed studies does not have convergent validity, even if the studies reach similar conclusions. 
+This is the situation that currently exists with black-box studies of firearms examination: all studies have consistent, repeated flaws. 
+As a result, it is not possible to take the total set of validation studies and argue that they have convergent validity.
+Moreover, even if we look past the flaws, results from studies of repeatability and reproducibility suggest that firearms and toolmark examination is neither  repeatable nor reproducible, and thus, is not scientifically valid.
 
 ## Firearms and Toolmark Examination
 
@@ -342,7 +361,7 @@ If the patient’s test was negative, they would instead be interested in the ne
     Numbers from @krishnasurasiEffectivenessAbbottBinaxNOW
 
 Error rate studies with independent pairwise comparisons allow scientists to calculate the sensitivity, specificity, and false positive and false negative rates because they explicitly measure how many comparisons were performed along with the outcome of the comparisons.
-As alluded to before, however, this basic design characteristic is only present in a few modern firearms studies.
+As alluded to before, however, this basic design characteristic is only present in a few modern firearms studies^[Additional information about different black-box study designs is available in @sec-app-design. @sec-study-reliability-tbl provides details about the designs of a select number of commonly cited studies.].
 While these few studies involving a known number of single pair comparisons allow for the calculation of the full set of error rates, they have other significant flaws which make their error rate estimates misleading and unreliable for the Court’s purposes.
 In order to rely on these studies and generalize their error rates to casework, validation studies not only need to be well designed, but must also include test samples that are representative of comparisons found in casework[^14] In addition, the calculated error rates must account for any study flaws so that if error rates cannot be precisely estimated, they can at least be bounded by a reasonable interval.
 
@@ -363,9 +382,9 @@ Current validation studies report error rates for the method between zero [@mich
 <!-- Page 7 of the study -- ss judgment + comparison, 2726, ss judgment, ds comparison, 322, ds judgment, ss comparison, 200, ds judgment + comparison, 1372 -->
 A zero percent error rate for any method, much less a subjective method using human judgment, is not scientifically plausible[^15].
 Modern studies conducted with open-set kit designs involving a sufficiently large number of participants tend to report nonzero error rates. 
+@sec-error-csd-app contains tables of commonly cited studies along with reported error and correct source decision rates. 
 
-[^15]: "Although there is limited information about the accuracy and reliability . . . . claims that these analyses have zero error rates are not scientifically plausible.", pg.
-    142, @NRCStrengthening2009
+[^15]: "Although there is limited information about the accuracy and reliability . . . . claims that these analyses have zero error rates are not scientifically plausible.", pg. 142, @NRCStrengthening2009
 
 
 #### Inconclusive Responses
@@ -443,7 +462,7 @@ While there are not currently have two studies that produce estimates for reprod
 By the standards of general scientific acceptance of methodology, FATM analysis has a long way to go. 
 
 
-#### Attrition
+#### Non-Response Bias
 
 It is common for studies involving human subjects to involve some degree of drop-out or nonresponse. 
 Individuals may agree to participate in a survey and then fail to actually engage (drop out) or they may leave some survey questions unanswered (item nonresponse). 
@@ -481,25 +500,78 @@ Even well designed and well executed studies cannot compensate for sampling bias
 If the participants in the study do not make up a representative sample of the population (in this case of firearms, ammunition, and toolmark examiners in the United States), the results of a study cannot be generalized.
 If we want to understand the distribution of colors in a standard bag of M&Ms, we would not want to take a sample from a bag of Christmas M&Ms that only include red and green, because this would result in a biased sample; the results could not be generalized to all M&Ms because the sample was taken from a different population. 
 
-Current studies rely on participants to volunteer.
-This is, of course, consistent with the practices of many other disciplines, such as clinical trials in medicine.
+Current studies rely on participants to volunteer [^hfsc-study].
+This is, of course, consistent with the practices of many other disciplines, such as clinical trials in medicine [^consent].
 With a self-selected sample of participants, however, it becomes even more critical to take steps to ensure the participants are representative of the population of interest. 
 Individuals, for example, who have the interest, time, and/or lower caseloads to participate in studies may not be representative of the wider population of firearms examiners.
 In addition, some studies [@baldwinStudyFalsePositiveFalseNegative2014] exclude examiners who are not actively working on casework, including expert witnesses who were firearms examiners by training.
-These different inclusion criteria result in differences in the appropriate populations the study results might generalize to. 
-This issue is entirely unaddressed in current error rate studies.  
+These different inclusion criteria result in differences in the appropriate populations the study results might generalize to, and open up the potential for alternate explanations based on "lurking variables"^[For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
+In fact, studies which differentiate between trainee and qualified examiners  often find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018]. Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
+Thus, these examiners would be over-represented in the study-wide estimate of the error rate, in that they account for fewer cases than the examiners who do not have time to participate in a voluntary study.
+As a result, the estimated error rate from the study would not be representative of the error rate of all examiners. 
+It is important to note that we cannot tell which of these effects may be true: both are plausible, but without a random selection method, studies are vulnerable to many different arguments about systematic participant selection bias.
+When participants are randomly selected from the population, these effects may still exist due to sampling variability, but over many studies, small biases in any direction will cancel out, and even in single studies, we can quantify (and bound) the effect of sampling variability. 
+There are many variables which might be expected to increase likelihood of volunteering for a study and also change the expected error rate: education, experience, confidence, amount of time available for study participation, employment in a forensic lab (vs. independent consultant status).]. 
+This issue is entirely unaddressed in current error rate studies. 
+
+[^hfsc-study]: There is one non-volunteer black-box study that exists, @neumanBlindTestingFirearms2022. 
+    This study was conducted as a blind testing program implemented at Houston Forensic Science Center. 
+    Its results should not be generalized beyond HFSC, because that lab has a unique organizational structure and common training, but it does represent a unique perspective on error rates in FATM comparisons. 
+    In addition, the model of participation based on employment status shows that it is possible to ensure participation in studies and prevent attrition in participant responses under certain conditions.
+
+
+[^consent]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
+    Voluntary participation is somewhat difficult to define; for instance, some error rate studies mention that participants were compelled to participate by their employer: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
+    We are not experts in the interpretation of federal law, but if employer-compelled participation still meets the bar for voluntary participation, that is one route to obtain a more representative sample free from self-selection bias.
+    Researchers might be able to use a cluster sampling approach, sampling first the laboratories accredited by an outside organization and then sampling from within each lab to get participants. 
+    Another option would be to use snowball sampling, where an initial set of known examiners are asked to provide names of other examiners working in the field, and so on, until a reasonable subset of the population is assembled; researchers could then randomly sample from this generated sampling frame.
+    While neither of these approaches are a simple random sample, either one would likely provide a more representative approach to sampling from the population of examiners employed by accredited laboratories, and would thus produce results with more external validity than existing black-box studies.
+    
+An additional factor lurking beneath the surface in the discussion of participant recruitment in black-box studies is that anyone participating in these studies has a financial and reputational stake in the study outcome. 
+In this, forensic examiners serve not only as experimenters (as many of these experiments are run by or in consultation with examiners) but also as participants, reviewers, and beneficiaries.
+When things go wrong, as in a recent proficiency test which had a much higher than expected false positive rate ^[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024. 61/280 participants, or 21.8% had at least one false identification out of four comparisons on the proficiency test.], examiners are also the investigators and judges; the cause analysis of the report was performed by an ad-hoc AFTE committee and the report was released to AFTE members^[The report was available on the AFTE website and did not require password access, but would have been hard to find without the emailed link. It has since been archived with The Internet Archive (https://archive.org/details/ptrc-final-report-2024-11-25) to ensure that it remains available.]. 
+In DNA forensics, there are non-forensic applications of the same technology that ensure that the threshold for "general scientific acceptance" extends beyond the relatively tight-knit group of forensic examiners. 
+In pattern evidence, and particularly in FATM examination, there are very few outside applications of the same techniques; as a result, the discipline is particularly insular.
+As a result, examiners feel a very real investment in the results of the studies they participate in, and may have a sense of collective responsibility to not provide any reason to express doubt in the accuracy or validity of a specific process, lest it be used against the entire community.
+This bias has been noted as a threat to external validity in *United States v. Adams* ^[444 F.Supp.3d 1248 (D. Or. 2020).]: test takers know that under AFTE rules, the only way to do poorly is to record a false positive, creating an incentive to answer inconclusive instead, resulting in an underestimate of the false positive rate in tests compared to real-world examinations. 
+Under these circumstances, it is particularly important to select a sample of participants which is representative of the population and not solely assembled from volunteers[^vol-sample-stats]. 
+
+
+[^vol-sample-stats]: When working with volunteer participants, researchers use strategies like case matching, where two individuals are matched on every dimension that is feasible within the total set of volunteers and then these two individuals' performance on the drug vs. placebo is compared.
+    In other studies, the full set of volunteers is not included in the study; instead, a demographically representative sample of the wider population is chosen from among the volunteers (within practicable constraints).
+    Stated more broadly, medical researchers take care to ensure that the study design provides for both external and internal validity, working within the constraints of a population of volunteers.
+    These steps to enhance the statistical validity of the study are not present in black-box validation studies. 
+    Unlike medical trials, error rate studies do not take steps to ensure the population is representative.
+    Some studies make an effort to at least not exclude participants, such as the @uleryAccuracyReliabilityForensic2011 study: "In order to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community."     
+    However, many FTE studies arbitrarily adopt inclusion criteria requiring that participants be active examiners employed by a crime lab, currently conducting firearms examinations, members of AFTE, etc.
+    For example, the Ames II study has a number of inclusion criteria.
+It is not clear how the inclusion criteria were applied because the technical report [@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's [@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
+
+    -   "Only respondents who returned a signed consent form and were currently conducting firearm examinations and were members of AFTE, or else were employed in the firearms section of an accredited crime laboratory within the U.S. or a U.S. territory were accepted into the study." [@bajicValidationStudyAccuracy2020]
+    -   "Participation was limited to fully qualified examiners who were currently conducting firearm examinations, were members of AFTE, and were employed in the firearms section of an accredited public crime laboratory within the U.S. or a U.S. territory." [@monson2022planning]
+]
 
 In addition to worries about sampling bias among participants in the studies, the firearms studied must also be representative of the population seen in case work.
 The studies to date tend to focus on a single firearm  [@baldwinStudyFalsePositiveFalseNegative2014] or a small sample of firearms; studies that attempt to handle many different types of firearms and ammunition often have insufficient participants to reach reliable statistical estimates [@hicklinAccuracyReproducibilityBullet2024].
 Neither scenario supports extrapolating the results to the entire population of possible firearms.
+It is essential to have a wide array of studies, where some focus on a single firearm and ammunition combination and others consider many different types of firearms and ammunition, with each study designed to have enough participants to support robust estimation of the factors considered in the study.
+
+Sampling bias creates a threat to external validity: if the participants or the evidence examined in the study are not representative of examiners and casework, respectively, then it is not reasonable to generalize the results of the study to the population of firearms examiners or casework.
+If the study results do not generalize well to the population, then they are not helpful when the court is evaluating the validity of FATM analysis. 
+
 
 While many scientific journals and funding agencies rely on peer review to identify and correct these issues, the review which takes place in trade journals such as the AFTE journal does not necessarily catch and correct issues with the description and presentation of study results.
-Even in cases where statisticians are on the research team, such as Ames I and II, the issue of sampling bias is not addressed. 
-While the lack of concern with sampling bias in forensic science seems to be a cultural problem within the forensic community, it is a problem when the legal system requires general scientific acceptance of forensic methods. 
+Even in cases where statisticians are on the research team, such as Ames I and II, the issue of sampling bias is not addressed, and the consideration of participant drop-out is severely lacking. 
+While the lack of concern with these types of bias in forensic science seems to be a cultural problem within the forensic community, it is a problem when the legal system requires general scientific acceptance of forensic methods. 
 Until forensic science is held to the same standards as other scientific disciplines, it will not meet the bar of "general acceptance" within the scientific community.
 
+#### Comparison Difficulty
 
+Comparisons which are given to participants in black-box studies should be across a range of difficulty levels comparable to those found in casework. 
+This requires studies of the type of comparisons and difficulty of comparisons in casework (as measured by factors such as bullet damage, percent striations, repeatability of features) as well as studies which include these factors when examining error rates. 
+@hicklinAccuracyReproducibilityBullet2024 included some assessment of the quality of comparisons, and found that inconclusive rates increase as difficulty rates increase. 
 
+XXX stopped here XXX
 
 ## Database Searches Increase Error Rates
 
@@ -585,9 +657,6 @@ Less extreme information, such as knowing the conclusion made during a verificat
 
 [^context-bias-matt]: @mattijssenImplementingContextInformation2016 classifies base-rate information as Level 4 contextual information and recommends introduction of fake cases to casework information management systems to modify examiner perceptions. While this approach could potentially work in a system which was more balanced, in systems which use e.g. NIBIN to screen all cases, it is unlikely to have the intended effect. 
 
-
-
-
 # Conclusion
 
 While firearms and toolmark analysis studies have improved, the current state of the discipline is still well below thresholds of scientific validity applicable to other disciplines. 
@@ -601,6 +670,79 @@ This problem is compounded when ballistics intelligence algorithms and databases
 
 
 # Appendix {.appendix}
+
+## Common Black-Box Study Designs {#sec-app-design}
+
+
+A **closed-set** study is a study in which every unknown sample matches a known sample; as a result, the examiner must decide which known most closely matches each unknown, rather than deciding for whether each pairwise comparison is an identification or an elimination.
+One of the first firearms studies involves a set of "knowns", where there may be two or three items from each known source, and a set of unknowns that must be matched to the known sources; at the outset the examiner knows that the unknowns will match one of the known sources.
+This is an example of a multiple-known, multiple-unknown closed-set study: there are multiple knowns and multiple unknowns in a single kit, and it is a closed-set study because the examiner knows that each unknown matches a known.
+These studies have multiple problems: they underestimate the error rate, because examiners have information in the study they would not have in practice (the unknown matches one of the knowns), but they have additional problems that are more insidious: it is not possible to determine how many comparisons an examiner performed, because the examiner only typically is asked to report what known matches each unknown.
+We cannot know how many comparisons the examiner performed to get to that answer, and as a result, we cannot calculate the overall error rate: we can only calculate the false negative rate ("miss rate"), the number of incorrect eliminations divided by the number of same-source comparisons.
+The PCAST [@pcast] and NRC [@NRCStrengthening2009] reports rightly called out these study designs as unreliable, and while there are still papers published with this design [@hambyWorldwideStudyBullets2019], it has largely (and rightly) been abandoned due to these fundamental issues.
+
+A modification of this study design involves using essentially the same study set-up, but without the closed set structure.
+An **open-set** study is a study that contains unknowns which may not match to any provided knowns; as a result, examiners must decide whether something is or is not a match, rather than deciding which known is the closest match.
+That is, examiners are provided with a "kit" that contains multiple knowns and multiple unknowns, and the examiner must determine which unknowns match provided knowns, and which unknowns match each other (if they do not match a provided known).
+These studies are an improvement on the closed set design, but still have some internal information: once an examiner determines that two unknowns match, for instance, only one of those unknowns must be compared to all provided knowns; logically, both unknowns can be treated as a "set".
+As a result, in multiple-known, multiple-unknown studies, we cannot determine how many comparisons are performed, which makes calculation of error rates impossible.
+@smithBerettaBarrelFired2021 is an example of this type of study design - there are multiple knowns and multiple unknowns, but it is an open-set study.
+
+An improvement on the open-set study design discussed above is to restrict the evidence provided to the examiner to a single known and one or more unknowns (a "pair"); examiners may be provided with multiple pairs for a single study, but comparisons between pairs are not required and may be disallowed.
+This design is the most reliable design used in studies to date [@baldwinStudyExaminerAccuracy2023; @lawEvaluatingFirearmExaminer2021; @baldwinStudyFalsePositiveFalseNegative2014; @keislerIsolatedPairsResearch2018; @guyllValidityForensicCartridgecase2023; @monsonAccuracyComparisonDecisions2023;@mattijssenValidityReliabilityForensic2020;@pauw2013faid], because it allows for direct calculation of the number of comparisons performed by each examiner and does not allow for any structural information to be deduced by the examiner beyond the comparisons that are to be performed.
+While these studies are the "gold standard" in terms of study designs, simply having the proper study design does not ensure that the error rate estimates produced by the study are reliable or should be generalized to firearms comparisons as a whole.
+
+### The Importance of Base Rates in Study Design
+
+One factor that has a direct impact on estimation of different types of error rates is the designed proportion of same-source and different-source comparisons which examiners evaluate in a study. 
+The proportion of same source comparisons and different source comparisons varies considerably between studies: The Ames studies [@baldwinStudyFalsePositiveFalseNegative2014; @monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while @duezDevelopmentValidationVirtual2018 has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies [@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
+Obviously, the proportion of same-source and different-source comparisons may influence the precision with which any study can estimate certain error rates.
+
+Another important factor is the composition of the different source comparisons: some open set studies include comparisons from marks with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics. 
+Including items with different class characteristics allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics [@bunch2003comprehensive].
+Obviously, a class characteristic mismatch should be easier to identify than a mismatch of "individual" characteristics; see @sec-comparison-difficulty for more discussion of how difficulty may vary across studies. 
+This design choice also influences the proportion of inconclusive responses received, which has a large impact on computed reliability estimates. 
+
+
+## Comparison Difficulty
+
+Not all firearms and ammunition mark equally well [^mark-diff]; Glocks are renown for being difficult to compare bullets, but for having easy cartridge comparisons.
+In addition, some ammunition marks better than other ammunition.
+While it is possible to characterize the error rates of certain studies (subject to the sampling and non-response biases noted earlier), studies are generally conducted with well-marking tools or firearms.
+@baldwinStudyFalsePositiveFalseNegative2014 did not examine the samples for issues before sending them to examiners for evaluation; due to the design of the study the researchers estimated that 2-3% of known samples were judged to be inappropriate for comparison due to not marking well.
+If studies are done on ammunition that is generally known to mark well, then non-marking comparisons are more likely to show up in casework than in studies - that is, currently existing studies are not representative, and error rates from these studies may not generalize well to firearms and ammunition with different properties.
+This issue is particularly important when evidence is obtained from ammunition known to mark poorly due to jacketing or coatings applied to the bullets. 
+
+ [^mark-diff]: It is well known (and oft referenced in scientific publications in the field) that some types of ammunition do not "mark" well due to coatings or other material treatments of the ammunition surface.
+    Examples of studies which investigate or discuss the phenomena of "marking well" include @groshon2020effects;@manzaliniEffectCompositionMorphological2019; @christopheApproachingObjectivityFirearms2011;@dossantosInfluenceFactorsRegarding2018.
+    @rivaComparisonInterpretationImpressed2020 discusses the effect of ammunition type on likelihood ratios computed to describe fired ammunition comparisons.
+    @hicklinAccuracyReproducibilityBullet2024 included both polygonal and non-polygonal rifling with the idea that polygonal rifling is much harder to match; results bore that out, with lower rates of correct source identification for polygonally rifled bullets than for traditionally rifled bullets (Tables provided in @effect-of-ammunition-make-model-and-caliber-similarity). 
+    
+In addition to the material sampling issues that influence comparison difficulty, there are other dynamics at play.
+The difficulty level across different studies is also not necessarily comparable: in studies of European examiners, the goal is typically to differentiate between labs and procedures in skill and effectiveness, so the evaluations may be more difficult in order to separate good examiners and labs from those who are uniquely skilled.
+As a result, in these studies [@pauw2013faid; @mattijssenValidityReliabilityForensic2020], comparisons are typically harder and error rates much higher than in studies conducted in the US, where the study goal is typically to validate the process of firearms and toolmark evaluation.
+In studies based in the US, this goal may unconsciously bias researchers to design studies to in such a way that low error rates are a likely outcome, sacrificing the ability of the study to assess the limits of what is possible for examiners to distinguish successfully.
+This, combined with the use of methods such as likelihood ratios rather than the AFTE categorical conclusions, produce error rates which are higher in studies outside of North America [@pauw2013faid;@mattijssenValidityReliabilityForensic2020;@mattijssenFirearmExaminationExaminer2021]. 
+
+Examiners are not necessarily good at estimating the difficulty of a comparison or identifying comparisons which they are unsure about: @mattijssenFirearmExaminationExaminer2021 provides error rates computed from all source decisions as well as source decisions examiners felt confident to report. 
+This set of probabilities is the result of an experimental method which attempts to allow for both European style examination and generalization to the AFTE categories: examiners were asked to make a decision, and then were asked whether they were confident in the decision or would prefer to report an inconclusive. 
+The process used in the study is significantly different than the AFTE process; as a result, we cannot generalize the error rates to the AFTE framework, but the information is still informative in a general sense. 
+For breech face (cartridge impression) comparisons, the false positive rate for all source decisions was 13.8% compared to 11.2% for "confident" decisions, and the false negative rate was 4.6% for all decisions and 2.9% for "confident" decisions. 
+This discrepancy suggests that it is difficult for examiners to identify situations which might result in a false positive error. 
+The study also compares examiner decisions to computer-based methods, finding a lower false positive rate (8.3%) and a slightly higher false negative rate (5.6%) for the same breech face comparisons evaluated by examiners. 
+In examining the results of the study, the authors identify the crux of the issue: 
+
+> "By stating that they did not feel confident to report their source decisions, examiners could remove 'difficult' comparisons from the test set."
+
+Furthermore, examiners made use of other methods to remove difficult comparisons from the test: 
+
+> "The inclination to state that there are no suitable features for comparison varied considerably between examiners, with examiners' source decision rates ranging from 0.44 to 1. When the examiners were also allowed to state that they did not feel confident to report their source decision (inconclusive judgments), their source decision rates ranged from 0.06 to 1... all examiners were provided with the same features for comparison."
+
+Taking the experimental results, the author evaluations, and the known differences in marking of different firearms and ammunition into consideration, it is critically important that the difficulty of comparisons be varied intentionally in studies, and that some objective measure of this difficulty be provided along with examiner results. 
+To do otherwise risks continuing the status quo of studies which produce artificially low error rates through a combination of well-marking firearms and ammunition, inconclusive results, and examiner non response [@gutierrezBowlingBumperRails2023]. 
+
+
+
 
 ## Study Reliability Metrics {.appendix #sec-study-reliability-tbl}
 
@@ -720,7 +862,7 @@ nonresponse %>%
 
 ## Accuracy {.appendix #sec-accuracy-app}
 
-### Error and CSD Rates for Surveyed Studies {.appendix}
+### Error and CSD Rates for Surveyed Studies {.appendix #sec-error-csd-app}
 
 
 Studies that have an unknown number of different source comparisons cannot be analyzed to produce a correct source decision rate because the total number of comparisons performed (and the number of correct eliminations) cannot be computed.
