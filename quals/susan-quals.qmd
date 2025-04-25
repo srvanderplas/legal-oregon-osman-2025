@@ -1,21 +1,21 @@
 
-## Susan Vanderplas
-
 I, Susan Vanderplas, hold a Bachelor of Science in Applied Mathematical Sciences and Psychology from Texas A&M University, a Masters of Science in Statistics from Iowa State University, and a Ph.D. in Statistics from Iowa State University.
 
 I am an Associate Professor in Statistics at University of Nebraska Lincoln as of August 2024, and have been at UNL since January 2020.
-My areas of expertise include data visualization, cognition, visual perception, and communication of statistical information, as well as machine learning algorithms for statistical analysis of forensic pattern evidence, including firearms and footwear. I primarily teach courses on data science, technical communication, statistical programming, and data visualization. 
+My areas of expertise include data visualization, cognition, visual perception, and communication of statistical information, as well as machine learning algorithms for statistical analysis of forensic pattern evidence, including firearms and footwear. 
+I primarily teach courses on data science, technical communication, statistical programming, and data visualization. 
+As part of my position at a land-grant research institution, I regularly work with collaborators in experimental disciplines including agriculture, genetics, and engineering to design experiments, collect data, and present results accurately and effectively. 
 
 Between 2018 and 2020 I served as a research assistant professor at the Center for Statistics and Applications in Forensics (CSAFE) at Iowa State University. 
 CSAFE is a collaboration across several universities and partner institutions (including University of Nebraska Lincoln) and brings together scholars conducting research on how to collect more accurate forensic evidence and more reliably convey that forensic evidence in court.
 CSAFE is supported by a cooperative agreement with the National Institute of Standards and Technology (NIST)---a federal agency whose mission is to advance measurement science, standards, and technology.
 
 I am the author or co-author of more than 20 peer-reviewed scientific papers.
-Articles most relevant here have been published in the Handbook of Forensic Science, Law, Probability and Risk, the Proceedings of the National Academy of Sciences, and Forensic Science International.
-These papers cover machine learning methods for automatic matching of forensic pattern evidence, error rates in forensic studies, and the treatment of inconclusive results in firearm studies.
-In addition to my own publications, I have served or been asked to serve as a reviewer for Forensic Science International, the Harvard Data Science Review, Forensic Sciences Research, The American Statistician, Journal of the American Statistical Association, Science & Justice, and the Journal of Computational and Graphical Statistics.
+Articles most relevant to forensics have been published in the Handbook of Forensic Science, Law, Probability and Risk, the Proceedings of the National Academy of Sciences, and Forensic Science International.
+These papers cover machine learning methods for automatic matching of forensic pattern evidence, error rates in forensic studies, human factors in jury studies of forensic evidence, and the treatment of inconclusive results in firearm studies.
+In addition to my own publications, I have served or been asked to serve as a reviewer for Forensic Science International, the Harvard Data Science Review, Forensic Sciences Research, The American Statistician, Journal of the American Statistical Association, Science & Justice, the R Journal, and the Journal of Computational and Graphical Statistics.
 I also serve on the editorial board of the R Journal and the Journal of Computational and Graphical Statistics.
 
-I am the primary investigator (PI) of a research and development grant on the acquisition and identification of footwear class characteristics funded by the National Institute of Justice.
-I am also PI on the CSAFE sub-award at UNL, which covers research in firearms, footwear, and human factors.
-I am also a co-PI on grants from the National Science Foundation and the United States Department of Agriculture.
+I have been the primary investigator (PI) of a research and development grant on the acquisition and identification of footwear class characteristics funded by the National Institute of Justice.
+I was also PI on the CSAFE sub-award at UNL, which covers research in firearms, footwear, and human factors.
+I have also served as a co-investigator on grants from the USDA and the National Science Foundation. 

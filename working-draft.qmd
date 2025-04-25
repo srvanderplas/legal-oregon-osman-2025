@@ -149,6 +149,32 @@ combined_cdl_repro <- bind_rows(
 
 ```
 
+
+\thispagestyle{plain}
+
+# Statement {.unnumbered}
+
+I declare under penalty of perjury and pursuant to Oregon law that the following is true and accurate to the best of my knowledge.
+
+\vspace{.5in}
+\begin{minipage}{.495\linewidth}
+\rule{4cm}{0.4pt}
+
+Susan Vanderplas
+\end{minipage}
+
+
+
+```{=tex}
+\vspace{.5in}
+\clearpage
+```
+# Qualifications {.unnumbered}
+
+{{< include quals/susan-quals.qmd >}}
+
+\clearpage
+
 # Introduction
 
 This amicus brief outlines the fundamental research principles used to evaluate the scientific validity of a method.
@@ -716,7 +742,7 @@ Assessing these factors both jointly and separately, it is apparent that current
 \renewcommand{\thefigure}{A\arabic{figure}}
 ```
 
-# Appendix 
+# Appendix {.appendix}
 
 ## Common Black-Box Study Designs {#sec-app-design}
 
@@ -1219,3 +1245,9 @@ left_join(ames2_cdl_repro_tbl, hicklin_cdl_repro_tbl) |>
 @tbl-conditional-reproducibility shows the reproducibility values both overall (between `{r} min(filter(combined_cdl_repro, eval1=="Overall")$Estimate*100)`% and `{r} max(filter(combined_cdl_repro, eval1=="Overall")$Estimate*100)`%) and conditional on the examiner's decision. 
 Hicklin (2024) does have 100% reproducibility for decisions where the first examiner made an identification, but this is based off of 27 observations, and the confidence interval is wide, with a lower bound of `{r} filter(hicklin_cdl_repro, eval1=="ID")$CI_LB*100`%. 
 
+
+
+# Susan Vanderplas CV {.appendix}
+
+
+\includepdf[pages=-,width=\textwidth,pagecommand={\pagestyle{fancy}},trim=1in 1in 1in 1in]{quals/vanderplas-CV.pdf}
