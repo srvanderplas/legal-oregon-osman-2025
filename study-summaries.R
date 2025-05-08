@@ -37,7 +37,8 @@ mybib <- RefManageR::ReadBib("refs.bib")
 clean_studies <- clean_studies |>
   mutate(Study = purrr::map_chr(`Study Key`, 
                                 ~cite(keys = ., bib = mybib, 
-                                      bibpunct=c("", "",  ",", ", ", ","))))
+                                      bibpunct=c("", "",  ",", ", ", ","),
+                                      abbreviate = T, longnamesfirst = F)))
 
 study_chars <- clean_studies |>
   filter(!Algorithm) |>
