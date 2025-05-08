@@ -456,7 +456,7 @@ options(digits=2)
 
 Firearms evidence is the product of a small, controlled explosion; as a result, it is not surprising that there is variability in the marks recorded on the ammunition. 
 In some cases, there may not be sufficient marks recorded to decide; however, if this were the case, it should be equally likely that an examiner would be unable to make a decision using same-source or different-source evidence.
-In studies conducted in the United States with US-trained examiners, inconclusives are more commonly used for different-source evidence than same-source evidence.
+In studies conducted in the United States with US-trained examiners, inconclusives are overwhelmingly used for different-source evidence as opposed to same-source evidence.
 Studies of European examiners show a much smaller discrepancy between the use of inconclusives for same-source and different-source evidence. 
 This result may be due to the AFTE conclusion scale, lab policies about the use of inconclusives,^[Lab policies have been the root cause of other scandals in forensic evidence, as in @giannelliNorthCarolinaCrime2012a.] or the training process used for US examiners may increase this bias,[@inconclusives] but the existence of a bias in the use of inconclusives is clear. 
 
