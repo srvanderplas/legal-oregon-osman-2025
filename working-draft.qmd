@@ -20,20 +20,14 @@ format:
                  {}{\errmessage{Couldn't patch \string\@footnotetext}}%
       }
       \makeatother
-      
-  gfm:
-    toc: true
-  docx:
-    toc: true
-    number-sections: true
-    highlight-style: github
+
 geometry:
   - left=1in
   - right=1in
   - top=1in
   - bottom=1in
 biblio-style: abbrvnat
-csl: bluebook-law-review.csl
+csl: chicago-note-bibliography-with-ibid.csl
 execute:
   echo: false
   message: false
@@ -158,13 +152,17 @@ combined_cdl_repro <- bind_rows(
 
 # Statement {.unnumbered}
 
-I declare under penalty of perjury and pursuant to Oregon law that the following is true and accurate to the best of my knowledge.
+I hereby declare that this statement is true to the best of my knowledge and belief, and that I understand it is made for use as evidence in court and is subject to penalty for perjury. 
+This document should not be construed to represent or speak for the University of Nebraska -- Lincoln. 
 
-\vspace{.5in}
+\vspace{2.5in}
 \begin{minipage}{.495\linewidth}
 \rule{4cm}{0.4pt}
 
-Susan Vanderplas
+Susan Vanderplas\\
+Associate Professor\\
+Statistics Department\\
+University of Nebraska Lincoln
 \end{minipage}
 
 
@@ -173,16 +171,19 @@ Susan Vanderplas
 \vspace{.5in}
 \clearpage
 ```
+
 # Qualifications {.unnumbered}
 
 {{< include quals/susan-quals.qmd >}}
+
+A current version of my CV is included as an appendix of this document. 
 
 \clearpage
 
 # Introduction
 
-This amicus brief outlines the fundamental research principles used to evaluate the scientific validity of a method.
-What is discussed in this brief is not new; it describes the research requirements adhered to in science-based fields.
+This document outlines the fundamental research principles used to evaluate the scientific validity of a method.
+What is discussed here is not new; it describes the research requirements adhered to in science-based fields.
 The brief then discusses applying these principles to the method used by firearms and toolmark examiners.
 Adhering to the principles of sound research design and statistical analysis is fundamental to any applied science.
 There is no exception for forensic science.
@@ -207,7 +208,6 @@ When taken together, the available evidence suggests that (1) visual, subjective
 
 [^1]: Inconclusive responses are included in the total number of comparisons performed, but not included as errors in the numerator.
 
-# Argument
 
 ## Relevant Expertise
 
@@ -215,7 +215,7 @@ If the Court wishes to understand how weapons leave marks on fired ammunition, o
 If, however, the determination the Court must make is not about how the forensic process is performed, but rather how well it is performed - or, in the ideal, how well it can be performed – the person to consult is the research scientist.
 
 An analogy to the field of medicine, a field with similarly high-stakes consequences, is helpful.
-The epidemiologist who researches disease has a very different role and skill set than the doctor who treats patients [^2].
+The epidemiologist who researches disease has a very different role and skill set than the doctor who treats patients[^2].
 If one wants to know about the effects of a disease on a population or how to slow the spread of an emerging virus, it is far more effective to consult the epidemiologist; if one wants to know how to treat a patient afflicted, then the doctor is the appropriate expert to consult.
 
 [^2]: Another relevant and important distinction is between interested and disinterested parties.
@@ -274,7 +274,7 @@ This is the situation that currently exists with black-box studies of firearms e
 As a result, it is not possible to take the total set of validation studies and argue that they have convergent validity.
 Moreover, even if we look past the flaws, results from studies of repeatability and reproducibility suggest that firearms and toolmark examination is neither  repeatable nor reproducible, and thus, is not scientifically valid.
 
-[^convergent-validity-nuance]: Developing convergent validity through multiple studies with different flaws is an exercise in nuance, expert evaluation, and time. For instance, a 1954 study showed an association between smoking and cancer by examining a cohort of British doctors [@dollMortalityDoctorsRelation1954] -- hardly a random sample of the population. However, these studies were soon backed up by other studies on different populations in different locations, conducted using different surveys and methods of experimental control, including prospective studies and twin studies in addition to cohort studies  [@bestCanadianStudyMortality1961;@dollMortalityRelationSmoking1964;@hammondSmokingRelationMortality1964;@weirSmokingMortalityProspective1970;@fribergMortalityTwinsRelation1973]. While it was not ethical to conduct the gold standard randomized controlled trial to demonstrate a causal effect, eventually the accumulation of evidence from many studies led to a general consensus that smoking causes cancer, despite the lack of randomized controlled trials supporting this relationship. It is not that every study must be perfect, but rather that studies must be high quality, with large samples and good experimental designs, and that every study cannot have the same flaws or methods of experimental control. Note that this does not imply that every collection of studies with different flaws can be used to establish convergent validity.
+[^convergent-validity-nuance]: Developing convergent validity through multiple studies with different flaws is an exercise in nuance, expert evaluation, and time. For instance, a 1954 study showed an association between smoking and cancer by examining a cohort of British doctors[@dollMortalityDoctorsRelation1954] -- hardly a random sample of the population. However, these studies were soon backed up by other studies on different populations in different locations, conducted using different surveys and methods of experimental control, including prospective studies and twin studies in addition to cohort studies[@bestCanadianStudyMortality1961;@dollMortalityRelationSmoking1964;@hammondSmokingRelationMortality1964;@weirSmokingMortalityProspective1970;@fribergMortalityTwinsRelation1973]. While it was not ethical to conduct the gold standard randomized controlled trial to demonstrate a causal effect, eventually the accumulation of evidence from many studies led to a general consensus that smoking causes cancer, despite the lack of randomized controlled trials supporting this relationship. It is not that every study must be perfect, but rather that studies must be high quality, with large samples and good experimental designs, and that every study cannot have the same flaws or methods of experimental control. Note that this does not imply that every collection of studies with different flaws can be used to establish convergent validity.
 
 ## Firearms and Toolmark Examination
 
@@ -295,7 +295,7 @@ The AFTE Range of Conclusions includes three types of inconclusive conclusions, 
 [^5]: AFTE Theory of Identification and AFTE Range of Conclusions, https://nij.ojp.gov/nij-hosted-online-training-courses/firearms-examiner-training/module-09/afte-theory-identification. Some laboratories (and some validation studies) use a three-category scale (ID, INC, EL) while others use the full five-category scale. 
 
 There are many ways to attempt to quantify how often judgments are wrong, and it is important to fully understand the strengths and weaknesses of each potential approach.
-In the field of medicine, for example, the National Institutes of Health (NIH) has very strict, codified  requirements that ensure that the design of validation studies meet the highest standards, and the Food and Drug Administration (FDA) regulates and ensures the validation of tests licensed for use on patients [@nationalinstitutesofhealthInclusionWomenMinorities2022].
+In the field of medicine, for example, the National Institutes of Health (NIH) has very strict, codified  requirements that ensure that the design of validation studies meet the highest standards, and the Food and Drug Administration (FDA) regulates and ensures the validation of tests licensed for use on patients[@nationalinstitutesofhealthInclusionWomenMinorities2022].
 There is currently no similar oversight mandating appropriately designed studies in the field of firearms and toolmark analysis.
 As such, the fact that a study was performed, or even published, does not mean that the results are reliable.
 One has to evaluate the design of the studies to determine whether they meaningfully contribute to the overall scientific validity of the discipline.
@@ -303,18 +303,18 @@ One has to evaluate the design of the studies to determine whether they meaningf
 ## Stages of Scientific Support for Firearms and Toolmark Analysis
 
 Examiners did not always claim to be able to match a specific fired bullet to a specific gun.
-At the inception of firearms examination as a discipline, examiners made claims supported by their individual experience, borne of an understanding of the mechanics of firearms and the (relatively new) ability to accurately measure minute details of the firearm and ammunition [@hallMissileWeapon1900].
+At the inception of firearms examination as a discipline, examiners made claims supported by their individual experience, borne of an understanding of the mechanics of firearms and the (relatively new) ability to accurately measure minute details of the firearm and ammunition[@hallMissileWeapon1900].
 These claims were supported by descriptive data, in that measurements were made in a laboratory setting, but examiners did not make source identification decisions nor establish any systematic data collection that would allow for inference that two bullets or cartridge cases were fired by the same gun.
 
-By the 1930s Valentine’s Day Massacre, however, examiners began to make claims about the individualizing nature of the firearms manufacturing process [@goddardValentineDayMassacre1930].
+By the 1930s Valentine’s Day Massacre, however, examiners began to make claims about the individualizing nature of the firearms manufacturing process[@goddardValentineDayMassacre1930].
 These claims were still unsupported by any systematic data collection, but the claims were more expansive than previous written records which highlighted descriptive characteristics and did not attempt to draw a direct connection between fired ammunition and a specific weapon.
 Examiners had moved on to inferential claims, where the accumulated “data” of their past experiences were used to support more general claims about the methodology used in firearms and toolmark identification.
-Over the next 60 years, the field focused on research into the investigative method and procedures, with some forays into initial attempts at quantitative evaluation methods [@biasottiStatisticalStudyIndividual1959].
+Over the next 60 years, the field focused on research into the investigative method and procedures, with some forays into initial attempts at quantitative evaluation methods[@biasottiStatisticalStudyIndividual1959].
 The next development of interest to the Court addressed the question of examiners’ ability to apply a procedure to evaluate a set of samples of known provenance and come up with the correct answer.
 Such "black-box" studies are so called because they treat the examiner and evaluation procedure as an unobservable entity and evaluate only the resulting answer (rather than assessing the reasoning behind it).
 The subjective, visual comparisons performed during examiner evaluations cannot be tested step-by-step, a marked difference from disciplines like DNA where each step of a lab test can be audited separately.
 
-One of the first studies to attempt to test examiners’ ability to reach the correct conclusion was Brundage (1994) [@brundageIdentificationConsecutivelyRifled1994], which served as a model for error-rate studies in firearms and toolmark analysis for the next 15-20 years, with updated data published as recently as 2019 [@hambyWorldwideStudyBullets2019].
+One of the first studies to attempt to test examiners’ ability to reach the correct conclusion was Brundage (1994)[@brundageIdentificationConsecutivelyRifled1994], which served as a model for error-rate studies in firearms and toolmark analysis for the next 15-20 years, with updated data published as recently as 2019[@hambyWorldwideStudyBullets2019].
 Unfortunately, the design of the Brundage-Hamby studies is deeply flawed.
 The re-use of this study design has resulted in a collection of studies that cannot be relied upon when calculating error rates.
 These studies have two separate but related design flaws which, on their own, render the results unhelpful in understanding the performance of the method: they use multiple unknown and known samples in the same test kit, and they are “closed-set” studies, meaning examiners know that all unknown samples have a matching known source[^6],  introducing a sudoku-like logic puzzle to the study which is not present in case work.
@@ -354,7 +354,7 @@ The treatment of inconclusive responses is also a significant issue discussed be
     If the materials are difficult comparisons, then less-skilled or less-confident examiners may dropout because they do not want to increase the published error rates for the discipline.
     Of course, there are other reasons participants may dropout, such as casework overloads, but the fact that there are explanations for the dropout rate that would be related to the calculated error rate make the estimates generated from these studies statistically questionable.
     That the researchers do not account for these issues when calculating possible error rates (as is common in other disciplines with participant dropout, such as medicine) is much more problematic.
-    To date, only one study [@hicklinAccuracyReproducibilityBullet2024] has completed a basic analysis of participant dropout during the study. 
+    To date, only one study[@hicklinAccuracyReproducibilityBullet2024] has completed a basic analysis of participant dropout during the study. 
     While the analysis was minimal and the error rate calculations were not adjusted to account for the dropout rate, it is encouraging that studies are beginning to conform to minimal expectations for scientific validity.
 
 [^11]: Most scientific studies involving humans take place on volunteer samples.
@@ -365,21 +365,17 @@ The treatment of inconclusive responses is also a significant issue discussed be
 
 As the discipline of firearms and toolmark analysis has matured, and as pressure to validate the conclusions made by examiners using scientific studies of the examination process has increased, more sophisticated study designs have been developed which provide more nuanced ways to assess the discipline than raw error rates.
 The most recent studies to be released examine not only the error rate but also the repeatability and reproducibility of examiner conclusions when assessing both bullets and cartridge cases.
-The first study, colloquially known as Ames II, was published across a suite of papers examining, in turn, the design, accuracy, repeatability, and reproducibility of firearms comparisons [^ames2exp].
+The first study, colloquially known as Ames II, was published across a suite of papers examining, in turn, the design, accuracy, repeatability, and reproducibility of firearms comparisons[^ames2exp].
 The second study, @hicklinAccuracyReproducibilityBullet2024, was completed in collaboration with a NIST forensic scientist, and examines the effects of different ammunition, polygonal rifling, and other factors on accuracy, repeatability, and reproducibility.
 While these studies have many of the same flaws identified in other modern studies, the designs are much improved from the closed-set studies that previously dominated the field, and demonstrate that it is possible to design studies that directly answer questions of interest to the Court: is firearms analysis repeatable and reproducible?
 Do the method’s error rates support its conclusions?
 
-[^ames2exp]: [@bajicValidationStudyAccuracy2020] is the full 127 page report of the Ames Laboratory to the FBI, comprehensively detailing data and analysis estimating accuracy, repeatability, and reproducibility inter alia of forensic firearms examinations.
+[^ames2exp]: @bajicValidationStudyAccuracy2020 is the full 127 page report of the Ames Laboratory to the FBI, comprehensively detailing data and analysis estimating accuracy, repeatability, and reproducibility inter alia of forensic firearms examinations.
     It was released to the public in early 2021 and then withdrawn.
     Since then, portions have been republished, but differences between the original report and the publications are interesting. 
-    Additional publications include 
-    - @monsonPlanningDesignLogistics2022
-    - @baldwinStudyExaminerAccuracy2023
-    - @monsonAccuracyComparisonDecisions2023, and 
-    - @monson2023repeatability.
+    Additional publications include @monsonPlanningDesignLogistics2022, @baldwinStudyExaminerAccuracy2023, @monsonAccuracyComparisonDecisions2023, and @monson2023repeatability.
 
-## The Current Domain-Wide Error Rate of Firearms Examination is Unknown
+# The Current Domain-Wide Error Rate of Firearms Examination is Unknown
 
 While research in FATM analysis has matured since the publication of the 2009 NRC and 2016 PCAST reports, there are significant and unaddressed problems with the design of the recent studies beyond the design of the test problem.
 Addressing these issues is not an impossible task.
@@ -413,7 +409,7 @@ The sections below discuss the issues in research design, both acknowledged by t
 Even looking only at factors that have been acknowledged, it is clear that the reported error rates are incorrect and misleading.
 Without further research, however, it is impossible to know how significant an effect the unacknowledged factors have on the true error rate for the discipline.
 
-### Acknowledged Research Design Issues
+## Acknowledged Research Design Issues
 
 The following section discusses those issues which have been acknowledged by the firearms and tool mark community, though they remain largely unresolved.
 
@@ -421,9 +417,9 @@ The following section discusses those issues which have been acknowledged by the
 options(digits=1)
 ```
 
-#### Reported Error Rates
+### Reported Error Rates
 
-Current validation studies report error rates for the method between zero [@michellecazesValidationStudyResults2013; @hambyWorldwideStudyBullets2019; @brundageIdentificationConsecutivelyRifled1994] and `{r} (200 + 322)/4620*100`% [@mattijssenValidityReliabilityForensic2020].
+Current validation studies report error rates for the method between zero[@michellecazesValidationStudyResults2013; @hambyWorldwideStudyBullets2019; @brundageIdentificationConsecutivelyRifled1994] and `{r} (200 + 322)/4620*100`%[@mattijssenValidityReliabilityForensic2020].
 <!-- Page 7 of the study -- ss judgment + comparison, 2726, ss judgment, ds comparison, 322, ds judgment, ss comparison, 200, ds judgment + comparison, 1372 -->
 A zero percent error rate for any method, much less a subjective method using human judgment, is not scientifically plausible[^15].
 Modern studies conducted with open-set kit designs involving a sufficiently large number of participants tend to report nonzero error rates^[@neumanBlindTestingFirearms2022 reports a zero error rate but has only 264 bullet and 265 cartridge comparisons within a single forensic lab. @keislerIsolatedPairsResearch2018 has many comparisons and reports a zero error rate and is perhaps the only modern study to report such an error rate.].
@@ -432,7 +428,7 @@ Modern studies conducted with open-set kit designs involving a sufficiently larg
 [^15]: "Although there is limited information about the accuracy and reliability ... claims that these analyses have zero error rates are not scientifically plausible.", pg. 142, @NRCStrengthening2009
 
 
-#### Inconclusive Responses
+### Inconclusive Responses
 
 One complication in calculating the error rates for firearms and tool mark examination is that the AFTE Theory of Identification (ToI) does not directly correspond with the physical state of the evidence, which is either from the same gun or from different guns.
 Instead, the AFTE ToI allows for an examiner to make an identification (same gun), elimination (different gun), or to make an inconclusive decision, indicating that there is insufficient information to make either definitive conclusion.
@@ -448,7 +444,7 @@ We do not know how the examiner would have performed on the four (potentially mo
 In this example, counting the four unanswered questions as correct (2) generates a `{r} 3/10*100`% error rate.
 Counting the inconclusive responses as wrong (3) leads to a `{r} 7/10*100`% error rate.
 That these methods generate different error rates **for the same data** is illustrative of the larger problem with the calculation of error rates amid inconclusive results.
-Unsurprisingly, there is some disagreement between scientists about how inconclusives should be handled and whether they are appropriate [@dorfmanInconclusivesErrorsError2022; @inconclusives; @drorCannotDecideFine2019;@biedermannAreInconclusiveDecisions2019].
+Unsurprisingly, there is some disagreement between scientists about how inconclusives should be handled and whether they are appropriate[@dorfmanInconclusivesErrorsError2022; @inconclusives; @drorCannotDecideFine2019;@biedermannAreInconclusiveDecisions2019].
 
 ```{r}
 options(digits=2)
@@ -458,10 +454,10 @@ Firearms evidence is the product of a small, controlled explosion; as a result, 
 In some cases, there may not be sufficient marks recorded to decide; however, if this were the case, it should be equally likely that an examiner would be unable to make a decision using same-source or different-source evidence.
 In studies conducted in the United States with US-trained examiners, inconclusives are overwhelmingly used for different-source evidence as opposed to same-source evidence.
 Studies of European examiners show a much smaller discrepancy between the use of inconclusives for same-source and different-source evidence. 
-This result may be due to the AFTE conclusion scale, lab policies about the use of inconclusives,^[Lab policies have been the root cause of other scandals in forensic evidence, as in @giannelliNorthCarolinaCrime2012a.] or the training process used for US examiners may increase this bias,[@inconclusives] but the existence of a bias in the use of inconclusives is clear. 
+This result may be due to the AFTE conclusion scale, lab policies about the use of inconclusives,^[Lab policies have been the root cause of other scandals in forensic evidence, as in @giannelliNorthCarolinaCrime2012a.] or the training process used for US examiners^[@inconclusives posits that the training process for US examiners may explain or partially explain the over-representation of different-source comparisons in inconclusive decisions.], but the existence of a bias in the use of inconclusives is clear. 
 
 
-#### Repeatability and Reproducibility
+### Repeatability and Reproducibility
 
 Recent data on the consistency of examiner decisions further undermines the discipline’s claim of a low and well-understood error rate. 
 While careful handling of inconclusives in error rate calculations can result in relatively low nominal error rates, when assessing reproducibility and repeatability, inconclusives (among other factors) cannot be so easily ignored.
@@ -469,7 +465,7 @@ The discipline now has two studies that evaluate accuracy, repeatability, and re
 While these studies are flawed, they do meet many of the criteria for design provided in the NRC and PCAST reports: open-set, kit-based studies where examiners can make all  possible types of errors and cannot use design information to inform their conclusions.
 These studies provide what might be considered positive proof that the discipline of firearm and tool mark (FATM) examination is not scientifically valid or reliable and would preclude the use of these examination methods even if the acknowledged and unacknowledged issues with black-box studies are ignored.
 
-Data about repeatability and reproducibility come from two recent studies that have examined all three components of scientific validity, the study colloquially known as Ames II [@bajicValidationStudyAccuracy2020; @monsonPlanningDesignLogistics2022; @baldwinStudyExaminerAccuracy2023; @monsonAccuracyComparisonDecisions2023; @monson2023repeatability] and @hicklinAccuracyReproducibilityBullet2024. 
+Data about repeatability and reproducibility come from two recent studies that have examined all three components of scientific validity, the study colloquially known as Ames II[@bajicValidationStudyAccuracy2020; @monsonPlanningDesignLogistics2022; @baldwinStudyExaminerAccuracy2023; @monsonAccuracyComparisonDecisions2023; @monson2023repeatability] and @hicklinAccuracyReproducibilityBullet2024. 
 Repeatability assessments involve individual examiners evaluating the same evidence at least twice during a study; reproducibility can be calculated when multiple examiners are given the same evidence for comparison during a study.
 
 In most cases, repeatability and reproducibility calculations do not consider the correctness of the decision, as these calculations are more concerned with similarity between repeated evaluations than with accuracy relative to ground truth.
@@ -483,13 +479,13 @@ Alternative analyses in both studies tried to group responses (putting either ID
 
 @fig-rep-tbl shows a schematic of a repeatability or reproducibility table, with twenty-five cells representing possible outcomes when comparisons are evaluated twice. 
 
-There are many different statistical measures of repeatability using ordered categorical scales like that used by AFTE [@perreaultReliabilityNominalData1989;@robertsAssessingReliabilityOrdered2005;@jamesReliabilityProceduresCategorical2007;@carrascoIccCountsPackageEstimate2022] but the most straightforward approach[^cat-methods] is to examine a table counting the number of trials with each possible value of first and second evaluations, similar to  @fig-rep-tbl.
+There are many different statistical measures of repeatability using ordered categorical scales like that used by AFTE[@perreaultReliabilityNominalData1989;@robertsAssessingReliabilityOrdered2005;@jamesReliabilityProceduresCategorical2007;@carrascoIccCountsPackageEstimate2022] but the most straightforward approach[^cat-methods] is to examine a table counting the number of trials with each possible value of first and second evaluations, similar to  @fig-rep-tbl.
 
 [^cat-methods]: There are as many methods for handling assessment of association between ordinal categorical data as there are disciplines in which such data arise. The papers cited here are just a sampling of papers stemming from or with examples relating to marketing, medicine, sports, and ecology. 
     While the Ames II reliability and repeatability assessments use considerably more complicated methods, these methods obscure the poor repeatability and reliability that is plainly evident in the tabular representation of the data. 
     @dorfmanReAnalysisRepeatabilityReproducibility2022 re-analyzed a preprint of the Ames II data, @morrisCommentsReanalysisRepeatability2023 criticizes this re-analysis; these discussions center primarily around the idea of observed and expected agreement between the two evaluations. 
     Fundamentally, a repeatable method would produce a table which had very few observations in off-diagonal cells in the table; this is true regardless of the proportion of same-source and different-source samples in the study, how individual examiners use the AFTE scales, and other factors cited in these discussions. 
-    It is for this reason that this brief provides the raw counts, from which most other statistical quantities for assessing repeatability can be calculated, and do not calculate Cohen's $\kappa$, intraclass correlation coefficients, $\tau$ as a measure of association between two variables, or other similar summary statistics which are difficult to interpret [@robertsAssessingReliabilityOrdered2005] and depend on the nuances of the experimental design.
+    It is for this reason that this brief provides the raw counts, from which most other statistical quantities for assessing repeatability can be calculated, and do not calculate Cohen's $\kappa$, intraclass correlation coefficients, $\tau$ as a measure of association between two variables, or other similar summary statistics which are difficult to interpret[@robertsAssessingReliabilityOrdered2005] and depend on the nuances of the experimental design.
 
 The proportion of trials where both evaluations agree is a relatively simple summary of reproducibility or repeatability; this is calculated by adding up all trials in the diagonal of the table and dividing by the total number of trials^[This is called the percentage agreement in @perreaultReliabilityNominalData1989.].
 Another quantity of interest is a conditional assessment of repeatability or reproducibility, which provides contextual information about the probability that an additional examination would match the first.
@@ -505,12 +501,12 @@ The high estimate in the Hicklin study, based on a total of `{r} sum(hicklin_rep
 It is more likely that this effect is due to the relatively small number of comparisons in the reproducibility portion of the study^[81 comparisons for traditionally rifled, same caliber, make, and model comparisons, spread across the 5 AFTE ToI categories. Some categories (INC-A, INC-C) do not have sufficient data to estimate conditional reproducibility given the initial rating.]. 
 
 Examining the Ames II estimates for reproducibility, however, we find an even more astonishing conclusion: There is a greater than 50% chance that a different examiner will come to a different conclusion when a second examination of the same evidence is conducted!
-While most labs require evidence to be examined by two different examiners, these confirmatory examinations are generally not independent [@quigleymcbridePracticalToolInformation2022a], and thus aren't evidence of reproducibility. 
+While most labs require evidence to be examined by two different examiners, these confirmatory examinations are generally not independent[@quigleymcbridePracticalToolInformation2022a], and thus aren't evidence of reproducibility. 
 
 While there is not a current threshold for acceptable accuracy, repeatability, or reproducibility of a forensic examination process, it is useful to assess these estimates in light of other areas where repeatability and reproducibility are calculated. 
 Gage R&R studies are often used to examine similar metrics of accuracy, repeatability, and reproducibility in manufacturing.
 Often, these studies use a threshold of at least 90% across all three measurements^[E.g. [https://www.1factory.com/quality-academy/guide-gage-r-and-r.html](https://www.1factory.com/quality-academy/guide-gage-r-and-r.html) and [https://sixsigmastudyguide.com/repeatability-and-reproducibility-rr/](https://sixsigmastudyguide.com/repeatability-and-reproducibility-rr/) both suggest 90% thresholds for 'Attribute' studies with counts and categorical observations; online sources are cited primarily because they are easily referenced and accessed, compared with niche statistics textbooks which cover these types of studies.], but stricter standards might be applied in situations with a low tolerance for errors, such as the manufacturing of nuclear or aviation-related components. 
-In medicine, where cancer detection from medical imaging is performed by trained specialists, standards for reproducibility and repeatability vary depending on the imaging resolution and location^[Studies report reproducibility values of of 75% [@fisetRepeatabilityReproducibilityMRIbased2019], approximately 90% [@haarburgerRadiomicsFeatureReproducibility2020], 90.7% [@pesapaneInterReaderAgreementDiffusionWeighted2021], and ~95% reproducibility [@fisetRepeatabilityReproducibilityMRIbased2019] on clinically significant measurements and identifications. In studies examining the locations of clinically significant features, percent disagreement has been converted to percent agreement based on the metrics for biological significance described in the papers.]. 
+In medicine, where cancer detection from medical imaging is performed by trained specialists, standards for reproducibility and repeatability vary depending on the imaging resolution and location^[Studies report reproducibility values of of 75%[@fisetRepeatabilityReproducibilityMRIbased2019], approximately 90%[@haarburgerRadiomicsFeatureReproducibility2020], 90.7%[@pesapaneInterReaderAgreementDiffusionWeighted2021], and ~95% reproducibility[@fisetRepeatabilityReproducibilityMRIbased2019] on clinically significant measurements and identifications. In studies examining the locations of clinically significant features, percent disagreement has been converted to percent agreement based on the metrics for biological significance described in the papers.]. 
 
 The estimates of $<75$% repeatability and $<50$% reproducibility in FATM examination suggest that the current process has insufficient scientific validity. 
 @pcast required there to be at least two well-designed studies with similar results conducted by different research groups to declare a discipline valid. 
@@ -520,43 +516,43 @@ While there are not two studies that produce estimates for reproducibility that 
 By the standards of general scientific acceptance of methodology, FATM analysis has a long way to go. 
 
 
-#### Non-Response Bias
+### Non-Response Bias
 
 It is common for studies involving human subjects to involve some degree of dropout or nonresponse. 
 Individuals may agree to participate in a survey and then fail to start or complete the full set of questions (dropout) or they may leave some survey questions unanswered (item nonresponse). 
 There are many statistical methods to handle these problems^[There are, in fact, entire areas of statistical research devoted to such methods. For some examples, see @kimStatisticalMethodsHandling2022, @littleStatisticalAnalysisMissing2020, @thenationalacademyofsciencePreventionTreatmentMissing2010.].
 Before addressing these problems, researchers must acknowledge them.
-In most studies, the limitations due to nonresponse and dropout bias are not acknowledged; in studies that report participant dropout rates, dropout is not factored into the estimation process, essentially sweeping the problem under the rug [@khanHierarchicalBayesianNonresponse2023]. 
-No study utilizes common statistical methods for assessing the impact of nonresponse and dropout bias [@woodAreMissingOutcome2004], though @hicklinAccuracyReproducibilityBullet2024 reports a simple exploratory analysis to determine whether there were large accuracy differences between participants who completed all phases of the study and participants who dropped out mid-study.
+In most studies, the limitations due to nonresponse and dropout bias are not acknowledged; in studies that report participant dropout rates, dropout is not factored into the estimation process, essentially sweeping the problem under the rug[@khanHierarchicalBayesianNonresponse2023]. 
+No study utilizes common statistical methods for assessing the impact of nonresponse and dropout bias[@woodAreMissingOutcome2004], though @hicklinAccuracyReproducibilityBullet2024 reports a simple exploratory analysis to determine whether there were large accuracy differences between participants who completed all phases of the study and participants who dropped out mid-study.
 
 
-#### Data Availability
+### Data Availability
 
 More troubling, most FATM error-rate studies (Hicklin is again the exception) do not release any data to facilitate other researchers filling in these gaps. 
-In other scientific disciplines, these oversights may render a study unpublishable, as many journals require data availability statements or publication of data alongside the study^[@choiCompliancePrinciplesTransparency2019. This does vary significantly by discipline [@tedersooDataSharingPractices2021], but rates in all disciplines for data sharing are higher than those in FATM studies. Medical journals are more varied: national policies require sharing of protein and DNA sequence information, but sharing of clinical information is not required by policy [@huhRecentTrendsMedical2019].]. 
+In other scientific disciplines, these oversights may render a study unpublishable, as many journals require data availability statements or publication of data alongside the study^[@choiCompliancePrinciplesTransparency2019. This does vary significantly by discipline[@tedersooDataSharingPractices2021], but rates in all disciplines for data sharing are higher than those in FATM studies. Medical journals are more varied: national policies require sharing of protein and DNA sequence information, but sharing of clinical information is not required by policy[@huhRecentTrendsMedical2019].]. 
 Analysis of the effect of participant attrition on the calculated statistics of interest would be required in most pharmaceutical studies. 
 In addition, the convention in many disciplines is that data are made available upon request, or, more commonly, are published alongside the paper in a repository to ensure the data are preserved for future study. 
-That the researchers in firearms and tool marks do not publish their data or release it to interested researchers is a demonstration of the distance between the status quo in this discipline and the scientific method as it is practiced in most other disciplines; even some studies in other pattern matching disciplines, such as handwriting, have published participant responses in anonymized form [@hicklinAccuracyReliabilityForensic2022].
-This is of particular concern in cases such as the Ames II study, where the analysis methods used are questionable [@dorfmanReAnalysisRepeatabilityReproducibility2022], and researchers are not willing to release the data upon request despite the study being funded by agencies within the federal government.
+That the researchers in firearms and tool marks do not publish their data or release it to interested researchers is a demonstration of the distance between the status quo in this discipline and the scientific method as it is practiced in most other disciplines; even some studies in other pattern matching disciplines, such as handwriting, have published participant responses in anonymized form[@hicklinAccuracyReliabilityForensic2022].
+This is of particular concern in cases such as the Ames II study, where the analysis methods used are questionable[@dorfmanReAnalysisRepeatabilityReproducibility2022], and researchers are not willing to release the data upon request despite the study being funded by agencies within the federal government.
 Failure to release data prevents other researchers from identifying methodological issues, limits the ability to conduct meta-analyses and obtain better cross-study estimates, and makes it difficult to conduct research in forensics. 
 
-### Unacknowledged Issues with Research Design
+## Unacknowledged Issues with Research Design
 
-#### Hawthorne Effect
+### Hawthorne Effect
 
 When evaluating validation studies, one has to consider the extent to which the experiment measures the real-life thing of interest.
 As just one example, when participants in a study are aware they are being observed, this can affect their behavior. 
 This phenomenon is sometimes known as the Hawthorne effect.  
 This variable can be studied or controlled.
 
-There is at least one study that used blind proficiency testing intermixed with casework [@neumanBlindTestingFirearms2022]. 
+There is at least one study that used blind proficiency testing intermixed with casework[@neumanBlindTestingFirearms2022]. 
 Thus, while the examiners knew they would be tested they did not know which item was a test and which was actual casework.
 Much of the current research, however, does not acknowledge the potential impact of the Hawthorne effect^[With the notable exception of @hicklinAccuracyReproducibilityBullet2024, which mentions it but does not attempt to mitigate the effect in any way: "The impact of the Hawthorne effect in a study such as this is not known: although the participants were instructed to conduct the comparisons with the same diligence employed in their operational casework, we can hypothesize that some participants may have been less diligent because it was not casework and the test was anonymous, with no personal consequences for performance — or some may have been more diligent because they were motivated to perform their best for the good of the profession."].
 One possible example of how this could impact study results lies in the high percentage of inconclusive responses seen in many of the error-rate studies.
-Examiners may modify their behavior and reach inconclusive decisions at a higher rate because they know the potential effects of a false positive in a validation study, or they could be more likely to make a conclusive decision on a proficiency test because they perceive conclusive decisions as more desirable [@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024; page 9 - Examiner 1 interview.].
+Examiners may modify their behavior and reach inconclusive decisions at a higher rate because they know the potential effects of a false positive in a validation study, or they could be more likely to make a conclusive decision on a proficiency test because they perceive conclusive decisions as more desirable[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024; page 9 - Examiner 1 interview.].
 Without further study, the effect of this factor on error rate estimates is unknown.
 
-#### Sampling Bias {#sec-sampling-bias}
+### Sampling Bias {#sec-sampling-bias}
 
 Even well-designed and well-executed studies cannot compensate for sampling bias in the participant pool.
 If the participants in the study do not make up a representative sample of the population (in this case, firearms, ammunition, and toolmark examiners in the United States), the results of the study cannot be generalized.
@@ -566,9 +562,9 @@ Nearly all available studies rely on participants to volunteer[^hfsc-study].
 This is, of course, consistent with the practices of many other disciplines, such as clinical trials in medicine[^consent].
 With a self-selected sample of participants it becomes even more critical to take steps to ensure the participants are representative of the population of interest. 
 Individuals who have the interest, time, and/or lower caseloads to participate in studies may not be representative of the wider population of firearms examiners.
-In addition, some studies [@baldwinStudyFalsePositiveFalseNegative2014] exclude examiners who are not actively working on casework, including expert witnesses who were firearms examiners by training.
+In addition, some studies[@baldwinStudyFalsePositiveFalseNegative2014] exclude examiners who are not actively working on casework, including expert witnesses who were firearms examiners by training.
 These different inclusion criteria result in differences in the appropriate populations the study results might generalize to, and open up the potential for alternate explanations based on "lurking variables"^[For instance, it is possible that experienced examiners are more likely to volunteer to participate in these studies out of a sense of duty to the discipline: these examiners might have lower error rates due to their experience, which would lead to an estimated error rate that is lower than the error rate of the general population of all firearms examiners (including those who are inexperienced).
-In fact, studies which differentiate between trainee and qualified examiners  often find a higher error rate among trainees [@duezDevelopmentValidationVirtual2018]; this effect is also found in medical studies [@pesapaneInterReaderAgreementDiffusionWeighted2021]. Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
+In fact, studies which differentiate between trainee and qualified examiners  often find a higher error rate among trainees[@duezDevelopmentValidationVirtual2018]; this effect is also found in medical studies[@pesapaneInterReaderAgreementDiffusionWeighted2021]. Not all potential biases are this direct: it is possible that examiners who have time to volunteer to participate in studies would tend to have lower case loads.
 Thus, these examiners would be over-represented in the study-wide estimate of the error rate, in that they account for fewer cases than the examiners who do not have time to participate in a voluntary study.
 As a result, the estimated error rate from the study would not be representative of the error rate of all examiners. 
 It is important to note that no one can determine which of these effects may be true: both are plausible, but without a random selection method, studies are vulnerable to many different arguments about systematic participant selection bias.
@@ -583,23 +579,23 @@ This issue is entirely unaddressed in current error-rate studies.
 
 
 [^consent]: Current federal guidelines for the conduct of research (45 CFR 46.103) require that study participation be voluntary.
-    Voluntary participation is somewhat difficult to define; for instance, some error-rate studies mention that participants were compelled to participate by their employer: "to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers." [@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer [@neumanBlindTestingFirearms2022].
+    Voluntary participation is somewhat difficult to define; for instance, some error-rate studies mention that participants were compelled to participate by their employer: "to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community. A total of 169 latent print examiners participated; most were self-selected volunteers, while the others were encouraged or required to participate by their employers."[@uleryAccuracyReliabilityForensic2011]. In addition, there is now at least one published blind proficiency test study conducted by an employer[@neumanBlindTestingFirearms2022].
     If employer-compelled participation still meets the bar for voluntary participation, that provides one route to obtain a more representative sample free from self-selection bias.
     Researchers might be able to use a cluster sampling approach, sampling first the laboratories accredited by an outside organization and then sampling from within each lab to get participants. 
     Another option would be to use snowball sampling, where an initial set of known examiners are asked to provide names of other examiners working in the field, and so on, until a reasonable subset of the population is assembled; researchers could then randomly sample from this generated sampling frame.
     While neither of these approaches are a simple random sample, either one would likely provide a more representative approach to sampling from the population of examiners employed by accredited laboratories, and would thus produce results with more external validity than existing black-box studies.
 
-#### Participant and Experimenter Biases
+### Participant and Experimenter Biases
 
 An additional factor lurking beneath the surface in the discussion of participant recruitment in black-box studies is that anyone participating in these studies has a financial and reputational stake in the study outcome. 
 In this, forensic examiners serve not only as experimenters (as many of these experiments are run by or in consultation with examiners) but also as participants, reviewers, and beneficiaries.
-When things go wrong, as in a recent proficiency test which had a much higher than expected false positive rate ^[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024. 61/280 participants, or 21.8% had at least one false identification out of four comparisons on the proficiency test.], examiners are also the investigators and judges; the cause analysis report was created by an ad-hoc AFTE committee and the report was released to AFTE members^[The report was available on the AFTE website and did not require password access, but would have been hard to find without the emailed link. It has since been archived with The Internet Archive (https://archive.org/details/ptrc-final-report-2024-11-25) to ensure that it remains available.]. 
+When things go wrong, as in a recent proficiency test which had a much higher than expected false positive rate^[@proficiencytestreviewadhoccommitteeReportAssociationFirearm2024. 61/280 participants, or 21.8% had at least one false identification out of four comparisons on the proficiency test.], examiners are also the investigators and judges; the cause analysis report was created by an ad-hoc AFTE committee and the report was released to AFTE members^[The report was available on the AFTE website and did not require password access, but would have been hard to find without the emailed link. It has since been archived with The Internet Archive (https://archive.org/details/ptrc-final-report-2024-11-25) to ensure that it remains available.]. 
 
 In DNA forensics, there are non-forensic applications of the same technology that ensure that the threshold for "general scientific acceptance" extends beyond the relatively tight-knit group of forensic examiners. 
 In pattern evidence, and particularly in FATM examination, there are very few outside applications of the same techniques, which leads to insularity in the discipline - participants in studies may serve as peer reviewers for another study and design and execute their own study; this helps perpetuate and normalize poor experimental design decisions.
 
 Naturally, examiners feel a very real investment in the results of the studies they participate in, and may have a sense of collective responsibility to not provide any reason to express doubt in the accuracy or validity of a specific process, lest it be used against the entire community.
-This bias has been noted as a threat to external validity in *United States v. Adams* ^[444 F.Supp.3d 1248 (D. Or. 2020).]: test takers know that under AFTE rules, the only way to do poorly is to record a false positive, creating an incentive to answer inconclusive instead, resulting in an underestimate of the false positive rate in tests compared to real-world examinations. 
+This bias has been noted as a threat to external validity in *United States v. Adams*^[444 F.Supp.3d 1248 (D. Or. 2020).]: test takers know that under AFTE rules, the only way to do poorly is to record a false positive, creating an incentive to answer inconclusive instead, resulting in an underestimate of the false positive rate in tests compared to real-world examinations. 
 While the best way to address this bias would be to have FATM studies conducted by scientists outside the discipline, this is difficult to achieve: participant recruitment, effective material selection, and a host of other considerations impact the ability of outside scientists to effectively study FATM error rates. 
 Blinding the study is another possible solution, in that if participants do not know they are participating in a study, it is harder for their sense of responsibility to the discipline to skew the results of the study. 
 Unfortunately, blinding FATM error rate studies is a logistical nightmare, as the study materials must be added to case management systems in a way that is compatible with the policies and procedures of each separate lab, without missing contextual information providing clues that the evidence is part of a study^[Participant consent is another obstacle in blinded studies that would need to be addressed, as within-lab studies such as @neumanBlindTestingFirearms2022 may handle consent for blinded testing differently than a study involving many different forensic labs and organizations.].
@@ -614,15 +610,15 @@ As FATM studies may be influenced by examiner biases and expectations as well as
     Some studies make an effort to at least not exclude participants, such as the @uleryAccuracyReliabilityForensic2011 study: "to get a broad cross-section of the latent print examiner community, participation was open to practicing latent print examiners from across the fingerprint community." 
     However, many FATM studies arbitrarily adopt inclusion criteria requiring that participants be active examiners employed by a crime lab, currently conducting firearms examinations, members of AFTE, etc.
     For example, the Ames II study has a number of inclusion criteria.
-    It is not clear how the inclusion criteria were applied because the technical report [@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's [@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
+    It is not clear how the inclusion criteria were applied because the technical report[@bajicValidationStudyAccuracy2020] of the study's inclusion criteria disagrees with a peer-reviewed paper's[@monson2022planning] description of the inclusion requirements with the use of "and" and "or" for the listed conditions.
     
-    -   "Only respondents who returned a signed consent form and were currently conducting firearm examinations and were members of AFTE, or else were employed in the firearms section of an accredited crime laboratory within the U.S. or a U.S. territory were accepted into the study." [@bajicValidationStudyAccuracy2020]
-    -   "Participation was limited to fully qualified examiners who were currently conducting firearm examinations, were members of AFTE, and were employed in the firearms section of an accredited public crime laboratory within the U.S. or a U.S. territory." [@monson2022planning]
+    -   "Only respondents who returned a signed consent form and were currently conducting firearm examinations and were members of AFTE, or else were employed in the firearms section of an accredited crime laboratory within the U.S. or a U.S. territory were accepted into the study."[@bajicValidationStudyAccuracy2020]
+    -   "Participation was limited to fully qualified examiners who were currently conducting firearm examinations, were members of AFTE, and were employed in the firearms section of an accredited public crime laboratory within the U.S. or a U.S. territory."[@monson2022planning]
 
-#### Firearm and Ammunition Selection
+### Firearm and Ammunition Selection
 
 In addition to worries about sampling bias among participants in the studies, the firearms studied must also be representative of the population seen in casework.
-The studies to date tend to focus on a single firearm  [@baldwinStudyFalsePositiveFalseNegative2014] or a small sample of firearms; studies that attempt to handle many different types of firearms and ammunition often have insufficient participants to reach reliable statistical estimates [@hicklinAccuracyReproducibilityBullet2024].
+The studies to date tend to focus on a single firearm[@baldwinStudyFalsePositiveFalseNegative2014] or a small sample of firearms; studies that attempt to handle many different types of firearms and ammunition often have insufficient participants to reach reliable statistical estimates[@hicklinAccuracyReproducibilityBullet2024].
 Neither scenario supports extrapolating the results to the entire population of possible firearms.
 It is essential to have a wide array of studies, where some focus on a single firearm and ammunition combination and others consider many different types of firearms and ammunition, with each study designed to have enough participants to support robust estimation of the factors considered in the study.
 
@@ -635,7 +631,7 @@ Even in cases where statisticians are on the research team, such as Ames I and I
 While the lack of concern with these types of bias in forensic science seems to be a cultural problem within the forensic community, it is a problem when the legal system requires general scientific acceptance of forensic methods. 
 Until forensic science is held to the same standards as other scientific disciplines, it will not meet the bar of "general acceptance" within the scientific community.
 
-#### Comparison Difficulty {#sec-comparison-difficulty}
+### Comparison Difficulty {#sec-comparison-difficulty}
 
 Comparisons that are given to participants in black-box studies should be across a range of difficulty levels comparable to those found in casework. 
 This requires studies of the type of comparisons and difficulty of comparisons in casework (as measured by factors such as bullet damage, percent striations, and repeatability of features across multiple pieces of evidence) as well as studies that include these factors when examining error rates. 
@@ -655,22 +651,22 @@ These measures could then be applied to casework comparisons to identify the com
 Assessing error rates without tracking comparison difficulty is like conducting drug studies without controlling the amount of medication given to each patient -- it is essential information that is necessary to generalize the results to a real-world context; without it, it is difficult to imagine how a study's results could be incorporated into the body of knowledge about the discipline. 
 
 
-## Database Searches Increase Error Rates
+# Database Searches Increase Error Rates
 
 Algorithms for evaluating FATM evidence are beginning to make their way into practical application in crime labs.
 These algorithms are primarily one of two types: matching algorithms, which provide objective quantitative measures that supplement examiners' subjective opinions, and intelligence algorithms, which filter evidence and identify potential leads based on database searches.
 While matching algorithms have the potential to mitigate many of the identified issues with subjective FATM examination protocols and decrease error rates, intelligence algorithms may have the opposite effect.
 
-### Matching Algorithms
+## Matching Algorithms
 
-Objective evidence comparison algorithms ("matching algorithms") can address many of the issues with FATM examination error-rate studies: computer time is less limited than human time, attention, and effort, and algorithms generally do not experience contextual biases, the Hawthorne effect [^vwemissions], or attrition [^alg-attrition]. 
-Algorithms have been developed for matching both bullets and cartridge cases reliably [@hare2017algorithmic;@hareAutomaticMatchingBullet2017;@krishnanAdaptingChumbleyScore2019;@zemmelsStudyReproducibilityCongruent2023], and these algorithms are repeatable by default because they are deterministic -- they come to the same conclusion given the same evidence every time.
+Objective evidence comparison algorithms ("matching algorithms") can address many of the issues with FATM examination error-rate studies: computer time is less limited than human time, attention, and effort, and algorithms generally do not experience contextual biases, the Hawthorne effect[^vwemissions], or attrition[^alg-attrition]. 
+Algorithms have been developed for matching both bullets and cartridge cases reliably[@hare2017algorithmic;@hareAutomaticMatchingBullet2017;@krishnanAdaptingChumbleyScore2019;@zemmelsStudyReproducibilityCongruent2023], and these algorithms are repeatable by default because they are deterministic -- they come to the same conclusion given the same evidence every time.
 Many matching algorithms do not allow inconclusive decisions, instead making binary predictions (equivalent to allowing only identification and elimination). 
-This vastly simplifies error rates, and results from these algorithms on test sets composed of firearms not used to train the algorithm are promising [@vanderplasComparisonThreeSimilarity2020], suggesting that even with the elimination of inconclusive results as an option, a knowledgeable person using an algorithm as a tool has lower error rates than examiners alone [@nallyRugerLCPBarrel2021].
+This vastly simplifies error rates, and results from these algorithms on test sets composed of firearms not used to train the algorithm are promising[@vanderplasComparisonThreeSimilarity2020], suggesting that even with the elimination of inconclusive results as an option, a knowledgeable person using an algorithm as a tool has lower error rates than examiners alone[@nallyRugerLCPBarrel2021].
 To establish the validity of matching algorithms, then, scientists would primarily have to focus on establishing the accuracy and reproducibility of the algorithm.
 In this case, reproducibility assessment would primarily be focused on understanding algorithm limitations across different lab protocols and instruments that might be used to acquire the requisite data.
-Some of these studies are already underway^[Testing of the `bulletxtrctr` matching algorithm in a Ruger LCP barrel study, established that an algorithm applied in conjunction with human expertise had lower error rates than firearm examiners [@nallyRugerLCPBarrel2021]. NIJ Award 15PNIJ-21-GK-02192-MUMU, a project to evaluate the files produced by different 3D instruments, will establish the reproducibility of features across different instruments, along with examiner and algorithm performance when matching files generated using those instruments  [https://dr.lib.iastate.edu/handle/20.500.12876/8zn7Dgdw](https://dr.lib.iastate.edu/handle/20.500.12876/8zn7Dgdw).].
-The technology and empirical support for quantitative, objective algorithms that mimic examiner perceptions without introducing subjective opinions have already been established for several common types of firearms [@nallyRugerLCPBarrel2021;@vanderplasComparisonThreeSimilarity2020], should courts begin to require the use of quantitative, objective tools to support testimony from FATM examiners. 
+Some of these studies are already underway^[Testing of the `bulletxtrctr` matching algorithm in a Ruger LCP barrel study, established that an algorithm applied in conjunction with human expertise had lower error rates than firearm examiners[@nallyRugerLCPBarrel2021]. NIJ Award 15PNIJ-21-GK-02192-MUMU, a project to evaluate the files produced by different 3D instruments, will establish the reproducibility of features across different instruments, along with examiner and algorithm performance when matching files generated using those instruments  [https://dr.lib.iastate.edu/handle/20.500.12876/8zn7Dgdw](https://dr.lib.iastate.edu/handle/20.500.12876/8zn7Dgdw).].
+The technology and empirical support for quantitative, objective algorithms that mimic examiner perceptions without introducing subjective opinions have already been established for several common types of firearms[@nallyRugerLCPBarrel2021;@vanderplasComparisonThreeSimilarity2020], should courts begin to require the use of quantitative, objective tools to support testimony from FATM examiners. 
 
 [^vwemissions]: VW emissions testing notwithstanding, [https://www.bbc.com/news/business-34324772](https://web.archive.org/web/20250407164253/https://www.bbc.com/news/business-34324772). 
     The VW emissions scandal is an excellent illustration of why it is important for algorithms used in settings where the public has a general interest in proper function to be auditable, with source code and a testing platform made available upon request to any interested party. 
@@ -680,7 +676,7 @@ The technology and empirical support for quantitative, objective algorithms that
     Algorithms that consistently fail on multiple pieces of evidence should be re-evaluated for use in casework based on that factor alone; this is of course a much more strict approach than labs take with human examiners, and the contrast is illustrative.
 
 
-### Intelligence Algorithms
+## Intelligence Algorithms {#sec-intelligence-algs}
 
 In contrast, algorithms used for screening comparisons have the potential to significantly increase the false positive rate by identifying close non-matches.
 These "intelligence algorithms" are intended to provide investigative leads on cases as well as to provide an initial screening of the evidence to assess its potential for comparison.
@@ -693,18 +689,18 @@ Unfortunately, as the size of the database increases, so does the likelihood of 
 @vanderplasHiddenMultipleComparisons2024 describe this problem through examples that are based on wire-cut evidence in particular, but the same calculations apply to database searches.
 With a database size of $N=100$ (too small to be practically useful) and a false positive error rate of $1$% for an automated comparison, the probability of at least one false positive error across all $N=100$ comparisons required to search the database would be `{r} (1-(1-.01)^100) * 100`%. 
 Even if the error rate is reduced to 0.15%, the probability of at least one false positive error across 100 comparisons is `{r} (1-(1-.0015)^100) * 100`% - that is, it is expected that in approximately one of every 10 cases, there would be a false positive error under these conditions.
-In reality, databases contain millions of entries [^dbsize], and even if algorithms have a much lower error rate than subjective visual comparisons performed by examiners, the error rate would have to be lower than 0.0005% before the probability of at least one false positive error in a search of a million entry database drops below 1 -- that is, certainty^[With an error rate of 0.0005% for each comparison and  1 million comparisons, the probability of at least one false positive is `{r} sprintf("%.04f", (1 - (1-0.000005)^1e6))`.]. 
+In reality, databases contain millions of entries[^dbsize], and even if algorithms have a much lower error rate than subjective visual comparisons performed by examiners, the error rate would have to be lower than 0.0005% before the probability of at least one false positive error in a search of a million entry database drops below 1 -- that is, certainty^[With an error rate of 0.0005% for each comparison and  1 million comparisons, the probability of at least one false positive is `{r} sprintf("%.04f", (1 - (1-0.000005)^1e6))`.]. 
 
 [^dbsize]: The Next Generation Identification (NGI) database contains over `{r} floor((79475755+86904369-19748835)/1e6)` million fingerprints in the combination of civil and criminal fingerprint repositories; NIBIN reports containing 45 million images and 6.5 million 'pieces of evidence' (@nibin2024).
 
 There are multiple problems implicit in this result: first, it is clear that even with a very small database and a modest false positive error rate, the error rate quickly becomes unacceptably large. 
-In addition, NIBIN and BallisticsIQ are tightly controlled, preventing unaffiliated researchers from obtaining information about the algorithms used [^nibinalg], database size [^nibinsize], evidence quality[^nibinqual], false positive error rate on test sets, or any other information which would be vital to build trust in these systems.
+In addition, NIBIN and BallisticsIQ are tightly controlled, preventing unaffiliated researchers from obtaining information about the algorithms used[^nibinalg], database size[^nibinsize], evidence quality[^nibinqual], false positive error rate on test sets, or any other information which would be vital to build trust in these systems.
 As a result, even estimating the expected error rate is not currently possible.
 
-[^nibinalg]: There is at least one paper by NIST researchers, [@songNationalBallisticsImaging2012] which discusses measurement of the NIST standard bullet and cartridge case in NIBIN, but there are no error rates and the measurements that are compared are the scoring measurements, rather than any match probabilities. 
+[^nibinalg]: There is at least one paper by NIST researchers,[@songNationalBallisticsImaging2012] which discusses measurement of the NIST standard bullet and cartridge case in NIBIN, but there are no error rates and the measurements that are compared are the scoring measurements, rather than any match probabilities. 
     Score-based methods for generating match probabilities are commonly used in other applications, but providing a probability rather than a set of scores along several dimensions might increase concerns about how the tool is being used and whether it is being used to replace firearms examiners. 
-    Similarly, methods proposed in papers by NIST researchers [@chuSelectingValidCorrelation2011] and others [@heizmannAutomatedComparisonStriation2002] may have been adopted by NIBIN, but many of these papers do not contain error rates or source code implementing their algorithms.
-    Re-implementing an algorithm based solely on the methodology from the published paper is a complicated, time-intensive process that is not rewarded in academic research and does not always produce the same results [@zemmelsStudyReproducibilityCongruent2023], and even if someone went to that effort, there would still be no assurance that the error rates of the algorithm match those used in the proprietary system.
+    Similarly, methods proposed in papers by NIST researchers[@chuSelectingValidCorrelation2011] and others[@heizmannAutomatedComparisonStriation2002] may have been adopted by NIBIN, but many of these papers do not contain error rates or source code implementing their algorithms.
+    Re-implementing an algorithm based solely on the methodology from the published paper is a complicated, time-intensive process that is not rewarded in academic research and does not always produce the same results[@zemmelsStudyReproducibilityCongruent2023], and even if someone went to that effort, there would still be no assurance that the error rates of the algorithm match those used in the proprietary system.
     
 [^nibinsize]: Marketing materials sometimes release broad information, as in @nibin2024, which claims NIBIN has 6.5 million 'pieces of evidence' (presumably 3D digital scans, as the physical evidence cannot be stored in the database directly) and 45 million images, but in practice, only a fraction of these should be directly compared because of information entered about location, time, and relevant class characteristics.
 
@@ -720,7 +716,6 @@ Statistical estimation techniques rely on being able to generalize the results o
 In this case, however, the comparisons used in error-rate studies are the source of the bias: pre-screened, highly similar comparisons (whether same or different source) are not well represented in error-rate studies because the studies were not designed to address the use of screening algorithms in conjunction with visual examination. 
 It seems evident that error rates would be expected to be much higher for these comparisons, but current studies do not include a high proportion of close matches or non-matches that would generalize to a situation where algorithmic evidence screening is applied.
 
-
 Previous challenges to FATM evidence^[Abruquah v. State, 2020 WL 261722 (Md. Ct. Spec. App.)] have emphasized the importance of studies that are representative of the types of comparisons seen in casework.
 As intelligence algorithms are integrated into casework, it becomes much more critical that the use of these algorithms is disclosed^[In addition, parameters such as database size and error rate for single comparisons using the relevant matching algorithm must be disclosed so that the overall error rate and probability of one or more false positive matches can be estimated.] and that researchers conduct studies examining the error rate for close non-match comparisons arising from the use of intelligence algorithms.
 At this time, there are no studies characterizing the performance of examiners using the AFTE scale on close non-matches. 
@@ -729,34 +724,77 @@ There are also no error rates available for the screening systems that might pro
 As a result, when intelligence algorithms are used to pre-screen cases, there is even less information about the scientific validity of FATM examination than there is in cases without the use of these algorithms. 
 When NIBIN has been used to generate leads, connect related cases, or pre-screen evidence, there is currently no way to establish a reasonable error rate for firearms and tool mark examination. 
 
-### Cognitive Bias and Intelligence Algorithms
+### Cognitive Bias and Intelligence Algorithms {#sec-cog-bias}
 
 Another risk of intelligence algorithms stems from the reasonable desire to reduce evidence backlogs and FATM examiner workload. 
-It is tempting to hire technicians to enter evidence into an intelligence algorithm  and use the algorithm to identify promising cases to send examiners. 
-This strategy seems like a reasonable approach when systems are operating under reduced budgets or when there is a shortage of qualified examiners. 
+It is tempting to hire technicians to enter evidence into an intelligence algorithm, using the algorithm to identify promising cases for examiners to assess in the traditional manner. 
+This strategy seems like a reasonable approach when systems are operating under reduced budgets or when there is a shortage of qualified examiners; unfortunately, it introduces additional cognitive biases that current black-box studies do not address. 
 
-Unfortunately, under these conditions, systematic biases are introduced: examiners only see highly similar comparisons, and if they are aware of the efforts to reduce workload, they know that they are only examining comparisons which have already been flagged by the intelligence algorithm. 
-This is an extreme form of contextual bias [^context-bias-matt] that modifies examiner perceptions of the base rate of the prevalence of same-source and different-source comparisons. 
+When examiners only see highly similar comparisons, their prior odds of an identification increase (that is, their perception of the base rate of same-source and different-source comparisons changes). 
+This is even more impactful if they know that they are only examining comparisons which have already been flagged by the intelligence algorithm. 
+This is an extreme form of contextual bias[^context-bias-matt] that modifies examiner perceptions of the base rate of the prevalence of same-source and different-source comparisons. 
 Less extreme information, such as knowing the conclusion made during a verification procedure, can lead to increased conformity between examiner ratings^[@mattijssenCognitiveBiasesPeer2020a. This study was conducted in Europe and used likelihood ratios, so it is not generalizable to the United States and AFTE conclusion scales, but it provides evidence for the existence of this type of cognitive bias.]. 
+Thus, in states where such strategies are in place, including Oregon, all of the problems with the domain-wide error rate are present, along with the problems introduced by the use of intelligence algorithms, but on top of those issues, the effects of the cognitive bias of examiners primarily seeing only close non-matches and matches identified by the intelligence algorithm also have unknown effects on the error rate for FATM examination. 
 
 [^context-bias-matt]: @mattijssenImplementingContextInformation2016 classifies base-rate information as Level 4 contextual information and recommends introduction of fake cases to casework information management systems to modify examiner perceptions. While this approach could potentially work in a system which was more balanced, in systems which use e.g. NIBIN to screen all cases, it is unlikely to have the intended effect. Systems which are sufficiently overloaded with casework to rely on NIBIN are unlikely to have the resources to introduce fake cases into the case management system at all, let alone at a level that would be expected to affect examiner perceptions. 
 
+### Empirical Evidence on Intelligence Algorithms is Vital
+
+Intelligence algorithms like NIBIN are widely used across the country, though the amount of usage varies: in some jurisdictions, these databases and algorithms are used only in cases where there is not a second set of evidence to compare against -- that is, to identify links in otherwise unlinked cases. 
+In other jurisdictions, NIBIN is used to pre-screen a significant proportion of collected firearms and toolmark data, only forwarding promising cases to examiners for manual verification. 
+These two situations are statistically distinct in some ways, but both are problematic: we do not know what the error rate is for intelligence algorithms, though it will certainly be impacted by the matching algorithm used, the size of the database, the quality and type of evidence in the database, and a host of other factors.
+
+In order to begin to understand the impact of intelligence algorithms on the error rate of FATM examination, scientists would need information on intelligence algorithm error rates when evaluating evidence from black-box studies^[This is only a starting point -- as scientists examine the use of these algorithms, it is likely that additional study designs will be created to assess algorithm performance more carefully and in different ways than we assess FATM examiner performance. One benefit of algorithms is that they do not complain when asked to perform hundreds of comparisons for a study -- in this way, algorithms are fundamentally different from trained FATM examiners.]. 
+In addition, each evaluation of evidence from an intelligence algorithm would need to provide basic statistical information about the number of comparisons made and the overall database size.
+If a query is used to filter the comparisons made, then there should be information reported about the overall database size as well as the size of the reduced set of comparisons performed.
+In order to reduce the chance of "fishing", intelligence algorithm queries should be formally documented and recorded in a way that does not allow investigators to optimize the database search to reduce the theoretical number of comparisons once a match is identified.
+
+In addition to the intelligence algorithm error rates and information, however, we also need information about how examiners perform when evaluating close non-matches and same-source comparisons, under conditions with and without contextual bias. 
+That is, we need empirical evidence about the FATM examiner error rate under likely outcomes of intelligence algorithm use. 
+With this additional information, it may be possible to begin to assess the error rate when tools like NIBIN are used in different contexts. 
+However, as NIBIN and similar tools are closed and highly controlled platforms, this information is currently difficult for unaffiliated researchers to acquire (and affiliated researchers would have a conflict of interest that would potentially taint any results). 
+Until courts begin to require information from the institutions which support intelligence algorithms, it will be difficult for research in this area to proceed, and without that research, scientists and statisticians can only raise alarms over the likely outcome of large database searches -- that is, increased false identifications.
+
 # Conclusion
 
-While firearms and toolmark analysis studies have improved, the current state of the discipline is still well below the basic requirements for scientific validity applicable to other disciplines. 
+While firearms and toolmark analysis studies have improved, the current state of the discipline is still well below thresholds of scientific validity applicable to other disciplines. 
 Studies attempting to establish firearm and toolmark examination error rates are plagued with problems in statistical design, participant selection, statistical analysis, and the interpretation of estimates.
 It is critically important that there is continued research in this area, but current studies have a multitude of problems which limit the ability to generalize results to the discipline as a whole. 
+Even if the estimates are used as presented in studies like Ames II and Hicklin, which have fewer (but still persistent) problems, low rates of correct source attribution (measured by CSDR), repeatability, and reproducibility calculations indicate that subjective firearms examination methods do not have the reliability necessary to meet the bar of scientific validity or general scientific acceptance. 
 
-Even if the estimates from higher-quality studies like Ames II and Hicklin which have fewer (but still persistent) problems, low rates of correct source attribution (measured by CSDR), repeatability, and reproducibility calculations indicate that subjective firearms examination methods do not have the reliability necessary to meet the bar of scientific validity or general scientific acceptance. 
-This problem is compounded when ballistics intelligence algorithms and databases are used to identify leads, connect cases, or pre-screen comparisons. 
-FATM confirmation of automatically identified leads does not fix the fundamental problem with database searches: even when error rates are a fraction of 1%, the number of comparisons performed ensures that the likelihood of the algorithm selecting close non-match evidence is intolerably high, and the performance of examiners under these conditions is unknown.
-Assessing these factors both jointly and separately, it is apparent that current firearms and toolmark analysis methodology lacks the empirical support necessary to ensure its scientific accuracy, reproducibility, or repeatability. 
+In addition, the AFTE scale of conclusions as implemented by labs is fundamentally flawed in a way that makes scientific evaluation of the error rate of FATM examination problematic. 
+If inconclusives are errors, even if these errors are not necessarily attributable to the examiners' skill level, then examiners make the correct decision in black-box tests of bullet evaluations at rates that are worse than if they used coin flips to determine their answers (across multiple studies!). 
+Objective algorithms that evaluate the similarity of evidence do not typically utilize inconclusives, and still have error rates which are lower than examiners in head-to-head comparisons.
+This indicates that inconclusives aren't essential to the process of evaluation and calls into question the AFTE Theory of Identification rating system. 
 
+A detailed examination of one of the best (though still deeply flawed) studies to date (Ames II) even provides affirmative evidence that FATM examination does not meet the bar for scientific validity:
+
+- **Accuracy**: FATM examiners only identify the correct source (same or different) `{r} paste(paste0(unlist(round(ames2_accuracy_csdr[,2], digits = 2)), "%"), collapse = " and ")` of the time, respectively, for cartridge cases and bullets. 
+
+- **Repeatability**: When an examiner evaluates the same evidence again after several weeks, they will come to a different conclusion on the 5-category AFTE scale `{r} paste(ames2_cdl_repeat_tbl[6,2:3], collapse = " and ") |> str_remove_all("\\(.*?\\)")`  of the time for bullets and cartridge cases, respectively.
+
+- **Reproducibility**: A second examiner assessing the same evidence will come to different conclusion on the 5-category AFTE scale `{r} paste(ames2_cdl_repro_tbl[6,2:3], collapse = " and ") |> str_remove_all("\\(.*?\\)")` of the time for bullets and cartridge cases, respectively.
+
+While only a single study has enough data to produce reasonable evidence about reproducibility, there are two studies assessing repeatability, and both cast doubt on the repeatability of the method. 
+Furthermore, multiple reliable studies estimate the correct source decision rate (that is, the probability that an examiner correctly identifies a same-source or different-source comparison) at  between `r paste(sprintf("%0.2f%%", 100* range(reliable_studies$CSDR, na.rm = T)), collapse = " and ")`. 
+This is sufficient to cast serious doubt on the scientific validity of FATM examination as currently practiced under the AFTE guidelines. 
+All current studies have serious flaws that limit their external validity and may under-estimate the error rates involved in FATM examination, but even if these issues are ignored, the existing evidence suggests there are serious problems with the repeatability and reproducibility of subjective FATM examination procedures.
+
+The evidence from these new studies shifts status quo. 
+Previously, the question was whether enough studies showed evidence of scientific validity; at this point, studies addressing reproducibility and repeatability suggest that subjective FATM analysis using the AFTE scale for identification lacks scientific validity.
+At this point, using the same criteria established by PCAST for reliability in a scientific discipline, subjective firearms and toolmark examination can no longer be considered scientifically reliable because of the low rates of reproducibility.
+
+Moving forward, the burden must be on FATM examiners, forensic labs, and accrediting agencies to show how policies and procedures have been changed to make subjective FATM examinations more objective and scientific. 
+This will require conducting well-designed studies that empirically demonstrate that adoption of e.g. algorithmic aids for FATM examiners meaningfully increases reproducibility and reliability. 
+Until labs and agencies have made shifts that produce demonstrated improvements in the reliability, repeatability, and reproducibility of FATM examinations, evidence from these sources cannot be considered scientifically valid. 
+
+Moreover, in jurisdictions which use intelligence algorithms to pre-screen collected evidence before forwarding promising evidence to examiners for manual review, the situation is much more critical. 
+The concerns discussed in @sec-intelligence-algs, and in particular, those mentioned in @sec-cog-bias, have a compounding effect. 
+In these jurisdictions, problems with the process for evaluating FATM evidence are known and are expected to increase the as-yet-unknown domain-wide error rate. 
+The statistical evaluation of intelligence algorithms for FATM evidence suggests a perfect storm: error rate estimates spanning orders of magnitude, large numbers of comparisons within an intelligence database, and probable selection of close non-matches along with same-source evidence, and examiners who expect to reach an identification decision because of the processes involved in selecting cases for manual examination. 
+As a result, the statistical validity of firearms evidence evaluation in these jurisdictions is even more fraught than in jurisdictions which are not using intelligence algorithms to pre-screen comparisons.
 
 ```{=latex}
-\setcounter{section}{0}
-\renewcommand{\thesection}{\Alph{section}}
-
 \setcounter{table}{0}
 \renewcommand{\thetable}{A\arabic{table}}
 
@@ -773,7 +811,7 @@ One of the first firearms studies involves a set of "knowns", where there may be
 This is an example of a multiple-known, multiple-unknown closed-set study: there are multiple knowns and multiple unknowns in a single kit, and it is a closed-set study because the examiner knows that each unknown matches a known.
 These studies have multiple problems: they underestimate the error rate, because examiners have information in the study they would not have in practice (the unknown matches one of the knowns), but they have additional problems that are more insidious: it is not possible to determine how many comparisons an examiner performed, because the examiner only typically is asked to report what known matches each unknown.
 The examiner does not report how many comparisons were performed to get to that answer, and as a result, no one can calculate the overall error rate: the only rate which can be calculated is the false negative rate ("miss rate"), the number of incorrect eliminations divided by the number of same-source comparisons.
-The PCAST [@pcast] and NRC [@NRCStrengthening2009] reports rightly called out these study designs as unreliable, and while there are still papers published relatively recently with this design [@hambyWorldwideStudyBullets2019], it has largely (and rightly) been abandoned due to these fundamental issues.
+The PCAST[@pcast] and NRC[@NRCStrengthening2009] reports rightly called out these study designs as unreliable, and while there are still papers published relatively recently with this design[@hambyWorldwideStudyBullets2019], it has largely (and rightly) been abandoned due to these fundamental issues.
 
 A modification of this study design involves using essentially the same study setup  but without the closed set structure.
 An **open-set** study is a study that contains unknowns that may not match any provided knowns; as a result, examiners must decide whether something is or is not a match, rather than deciding which known is the closest match.
@@ -783,17 +821,17 @@ As a result, in multiple-known, multiple-unknown studies, it is not possible to 
 @smithBerettaBarrelFired2021 is an example of this type of study design - there are multiple knowns and multiple unknowns, but it is an open-set study.
 
 An improvement on the open-set study design discussed above is to restrict the evidence provided to the examiner to a single known and one or more unknowns (a "pair"); examiners may be provided with multiple pairs for a single study, but comparisons between pairs are not required and are often disallowed.
-This design is the most reliable design used in studies to date [@baldwinStudyExaminerAccuracy2023; @lawEvaluatingFirearmExaminer2021; @baldwinStudyFalsePositiveFalseNegative2014; @keislerIsolatedPairsResearch2018; @guyllValidityForensicCartridgecase2023; @monsonAccuracyComparisonDecisions2023;@mattijssenValidityReliabilityForensic2020;@pauw2013faid], because it allows for direct calculation of the number of comparisons performed by each examiner and does not allow for any structural information to be deduced by the examiner beyond the comparisons that are to be performed.
+This design is the most reliable design used in studies to date[@baldwinStudyExaminerAccuracy2023; @lawEvaluatingFirearmExaminer2021; @baldwinStudyFalsePositiveFalseNegative2014; @keislerIsolatedPairsResearch2018; @guyllValidityForensicCartridgecase2023; @monsonAccuracyComparisonDecisions2023;@mattijssenValidityReliabilityForensic2020;@pauw2013faid], because it allows for direct calculation of the number of comparisons performed by each examiner and does not allow for any structural information to be deduced by the examiner beyond the comparisons that are to be performed.
 While these studies are the "gold standard" in terms of study designs, simply having the proper study design does not ensure that the error rate estimates produced by the study are reliable or should be generalized to firearms comparisons as a whole.
 
 ### The Importance of Base Rates in Study Design
 
 One factor that has a direct impact on the estimation of different types of error rates is the designed proportion of same-source and different-source comparisons that examiners evaluate in a study. 
-The proportion of same-source comparisons and different source comparisons varies considerably between studies: The Ames studies [@baldwinStudyFalsePositiveFalseNegative2014;@monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while Duez [@duezDevelopmentValidationVirtual2018] has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies [@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
+The proportion of same-source comparisons and different source comparisons varies considerably between studies: The Ames studies[@baldwinStudyFalsePositiveFalseNegative2014;@monsonAccuracyComparisonDecisions2023] have about 1/3 same-source comparisons and 2/3 different-source comparisons, while Duez[@duezDevelopmentValidationVirtual2018] has 3/4 same-source comparisons and 1/4 different-source comparisons, other studies[@smithBerettaBarrelFired2021;@bunch2003comprehensive] vary the proportion of same-source and different-source comparisons by participant.
 The proportion of same-source and different-source comparisons in a study may influence the precision with which the study can estimate certain error rates.
 
-Another important factor is the composition of the different source comparisons: some open set studies include comparisons with similar class characteristics as knowns in the set [@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics. 
-Including items with different class characteristics allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics [@bunch2003comprehensive].
+Another important factor is the composition of the different source comparisons: some open set studies include comparisons with similar class characteristics as knowns in the set[@mattijssenValidityReliabilityForensic2020; @pauw2013faid], while others include comparisons with items that do not share class characteristics. 
+Including items with different class characteristics allows for examiners to eliminate based only on class characteristics, as some labs do not allow for elimination based only on individual characteristics[@bunch2003comprehensive].
 Obviously, a class characteristic mismatch should be easier to identify than a mismatch of "individual" characteristics, so this decision influences the overall difficulty level of the study (@sec-comparison-difficulty). 
 This design choice also influences the proportion of inconclusive responses received, which has a large impact on computed reliability estimates. 
 
@@ -1050,7 +1088,7 @@ Repeatability studies provide the same examiner with the same evidence to evalua
 It is reasonable to begin with a calculation that should be favorable to FATM examiners: given that the first examination was an identification, what is the probability that the second is also an identification?
 [^16]
 
-[^16]: This situation is most likely to be favorable in part because examiners are better at identifying same-source comparisons than different source comparisons [@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations more complicated to evaluate. These lab policies should be consistent from examiner to examiner and not a relevant factor when considering repeatability, but may be relevant in reproducibility considerations.
+[^16]: This situation is most likely to be favorable in part because examiners are better at identifying same-source comparisons than different source comparisons[@inconclusives]; in addition, lab policy rules about class characteristics and eliminations make inconclusives and eliminations more complicated to evaluate. These lab policies should be consistent from examiner to examiner and not a relevant factor when considering repeatability, but may be relevant in reproducibility considerations.
 
 ```{r}
 #| label: tbl-conditional-repeatability
@@ -1107,7 +1145,7 @@ walk(tbls$tab, print)
 
 One implication of the design in @hicklinAccuracyReproducibilityBullet2024 is that with many different factors, the number of comparisons used to determine any single factor is relatively small.
 Statisticians would use specific design techniques to ensure that the comparisons of interest are valid, but the experimental design used in this study does not seem to have utilized these techniques[^17] As a result of the small numbers available to estimate certain comparisons, reliability estimates computed from $<n=10$ trials have been suppressed (---) because there is insufficient data with which to generate a reliable estimate or confidence interval.
-Estimates are shown with 95% Pearson-Clopper confidence intervals computed using the `confintr` package in R [@confintr].
+Estimates are shown with 95% Pearson-Clopper confidence intervals computed using the `confintr` package in R[@confintr].
 
 [^17]: Specifically, the appropriate design would be a fractional factorial study, but as some factors (make and model) are not independent, the design would need to be modified to account for these variations.
     @addelmanSymmetricalAsymmetricalFractional1962 and @franklinSelectingDefiningContrasts1985 discuss variations on fractional factorial designs to account for similar issues.
